@@ -48,11 +48,11 @@ set fileformats+=mac
 " Force all non GUI to have a dark background (Overriden in gvimrc)
 set background=dark
 " Make Jikes supported for QuickFix.
-set efm+=%A%f:%l:%c:%*\\d:%*\\d:,
-    \%C%*\\s%trror:%m,
-    \%+C%*[^:]%trror:%m,
-    \%C%*\\s%tarning:%m,
-    \%C%m
+"set efm+=%A%f:%l:%c:%*\\d:%*\\d:,
+"    \%C%*\\s%trror:%m,
+"    \%+C%*[^:]%trror:%m,
+"    \%C%*\\s%tarning:%m,
+"    \%C%m
  
 " Section: Plugins {{{1 
 if (version >= 600)
@@ -85,6 +85,7 @@ endif
 " Section: Quick Options {{{2
 noremap <Leader>w :set wrap!<Cr>
 noremap <Leader>l :set list!<Cr>
+noremap <Leader>n :set nu!<Cr>
 noremap g/ :set hls!<Cr><Bar>:echo "highlight search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
  
 " Section: Quick Commands (Window Nav.) {{{2
