@@ -111,6 +111,7 @@ syn keyword docbkKeyword wordasword xref year contained
 syn region docbkRegion start="<emphasis>"lc=10 end="</emphasis>"me=e-11 contains=xmlRegion,sgmlRegion keepend
 syn region docbkTitle  start="<title>"lc=7     end="</title>"me=e-8	contains=xmlRegion,sgmlRegion keepend
 syn region docbkRemark start="<remark>"lc=8    end="</remark>"me=e-9	contains=xmlRegion,sgmlRegion keepend
+syn region docbkRemark start="<comment>"lc=9  end="</comment>"me=e-10	contains=xmlRegion,sgmlRegion keepend
 syn region docbkCite   start="<citation>"lc=10 end="</citation>"me=e-11 contains=xmlRegion,sgmlRegion keepend
 
 " Define the default highlighting.
