@@ -2,7 +2,7 @@
 " Language:	Microsoft VBScript Web Content (ASP)
 " Maintainer:	Devin Weaver <ktohg@tritarget.com>
 " URL:		http://tritarget.com/pub/vim/syntax/aspvbs.vim
-" Last Change:	2002 Feb 21
+" Last Change:	2002 Mar 22
 " Version:	$Revision$
 " Thanks to Jay-Jay <vim@jay-jay.net> for a syntax sync hack, hungarian
 " notation, and extra highlighting.
@@ -42,8 +42,7 @@ syn match AspVBSVariableComplex contained "\<\(arr\|obj\)\u\w*"
 " This is helpfull if your porting VB code to ASP
 " I removed (Count, Item) because these are common variable names in AspVBScript
 syn keyword AspVBSError contained Val Str CVar CVDate DoEvents GoSub Return GoTo
-syn keyword AspVBSError contained Date Time Timer Stop LinkExecute
-syn keyword AspVBSError contained Add With Type LinkPoke
+syn keyword AspVBSError contained Stop LinkExecute Add Type LinkPoke
 syn keyword AspVBSError contained LinkRequest LinkSend Declare Optional Sleep
 syn keyword AspVBSError contained ParamArray Static Erl TypeOf Like LSet RSet Mid StrConv
 " It may seem that most of these can fit into a keyword clause but keyword takes
@@ -68,7 +67,7 @@ syn match AspVBSError contained "Respose\.\S*"
 
 " AspVBScript Reserved Words.
 syn match AspVBSStatement contained "\<On\s\+Error\s\+\(Resume\s\+Next\|goto\s\+0\)\>\|\<Next\>"
-syn match AspVBSStatement contained "\<End\s\+\(If\|For\|Select\|Class\|Function\|Sub\)\>"
+syn match AspVBSStatement contained "\<End\s\+\(If\|For\|Select\|Class\|Function\|Sub\|With\)\>"
 syn match AspVBSStatement contained "\<Exit\s\+\(Do\|For\|Sub\|Function\)\>"
 syn match AspVBSStatement contained "\<Option\s\+Explicit\>"
 syn match AspVBSStatement contained "\<For\s\+Each\>\|\<For\>"
@@ -76,13 +75,13 @@ syn match AspVBSStatement contained "\<Set\>"
 syn keyword AspVBSStatement contained Call Class Const Default Dim Do Loop Erase And
 syn keyword AspVBSStatement contained Function If Then Else ElseIf Or
 syn keyword AspVBSStatement contained Private Public Randomize ReDim
-syn keyword AspVBSStatement contained Select Case Sub While Wend Not
+syn keyword AspVBSStatement contained Select Case Sub While With Wend Not
 
 " AspVBScript Functions
 syn keyword AspVBSFunction contained Abs Array Asc Atn CBool CByte CCur CDate CDbl
 syn keyword AspVBSFunction contained Chr CInt CLng Cos CreateObject CSng CStr Date
 syn keyword AspVBSFunction contained DateAdd DateDiff DatePart DateSerial DateValue
-syn keyword AspVBSFunction contained Day Exp Filter Fix FormatCurrency
+syn keyword AspVBSFunction contained Date Day Exp Filter Fix FormatCurrency
 syn keyword AspVBSFunction contained FormatDateTime FormatNumber FormatPercent
 syn keyword AspVBSFunction contained GetObject Hex Hour InputBox InStr InStrRev Int
 syn keyword AspVBSFunction contained IsArray IsDate IsEmpty IsNull IsNumeric
@@ -92,7 +91,7 @@ syn keyword AspVBSFunction contained Oct Replace RGB Right Rnd Round RTrim
 syn keyword AspVBSFunction contained ScriptEngine ScriptEngineBuildVersion
 syn keyword AspVBSFunction contained ScriptEngineMajorVersion
 syn keyword AspVBSFunction contained ScriptEngineMinorVersion Second Sgn Sin Space
-syn keyword AspVBSFunction contained Split Sqr StrComp StrReverse String Tan Time
+syn keyword AspVBSFunction contained Split Sqr StrComp StrReverse String Tan Time Timer
 syn keyword AspVBSFunction contained TimeSerial TimeValue Trim TypeName UBound UCase
 syn keyword AspVBSFunction contained VarType Weekday WeekdayName Year
 
