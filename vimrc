@@ -17,7 +17,7 @@ set nohlsearch
 set listchars=eol:$,tab:мн,extends:+
 set showbreak=+
 set linebreak
-set cino={0,(0,u0,t0
+set cino={0,(0,u0,t0,j1
 set nojoinspaces
 set showmatch
 set showcmd
@@ -93,13 +93,14 @@ endif
 
 " File Type plugins
 if (version >= 600)
-    filetype plugin indent on
+    filetype plugin on
 endif
 
 " Sig Fortune Map: See http://www.moolenaar.net/fun.html for info on this.
 "map <Leader>F mX:sp ~/.fortunes<CR>ggd/^--/<CR>Gp:wq<CR>'XGA<CR><Esc>p`X
 
 noremap <Leader>w :set wrap!<Cr>
+noremap <Leader>l :set list!<Cr>
 noremap g/ :set hls!<Cr><Bar>:echo "highlight search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
 inoremap <C-z> <C-o><C-z>
 nnoremap <C-s> :w<Cr>
@@ -129,8 +130,9 @@ command Cwd cd %:h
 au FileType c,cpp,java,jsp,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et ts=4
 au FileType inform set nocin si ai cinwords= efm+=%f(%l):\ %*[^:]:\ %m
 au FileType mail set tw=72 et nocin nosi ai cinwords= comments=n:>,fb:-,fb:*,b:#
-au FileType html if filereadable($VIM . "/htmlcf.vim")|source $VIM/htmlcf.vim|endif
 au FileType docbk set sw=2 cinwords=
+au FileType java ab syspl System.out.println
+au FileType java ab sysp System.out.print
 
 " Are we starting VIM in an Ant aware directory?
 if filereadable("build.xml")
