@@ -109,7 +109,7 @@ noremap <Leader>r ggg?G``
 " For safe measures lets make a quick backup mapping.
 noremap <Leader>b :let x=&backup<Bar>set backup<Bar>write<Bar>let &backup=x<Bar>unlet x<Cr>
 " For convinent headers in text files
-nnoremap <Leader>H yypVr-o<Esc>
+nnoremap <Leader>H yyp^v$r-o<Esc>
 
 " Section: Navigation Util {{{2
 function SetWrapNavigation( )
