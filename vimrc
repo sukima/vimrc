@@ -53,6 +53,8 @@ if version > 600
     set foldcolumn=2
     set winminheight=0
     set modeline
+    " Allows suffixes to be added to a `gf' file search
+    set suffixesadd=.java
     " Force all non GUI to have a dark background (Overriden in gvimrc)
     set background=dark
     " Make Jikes supported for QuickFix.
