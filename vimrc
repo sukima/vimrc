@@ -119,6 +119,7 @@ inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
 command Cwd cd %:h
+command Undiff set nodiff foldcolumn=0
 
 " Version 6.0 has it's own menus for these
 "amenu 20.440 &Edit.Word\ &Wrap<Tab>:set\ wrap!		:set wrap!<Cr>
@@ -130,20 +131,13 @@ command Cwd cd %:h
 au FileType c,cpp,java,jsp,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et ts=4
 au FileType inform set nocin si ai cinwords= efm+=%f(%l):\ %*[^:]:\ %m
 au FileType mail set tw=72 et nocin nosi ai cinwords= comments=n:>,fb:-,fb:*,b:#
-au FileType docbk set sw=2 cinwords=
+au FileType docbk set sw=2 cinwords= efm=jade:%f:%l:%c:%t:%m
 au FileType java ab syspl System.out.println
 au FileType java ab sysp System.out.print
+au FileType java set makeprg=ant\ -find\ build.xml
+" Support Ant compile error detection.
+au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 
-" Are we starting VIM in an Ant aware directory?
-if filereadable("build.xml")
-    exec "set makeprg=ant\\ -buildfile\\ " . getcwd() . "/build.xml"
-    " Support Ant compile error detection.
-    if (version < 600)
-	set efm=%A%*\\s%[javac%\\]\ %f:%l:\ %m,%Z%*\\s%[javac%\\]\ symbol%*\\s:\ %m
-    else
-	set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
-    endif
-endif
 " Is there a tags file? Is so I'd like to use it's absolute path in case we
 " chdir later
 if filereadable("tags")

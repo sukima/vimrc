@@ -15,7 +15,7 @@ let b:did_indent = 1
 setlocal cinoptions+=j1
 
 " The "extends" and "implements" lines start off with the wrong indent.
-setlocal indentkeys& indentkeys+=0=extends indentkeys+=0=implements
+setlocal indentkeys& indentkeys+=0=extends indentkeys+=0=implements indentkeys+=)
 
 " Set the function to do the work.
 setlocal indentexpr=GetJavaIndent()
@@ -69,8 +69,10 @@ function GetJavaIndent()
   " Below a line starting with "}" never indent more.  Needed for a method
   " below a method with an indented "throws" clause.
   let lnum = prevnonblank(v:lnum - 1)
-  if getline(lnum) =~ '^\s*}\s*\(//.*\|/\*.*\)\=$' && indent(lnum) < theIndent
+  if getline(lnum) =~ '^\s*}\s*\(//.*\|/\*.*\)\=$\|^{' && indent(lnum) < theIndent
     let theIndent = indent(lnum)
+  elseif indent(prev) == 0 && getline(v:lnum) =~ '(\s.*)'
+    let theIndent = 0
   endif
 
   return theIndent
