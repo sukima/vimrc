@@ -65,6 +65,60 @@ if version > 600
     "    \%C%m
 endif 
  
+" Section: Dictionary Support {{{2
+if filereadable($VIM . "/words")
+    set dictionary+=$VIM/words
+endif
+if filereadable("/usr/share/dict/words")
+    set dictionary+=/usr/share/dict/words
+endif
+
+" Section: File Type & Syntax Options{{{1
+filetype plugin indent on
+syntax on
+
+" Plugin / Syntax Options {{{2
+" vimspell
+let spell_executable = "aspell"
+
+" PHP
+let php_sql_query = 1
+let php_baselib = 1
+let php_folding = 1
+
+" Java
+let java_allow_cpp_keywords = 1
+
+" XML
+let xml_allow_docbk_keywords = 1
+
+" File Type Detect {{{2
+augroup filetypedetect
+    " FireFox Mozex Text Area support
+    au! BufNewFile,BufRead mozex.textarea.*          setf mail
+    " Custom ChangeLog Syntax
+    "au! BufNewFile,BufRead ChangeLog*		     setf chlog
+    au BufNewFile,BufRead *
+	\ if getline(1) =~ '^\(.\+\)(\d).*\1(\d)$' |
+	\   setf man |
+	\ endif
+augroup END
+
+" File Type Auto Settings {{{2
+augroup filetypesetup
+    "au FileType c,cpp,java,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et
+    au FileType inform set nocin si ai cinwords= efm+=%f(%l):\ %*[^:]:\ %m
+    au FileType mail set tw=72 et nocin nosi ai cinwords= comments=n:>,fb:-,fb:*,b:#
+    au FileType docbk set sw=2 cinwords= efm=jade:%f:%l:%c:%t:%m
+    au FileType java ab syspl System.out.println
+    au FileType java ab sysp System.out.print
+    au FileType java set makeprg=ant\ -find\ build.xml
+    " Support Ant compile error detection.
+    au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
+    au FileType mail        call SetWrapNavigation()
+    au FileType mail        set tw=68
+augroup END
+
 " Section: Mappings {{{1
  
 " Section: RXVT {{{2
@@ -153,14 +207,6 @@ function ViewSetup( initFlag )
     endif
 endfunction
 
-" Section: Dictionary Support {{{1
-if filereadable($VIM . "/words")
-    set dictionary+=$VIM/words
-endif
-if filereadable("/usr/share/dict/words")
-    set dictionary+=/usr/share/dict/words
-endif
-
 " Section: Auto Correction {{{1
 " My commonly misspelled words.
 ab syncronize  synchronize
@@ -173,49 +219,6 @@ cab date strftime("%a %b %d %T %Z %Y")
 cab sdate strftime("%m/%d/%y")
 cab ldate strftime("%B %d, %Y")
 cab fdate strftime("%m%d%Y")
-
-" Section: File Type / Syntax {{{1
-filetype plugin indent on
-syntax on
-
-" Plugin / Syntax Options {{{2
-" PHP
-let php_sql_query = 1
-let php_baselib = 1
-let php_folding = 1
-
-" Java
-let java_allow_cpp_keywords = 1
-
-" XML
-let xml_allow_docbk_keywords = 1
-
-" File Type Detect {{{2
-augroup filetypedetect
-    " FireFox Mozex Text Area support
-    au! BufNewFile,BufRead mozex.textarea.*          setf mail
-    " Custom ChangeLog Syntax
-    "au! BufNewFile,BufRead ChangeLog*		     setf chlog
-    au BufNewFile,BufRead *
-	\ if getline(1) =~ '^\(.\+\)(\d).*\1(\d)$' |
-	\   setf man |
-	\ endif
-augroup END
-
-" File Type Auto Settings {{{2
-augroup filetypesetup
-    "au FileType c,cpp,java,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et
-    au FileType inform set nocin si ai cinwords= efm+=%f(%l):\ %*[^:]:\ %m
-    au FileType mail set tw=72 et nocin nosi ai cinwords= comments=n:>,fb:-,fb:*,b:#
-    au FileType docbk set sw=2 cinwords= efm=jade:%f:%l:%c:%t:%m
-    au FileType java ab syspl System.out.println
-    au FileType java ab sysp System.out.print
-    au FileType java set makeprg=ant\ -find\ build.xml
-    " Support Ant compile error detection.
-    au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
-    au FileType mail        call SetWrapNavigation()
-    au FileType mail        set tw=68
-augroup END
 
 " Section: Misc. {{{1 
 " Is there a tags file? Is so I'd like to use it's absolute path in case we
