@@ -10,7 +10,11 @@ let no_buffers_menu = 1
 "nmenu 20.422 &Edit.Spell\ Check		:w<Bar>!gaspell %<Cr>:e<Cr>
 
 set lines=40
-set columns=80
+if &diff
+    set columns=140
+else
+    set columns=80
+endif
 
 " Fixes coloring bug when gvim opened from a dark term.
 syntax clear
