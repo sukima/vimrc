@@ -2,7 +2,7 @@
 " Language:	DocBook
 " Maintainer:	Devin Weaver <ktohg@tritarget.com>
 " URL:		http://tritarget.com/pub/vim/syntax/docbk.vim
-" Last Change:	2001 Dec 03
+" Last Change:	2001 Dec 04
 
 " REFERENCES:
 "   http://docbook.org/
@@ -108,11 +108,11 @@ syn keyword docbkKeyword videodata videoobject void volumenum warning contained
 syn keyword docbkKeyword wordasword xref year contained
 
 " Add special emphasis on some regions. Thanks to Rory Hunter <roryh@dcs.ed.ac.uk> for these ideas.
-syn region docbkRegion start="<emphasis>"lc=10 end="</emphasis>"me=e-11 contains=xmlRegion,sgmlRegion keepend
-syn region docbkTitle  start="<title>"lc=7     end="</title>"me=e-8	contains=xmlRegion,sgmlRegion keepend
-syn region docbkRemark start="<remark>"lc=8    end="</remark>"me=e-9	contains=xmlRegion,sgmlRegion keepend
-syn region docbkRemark start="<comment>"lc=9  end="</comment>"me=e-10	contains=xmlRegion,sgmlRegion keepend
-syn region docbkCite   start="<citation>"lc=10 end="</citation>"me=e-11 contains=xmlRegion,sgmlRegion keepend
+syn region docbkRegion start="<emphasis>"lc=10 end="</emphasis>"me=e-11 contains=xmlRegion,xmlEntity,sgmlRegion,sgmlEntity keepend
+syn region docbkTitle  start="<title>"lc=7     end="</title>"me=e-8	contains=xmlRegion,xmlEntity,sgmlRegion,sgmlEntity keepend
+syn region docbkRemark start="<remark>"lc=8    end="</remark>"me=e-9	contains=xmlRegion,xmlEntity,sgmlRegion,sgmlEntity keepend
+syn region docbkRemark start="<comment>"lc=9  end="</comment>"me=e-10	contains=xmlRegion,xmlEntity,sgmlRegion,sgmlEntity keepend
+syn region docbkCite   start="<citation>"lc=10 end="</citation>"me=e-11 contains=xmlRegion,xmlEntity,sgmlRegion,sgmlEntity keepend
 
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
