@@ -45,6 +45,7 @@ set fileformats+=mac
 
 " Section: VIM 6.x Options {{{2
 
+set modeline
 " Force all non GUI to have a dark background (Overriden in gvimrc)
 set background=dark
 " Make Jikes supported for QuickFix.
