@@ -2,7 +2,7 @@
 " Language:	DocBook
 " Maintainer:	Devin Weaver <vim@tritarget.com>
 " URL:		http://tritarget.com/pub/vim/syntax/docbk.vim
-" Last Change:	2002 Mar 22
+" Last Change:	$Date$
 " Version:	$Revision$
 " Thanks to Johannes Zellner <johannes@zellner.org> for the default to XML
 " suggestion.
