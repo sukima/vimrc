@@ -1,7 +1,6 @@
 " GVIM rc $Revision$
 set mousehide
 set guioptions=agmlrbtT
-set toolbar-=tooltips
 
 " Remove the Buffer menu <M-b> accelerator.
 let no_buffers_menu = 1
@@ -37,4 +36,5 @@ elseif has ("gui_mac")
     edit ~/
 else
     set guifont=-adobe-courier-medium-r-normal-*-*-120-*-*-m-*-iso8859-1
+    set toolbar-=tooltips
 endif
