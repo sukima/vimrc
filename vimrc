@@ -5,7 +5,6 @@
 " Section: Common Options  {{{2
 set nocompatible
 set tabstop=8
-set softtabstop=4
 set shiftwidth=4
 set textwidth=0
 set smartindent
@@ -48,6 +47,7 @@ endif
 
 " Section: VIM 6.x Options {{{2
 if version > 600
+    set softtabstop=4
     set modeline
     " Force all non GUI to have a dark background (Overriden in gvimrc)
     set background=dark
