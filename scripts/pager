@@ -4,7 +4,7 @@
 # for man pages. And looks cool too.
 # Just chmod this script for execute and export the environment veriable PAGER
 # to point to this file.
-#       PAGER=$HOME/bin/pager; export PAGER
+#       PAGER=$HOME/.vim/scripts/pager; export PAGER
 
 if test x$1 == x; then
     cat $1 | col -b | view \
