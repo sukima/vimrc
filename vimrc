@@ -48,11 +48,6 @@ set fileformats+=mac
 
 syntax on
 
-" Check for a system setup for machine-depended setup.
-if filereadable($VIM . "/systemrc.vim")
-    source $VIM/systemrc.vim
-endif
-
 " Make Jikes supported for QuickFix.
 set efm+=%A%f:%l:%c:%*\\d:%*\\d:,
     \%C%*\\s%trror:%m,
@@ -83,13 +78,18 @@ endif
 
 let xml_use_autocmds = 1
 let xml_use_html = 1
-if (version >= 508)
+if (version >= 508 && version < 600)
     runtime scripts/xmledit.vim
 endif
 
 " by default run explorer.vim but only if I call for it.
 if (version < 600 && filereadable($VIMRUNTIME . "/macros/explorer.vim"))
     nmap ,e :so $VIMRUNTIME/macros/explorer.vim<Cr>,e
+endif
+
+" File Type plugins
+if (version >= 600)
+    filetype plugin indent on
 endif
 
 noremap g/ :set hls!<Cr><Bar>:echo "highlight search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
@@ -109,10 +109,11 @@ inoremap <Up> <C-o>gk
 
 command Cwd cd %:h
 
-amenu 20.440 &Edit.Word\ &Wrap<Tab>:set\ wrap!		:set wrap!<Cr>
-amenu 20.450 &Edit.Line\ &Numbers<Tab>:set\ nu!		:set nu!<Cr>
-amenu 20.460 &Edit.Paste\ Mo&de<Tab>:set\ paste!	:set paste!<Cr><Bar>:echo "Paste Mode: " . strpart("OffOn", 3 * &paste, 3)<Cr>
-amenu 20.470 &Edit.L&ist\ Mode<Tab>:set\ list!		:set list!<Cr>
+" Version 6.0 has it's own menus for these
+"amenu 20.440 &Edit.Word\ &Wrap<Tab>:set\ wrap!		:set wrap!<Cr>
+"amenu 20.450 &Edit.Line\ &Numbers<Tab>:set\ nu!		:set nu!<Cr>
+"amenu 20.460 &Edit.Paste\ Mo&de<Tab>:set\ paste!	:set paste!<Cr><Bar>:echo "Paste Mode: " . strpart("OffOn", 3 * &paste, 3)<Cr>
+"amenu 20.470 &Edit.L&ist\ Mode<Tab>:set\ list!		:set list!<Cr>
 
 " When starting to edit a file:
 au FileType c,cpp,java,jsp,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et ts=4
