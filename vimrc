@@ -111,7 +111,24 @@ noremap <Leader>b :let x=&backup<Bar>set backup<Bar>write<Bar>let &backup=x<Bar>
 " For convinent headers in text files
 nnoremap <Leader>H yyp^v$r-o<Esc>
 
-" Section: Navigation Util {{{2
+" Section: Convenience Commands {{{1
+command Cwd cd %:h
+command Undiff set nodiff foldcolumn=0
+
+" Section: Auto Commands {{{1 
+" When starting to edit a file:
+au FileType c,cpp,java,jsp,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et ts=4
+au FileType inform set nocin si ai cinwords= efm+=%f(%l):\ %*[^:]:\ %m
+au FileType mail set tw=72 et nocin nosi ai cinwords= comments=n:>,fb:-,fb:*,b:#
+au FileType docbk set sw=2 cinwords= efm=jade:%f:%l:%c:%t:%m
+au FileType java ab syspl System.out.println
+au FileType java ab sysp System.out.print
+au FileType java set makeprg=ant\ -find\ build.xml
+" Support Ant compile error detection.
+au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
+
+" Section: Functions {{{1 
+" Section: Wrap Navigation Function {{{2
 function SetWrapNavigation( )
     if &wrap
 	set nowrap
@@ -134,42 +151,29 @@ function SetWrapNavigation( )
     endif
 endfunction
 
-" Section: Convenience Commands {{{1
-command Cwd cd %:h
-command Undiff set nodiff foldcolumn=0
-
-" Section: Auto Commands {{{1 
-" When starting to edit a file:
-au FileType c,cpp,java,jsp,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et ts=4
-au FileType inform set nocin si ai cinwords= efm+=%f(%l):\ %*[^:]:\ %m
-au FileType mail set tw=72 et nocin nosi ai cinwords= comments=n:>,fb:-,fb:*,b:#
-au FileType docbk set sw=2 cinwords= efm=jade:%f:%l:%c:%t:%m
-au FileType java ab syspl System.out.println
-au FileType java ab sysp System.out.print
-au FileType java set makeprg=ant\ -find\ build.xml
-" Support Ant compile error detection.
-au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
-
-" Section: Auto Correction {{{1
-"My commonly misspelled words.
-cab date strftime("%a %b %d %T %Z %Y")
-cab sdate strftime("%m/%d/%y")
-cab ldate strftime("%B %d, %Y")
-ab syncronize  synchronize
-ab syncronized synchronized
-ab responce response
-ab HttpServletResponce HttpServletResponse
-
-" Section: Pager Functions for 'view' {{{1 
+" Section: Pager Function for 'view' {{{2 
 " Used for paging in a view command (like more)
-if v:progname =~ "view"
-    au BufRead * set nomodifiable
-    set nu
-    nmap q :q!<Cr>
-    nmap Q :qa!<Cr>
-    nmap <Space> <C-f>
-    nmap - <C-b>
-endif
+function ViewSetup( initFlag )
+    if a:initFlag == 0
+	set modifiable
+	nunmap q
+	nunmap Q
+	nunmap <Space>
+	nunmap -
+	nmap <Leader>v :call ViewSetup(1)<Cr>
+	echo "View Mode: Off"
+    else
+	set nomodifiable
+	nmap q :q!<Cr>
+	nmap Q :qa!<Cr>
+	nmap <Space> <C-f>
+	nmap - <C-b>
+	nmap <Leader>v :call ViewSetup(0)<Cr>
+	if a:initFlag != 2
+	    echo "View Mode: On"
+	endif
+    endif
+endfunction
 
 " Section: Dictionary Support {{{1
 if filereadable($VIM . "/words")
@@ -179,12 +183,34 @@ if filereadable("/usr/share/dict/words")
     set dictionary+=/usr/share/dict/words
 endif
 
+" Section: Auto Correction {{{1
+" My commonly misspelled words.
+ab syncronize  synchronize
+ab syncronized synchronized
+ab responce response
+ab HttpServletResponce HttpServletResponse
+ 
+" My convince date completion commands
+cab date strftime("%a %b %d %T %Z %Y")
+cab sdate strftime("%m/%d/%y")
+cab ldate strftime("%B %d, %Y")
+cab fdate strftime("%m%d%Y")
+
 " Section: Misc. {{{1 
 " Is there a tags file? Is so I'd like to use it's absolute path in case we
 " chdir later
 if filereadable("tags")
     exec "set tags+=" . getcwd() . "/tags"
 endif
+
+" Are we using VIM as a pager?
+if v:progname =~ "view"
+    au BufRead * set nomodifiable
+    call ViewSetup(2)
+else
+    nmap <Leader>v :call ViewSetup(1)<Cr>
+endif
+
 "}}}1
 syntax on
 

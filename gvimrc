@@ -32,9 +32,11 @@ elseif has ("gui_mac")
     set guioptions-=b
     winpos 75 50
     " Since there is no command-line here let's allow a start page.
-    cd ~/
     command Home edit ~/
-    edit ~/
+    if (argc() == 0)
+	cd ~/
+	edit .
+    endif
 else
     set guifont=-adobe-courier-medium-r-normal-*-*-120-*-*-m-*-iso8859-1
     set toolbar-=tooltips
