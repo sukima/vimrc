@@ -152,7 +152,8 @@ au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 " Section: Auto Correction {{{1
 "My commonly misspelled words.
 cab date strftime("%a %b %d %T %Z %Y")
-cab sdate strftime("%b %d, %Y")
+cab sdate strftime("%m/%d/%y")
+cab ldate strftime("%B %d, %Y")
 ab syncronize  synchronize
 ab syncronized synchronized
 ab responce response
