@@ -6,18 +6,18 @@
 # to point to this file.
 #       PAGER=$HOME/bin/pager; export PAGER
 
-if test x$DISPLAY = x; then
-    GUI=
-elif test "x`uname`" = "xDarwin"; then
-    GUI=
-else
-    GUI=-g
-fi
-cat $1 | col -b | vim $GUI \
-    -c 'set ft=man' \
-    -c 'set nomodified' \
-    -c 'set nomodifiable' \
-    -c 'nmap q :qa!<Cr>' \
-    -c 'nmap <Space> <C-f>' \
-    -c 'nmap - <C-b>' \
+if test x$1 == x; then
+    cat $1 | col -b | view \
+    -c 'set foldcolumn=0' \
+    -c 'set nonumber' \
+    -c 'set nolist' \
+    -c 'filetype detect' \
     -
+else
+    view \
+    -c 'set foldcolumn=0' \
+    -c 'set nonumber' \
+    -c 'set nolist' \
+    -c 'filetype detect' \
+    "$@"
+fi
