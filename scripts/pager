@@ -1,0 +1,21 @@
+#! /bin/sh
+
+# this is a small SH script which will spawn vim as your pager. It does wonders
+# for man pages. And looks cool too.
+# Just chmod this script for execute and export the environment veriable PAGER
+# to point to this file.
+#       PAGER=$HOME/bin/pager; export PAGER
+
+if test x$DISPLAY = x; then
+    GUI=
+else
+    GUI=-g
+fi
+cat $1 | col -b | vim $GUI \
+    -c 'set ft=man' \
+    -c 'set nomodified' \
+    -c 'set nomodifiable' \
+    -c 'nmap q :qa!<Cr>' \
+    -c 'nmap <Space> <C-f>' \
+    -c 'nmap - <C-b>' \
+    -
