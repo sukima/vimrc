@@ -67,8 +67,9 @@ syn match AspVBSError contained "Respose\.\S*"
 
 " AspVBScript Reserved Words.
 syn match AspVBSStatement contained "\<On\s\+Error\s\+\(Resume\s\+Next\|goto\s\+0\)\>\|\<Next\>"
-syn match AspVBSStatement contained "\<End\s\+\(If\|For\|Select\|Class\|Function\|Sub\|With\)\>"
+syn match AspVBSStatement contained "\<End\s\+\(If\|For\|Select\|Class\|Function\|Sub\|With\|Property\)\>"
 syn match AspVBSStatement contained "\<Exit\s\+\(Do\|For\|Sub\|Function\)\>"
+syn match AspVBSStatement contained "\<Property\s\+\(Get\|Let\|Set\)\>"
 syn match AspVBSStatement contained "\<Option\s\+Explicit\>"
 syn match AspVBSStatement contained "\<For\s\+Each\>\|\<For\>"
 syn match AspVBSStatement contained "\<Set\>"
