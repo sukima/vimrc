@@ -8,11 +8,16 @@
 "               Sung-Hyun Nam <namsh@kldp.org>
 " Filenames:	*.sgml
 " URL:		ftp://tritarget.com/pub/vim/syntax/sgml.vim
-" Last Change:	Nov 07, 2000
-" $Id$
+" Last Change:	May 04, 2001
 
-" Remove any old syntax stuff hanging around
-syn clear
+" For version 5.x: Clear all syntax items
+" For version 6.x: Quit when a syntax file was already loaded
+if version < 600
+  syntax clear
+elseif exists("b:current_syntax")
+  finish
+endif
+
 syn case ignore
 
 " tags
@@ -34,20 +39,30 @@ syn region  sgmlDocType start=+<!doctype\s+ end=+>+
 syn include @DocBk <sfile>:p:h/docbk.vim
 syn include @sgmlDTD <sfile>:p:h/dtd.vim
 
-if !exists("did_sgml_syntax_inits")
-  let did_sgml_syntax_inits = 1
-  " The default methods for highlighting.  Can be overridden later
-  hi link sgmlTag	Special
-  hi link sgmlEndTag	Special
-  hi link sgmlEntity	Type
-  hi link sgmlDocEnt    Type
-  hi link sgmlComment	Comment
-  hi link sgmlSpecial	Special
-  hi link sgmlDocType   PreProc
-  hi link sgmlStr	String
-  hi link sgmlAssign	String
-  hi link sgmlTagError	Error
-  hi link sgmlErrInTag	Error
+" Define the default highlighting.
+" For version 5.7 and earlier: only when not done already
+" For version 5.8 and later: only when an item doesn't have highlighting yet
+if version >= 508 || !exists("did_sgml_syn_inits")
+  if version < 508
+    let did_sgml_syn_inits = 1
+    command -nargs=+ HiLink hi link <args>
+  else
+    command -nargs=+ HiLink hi def link <args>
+  endif
+
+  HiLink sgmlTag	Special
+  HiLink sgmlEndTag	Special
+  HiLink sgmlEntity	Type
+  HiLink sgmlDocEnt    Type
+  HiLink sgmlComment	Comment
+  HiLink sgmlSpecial	Special
+  HiLink sgmlDocType   PreProc
+  HiLink sgmlStr	String
+  HiLink sgmlAssign	String
+  HiLink sgmlTagError	Error
+  HiLink sgmlErrInTag	Error
+
+  delcommand HiLink
 endif
 
 let b:current_syntax = "sgml"
