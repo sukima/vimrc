@@ -2,8 +2,8 @@
 " Language:	Microsoft VBScript Web Content (ASP)
 " Maintainer:	Devin Weaver <ktohg@tritarget.com>
 " URL:		http://tritarget.com/pub/vim/syntax/aspvbs.vim
-" Last Change:	2001 Dec 18
-" Thanks to Jay-Jay <jay.jay@gmx.ch> for a syntax sync hack, hungarian
+" Last Change:	2001 Dec 19
+" Thanks to Jay-Jay <vim@jay-jay.net> for a syntax sync hack, hungarian
 " notation, and extra highlighting.
 
 " Quit when a syntax file was already loaded
@@ -157,17 +157,17 @@ if version >= 508 || !exists("did_aspvbs_syn_inits")
     command -nargs=+ HiLink hi def link <args>
   endif
 
-  "HiLink AspVBScript	Special
+  "HiLink AspVBScript		Special
   HiLink AspVBSLineNumber	Comment
-  HiLink AspVBSNumber	Number
+  HiLink AspVBSNumber		Number
   HiLink AspVBSError		Error
   HiLink AspVBSStatement	Statement
-  HiLink AspVBSString	String
-  HiLink AspVBSComment	Comment
+  HiLink AspVBSString		String
+  HiLink AspVBSComment		Comment
   HiLink AspVBSTodo		Todo
-  HiLink AspVBSFunction	Identifier
-  HiLink AspVBSMethods	PreProc
-  HiLink AspVBSEvents	Special
+  HiLink AspVBSFunction		Identifier
+  HiLink AspVBSMethods		PreProc
+  HiLink AspVBSEvents		Special
   HiLink AspVBSTypeSpecifier	Type
 
   delcommand HiLink
