@@ -1,6 +1,6 @@
 " Vim syntax file
 " Language:	Microsoft VBScript Web Content (ASP)
-" Maintainer:	Devin Weaver <ktohg@tritarget.com>
+" Maintainer:	Devin Weaver <devin@tritarget.com>
 " URL:		ftp://tritarget.com/vim/syntax
 " Last change:	1999 Sep 02
 

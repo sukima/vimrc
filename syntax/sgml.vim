@@ -3,7 +3,7 @@
 "		For more information, visit
 "		http://nis-www.lanl.gov/~rosalia/mydocs/docbook-intro.html
 "		ftp://sourceware.cygnus.com/pub/docbook-tools
-" Maintainer:	Devin Weaver <ktohg@tritarget.com>
+" Maintainer:	Devin Weaver <devin@tritarget.com>
 "		Author and previous maintainer:
 "               Sung-Hyun Nam <namsh@kldp.org>
 " Filenames:	*.sgml
