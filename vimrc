@@ -88,7 +88,7 @@ if &term == "rxvt"
 endif
 
 " Section: Quick Options {{{2
-noremap <Leader>w :set wrap!<Cr>
+noremap <Leader>w :silent! call SetWrapNavigation()<Cr>
 noremap <Leader>l :set list!<Cr>
 noremap <Leader>n :set nu!<Cr>
 noremap g/ :set hls!<Cr><Bar>:echo "highlight search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
@@ -100,18 +100,33 @@ nnoremap <C-s> :w<Cr>
 inoremap <C-s> <C-o>:w<Cr>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+" A panic button! So no one accidentally sees words they arn't supposed to.
+noremap <Leader>p ggg?G``
+" For safe measures lets make a quick backup mapping.
+noremap <Leader>b :let x=&backup<Bar>set backup<Bar>write<Bar>let &backup=x<Bar>unlet x<Cr>
 
 " Section: Navigation {{{2
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
-nnoremap <Down> gj
-nnoremap <Up> gk
-vnoremap <Down> gj
-vnoremap <Up> gk
-inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk
+function SetWrapNavigation( ) " {{{
+    if &wrap
+	set nowrap
+	unmap j
+	unmap k
+	unmap <Down>
+	unmap <Up>
+    else
+	set wrap
+	nnoremap <buffer> j gj
+	nnoremap <buffer> k gk
+	vnoremap <buffer> j gj
+	vnoremap <buffer> k gk
+	nnoremap <buffer> <Down> gj
+	nnoremap <buffer> <Up> gk
+	vnoremap <buffer> <Down> gj
+	vnoremap <buffer> <Up> gk
+	inoremap <buffer> <Down> <C-o>gj
+	inoremap <buffer> <Up> <C-o>gk
+    endif
+endfunction " }}}
 
 " Section: Convenience Commands {{{1
 command Cwd cd %:h
