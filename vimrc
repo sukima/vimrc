@@ -10,6 +10,7 @@ set textwidth=0
 set smartindent
 set nowrap
 set number
+set nobackup
 
 " Section: VIM 5.x Options {{{2
 if version > 500 
@@ -20,6 +21,7 @@ if version > 500
     set backspace=2
     set formatoptions+=ro2l
     set nohlsearch
+    set noincsearch
     set listchars=eol:$,tab:T_,extends:+
     set showbreak=+
     set linebreak
