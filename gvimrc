@@ -10,7 +10,8 @@ set lines=40
 if &diff
     set columns=140
 else
-    set columns=80
+    " 80 pluss the 9 for the numbers in 'set nu'
+    set columns=89
 endif
 
 " Section: Syntax Highlighting {{{1 
