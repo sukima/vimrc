@@ -61,23 +61,6 @@ if version > 600
     "    \%C%m
 endif 
  
-" Section: Plugins {{{1 
-if (version >= 600)
-    filetype plugin indent on
-endif
-
-" Section: Plugin Variables {{{2
-let java_allow_cpp_keywords = 1
-let xml_allow_docbk_keywords = 1
-let $CVS_RSH='ssh'
-
-" Section: Extra Plugins {{{2
-" by default run explorer.vim but only if I call for it.
-" VIM 6.x includes it by default. 
-if (version < 600 && filereadable($VIMRUNTIME . "/macros/explorer.vim"))
-    nmap ,e :so $VIMRUNTIME/macros/explorer.vim<Cr>,e
-endif
-
 " Section: Mappings {{{1
  
 " Section: RXVT {{{2
@@ -117,18 +100,6 @@ inoremap <Leader><Cr> <Cr>{<Cr>}<Up><Cr>
 command Cwd cd %:h
 command Undiff set nodiff foldcolumn=0
 
-" Section: Auto Commands {{{1 
-" When starting to edit a file:
-au FileType c,cpp,java,jsp,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et ts=4
-au FileType inform set nocin si ai cinwords= efm+=%f(%l):\ %*[^:]:\ %m
-au FileType mail set tw=72 et nocin nosi ai cinwords= comments=n:>,fb:-,fb:*,b:#
-au FileType docbk set sw=2 cinwords= efm=jade:%f:%l:%c:%t:%m
-au FileType java ab syspl System.out.println
-au FileType java ab sysp System.out.print
-au FileType java set makeprg=ant\ -find\ build.xml
-" Support Ant compile error detection.
-au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
-
 " Section: Functions {{{1 
 " Section: Wrap Navigation Function {{{2
 function SetWrapNavigation( )
@@ -158,19 +129,20 @@ endfunction
 function ViewSetup( initFlag )
     if a:initFlag == 0
 	set modifiable
+	filetype detect
 	nunmap q
 	nunmap Q
 	nunmap <Space>
 	nunmap -
-	nmap <Leader>v :call ViewSetup(1)<Cr>
+	nnoremap <Leader>v :call ViewSetup(1)<Cr>
 	echo "View Mode: Off"
     else
 	set nomodifiable
-	nmap q :q!<Cr>
-	nmap Q :qa!<Cr>
-	nmap <Space> <C-f>
-	nmap - <C-b>
-	nmap <Leader>v :call ViewSetup(0)<Cr>
+	nnoremap q :q!<Cr>
+	nnoremap Q :qa!<Cr>
+	nnoremap <Space> <C-f>
+	nnoremap - <C-b>
+	nnoremap <Leader>v :call ViewSetup(0)<Cr>
 	if a:initFlag != 2
 	    echo "View Mode: On"
 	endif
@@ -199,11 +171,20 @@ cab ldate strftime("%B %d, %Y")
 cab fdate strftime("%m%d%Y")
 
 " Section: File Type / Syntax {{{1
+filetype plugin indent on
 syntax on
-" PHP Options {{{2
+
+" Plugin / Syntax Options {{{2
+" PHP
 let php_sql_query = 1
 let php_baselib = 1
 let php_folding = 1
+
+" Java
+let java_allow_cpp_keywords = 1
+
+" XML
+let xml_allow_docbk_keywords = 1
 
 " File Type Detect {{{2
 augroup filetypedetect
@@ -211,6 +192,23 @@ augroup filetypedetect
     au! BufNewFile,BufRead mozex.textarea.*          setf mail
     " Custom ChangeLog Syntax
     "au! BufNewFile,BufRead ChangeLog*		     setf chlog
+    au BufNewFile,BufRead *
+	\ if getline(1) =~ '^\(.\+\)(\d).*\1(\d)$' |
+	\   setf man |
+	\ endif
+augroup END
+
+" File Type Auto Settings {{{2
+augroup filetypesetup
+    au FileType c,cpp,java,jsp,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et ts=4
+    au FileType inform set nocin si ai cinwords= efm+=%f(%l):\ %*[^:]:\ %m
+    au FileType mail set tw=72 et nocin nosi ai cinwords= comments=n:>,fb:-,fb:*,b:#
+    au FileType docbk set sw=2 cinwords= efm=jade:%f:%l:%c:%t:%m
+    au FileType java ab syspl System.out.println
+    au FileType java ab sysp System.out.print
+    au FileType java set makeprg=ant\ -find\ build.xml
+    " Support Ant compile error detection.
+    au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
     au FileType mail        call SetWrapNavigation()
     au FileType mail        set tw=68
 augroup END
@@ -224,10 +222,17 @@ endif
 
 " Are we using VIM as a pager?
 if v:progname =~ "view"
-    au BufRead * set nomodifiable
+    au BufRead * set ro
+    set nomodified
     call ViewSetup(2)
 else
-    nmap <Leader>v :call ViewSetup(1)<Cr>
+    nnoremap <Leader>v :call ViewSetup(1)<Cr>
+endif
+
+" by default run explorer.vim but only if I call for it.
+" VIM 6.x includes it by default. 
+if (version < 600 && filereadable($VIMRUNTIME . "/macros/explorer.vim"))
+    nmap ,e :so $VIMRUNTIME/macros/explorer.vim<Cr>,e
 endif
 
 "}}}1
