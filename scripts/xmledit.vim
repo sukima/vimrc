@@ -1,9 +1,9 @@
 " Vim script file
 " Language:	XML
 " Maintainer:	Devin Weaver <ktohg@tritarget.com>
-" Last Change:  Dec 07, 2000
+" Last Change:  Jan 11, 2002
 " Version:      $Revision$
-" Location:	ftp://tritarget.com/pub/vim/scripts/xmledit.vim
+" Location:	http://tritarget.com/pub/vim/scripts/xmledit.vim
 " Contributors: Brad Phelan <bphelan@mathworks.co.uk>
 
 " This script provides some convenience when editing XML (and some SGML)
