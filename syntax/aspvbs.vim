@@ -2,10 +2,14 @@
 " Language:	Microsoft VBScript Web Content (ASP)
 " Maintainer:	Devin Weaver <ktohg@tritarget.com>
 " URL:		http://tritarget.com/pub/vim/syntax/aspvbs.vim
-" Last Change:	2001 May 04
+" Last Change:	2001 Dec 18
+" Thanks to Jay-Jay <jay.jay@gmx.ch> for a syntax sync hack, hungarian
+" notation, and extra highlighting.
 
 " Quit when a syntax file was already loaded
-if exists("b:current_syntax")
+if version < 600
+  syn clear
+elseif exists("b:current_syntax")
   finish
 endif
 
@@ -13,7 +17,7 @@ if !exists("main_syntax")
   let main_syntax = 'aspvbs'
 endif
 
-if (version < 600)
+if version < 600
   source <sfile>:p:h/html.vim
 else
   runtime! syntax/html.vim
@@ -21,6 +25,14 @@ endif
 unlet b:current_syntax
 
 syn cluster htmlPreProc add=AspVBScriptInsideHtmlTags
+
+
+" Colored variable names, if written in hungarian notation
+hi def AspVBSVariableSimple   term=standout  ctermfg=3  guifg=#99ee99
+hi def AspVBSVariableComplex  term=standout  ctermfg=3  guifg=#ee9900
+syn match AspVBSVariableSimple  contained "\<\(bln\|byt\|dtm\=\|dbl\|int\|str\)\u\w*"
+syn match AspVBSVariableComplex contained "\<\(arr\|obj\)\u\w*"
+
 
 " Functions and methods that are in VB but will cause errors in an ASP page
 " This is helpfull if your porting VB code to ASP
@@ -87,6 +99,8 @@ syn keyword AspVBSMethods contained MoveFile MoveFolder OpenAsTextStream
 syn keyword AspVBSMethods contained OpenTextFile Raise Read ReadAll ReadLine Remove
 syn keyword AspVBSMethods contained RemoveAll Skip SkipLine Write WriteBlankLines
 syn keyword AspVBSMethods contained WriteLine
+" Colorize boolean constants:
+syn keyword AspVBSMethods contained true false
 
 " AspVBScript Number Contstants
 " Integer number, or floating point number without a dot.
@@ -117,17 +131,20 @@ syn match   AspVBSError  contained "[a-zA-Z0-9_][\$&!#]"ms=s+1
 syn match   AspVBSError  contained "[a-zA-Z0-9_]%\($\|[^>]\)"ms=s+1
 
 " Top Cluster
-syn cluster AspVBScriptTop contains=AspVBSStatement,AspVBSFunction,AspVBSMethods,AspVBSNumber,AspVBSString,AspVBSComment,AspVBSError
+syn cluster AspVBScriptTop contains=AspVBSStatement,AspVBSFunction,AspVBSMethods,AspVBSNumber,AspVBSString,AspVBSComment,AspVBSError,AspVBSVariableSimple,AspVBSVariableComplex
 
 " Define AspVBScript delimeters
 " <%= func("string_with_%>_in_it") %> This is illegal in ASP syntax.
 syn region  AspVBScriptInsideHtmlTags keepend matchgroup=Delimiter start=+<%=\=+ end=+%>+ contains=@AspVBScriptTop
 syn region  AspVBScriptInsideHtmlTags keepend matchgroup=Delimiter start=+<script\s\+language="\=vbscript"\=[^>]*\s\+runatserver[^>]*>+ end=+</script>+ contains=@AspVBScriptTop
 
+
 " Synchronization
-syn sync match AspVBSSyncGroup grouphere AspVBScriptInsideHtmlTags "<%"
+" syn sync match AspVBSSyncGroup grouphere AspVBScriptInsideHtmlTags "<%"
 " This is a kludge so the HTML will sync properly
-syn sync match htmlHighlight groupthere htmlTag "%>"
+syn sync match htmlHighlight grouphere htmlTag "%>"
+
+
 
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
