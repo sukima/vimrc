@@ -107,9 +107,11 @@ cnoremap <C-e> <End>
 noremap <Leader>r ggg?G``
 " For safe measures lets make a quick backup mapping.
 noremap <Leader>b :let x=&backup<Bar>set backup<Bar>write<Bar>let &backup=x<Bar>unlet x<Cr>
+" For convinent headers in text files
+nnoremap <Leader>H yypVr-o<Esc>
 
-" Section: Navigation {{{2
-function SetWrapNavigation( ) " {{{
+" Section: Navigation Util {{{2
+function SetWrapNavigation( )
     if &wrap
 	set nowrap
 	unmap j
@@ -129,7 +131,7 @@ function SetWrapNavigation( ) " {{{
 	inoremap <buffer> <Down> <C-o>gj
 	inoremap <buffer> <Up> <C-o>gk
     endif
-endfunction " }}}
+endfunction
 
 " Section: Convenience Commands {{{1
 command Cwd cd %:h
