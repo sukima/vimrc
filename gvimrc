@@ -39,7 +39,9 @@ elseif has ("gui_mac")
 	edit .
     endif
 else
-    "set guifont=-adobe-courier-medium-r-normal-*-*-120-*-*-m-*-iso8859-1
+    if hostname() =~ "petra"
+	set guifont=-adobe-courier-medium-r-normal-*-*-120-*-*-m-*-iso8859-1
+    endif
     set toolbar-=tooltips
 endif
 
