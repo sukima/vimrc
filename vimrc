@@ -38,7 +38,7 @@ endif
 if filereadable("/usr/share/dict/words")
     set dictionary+=/usr/share/dict/words
 endif
-set nonumber
+set number
 set nrformats-=octal
 set viminfo='20,\"50
 set switchbuf=useopen
@@ -47,7 +47,9 @@ set background=dark
 " Used for paging in a view command (like more)
 if v:progname =~ "view"
     au BufRead * set nomodifiable
-    nmap q :qa!<Cr>
+    set nu
+    nmap q :q!<Cr>
+    nmap Q :qa!<Cr>
     nmap <Space> <C-f>
     nmap - <C-b>
 endif
@@ -102,6 +104,7 @@ endif
 noremap <Leader>w :set wrap!<Cr>
 noremap <Leader>l :set list!<Cr>
 noremap g/ :set hls!<Cr><Bar>:echo "highlight search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
+noremap <C-q> :close<Cr>
 inoremap <C-z> <C-o><C-z>
 nnoremap <C-s> :w<Cr>
 inoremap <C-s> <C-o>:w<Cr>
