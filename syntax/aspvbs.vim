@@ -3,6 +3,7 @@
 " Maintainer:	Devin Weaver <ktohg@tritarget.com>
 " URL:		http://tritarget.com/pub/vim/syntax/aspvbs.vim
 " Last Change:	2002 Feb 21
+" Revision:	$Rev$
 " Thanks to Jay-Jay <vim@jay-jay.net> for a syntax sync hack, hungarian
 " notation, and extra highlighting.
 " Thanks to patrick dehne <patrick@steidle.net> for the folding code.
