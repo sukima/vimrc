@@ -1,8 +1,8 @@
 " Vim script file
 " Language:	DocBook
-" Maintainer:	Devin Weaver <ktohg@tritarget.com>
+" Maintainer:	Devin Weaver <devin@tritarget.com>
 " Last Change:	Dec 22, 2000
-" Location:	ftp://tritarget.com/pub/vim/scripts/jadeinstall.vim
+" Location:	http://tritarget.com/pub/vim/scripts/jadeinstall.vim
 " Version:	$Revision$
 
 " This Script installs jade.vim. A menu driven script which builds output from
