@@ -205,9 +205,12 @@ let php_sql_query = 1
 let php_baselib = 1
 let php_folding = 1
 
-" FireFox Mozex Text Area support {{{2
+" File Type Detect {{{2
 augroup filetypedetect
-    au BufNewFile,BufRead mozex.textarea.*          setf mail
+    " FireFox Mozex Text Area support
+    au! BufNewFile,BufRead mozex.textarea.*          setf mail
+    " Custom ChangeLog Syntax
+    "au! BufNewFile,BufRead ChangeLog*		     setf chlog
     au FileType mail        call SetWrapNavigation()
     au FileType mail        set tw=68
 augroup END
