@@ -70,17 +70,11 @@ if (version >= 508)
     runtime scripts/vimspell.vim
 endif
 
-let jade_xml_dcl="/usr/local/lib/sgml/pubtext/xml.dcl"
-let docbk_custom_dsl=$HOME ."/.vim/custom.dsl"
-if (version >= 508)
-    runtime scripts/docbk.vim
-endif
-
-let xml_use_autocmds = 1
-let xml_use_html = 1
-if (version >= 508 && version < 600)
-    runtime scripts/xmledit.vim
-endif
+"let jade_xml_dcl="/usr/local/lib/sgml/pubtext/xml.dcl"
+"let docbk_custom_dsl=$HOME ."/.vim/custom.dsl"
+"if (version >= 508)
+"    runtime scripts/docbk.vim
+"endif
 
 " by default run explorer.vim but only if I call for it.
 if (version < 600 && filereadable($VIMRUNTIME . "/macros/explorer.vim"))
