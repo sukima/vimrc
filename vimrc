@@ -186,4 +186,8 @@ endif
 "}}}1
 syntax on
 
+" So multiple places can have a special config without affecting the core
+" vimrc.
+runtime local.vim
+
 " vim600: set foldmethod=marker :
