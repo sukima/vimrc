@@ -2,7 +2,10 @@
 " Language:	DocBook
 " Maintainer:	Devin Weaver <ktohg@tritarget.com>
 " URL:		http://tritarget.com/pub/vim/syntax/docbk.vim
-" Last Change:	2001 Dec 04
+" Last Change:	2002 Mar 22
+" Version:	$Revision$
+" Thanks to Johannes Zellner <johannes@zellner.org> for the default to XML
+" suggestion.
 
 " REFERENCES:
 "   http://docbook.org/
@@ -29,6 +32,11 @@ if exists('b:docbk_type')
 	syn cluster sgmlRegionHook add=docbkRegion,docbkTitle,docbkRemark,docbkCite
 	syn case ignore
     endif
+else
+    " default is xml
+    doau FileType xml
+    syn cluster xmlTagHook add=docbkKeyword
+    syn case match
 endif
 
 " <comment> has been removed and replace with <remark> in DocBook 4.0
