@@ -20,23 +20,24 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-if exists('b:docbk_type')
-    if 'xml' == b:docbk_type
-	doau FileType xml
-	syn cluster xmlTagHook add=docbkKeyword
-	syn cluster xmlRegionHook add=docbkRegion,docbkTitle,docbkRemark,docbkCite
-	syn case match
-    elseif 'sgml' == b:docbk_type
-	doau FileType sgml
-	syn cluster sgmlTagHook add=docbkKeyword
-	syn cluster sgmlRegionHook add=docbkRegion,docbkTitle,docbkRemark,docbkCite
-	syn case ignore
-    endif
-else
-    " default is xml
+" Auto detect added by Bram Moolenaar
+if !exists('b:docbk_type')
+  if expand('%:e') == "sgml"
+    let b:docbk_type = 'sgml'
+  else
+    let b:docbk_type = 'xml'
+  endif
+endif
+if 'xml' == b:docbk_type
     doau FileType xml
     syn cluster xmlTagHook add=docbkKeyword
+    syn cluster xmlRegionHook add=docbkRegion,docbkTitle,docbkRemark,docbkCite
     syn case match
+elseif 'sgml' == b:docbk_type
+    doau FileType sgml
+    syn cluster sgmlTagHook add=docbkKeyword
+    syn cluster sgmlRegionHook add=docbkRegion,docbkTitle,docbkRemark,docbkCite
+    syn case ignore
 endif
 
 " <comment> has been removed and replace with <remark> in DocBook 4.0
