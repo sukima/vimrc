@@ -2,9 +2,12 @@
 " Language:	Microsoft VBScript Web Content (ASP)
 " Maintainer:	Devin Weaver <ktohg@tritarget.com>
 " URL:		http://tritarget.com/pub/vim/syntax/aspvbs.vim
-" Last Change:	2001 Dec 19
+" Last Change:	2002 Feb 21
 " Thanks to Jay-Jay <vim@jay-jay.net> for a syntax sync hack, hungarian
 " notation, and extra highlighting.
+" Thanks to patrick dehne <patrick@steidle.net> for the folding code.
+" Thanks to Dean Hall <hall@apt7.com> for testing the use of classes in
+" VBScripts which I've been too scared to do.
 
 " Quit when a syntax file was already loaded
 if version < 600
@@ -40,7 +43,7 @@ syn match AspVBSVariableComplex contained "\<\(arr\|obj\)\u\w*"
 syn keyword AspVBSError contained Val Str CVar CVDate DoEvents GoSub Return GoTo
 syn keyword AspVBSError contained Date Time Timer Stop LinkExecute
 syn keyword AspVBSError contained Add With Type LinkPoke
-syn keyword AspVBSError contained LinkRequest LinkSend Declare New Optional Sleep
+syn keyword AspVBSError contained LinkRequest LinkSend Declare Optional Sleep
 syn keyword AspVBSError contained ParamArray Static Erl TypeOf Like LSet RSet Mid StrConv
 " It may seem that most of these can fit into a keyword clause but keyword takes
 " priority over all so I can't get the multi-word matches
@@ -51,19 +54,25 @@ syn match AspVBSError contained "^\s*[a-zA-Z0-9_]\+:"
 syn match AspVBSError contained "[a-zA-Z0-9_]\+![a-zA-Z0-9_]\+"
 syn match AspVBSError contained "^\s*#.*$"
 syn match AspVBSError contained "\<As\s\+[a-zA-Z0-9_]*"
-syn match AspVBSError contained "\<End\>\|\<Exit\>"
+syn match AspVBSError contained "\(^\|\s\)End\>\|\<Exit\>"
 syn match AspVBSError contained "\<On\s\+Error\>\|\<On\>\|\<Error\>\|\<Resume\s\+Next\>\|\<Resume\>"
 syn match AspVBSError contained "\<Option\s\+\(Base\|Compare\|Private\s\+Module\)\>"
-syn match AspVBSError contained "\<Property\s\+\(Get\|Let\|Set\)\>"
+" This one I want 'cause I always seem to mis-spell it.
+syn match AspVBSError contained "Respon\?ce\.\S*"
+syn match AspVBSError contained "Respose\.\S*"
+" When I looked up the VBScript syntax it mentioned that Property Get/Set/Let
+" statements are illegal, however, I have recived reports that they do work.
+" So I commented it out for now.
+" syn match AspVBSError contained "\<Property\s\+\(Get\|Let\|Set\)\>"
 
 " AspVBScript Reserved Words.
 syn match AspVBSStatement contained "\<On\s\+Error\s\+\(Resume\s\+Next\|goto\s\+0\)\>\|\<Next\>"
-syn match AspVBSStatement contained "\<End\s\+\(If\|For\|Select\|Function\|Sub\)\>"
+syn match AspVBSStatement contained "\<End\s\+\(If\|For\|Select\|Class\|Function\|Sub\)\>"
 syn match AspVBSStatement contained "\<Exit\s\+\(Do\|For\|Sub\|Function\)\>"
 syn match AspVBSStatement contained "\<Option\s\+Explicit\>"
 syn match AspVBSStatement contained "\<For\s\+Each\>\|\<For\>"
 syn match AspVBSStatement contained "\<Set\>"
-syn keyword AspVBSStatement contained Call Const Dim Do Loop Erase And
+syn keyword AspVBSStatement contained Call Class Const Default Dim Do Loop Erase And
 syn keyword AspVBSStatement contained Function If Then Else ElseIf Or
 syn keyword AspVBSStatement contained Private Public Randomize ReDim
 syn keyword AspVBSStatement contained Select Case Sub While Wend Not
@@ -99,6 +108,7 @@ syn keyword AspVBSMethods contained MoveFile MoveFolder OpenAsTextStream
 syn keyword AspVBSMethods contained OpenTextFile Raise Read ReadAll ReadLine Remove
 syn keyword AspVBSMethods contained RemoveAll Skip SkipLine Write WriteBlankLines
 syn keyword AspVBSMethods contained WriteLine
+syn match AspVBSMethods contained "Response\.\S*"
 " Colorize boolean constants:
 syn keyword AspVBSMethods contained true false
 
@@ -133,9 +143,13 @@ syn match   AspVBSError  contained "[a-zA-Z0-9_]%\($\|[^>]\)"ms=s+1
 " Top Cluster
 syn cluster AspVBScriptTop contains=AspVBSStatement,AspVBSFunction,AspVBSMethods,AspVBSNumber,AspVBSString,AspVBSComment,AspVBSError,AspVBSVariableSimple,AspVBSVariableComplex
 
+" Folding
+syn region AspVBSFold start="^\s*\(class\)\s\+.*$" end="^\s*end\s\+\(class\)\>.*$" fold contained transparent keepend 
+syn region AspVBSFold start="^\s*\(private\|public\)\=\(\s\+default\)\=\s\+\(sub\|function\)\s\+.*$" end="^\s*end\s\+\(function\|sub\)\>.*$" fold contained transparent keepend 
+
 " Define AspVBScript delimeters
 " <%= func("string_with_%>_in_it") %> This is illegal in ASP syntax.
-syn region  AspVBScriptInsideHtmlTags keepend matchgroup=Delimiter start=+<%=\=+ end=+%>+ contains=@AspVBScriptTop
+syn region  AspVBScriptInsideHtmlTags keepend matchgroup=Delimiter start=+<%=\=+ end=+%>+ contains=@AspVBScriptTop, AspVBSFold
 syn region  AspVBScriptInsideHtmlTags keepend matchgroup=Delimiter start=+<script\s\+language="\=vbscript"\=[^>]*\s\+runatserver[^>]*>+ end=+</script>+ contains=@AspVBScriptTop
 
 
