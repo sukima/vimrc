@@ -2,13 +2,15 @@
 " Language:	Microsoft VBScript Web Content (ASP)
 " Maintainer:	Devin Weaver <vim@tritarget.com>
 " URL:		http://tritarget.com/pub/vim/syntax/aspvbs.vim
-" Last Change:	2002 Mar 22
+" Last Change:	2002 Oct 02
 " Version:	$Revision$
 " Thanks to Jay-Jay <vim@jay-jay.net> for a syntax sync hack, hungarian
 " notation, and extra highlighting.
 " Thanks to patrick dehne <patrick@steidle.net> for the folding code.
 " Thanks to Dean Hall <hall@apt7.com> for testing the use of classes in
 " VBScripts which I've been too scared to do.
+" Thsnks to William Bartholomew <william@orlitech.com.au> for contributing
+" patchs for new VBScript fetures.
 
 " Quit when a syntax file was already loaded
 if version < 600
