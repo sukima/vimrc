@@ -69,7 +69,7 @@ function GetJavaIndent()
   " Below a line starting with "}" never indent more.  Needed for a method
   " below a method with an indented "throws" clause.
   let lnum = prevnonblank(v:lnum - 1)
-  if getline(lnum) =~ '^\s*}\s*\(//.*\|/\*.*\)\=$\|^{' && indent(lnum) < theIndent
+  if getline(lnum) =~ '^\s*}\s*\(//.*\|/\*.*\)\=$' && indent(lnum) < theIndent
     let theIndent = indent(lnum)
   elseif indent(prev) == 0 && getline(v:lnum) =~ '(\s.*)'
     let theIndent = 0

@@ -1,4 +1,8 @@
 " VIM rc $Revision$
+
+" Section: Global Options {{{1 
+ 
+" Section: VIM 5.x Options {{{2
 set nocompatible
 set wildmenu
 set tabstop=8
@@ -14,7 +18,7 @@ set formatoptions+=ro2l
 set nowrap
 set noexpandtab
 set nohlsearch
-set listchars=eol:$,tab:мн,extends:+
+set listchars=eol:$,tab:T_,extends:+
 set showbreak=+
 set linebreak
 set cino={0,(0,u0,t0
@@ -32,40 +36,44 @@ set smartcase
 set infercase
 set shortmess=aotO
 set shellslash
-if filereadable($VIM . "/words")
-    set dictionary+=$VIM/words
-endif
-if filereadable("/usr/share/dict/words")
-    set dictionary+=/usr/share/dict/words
-endif
 set number
 set nrformats-=octal
 set viminfo='20,\"50
 set switchbuf=useopen
-set background=dark
-
-" Used for paging in a view command (like more)
-if v:progname =~ "view"
-    au BufRead * set nomodifiable
-    set nu
-    nmap q :q!<Cr>
-    nmap Q :qa!<Cr>
-    nmap <Space> <C-f>
-    nmap - <C-b>
-endif
-
 " File type stuff.
 set fileformats+=mac
 
-syntax on
+" Section: VIM 6.x Options {{{2
 
+" Force all non GUI to have a dark background (Overriden in gvimrc)
+set background=dark
 " Make Jikes supported for QuickFix.
 set efm+=%A%f:%l:%c:%*\\d:%*\\d:,
     \%C%*\\s%trror:%m,
     \%+C%*[^:]%trror:%m,
     \%C%*\\s%tarning:%m,
     \%C%m
+ 
+" Section: Plugins {{{1 
+if (version >= 600)
+    filetype plugin indent on
+endif
 
+" Section: Plugin Variables {{{2
+let java_allow_cpp_keywords = 1
+let xml_allow_docbk_keywords = 1
+let $CVS_RSH='ssh'
+
+" Section: Extra Plugins {{{2
+" by default run explorer.vim but only if I call for it.
+" VIM 6.x includes it by default. 
+if (version < 600 && filereadable($VIMRUNTIME . "/macros/explorer.vim"))
+    nmap ,e :so $VIMRUNTIME/macros/explorer.vim<Cr>,e
+endif
+
+" Section: Mappings {{{1
+ 
+" Section: RXVT {{{2
 " terminfo doesn't map rxvt's <Home> and <End> correctly I guess
 if &term == "rxvt"
     map <Esc>[1~ 0
@@ -74,42 +82,20 @@ if &term == "rxvt"
     imap <Esc>[4~ <C-o>$
 endif
 
-let java_allow_cpp_keywords = 1
-let xml_allow_docbk_keywords = 1
-let $CVS_RSH='ssh'
-
-if (version >= 508)
-    runtime scripts/vimspell.vim
-endif
-
-"let jade_xml_dcl="/usr/local/lib/sgml/pubtext/xml.dcl"
-"let docbk_custom_dsl=$HOME ."/.vim/custom.dsl"
-"if (version >= 508)
-"    runtime scripts/docbk.vim
-"endif
-
-" by default run explorer.vim but only if I call for it.
-if (version < 600 && filereadable($VIMRUNTIME . "/macros/explorer.vim"))
-    nmap ,e :so $VIMRUNTIME/macros/explorer.vim<Cr>,e
-endif
-
-" File Type plugins
-if (version >= 600)
-    filetype plugin indent on
-endif
-
-" Sig Fortune Map: See http://www.moolenaar.net/fun.html for info on this.
-"map <Leader>F mX:sp ~/.fortunes<CR>ggd/^--/<CR>Gp:wq<CR>'XGA<CR><Esc>p`X
-
+" Section: Quick Options {{{2
 noremap <Leader>w :set wrap!<Cr>
 noremap <Leader>l :set list!<Cr>
 noremap g/ :set hls!<Cr><Bar>:echo "highlight search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
+ 
+" Section: Quick Commands (Window Nav.) {{{2
 noremap <C-q> :close<Cr>
 inoremap <C-z> <C-o><C-z>
 nnoremap <C-s> :w<Cr>
 inoremap <C-s> <C-o>:w<Cr>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+
+" Section: Navigation {{{2
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
@@ -121,15 +107,11 @@ vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
+" Section: Convenience Commands {{{1
 command Cwd cd %:h
 command Undiff set nodiff foldcolumn=0
 
-" Version 6.0 has it's own menus for these
-"amenu 20.440 &Edit.Word\ &Wrap<Tab>:set\ wrap!		:set wrap!<Cr>
-"amenu 20.450 &Edit.Line\ &Numbers<Tab>:set\ nu!		:set nu!<Cr>
-"amenu 20.460 &Edit.Paste\ Mo&de<Tab>:set\ paste!	:set paste!<Cr><Bar>:echo "Paste Mode: " . strpart("OffOn", 3 * &paste, 3)<Cr>
-"amenu 20.470 &Edit.L&ist\ Mode<Tab>:set\ list!		:set list!<Cr>
-
+" Section: Auto Commands {{{1 
 " When starting to edit a file:
 au FileType c,cpp,java,jsp,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et ts=4
 au FileType inform set nocin si ai cinwords= efm+=%f(%l):\ %*[^:]:\ %m
@@ -141,12 +123,7 @@ au FileType java set makeprg=ant\ -find\ build.xml
 " Support Ant compile error detection.
 au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
 
-" Is there a tags file? Is so I'd like to use it's absolute path in case we
-" chdir later
-if filereadable("tags")
-    exec "set tags+=" . getcwd() . "/tags"
-endif
-
+" Section: Auto Correction {{{1
 "My commonly misspelled words.
 cab date strftime("%a %b %d %T %Z %Y")
 cab sdate strftime("%b %d, %Y")
@@ -154,3 +131,33 @@ ab syncronize  synchronize
 ab syncronized synchronized
 ab responce response
 ab HttpServletResponce HttpServletResponse
+
+" Section: Pager Functions for 'view' {{{1 
+" Used for paging in a view command (like more)
+if v:progname =~ "view"
+    au BufRead * set nomodifiable
+    set nu
+    nmap q :q!<Cr>
+    nmap Q :qa!<Cr>
+    nmap <Space> <C-f>
+    nmap - <C-b>
+endif
+
+" Section: Dictionary Support {{{1
+if filereadable($VIM . "/words")
+    set dictionary+=$VIM/words
+endif
+if filereadable("/usr/share/dict/words")
+    set dictionary+=/usr/share/dict/words
+endif
+
+" Section: Misc. {{{1 
+" Is there a tags file? Is so I'd like to use it's absolute path in case we
+" chdir later
+if filereadable("tags")
+    exec "set tags+=" . getcwd() . "/tags"
+endif
+"}}}1
+syntax on
+
+" vim600: set foldmethod=marker :
