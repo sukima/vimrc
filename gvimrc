@@ -17,10 +17,9 @@ endif
 
 " Section: Syntax Highlighting {{{1 
 " Fixes coloring bug when gvim opened from a dark term.
-syntax clear
 set background=light
 highlight Normal guibg=#ffffe6 " Change the bgcolor.
-syntax on
+syntax enable
 
 " Section: OS Specifics {{{1
 " start gui with a standard size. (in case the calling term is not 80x25)
