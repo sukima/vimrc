@@ -71,15 +71,21 @@ endif
 let java_allow_cpp_keywords = 1
 let xml_allow_docbk_keywords = 1
 
-runtime scripts/vimspell.vim
+if (version >= 508)
+    runtime scripts/vimspell.vim
+endif
 
 let jade_xml_dcl="/usr/local/lib/sgml/pubtext/xml.dcl"
 let docbk_custom_dsl=$HOME ."/.vim/custom.dsl"
-runtime scripts/docbk.vim
+if (version >= 508)
+    runtime scripts/docbk.vim
+endif
 
 let xml_use_autocmds = 1
 let xml_use_html = 1
-runtime scripts/xmledit.vim
+if (version >= 508)
+    runtime scripts/xmledit.vim
+endif
 
 " by default run explorer.vim but only if I call for it.
 if (version < 600 && filereadable($VIMRUNTIME . "/macros/explorer.vim"))
@@ -117,7 +123,7 @@ au FileType docbk set sw=2 cinwords=
 
 " Are we starting VIM in an Ant aware directory?
 if filereadable("build.xml")
-    exec "set makeprg=ant\\ -buildfile\\ " . $PWD . "/build.xml"
+    exec "set makeprg=ant\\ -buildfile\\ " . getcwd() . "/build.xml"
     " Support Ant compile error detection.
     if (version < 600)
 	set efm=%A%*\\s%[javac%\\]\ %f:%l:\ %m,%Z%*\\s%[javac%\\]\ symbol%*\\s:\ %m
@@ -128,7 +134,7 @@ endif
 " Is there a tags file? Is so I'd like to use it's absolute path in case we
 " chdir later
 if filereadable("tags")
-    exec "set tags+=" . $PWD . "/tags"
+    exec "set tags+=" . getcwd() . "/tags"
 endif
 
 "My commonly misspelled words.
