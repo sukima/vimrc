@@ -1,8 +1,8 @@
 " Vim syntax file
 " Language:	Microsoft VBScript Web Content (ASP)
 " Maintainer:	Devin Weaver <vim@tritarget.com>
-" URL:		http://tritarget.com/pub/vim/syntax/aspvbs.vim
-" Last Change:	2002 Oct 02
+" URL:		http://www.vim.org/scripts/script.php?script_id=993
+" Last Change:	$Date$
 " Version:	$Revision$
 " Thanks to Jay-Jay <vim@jay-jay.net> for a syntax sync hack, hungarian
 " notation, and extra highlighting.
@@ -111,7 +111,7 @@ syn keyword AspVBSMethods contained MoveFile MoveFolder OpenAsTextStream
 syn keyword AspVBSMethods contained OpenTextFile Raise Read ReadAll ReadLine Remove
 syn keyword AspVBSMethods contained RemoveAll Skip SkipLine Write WriteBlankLines
 syn keyword AspVBSMethods contained WriteLine
-syn match AspVBSMethods contained "Response\.\S*"
+syn match AspVBSMethods contained "Response\.\k*"
 " Colorize boolean constants:
 syn keyword AspVBSMethods contained true false
 
