@@ -2,58 +2,61 @@
 
 " Section: Global Options {{{1 
  
-" Section: VIM 5.x Options {{{2
+" Section: Common Options  {{{2
 set nocompatible
-set wildmenu
 set tabstop=8
 set softtabstop=4
-set smarttab
 set shiftwidth=4
-set noexpandtab
 set textwidth=0
-set wrapmargin=0
-set backspace=2
 set smartindent
-set formatoptions+=ro2l
 set nowrap
-set noexpandtab
-set nohlsearch
-set listchars=eol:$,tab:T_,extends:+
-set showbreak=+
-set linebreak
-set cino={0,(0,u0,t0
-set nojoinspaces
-set showmatch
-set showcmd
-set mouse=a	" set mouse enabled in all modes
-set mousemodel=extend
-set laststatus=2	" Always have a status line
-set ruler	" have curser position always on status bar
-set magic	" allow searches to be more perl like
-set ignorecase
-" 'smartcase' turn off ignorecase in a typed search if an uppercase char exists.
-set smartcase
-set infercase
-set shortmess=aotO
-set shellslash
 set number
-set nrformats-=octal
-set viminfo='20,\"50
-set switchbuf=useopen
-" File type stuff.
-set fileformats+=mac
+
+" Section: VIM 5.x Options {{{2
+if version > 500 
+    set wildmenu
+    set smarttab
+    set noexpandtab
+    set wrapmargin=0
+    set backspace=2
+    set formatoptions+=ro2l
+    set nohlsearch
+    set listchars=eol:$,tab:T_,extends:+
+    set showbreak=+
+    set linebreak
+    set cino={0,(0,u0,t0
+    set nojoinspaces
+    set showmatch
+    set showcmd
+    set mouse=a	" set mouse enabled in all modes
+    set mousemodel=extend
+    set laststatus=2	" Always have a status line
+    set ruler	" have curser position always on status bar
+    set magic	" allow searches to be more perl like
+    set ignorecase
+    " 'smartcase' turn off ignorecase in a typed search if an uppercase char exists.
+    set smartcase
+    set infercase
+    set shortmess=aotO
+    set shellslash
+    set nrformats-=octal
+    set viminfo='20,\"50
+    set switchbuf=useopen
+    " File type stuff.
+    set fileformats+=mac
+endif
 
 " Section: VIM 6.x Options {{{2
-
-set modeline
-" Force all non GUI to have a dark background (Overriden in gvimrc)
-set background=dark
-" Make Jikes supported for QuickFix.
-"set efm+=%A%f:%l:%c:%*\\d:%*\\d:,
-"    \%C%*\\s%trror:%m,
-"    \%+C%*[^:]%trror:%m,
-"    \%C%*\\s%tarning:%m,
-"    \%C%m
+if version > 600
+    " Force all non GUI to have a dark background (Overriden in gvimrc)
+    set background=dark
+    " Make Jikes supported for QuickFix.
+    "set efm+=%A%f:%l:%c:%*\\d:%*\\d:,
+    "    \%C%*\\s%trror:%m,
+    "    \%+C%*[^:]%trror:%m,
+    "    \%C%*\\s%tarning:%m,
+    "    \%C%m
+endif 
  
 " Section: Plugins {{{1 
 if (version >= 600)
