@@ -2,7 +2,7 @@
 " Language:	Microsoft VBScript Web Content (ASP)
 " Maintainer:	Devin Weaver <ktohg@tritarget.com>
 " URL:		http://tritarget.com/pub/vim/syntax/aspvbs.vim
-" Last Change:	2001 May 03
+" Last Change:	2001 May 04
 
 " Quit when a syntax file was already loaded
 if exists("b:current_syntax")
@@ -14,7 +14,7 @@ if !exists("main_syntax")
 endif
 
 if (version < 600)
-  source $VIMRUNTIME/syntax/html.vim
+  source <sfile>:p:h/html.vim
 else
   runtime! syntax/html.vim
 endif
