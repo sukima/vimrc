@@ -1,11 +1,13 @@
+" Depricated script! This script has been updated as a 6.0 file type plugin.
+" The new copy can be found in the ftplugin directory.
+
 " Vim script file
 " Language:	XML
 " Maintainer:	Devin Weaver <ktohg@tritarget.com>
-" Last Change:  Jan 15, 2002
+" Last Change:  Jan 11, 2002
 " Version:      $Revision$
 " Location:	http://tritarget.com/pub/vim/scripts/xmledit.vim
-" Contributors: "Brad Phelan" <bphelan@mathworks.co.uk>,
-"               "Ma, Xiangjiang" <Xiangjiang.Ma@broadvision.com>
+" Contributors: Brad Phelan <bphelan@mathworks.co.uk>
 
 " This script provides some convenience when editing XML (and some SGML)
 " formated documents. <M-5> will jump to the beginning or end of the tag block
@@ -15,8 +17,7 @@
 " break it across a blank. If you want to enter a literal '>' without
 " parsing use <M-.>
 
-" Kudos to "Brad Phelan" for completing tag matching and visual tag completion.
-" Kudos to "Ma, Xiangjiang" for pointing out VIM 6.0 map <buffer> feature.
+" Kudos to Brad Phelan for completing tag matching and visual tag completion.
 
 " Options:
 " xml_use_autocmds - turn on a few XML autocommands that turn on and off the
@@ -67,16 +68,6 @@
 if !exists ("did_xmledit_init")
 let did_xmledit_init = 1
 let is_in_xml_buffer = 0
-
-if version < 600
-    command -nargs=+ XmlVMap vnoremap <args>
-    command -nargs=+ XmlIMap inoremap <args>
-    command -nargs=+ XmlNMap nnoremap <args>
-else
-    command -nargs=+ XmlVMap vnoremap <lt>buffer> <args>
-    command -nargs=+ XmlIMap inoremap <lt>buffer> <args>
-    command -nargs=+ XmlNMap nnoremap <lt>buffer> <args>
-endif
 
 " Brad Phelan: Wrap the argument in an XML tag                                                
 function WrapTag(text)                                                       
@@ -129,27 +120,26 @@ function TurnOnXML( )
 	if has ("gui_running")
 	    " Have this as an escape incase you want a literal '>' not to run the
 	    " ParseTag function.
-	    XmlIMap <M-.> >
+	    inoremap <M-.> >
 
 	    " Jump between the beggining and end tags.
-	    XmlNMap <M-5> :call TagMatch1()<Cr>
+	    nnoremap <M-5> :call TagMatch1()<Cr>
 	else
-	    XmlIMap <Esc>. >
-	    XmlNMap <Esc>5 :call TagMatch1()<Cr>
+	    inoremap <Esc>. >
+	    nnoremap <Esc>5 :call TagMatch1()<Cr>
 	endif
 
 	" Wrap selection in XML tag
-	XmlVMap ,x "xx"=WrapTag(@x)<Cr>P
+	vnoremap ,x "xx"=WrapTag(@x)<Cr>P
 
 	" Parse the tag after pressing the close '>'.
-	XmlIMap > ><Esc>:call ParseTag()<Cr>
+	inoremap > ><Esc>:call ParseTag()<Cr>
 
 	"echo "XML Mappings turned on"
     endif
 endfunction
 
-" This function is never called if map <buffer> is used (VIM 6.0)
-if version < 600
+
 function TurnOffXML( )
     if g:is_in_xml_buffer
 	let g:is_in_xml_buffer = 0
@@ -165,7 +155,6 @@ function TurnOffXML( )
 	"echo "XML Mappings turned off"
     endif
 endfunction
-endif
 
 function IsParsableTag( tag )
     " The "Should I parse?" flag.
@@ -416,26 +405,15 @@ set matchpairs+=<:>
 
 if exists ("xml_use_autocmds")
     " Auto Commands
-    if version < 600
-	augroup xml
-	    au!
-	    au BufNewFile * call NewFileXML()
-	    au BufEnter * call AutoOnXML()
-	    au BufLeave * call TurnOffXML()
-	augroup END
-    else
-	augroup xml
-	    au!
-	    au BufNewFile * call NewFileXML()
-	augroup END
-	call TurnOnXML()
-    endif
+    augroup xml
+	au!
+	au BufNewFile * call NewFileXML()
+	au BufEnter * call AutoOnXML()
+	au BufLeave * call TurnOffXML()
+    augroup END
 else
     call TurnOnXML()
 endif
 
-delcommand XmlVMap
-delcommand XmlIMap
-delcommand XmlNMap
 
 endif
