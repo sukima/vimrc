@@ -205,6 +205,13 @@ let php_sql_query = 1
 let php_baselib = 1
 let php_folding = 1
 
+" FireFox Mozex Text Area support {{{2
+augroup filetypedetect
+    au BufNewFile,BufRead mozex.textarea.*          setf mail
+    au FileType mail        call SetWrapNavigation()
+    au FileType mail        set tw=68
+augroup END
+
 " Section: Misc. {{{1 
 " Is there a tags file? Is so I'd like to use it's absolute path in case we
 " chdir later
