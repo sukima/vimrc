@@ -1,6 +1,7 @@
 " GVIM rc $Revision$
 set mousehide
 set guioptions=agmlrbtT
+set toolbar-=tooltips
 
 " Remove the Buffer menu <M-b> accelerator.
 let no_buffers_menu = 1
