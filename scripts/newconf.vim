@@ -13,8 +13,11 @@
 " NOTE: run this file from inside vim or use the -S option. (The -s option
 " will not work!)
 
+let vimpath = expand ("<sfile>:p:h:h")
+let homepath = expand ("<sfile>:p:h:h:h")
+
 " Always edit a blank buffer
-enew
+edit temp-file
 only
 
 " Setup .vimrc and .gvimrc
@@ -22,9 +25,8 @@ only
 
 " Find assumed $HOME fropm *reletive* path (In case $HOME isn't the installed
 " location
-let foo = expand ("<s:file>:p:h:h:h")
-call append (line("$"), "Changing directory to ". foo)
-exec "cd". foo
+call append (line("$"), "Changing directory to ". homepath)
+exec "cd ". homepath
 
 " symlink .vimrc and .gvimrc
 call append (line("$"), "Linking .vim/vimrc to .vimrc")
@@ -38,12 +40,13 @@ let foo = system ("ln -s .vim/gvimrc .gvimrc")
 call append (line("$"), foo)
 'a+1,$> " Used to indent output
 
-call append (line("$"), "Changing directory to .vim/ftplugin")
+call append (line("$"), "Changing directory to ". vimpath)
+exec "cd ". vimpath
+call append (line("$"), "Changing directory to ftplugin")
+cd ftplugin
 
 " Add xml-plugin documentation
 call append (line("$"), "Installing xml-plugin documentation")
-cd <sfile>:p:h:h
-cd ftplugin
 call append (line("$"), "Sourcing xml.vim")
 source xml.vim
 
@@ -67,6 +70,7 @@ if !filereadable("html.vim")
     close
     exec "buf ". bufnum
     call append (line("$"), "html.vim build complete")
+    $>
 else
     call append (line("$"), "Skipping html.vim build (file exists)")
 endif
