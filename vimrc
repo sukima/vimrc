@@ -92,6 +92,8 @@ endif
 noremap <Leader>w :silent! call SetWrapNavigation()<Cr>
 noremap <Leader>l :set list!<Cr>
 noremap <Leader>n :set nu!<Cr>
+noremap <silent> <Leader>f :if &fdc==0<Cr>set fdc=2<Cr>else<Cr>set fdc=0<Cr>endif<Cr>
+noremap <Leader>p :set paste!<Cr><Bar>:echo "Paste mode: " . strpart("OffOn", 3 * &paste, 3)<Cr>
 noremap g/ :set hls!<Cr><Bar>:echo "highlight search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
  
 " Section: Quick Commands (Window Nav.) {{{2
@@ -102,7 +104,7 @@ inoremap <C-s> <C-o>:w<Cr>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 " A panic button! So no one accidentally sees words they arn't supposed to.
-noremap <Leader>p ggg?G``
+noremap <Leader>r ggg?G``
 " For safe measures lets make a quick backup mapping.
 noremap <Leader>b :let x=&backup<Bar>set backup<Bar>write<Bar>let &backup=x<Bar>unlet x<Cr>
 
