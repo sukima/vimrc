@@ -200,7 +200,7 @@ augroup END
 
 " File Type Auto Settings {{{2
 augroup filetypesetup
-    au FileType c,cpp,java,jsp,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et ts=4
+    "au FileType c,cpp,java,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et
     au FileType inform set nocin si ai cinwords= efm+=%f(%l):\ %*[^:]:\ %m
     au FileType mail set tw=72 et nocin nosi ai cinwords= comments=n:>,fb:-,fb:*,b:#
     au FileType docbk set sw=2 cinwords= efm=jade:%f:%l:%c:%t:%m
