@@ -48,7 +48,7 @@ syn keyword AspVBSError contained ParamArray Static Erl TypeOf Like LSet RSet Mi
 " It may seem that most of these can fit into a keyword clause but keyword takes
 " priority over all so I can't get the multi-word matches
 syn match AspVBSError contained "\<Def[a-zA-Z0-9_]\+\>"
-syn match AspVBSError contained "^\s*Open"
+syn match AspVBSError contained "^\s*Open\s\+"
 syn match AspVBSError contained "Debug\.[a-zA-Z0-9_]*"
 syn match AspVBSError contained "^\s*[a-zA-Z0-9_]\+:"
 syn match AspVBSError contained "[a-zA-Z0-9_]\+![a-zA-Z0-9_]\+"
