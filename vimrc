@@ -110,6 +110,8 @@ noremap <Leader>r ggg?G``
 noremap <Leader>b :let x=&backup<Bar>set backup<Bar>write<Bar>let &backup=x<Bar>unlet x<Cr>
 " For convinent headers in text files
 nnoremap <Leader>H yyp^v$r-o<Esc>
+" For quick brackets for functions/if/then/etc deffinitions
+inoremap <Leader><Cr> <Cr>{<Cr>}<Up><Cr>
 
 " Section: Convenience Commands {{{1
 command Cwd cd %:h
@@ -196,6 +198,13 @@ cab sdate strftime("%m/%d/%y")
 cab ldate strftime("%B %d, %Y")
 cab fdate strftime("%m%d%Y")
 
+" Section: File Type / Syntax {{{1
+syntax on
+" PHP Options {{{2
+let php_sql_query = 1
+let php_baselib = 1
+let php_folding = 1
+
 " Section: Misc. {{{1 
 " Is there a tags file? Is so I'd like to use it's absolute path in case we
 " chdir later
@@ -212,7 +221,6 @@ else
 endif
 
 "}}}1
-syntax on
 
 " So multiple places can have a special config without affecting the core
 " vimrc.
