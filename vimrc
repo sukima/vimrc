@@ -17,7 +17,7 @@ set nohlsearch
 set listchars=eol:$,tab:мн,extends:+
 set showbreak=+
 set linebreak
-set cino={0,(0,u0,t0,j1
+set cino={0,(0,u0,t0
 set nojoinspaces
 set showmatch
 set showcmd
@@ -93,7 +93,7 @@ endif
 
 " File Type plugins
 if (version >= 600)
-    filetype plugin on
+    filetype plugin indent on
 endif
 
 " Sig Fortune Map: See http://www.moolenaar.net/fun.html for info on this.
