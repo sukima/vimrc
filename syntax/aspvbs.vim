@@ -55,7 +55,7 @@ syn match AspVBSError contained "^\s*[a-zA-Z0-9_]\+:"
 syn match AspVBSError contained "[a-zA-Z0-9_]\+![a-zA-Z0-9_]\+"
 syn match AspVBSError contained "^\s*#.*$"
 syn match AspVBSError contained "\<As\s\+[a-zA-Z0-9_]*"
-syn match AspVBSError contained "\(^\|\s\)End\>\|\<Exit\>"
+syn match AspVBSError contained "\<End\>\|\<Exit\>"
 syn match AspVBSError contained "\<On\s\+Error\>\|\<On\>\|\<Error\>\|\<Resume\s\+Next\>\|\<Resume\>"
 syn match AspVBSError contained "\<Option\s\+\(Base\|Compare\|Private\s\+Module\)\>"
 " This one I want 'cause I always seem to mis-spell it.
