@@ -77,6 +77,8 @@ endif
 " Plugin / Syntax Options {{{2
 " vimspell
 let spell_executable = "aspell"
+let spell_auto_type = ""
+let spell_insert_mode = 0
 
 " PHP
 let php_sql_query = 1
@@ -103,6 +105,7 @@ augroup END
 
 " File Type Auto Settings {{{2
 augroup filetypesetup
+    autocmd!
     "au FileType c,cpp,java,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et
     au FileType inform set nocin si ai cinwords= efm+=%f(%l):\ %*[^:]:\ %m
     au FileType mail set tw=72 et nocin nosi ai cinwords= comments=n:>,fb:-,fb:*,b:#
