@@ -45,6 +45,8 @@ if version > 500
     set switchbuf=useopen
     " File type stuff.
     set fileformats+=mac
+    " Force all non GUI to have a dark background (Overriden in gvimrc)
+    set background=dark
 endif
 
 " Section: VIM 6.x Options {{{2
@@ -53,6 +55,7 @@ if version > 600
     set foldcolumn=2
     set winminheight=0
     set modeline
+    set virtualedit=block
     " Allows suffixes to be added to a `gf' file search
     set suffixesadd=.java
     " Force all non GUI to have a dark background (Overriden in gvimrc)
