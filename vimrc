@@ -96,9 +96,11 @@ endif
 map <Leader>F mX:sp ~/.fortunes<CR>ggd/^--/<CR>Gp:wq<CR>'XGA<CR><Esc>p`X
 
 noremap g/ :set hls!<Cr><Bar>:echo "highlight search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
-imap <C-z> <C-o><C-z>
-nmap <C-s> :w<Cr>
-imap <C-s> <C-o>:w<Cr>
+inoremap <C-z> <C-o><C-z>
+nnoremap <C-s> :w<Cr>
+inoremap <C-s> <C-o>:w<Cr>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
