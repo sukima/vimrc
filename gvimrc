@@ -4,6 +4,7 @@
 set mousehide
 set guioptions=agmlrbtT
 set listchars+=tab:мн
+set nohlsearch
 
 " Section: Appearance {{{1
 set lines=40
@@ -38,7 +39,7 @@ elseif has ("gui_mac")
 	edit .
     endif
 else
-    set guifont=-adobe-courier-medium-r-normal-*-*-120-*-*-m-*-iso8859-1
+    "set guifont=-adobe-courier-medium-r-normal-*-*-120-*-*-m-*-iso8859-1
     set toolbar-=tooltips
 endif
 
