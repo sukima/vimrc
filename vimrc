@@ -111,7 +111,7 @@ amenu 20.470 &Edit.L&ist\ Mode<Tab>:set\ list!		:set list!<Cr>
 " When starting to edit a file:
 au FileType c,cpp,java,jsp,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et ts=4
 au FileType inform set nocin si ai cinwords= efm+=%f(%l):\ %*[^:]:\ %m
-au FileType mail set tw=70 nocin nosi ai cinwords= comments=n:>,fb:-,fb:*,b:#
+au FileType mail set tw=72 et nocin nosi ai cinwords= comments=n:>,fb:-,fb:*,b:#
 au FileType html if filereadable($VIM . "/htmlcf.vim")|source $VIM/htmlcf.vim|endif
 au FileType docbk set sw=2 cinwords=
 
