@@ -10,6 +10,9 @@
 " This script *Assumes* it is already in $HOME/.vim/scripts and the $HOME/.vim
 " tree is that of the cvs checkout of the vimrc repository.
 
+" NOTE: run this file from inside vim or use the -S option. (The -s option
+" will not work!)
+
 " Always edit a blank buffer
 enew
 only
