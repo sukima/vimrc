@@ -92,6 +92,9 @@ if (version >= 600)
     filetype plugin indent on
 endif
 
+" Sig Fortune Map: See http://www.moolenaar.net/fun.html for info on this.
+map <Leader>F mX:sp ~/.fortunes<CR>ggd/^--/<CR>Gp:wq<CR>'XGA<CR><Esc>p`X
+
 noremap g/ :set hls!<Cr><Bar>:echo "highlight search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
 imap <C-z> <C-o><C-z>
 nmap <C-s> :w<Cr>

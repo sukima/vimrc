@@ -1,6 +1,6 @@
 " Vim syntax file
 " Language:	Microsoft VBScript Web Content (ASP)
-" Maintainer:	Devin Weaver <devin@tritarget.com>
+" Maintainer:	Devin Weaver <vim@tritarget.com>
 " URL:		http://tritarget.com/pub/vim/syntax/aspvbs.vim
 " Last Change:	2002 Mar 22
 " Version:	$Revision$

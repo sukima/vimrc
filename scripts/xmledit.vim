@@ -3,7 +3,7 @@
 
 " Vim script file
 " Language:	XML
-" Maintainer:	Devin Weaver <devin@tritarget.com>
+" Maintainer:	Devin Weaver <vim@tritarget.com>
 " Last Change:  Jan 11, 2002
 " Version:      $Revision$
 " Location:	http://tritarget.com/pub/vim/scripts/xmledit.vim

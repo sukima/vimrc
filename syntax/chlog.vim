@@ -1,6 +1,6 @@
 " Vim syntax file
 " Language:	generic ChangeLog file
-" Maintainer:	Devin Weaver <devin@tritarget.com>
+" Maintainer:	Devin Weaver <vim@tritarget.com>
 " Former Maintainer: Gediminas Paulauskas <menesis@delfi.lt>
 " Last Change:	May 03, 2001
 

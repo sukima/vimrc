@@ -7,7 +7,7 @@
 " <ALT>U     - insert word under cursor as lowercase into directory
 " <ALT>A     - accept word for this session only
 " <ALT>/     - check for alternatives
-" Modified by Devin Weaver <devin@tritarget.com>
+" Modified by Devin Weaver <vim@tritarget.com>
 " F6 -> g=
 " <SHIFT>F6 -> g+
 " <ALT> -> g=

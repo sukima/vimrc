@@ -1,6 +1,6 @@
 " Vim script file
 " Language:	DocBook
-" Maintainer:	Devin Weaver <devin@tritarget.com>
+" Maintainer:	Devin Weaver <vim@tritarget.com>
 " Last Change:	Dec 22, 2000
 " Location:	http://tritarget.com/pub/vim/scripts/jadeinstall.vim
 " Version:	$Revision$
