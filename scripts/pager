@@ -8,6 +8,8 @@
 
 if test x$DISPLAY = x; then
     GUI=
+elif test "x`uname`" = "xDarwin"; then
+    GUI=
 else
     GUI=-g
 fi

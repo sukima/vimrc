@@ -13,6 +13,7 @@ set smartindent
 set formatoptions+=ro2l
 set nowrap
 set noexpandtab
+set nohlsearch
 set listchars=eol:$,tab:мн,extends:+
 set showbreak=+
 set linebreak
@@ -43,6 +44,14 @@ set viminfo='20,\"50
 set switchbuf=useopen
 set background=dark
 
+" Used for paging in a view command (like more)
+if v:progname =~ "view"
+    au BufRead * set nomodifiable
+    nmap q :qa!<Cr>
+    nmap <Space> <C-f>
+    nmap - <C-b>
+endif
+
 " File type stuff.
 set fileformats+=mac
 
@@ -65,6 +74,7 @@ endif
 
 let java_allow_cpp_keywords = 1
 let xml_allow_docbk_keywords = 1
+let $CVS_RSH='ssh'
 
 if (version >= 508)
     runtime scripts/vimspell.vim
@@ -87,8 +97,9 @@ if (version >= 600)
 endif
 
 " Sig Fortune Map: See http://www.moolenaar.net/fun.html for info on this.
-map <Leader>F mX:sp ~/.fortunes<CR>ggd/^--/<CR>Gp:wq<CR>'XGA<CR><Esc>p`X
+"map <Leader>F mX:sp ~/.fortunes<CR>ggd/^--/<CR>Gp:wq<CR>'XGA<CR><Esc>p`X
 
+noremap <Leader>w :set wrap!<Cr>
 noremap g/ :set hls!<Cr><Bar>:echo "highlight search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
 inoremap <C-z> <C-o><C-z>
 nnoremap <C-s> :w<Cr>
