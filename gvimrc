@@ -36,7 +36,7 @@ elseif has ("gui_mac")
     command Home edit ~/
     if (argc() == 0)
 	cd ~/
-	edit .
+	Explore .
     endif
 else
     if hostname() =~ "petra"
