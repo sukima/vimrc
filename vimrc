@@ -74,9 +74,6 @@ if filereadable("/usr/share/dict/words")
 endif
 
 " Section: File Type & Syntax Options{{{1
-filetype plugin indent on
-syntax on
-
 " Plugin / Syntax Options {{{2
 " vimspell
 let spell_executable = "aspell"
@@ -118,6 +115,11 @@ augroup filetypesetup
     au FileType mail        call SetWrapNavigation()
     au FileType mail        set tw=68
 augroup END
+
+" }}}
+" Turn on filetype checks and syntax highlighting 
+filetype plugin indent on
+syntax on
 
 " Section: Mappings {{{1
  
