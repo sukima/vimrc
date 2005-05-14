@@ -97,7 +97,7 @@ let xml_allow_docbk_keywords = 1
 " File Type Detect {{{2
 augroup filetypedetect
     " phplib template files
-    au! BufNewFile,BufRead *.thtml                   setf html
+    au! BufNewFile,BufRead *.thtml,*.ihtml           setf html
     " FireFox Mozex Text Area support
     au! BufNewFile,BufRead mozex.textarea.*          setf mail
     " Custom ChangeLog Syntax
