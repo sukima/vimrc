@@ -23,9 +23,9 @@ syntax enable
 
 " Section: OS Specifics {{{1
 " start gui with a standard size. (in case the calling term is not 80x25)
-if has ("gui_win32")
+if has ("gui_win32") " Imfamous Win Hell
     set guifont=Courier\ New:h8
-elseif has ("gui_mac")
+elseif has ("gui_mac") " My Mac OS X Aqua Baby!
     set guifont=Monaco:h12
     set listchars+=tab:ии
     " MacVIM bombs when you use the bottom scroll bar.
@@ -33,12 +33,14 @@ elseif has ("gui_mac")
     winpos 75 50
     " Since there is no command-line here let's allow a start page.
     command Home edit ~/
-    if (argc() == 0)
+    if (argc() == 0) " only show a directory list if no files were passed in.
 	cd ~/
 	Explore .
     endif
-else
-    if hostname() =~ "petra"
+else " Gata be Unix now (My Favorite!)
+    " This is a gvimrc so we are in a GUI and the only GUI in Unix is X!
+    " However the default X font in darwin (Mac OS X) is poor; use this one.
+    if hostname() =~ "petra" " My Mac OS X host name
 	set guifont=-adobe-courier-medium-r-normal-*-*-120-*-*-m-*-iso8859-1
     endif
     set toolbar-=tooltips
