@@ -22,7 +22,7 @@ if version > 500
     set formatoptions+=ro2l
     set nohlsearch
     set noincsearch
-    set listchars=eol:$,tab:T_,extends:+
+    set listchars=eol:$,tab:T-,trail:_,precedes:+,extends:+
     set showbreak=+
     set linebreak
     set cino={0,(0,u0,t0
@@ -38,7 +38,7 @@ if version > 500
     " 'smartcase' turn off ignorecase in a typed search if an uppercase char exists.
     set smartcase
     set infercase
-    set shortmess=aotO
+    set shortmess=aotTO
     set shellslash
     set nrformats-=octal
     set viminfo='20,\"50
@@ -162,7 +162,10 @@ noremap <Leader>b :let x=&backup<Bar>set backup<Bar>write<Bar>let &backup=x<Bar>
 " For convinent headers in text files
 nnoremap <Leader>H yyp^v$r-o<Esc>
 " For quick brackets for functions/if/then/etc deffinitions
-inoremap <Leader><Cr> <Cr>{<Cr>}<Up><Cr>
+" The first map used to work. But the new indent code (read: php indent)
+" would render this improperly if there was no text after the opening { 
+"inoremap <Leader><Cr> <Cr>{<Cr>}<Up><Cr>
+inoremap <Leader><Cr> <Cr>{<Cr>x<Cr>}<Up><End><Backspace>
 
 " Section: Convenience Commands {{{1
 command Cwd cd %:h
