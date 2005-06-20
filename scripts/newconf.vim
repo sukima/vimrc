@@ -84,11 +84,11 @@ call append (line("$"), foo)
 'a+1,$> " Used to indent output
 
 " PHP => HTML
-call append (line("$"), "Linking php.vim to html.vim")
-$ mark a " Used to indent output
-let foo = system ("ln -s html.vim php.vim")
-call append (line("$"), foo)
-'a+1,$> " Used to indent output
+"call append (line("$"), "Linking php.vim to html.vim")
+"$ mark a " Used to indent output
+"let foo = system ("ln -s html.vim php.vim")
+"call append (line("$"), foo)
+"'a+1,$> " Used to indent output
 
 " SGML => XML
 call append (line("$"), "Linking sgml.vim to xml.vim")
