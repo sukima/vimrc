@@ -29,12 +29,12 @@ if !exists('b:docbk_type')
   endif
 endif
 if 'xml' == b:docbk_type
-    doau FileType xml
+    doau Syntax xml
     syn cluster xmlTagHook add=docbkKeyword
     syn cluster xmlRegionHook add=docbkRegion,docbkTitle,docbkRemark,docbkCite
     syn case match
 elseif 'sgml' == b:docbk_type
-    doau FileType sgml
+    doau Syntax sgml
     syn cluster sgmlTagHook add=docbkKeyword
     syn cluster sgmlRegionHook add=docbkRegion,docbkTitle,docbkRemark,docbkCite
     syn case ignore
