@@ -9,7 +9,11 @@ set shiftwidth=4
 set textwidth=0
 set smartindent
 set nowrap
-set number
+if &columns < 50
+    set nonumber
+else
+    set number
+endif
 set nobackup
 
 " Section: VIM 5.x Options {{{2
@@ -31,7 +35,11 @@ if version > 500
     set showcmd
     set mouse=a	" set mouse enabled in all modes
     set mousemodel=extend
-    set laststatus=2	" Always have a status line
+    if &lines < 20
+	set laststatus=0	" Always have a status line
+    else
+	set laststatus=2	" Always have a status line
+    endif
     set ruler	" have curser position always on status bar
     set magic	" allow searches to be more perl like
     set ignorecase
@@ -52,7 +60,11 @@ endif
 " Section: VIM 6.x Options {{{2
 if version > 600
     set softtabstop=4
-    set foldcolumn=2
+    if &columns < 40
+	set foldcolumn=0
+    else
+	set foldcolumn=2
+    endif
     set winminheight=0
     set modeline
     set virtualedit=block
@@ -93,6 +105,9 @@ let java_allow_cpp_keywords = 1
 
 " XML
 let xml_allow_docbk_keywords = 1
+
+" Explore
+let g:explHideFiles='^\.,\.gz$,\.exe$,\.zip$'
 
 " File Type Detect {{{2
 augroup filetypedetect
