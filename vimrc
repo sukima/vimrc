@@ -31,14 +31,16 @@ if version > 500
     set linebreak
     set cino={0,(0,u0,t0
     set nojoinspaces
-    set showmatch
-    set showcmd
     set mouse=a	" set mouse enabled in all modes
     set mousemodel=extend
     if &lines < 20
-	set laststatus=0	" Always have a status line
+	set laststatus=0	" Never have a status line
+	set noshowmatch
+	set noshowcmd
     else
 	set laststatus=2	" Always have a status line
+	set showmatch
+	set showcmd
     endif
     set ruler	" have curser position always on status bar
     set magic	" allow searches to be more perl like
