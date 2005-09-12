@@ -7,7 +7,7 @@ set listchars+=tab:¨≠
 set nohlsearch
 
 " Section: Appearance {{{1
-set lines=40
+set lines=45
 if &diff
     set columns=140
 else
@@ -30,6 +30,8 @@ elseif has ("gui_mac") " My Mac OS X Aqua Baby!
     set listchars+=tab:……
     " MacVIM bombs when you use the bottom scroll bar.
     set guioptions-=b
+    " Mac don't have a right mouse button
+    map <C-LeftMouse> <RightMouse>
     winpos 75 50
     " Since there is no command-line here let's allow a start page.
     command Home edit ~/
