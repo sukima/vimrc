@@ -17,7 +17,7 @@ endif
 set nobackup
 
 " Section: VIM 5.x Options {{{2
-if version > 500 
+if version >= 500 
     set wildmenu
     set smarttab
     set noexpandtab
@@ -60,7 +60,7 @@ if version > 500
 endif
 
 " Section: VIM 6.x Options {{{2
-if version > 600
+if version >= 600
     set softtabstop=4
     if &columns < 40
 	set foldcolumn=0
