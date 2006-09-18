@@ -81,6 +81,15 @@ if version >= 600
     "    \%C%*\\s%tarning:%m,
     "    \%C%m
 endif 
+
+" Section: VIM 7.x Options {{{2
+if version >= 700
+    " Default to no spelling for now. Easily turn it on and off with mapping
+    " below.
+    set nospell
+    " Spell works better in the GUI when you can right click on the word.
+    set mousemodel=popup
+endif
  
 " Section: Dictionary Support {{{2
 if filereadable($VIM . "/words")
@@ -93,9 +102,14 @@ endif
 " Section: File Type & Syntax Options{{{1
 " Plugin / Syntax Options {{{2
 " vimspell
-let spell_executable = "aspell"
-let spell_auto_type = ""
-let spell_insert_mode = 0
+if version >= 700
+    " No need to load the old vimspell because VIM 7.x has built in spelling
+    let loaded_vimspell = 1
+else
+    let spell_executable = "aspell"
+    let spell_auto_type = ""
+    let spell_insert_mode = 0
+endif
 
 " PHP
 let php_sql_query = 1
@@ -148,6 +162,14 @@ syntax on
 
 " Section: Mappings {{{1
  
+" Section: mapleader {{{2
+" Check if this is the Pocket PC version
+if exists("$CELIBVERSION")
+    let mapleader = ","
+else
+    let mapleader = "\\"
+endif
+
 " Section: RXVT {{{2
 " terminfo doesn't map rxvt's <Home> and <End> correctly I guess
 if &term == "rxvt"
@@ -158,6 +180,11 @@ if &term == "rxvt"
 endif
 
 " Section: Quick Options {{{2
+if version >= 700
+    " add a mapping for convenience since vimspell will not be loaded in
+    " version 7.x
+    noremap <Leader>s :set spell!<Cr><Bar>:echo "Spell checking: " . strpart("OffOn", 3 * &spell, 3)<Cr>
+endif
 noremap <Leader>w :silent! call SetWrapNavigation()<Cr>
 noremap <Leader>l :set list!<Cr>
 noremap <Leader>n :set nu!<Cr>
@@ -214,26 +241,26 @@ endfunction
 
 " Section: Pager Function for 'view' {{{2 
 " Used for paging in a view command (like more)
-function ViewSetup( initFlag )
-    if a:initFlag == 0
+function ViewSetup( )
+    if g:viewState == 0
 	set modifiable
 	filetype detect
 	nunmap q
 	nunmap Q
 	nunmap <Space>
 	nunmap -
-	nnoremap <Leader>v :call ViewSetup(1)<Cr>
 	echo "View Mode: Off"
+	let g:viewState = 1
     else
 	set nomodifiable
 	nnoremap q :q!<Cr>
 	nnoremap Q :qa!<Cr>
 	nnoremap <Space> <C-f>
 	nnoremap - <C-b>
-	nnoremap <Leader>v :call ViewSetup(0)<Cr>
-	if a:initFlag != 2
+	if g:viewState != 2
 	    echo "View Mode: On"
 	endif
+	let g:viewState = 0
     endif
 endfunction
 
@@ -261,9 +288,11 @@ endif
 if v:progname =~ "view"
     au BufRead * set ro
     set nomodified
-    call ViewSetup(2)
+    let viewState = 2
+    call ViewSetup()
 else
-    nnoremap <Leader>v :call ViewSetup(1)<Cr>
+    let viewState = 1
+    nnoremap <Leader>v :call ViewSetup()<Cr>
 endif
 
 " by default run explorer.vim but only if I call for it.
