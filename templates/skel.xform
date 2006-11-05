@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xf="http://www.w3.org/2002/xforms"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:ajx="http://www.ajaxforms.net/2006/ajx">
+
+    <head>
+        <title></title>
+        <meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+        <meta http-equiv="Content-Language" content="en-us" />
+        <!-- <link href="site.css" rel="StyleSheet" type="text/css" media="screen" /> -->
+
+		<xf:model>
+			<xf:instance id="data" src="data.xml" />
+			<xf:submission id="sendData" method="post"
+				ref="instance('data')" replace="instance"
+				action="echo.php" />
+		</xf:model>
+
+    </head>
+
+    <body>
+
+		<!-- <div id="console"></div> -->
+    </body>
+</html>
+
+<!-- Modeline for ViM {{{
+vim:set ts=4:
+vim600:fdm=marker fdl=0 fdc=3:
+}}} -->
