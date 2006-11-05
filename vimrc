@@ -111,6 +111,9 @@ else
     let spell_insert_mode = 0
 endif
 
+" Highlight Matching Brackets
+let loaded_matchparen = 1
+
 " PHP
 let php_sql_query = 1
 let php_baselib = 1
@@ -244,7 +247,7 @@ endfunction
 function ViewSetup( )
     if g:viewState == 0
 	set modifiable
-	filetype detect
+	"filetype detect
 	nunmap q
 	nunmap Q
 	nunmap <Space>
