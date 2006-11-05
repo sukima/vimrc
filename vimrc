@@ -202,6 +202,8 @@ nnoremap <C-s> :w<Cr>
 inoremap <C-s> <C-o>:w<Cr>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+
+" Section: Utility Mappings {{{2
 " A panic button! So no one accidentally sees words they arn't supposed to.
 noremap <Leader>r ggg?G``
 " For safe measures lets make a quick backup mapping.
@@ -213,12 +215,38 @@ nnoremap <Leader>H yyp^v$r-o<Esc>
 " would render this improperly if there was no text after the opening { 
 "inoremap <Leader><Cr> <Cr>{<Cr>}<Up><Cr>
 inoremap <Leader><Cr> <Cr>{<Cr>x<Cr>}<Up><End><Backspace>
+" Make a quick comment. Uses 'commentstring' setting
+" and the toggleComment() function defined below.
+nnoremap <Leader>c :call AddLineComment()<Cr>
+nnoremap <Leader>C :call RemoveLineComment()<Cr>
 
 " Section: Convenience Commands {{{1
 command Cwd cd %:h
 command Undiff set nodiff foldcolumn=0
 
 " Section: Functions {{{1 
+" Section: Toggle Comment Functions {{{2
+function LoadCommentString( )
+    let comment = matchlist (&commentstring, '\(.*\)%s\(.*\)')
+    if (comment == [])
+	echohl WarningMsg
+	echo "Malformed 'commentstring' or setting not set"
+	echohl None
+    endif
+    let scomment = get (comment, 1, '#') " default to shell comment
+    let ecomment = get (comment, 2, '')
+    return [scomment, ecomment]
+endfunction
+function AddLineComment( )
+    let c = LoadCommentString()
+    exe 'normal I' . c[0] . ' '
+    exe 'normal A ' . c[1]
+endfunction
+function RemoveLineComment( )
+    let c = LoadCommentString()
+    exe 'substitute /' . c[0] . '\s*\(.\{-\}\)\s*' . c[1] . '/\1/'
+endfunction
+
 " Section: Wrap Navigation Function {{{2
 function SetWrapNavigation( )
     if &wrap
