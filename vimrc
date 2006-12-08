@@ -223,6 +223,7 @@ nnoremap <Leader>C :call RemoveLineComment()<Cr>
 " Section: Convenience Commands {{{1
 command Cwd cd %:h
 command Undiff set nodiff foldcolumn=0
+command Ant set makeprg=ant\ -find\ build.xml | set efm=%A\ %#[.\\{-1,}]\ %f:%l:\ %m,%-Z\ %#[.\\{-1,}]\ %p^,%-C%.%#
 
 " Section: Functions {{{1 
 " Section: Toggle Comment Functions {{{2
@@ -233,7 +234,7 @@ function LoadCommentString( )
 	echo "Malformed 'commentstring' or setting not set"
 	echohl None
     endif
-    let scomment = get (comment, 1, '#') " default to shell comment
+    let scomment = get (comment, 1, '# ') " default to shell comment
     let ecomment = get (comment, 2, '')
     return [scomment, ecomment]
 endfunction
@@ -243,8 +244,10 @@ function AddLineComment( )
     exe 'normal A ' . c[1]
 endfunction
 function RemoveLineComment( )
-    let c = LoadCommentString()
-    exe 'substitute /' . c[0] . '\s*\(.\{-\}\)\s*' . c[1] . '/\1/'
+    let c = LoadCommentString() 
+    let c[0] = substitute(c[0], '/', '\\/', 'g')
+    let c[1] = substitute(c[1], '/', '\\/', 'g')
+    exe 'substitute /\V' . c[0] . '\s\*\(\.\{-\}\)\s\*' . c[1] . '/\1/'
 endfunction
 
 " Section: Wrap Navigation Function {{{2
