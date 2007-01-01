@@ -217,8 +217,10 @@ nnoremap <Leader>H yyp^v$r-o<Esc>
 inoremap <Leader><Cr> <Cr>{<Cr>x<Cr>}<Up><End><Backspace>
 " Make a quick comment. Uses 'commentstring' setting
 " and the toggleComment() function defined below.
-nnoremap <Leader>c :call AddLineComment()<Cr>
-nnoremap <Leader>C :call RemoveLineComment()<Cr>
+if version >= 700
+    nnoremap <Leader>c :call AddLineComment()<Cr>
+    nnoremap <Leader>C :call RemoveLineComment()<Cr>
+endif
 
 " Section: Convenience Commands {{{1
 command Cwd cd %:h
@@ -227,6 +229,7 @@ command Ant set makeprg=ant\ -find\ build.xml | set efm=%A\ %#[.\\{-1,}]\ %f:%l:
 
 " Section: Functions {{{1 
 " Section: Toggle Comment Functions {{{2
+if version >= 700
 function LoadCommentString( )
     let comment = matchlist (&commentstring, '\(.*\)%s\(.*\)')
     if (comment == [])
@@ -249,6 +252,7 @@ function RemoveLineComment( )
     let c[1] = substitute(c[1], '/', '\\/', 'g')
     exe 'substitute /\V' . c[0] . '\s\*\(\.\{-\}\)\s\*' . c[1] . '/\1/'
 endfunction
+endif
 
 " Section: Wrap Navigation Function {{{2
 function SetWrapNavigation( )
