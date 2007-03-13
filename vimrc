@@ -221,6 +221,8 @@ if version >= 700
     nnoremap <Leader>c :call AddLineComment()<Cr>
     nnoremap <Leader>C :call RemoveLineComment()<Cr>
 endif
+" Mark a new section with cut marks
+nnoremap <Leader>S o----- 8< ----- 8< -----<Cr><Esc><Up>:call AddLineComment()<Cr><Down><Home>
 
 " Section: Convenience Commands {{{1
 command Cwd cd %:h
@@ -262,18 +264,27 @@ function SetWrapNavigation( )
 	unmap k
 	unmap <Down>
 	unmap <Up>
+	unmap 0
+	unmap ^
+	unmap $
     else
 	set wrap
-	nnoremap <buffer> j gj
 	nnoremap <buffer> k gk
-	vnoremap <buffer> j gj
-	vnoremap <buffer> k gk
-	nnoremap <buffer> <Down> gj
+	nnoremap <buffer> j gj
 	nnoremap <buffer> <Up> gk
-	vnoremap <buffer> <Down> gj
+	nnoremap <buffer> <Down> gj
+	nnoremap <buffer> 0 g0
+	nnoremap <buffer> ^ g^
+	nnoremap <buffer> $ g$
+	inoremap <buffer> <Up> <C-O>gk
+	inoremap <buffer> <Down> <C-O>gj
+	vnoremap <buffer> k gk
+	vnoremap <buffer> j gj
 	vnoremap <buffer> <Up> gk
-	inoremap <buffer> <Down> <C-o>gj
-	inoremap <buffer> <Up> <C-o>gk
+	vnoremap <buffer> <Down> gj
+	vnoremap <buffer> 0 g0
+	vnoremap <buffer> ^ g^
+	vnoremap <buffer> $ g$
     endif
 endfunction
 
