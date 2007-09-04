@@ -20,7 +20,7 @@ set nobackup
 if version >= 500 
     set wildmenu
     set smarttab
-    set noexpandtab
+    set expandtab " Spaces are better
     set wrapmargin=0
     set backspace=2
     set formatoptions+=ro2l
@@ -191,9 +191,10 @@ endif
 noremap <Leader>w :silent! call SetWrapNavigation()<Cr>
 noremap <Leader>l :set list!<Cr>
 noremap <Leader>n :set nu!<Cr>
+noremap <Leader>t :set et!<Cr>
 noremap <silent> <Leader>f :if &fdc==0<Cr>set fdc=2<Cr>else<Cr>set fdc=0<Cr>endif<Cr>
 noremap <Leader>p :set paste!<Cr><Bar>:echo "Paste mode: " . strpart("OffOn", 3 * &paste, 3)<Cr>
-noremap g/ :set hls!<Cr><Bar>:echo "highlight search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
+noremap <Leader>h :set hls!<Cr><Bar>:echo "highlight search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
  
 " Section: Quick Commands (Window Nav.) {{{2
 noremap <C-q> :close<Cr>
@@ -221,6 +222,8 @@ if version >= 700
     nnoremap <Leader>c :call AddLineComment()<Cr>
     nnoremap <Leader>C :call RemoveLineComment()<Cr>
 endif
+" Mark a new section with cut marks
+nnoremap <Leader>S o----- 8< ----- 8< -----<Cr><Esc><Up>:call AddLineComment()<Cr><Down><Home>
 " Mark a new section with cut marks
 nnoremap <Leader>S o----- 8< ----- 8< -----<Cr><Esc><Up>:call AddLineComment()<Cr><Down><Home>
 

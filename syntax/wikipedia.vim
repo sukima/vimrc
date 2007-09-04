@@ -21,6 +21,8 @@ else
   command! -nargs=+ HtmlHiLink hi def link <args>
 endif
 
+syntax spell toplevel
+
 syn case ignore
 
 " tags
@@ -45,7 +47,7 @@ syn keyword htmlTagName contained br p hr li dt dd
 syn keyword htmlTagName contained table tr td th div blockquote ol ul
 syn keyword htmlTagName contained dl font big small sub sup
 syn keyword htmlTagName contained td th tr
-syn keyword htmlTagName contained nowiki math
+syn keyword htmlTagName contained nowiki math ref
 
 " allowed arg names
 syn keyword htmlArg contained title align lang dir width height
@@ -62,7 +64,7 @@ syn keyword htmlArg contained id class name style
 syn match htmlSpecialChar "&#\=[0-9A-Za-z]\{1,8};"
 
 " comments
-syn region htmlComment                start=+<!+      end=+>+   contains=htmlCommentPart,htmlCommentError
+syn region htmlComment                start=+<!+      end=+>+   contains=htmlCommentPart,htmlCommentError,@Spell
 syn match  htmlCommentError contained "[^><!]"
 syn region htmlCommentPart  contained start=+--+      end=+--\s*+  contains=@htmlPreProc
 syn region htmlComment                  start=+<!DOCTYPE+ keepend end=+>+
@@ -116,19 +118,19 @@ syn region htmlTitle start="<title\>" end="</title>"me=e-8 contains=htmlTag,html
 
 "syn region wikiBoldAndItalic start="'''''" end="'''''" skip="<nowiki>.*</nowiki>" contains=wikiLink
 
-syn region wikiItalic			start=+'\@<!'''\@!+	end=+''+ contains=wikiLink,wikiItalicBold
-syn region wikiBold				start=+'''+			end=+'''+ contains=wikiLink,wikiBoldItalic
-syn region wikiBoldAndItalic	start=+'''''+		end=+'''''+ contains=wikiLink
+syn region wikiItalic			start=+'\@<!'''\@!+	end=+''+ contains=@Spell,wikiLink,wikiItalicBold
+syn region wikiBold				start=+'''+			end=+'''+ contains=@Spell,wikiLink,wikiBoldItalic
+syn region wikiBoldAndItalic	start=+'''''+		end=+'''''+ contains=@Spell,wikiLink
 
-syn region wikiBoldItalic	contained	start=+'\@<!'''\@!+	end=+''+ contains=wikiLink
-syn region wikiItalicBold	contained	start=+'''+			end=+'''+ contains=wikiLink
+syn region wikiBoldItalic	contained	start=+'\@<!'''\@!+	end=+''+ contains=@Spell,wikiLink
+syn region wikiItalicBold	contained	start=+'''+			end=+'''+ contains=@Spell,wikiLink
 
-syn region wikiH1 start="^=" 		end="=" 	skip="<nowiki>.*</nowiki>" oneline contains=wikiLink
-syn region wikiH2 start="^==" 		end="==" 	skip="<nowiki>.*</nowiki>" oneline contains=wikiLink
-syn region wikiH3 start="^===" 		end="===" 	skip="<nowiki>.*</nowiki>" oneline contains=wikiLink
-syn region wikiH4 start="^====" 	end="====" 	skip="<nowiki>.*</nowiki>" oneline contains=wikiLink
-syn region wikiH5 start="^=====" 	end="=====" 	skip="<nowiki>.*</nowiki>" oneline contains=wikiLink
-syn region wikiH6 start="^======" 	end="======" 	skip="<nowiki>.*</nowiki>" oneline contains=wikiLink
+syn region wikiH1 start="^=" 		end="=" 	skip="<nowiki>.*</nowiki>" oneline contains=@Spell,wikiLink
+syn region wikiH2 start="^==" 		end="==" 	skip="<nowiki>.*</nowiki>" oneline contains=@Spell,wikiLink
+syn region wikiH3 start="^===" 		end="===" 	skip="<nowiki>.*</nowiki>" oneline contains=@Spell,wikiLink
+syn region wikiH4 start="^====" 	end="====" 	skip="<nowiki>.*</nowiki>" oneline contains=@Spell,wikiLink
+syn region wikiH5 start="^=====" 	end="=====" 	skip="<nowiki>.*</nowiki>" oneline contains=@Spell,wikiLink
+syn region wikiH6 start="^======" 	end="======" 	skip="<nowiki>.*</nowiki>" oneline contains=@Spell,wikiLink
 syn region wikiLink start="\[\[" end="\]\]" skip="<nowiki>.*</nowiki>" oneline
 syn region wikiLink start="\[http:" end="\]" skip="<nowiki>.*</nowiki>" oneline
 syn region wikiLink start="\[https:" end="\]" skip="<nowiki>.*</nowiki>" oneline
@@ -143,7 +145,8 @@ syn match wikiPre /^\ .*$/
 
 syn include @TeX syntax/tex.vim
 syntax region wikiTeX matchgroup=htmlTag start="<math>" end="</math>" skip="<nowiki>.*</nowiki>" contains=@TeX 
-syntax region wikiRef matchgroup=htmlTag start="<ref>" end="</ref>" skip="<nowiki>.*</nowiki>"
+syntax region wikiRef matchgroup=htmlTag start="<ref\>[^/]\{-}>" end="</ref>" skip="<nowiki>.*</nowiki>" contains=@htmlTop
+syntax match htmlTag +<ref.\{-}/>+
 
 
 " HTML highlighting
