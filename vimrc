@@ -224,8 +224,6 @@ if version >= 700
 endif
 " Mark a new section with cut marks
 nnoremap <Leader>S o----- 8< ----- 8< -----<Cr><Esc><Up>:call AddLineComment()<Cr><Down><Home>
-" Mark a new section with cut marks
-nnoremap <Leader>S o----- 8< ----- 8< -----<Cr><Esc><Up>:call AddLineComment()<Cr><Down><Home>
 
 " Section: Convenience Commands {{{1
 command Cwd cd %:h
