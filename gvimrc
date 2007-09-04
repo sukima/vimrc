@@ -80,8 +80,14 @@ elseif has ("gui_mac") " My Mac OS X Aqua Baby!
 " Other (Unix) {{{2
 else " Gata be Unix now (My Favorite!)
     " This is a gvimrc so we are in a GUI and the only GUI in Unix is X!
-    " However the default X font in darwin (Mac OS X) is poor; use this one.
-    if hostname() =~ "petra" " My Mac OS X host name
+    " However the default X font in darwin (Mac OS X) is poor. We will
+    " Use a better one on OS X.
+    " FIXME: However the ability to detect an X11 version running on OS X is
+    " difficult (All has("mac") fails only has("unix") works) we have to do a
+    " pretty dirty hack.
+    if filereadable("/System/Library/CoreServices/System") " Mac OS X
+	set guifont=Monaco\ 12
+    else
 	set guifont=-adobe-courier-medium-r-normal-*-*-120-*-*-m-*-iso8859-1
     endif
     set toolbar-=tooltips
