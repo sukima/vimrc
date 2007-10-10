@@ -27,7 +27,7 @@ function! GetJsIndent()
     let line = getline(v:lnum)
     let pline = getline(pnum)
     let ind = indent(pnum)
-    if pline =~ '{\s*$\|[\s*$\|(\s*$'
+    if pline =~ '{\s*$\|[\s*$\|(\s*$' && pline !~ '//'
 	let ind = ind + &sw
     endif
     
