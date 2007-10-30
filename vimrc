@@ -248,6 +248,7 @@ function AddLineComment( )
     let c = LoadCommentString()
     exe 'normal I' . c[0] . ' '
     exe 'normal A ' . c[1]
+    exe 'normal ^'
 endfunction
 function RemoveLineComment( )
     let c = LoadCommentString() 
