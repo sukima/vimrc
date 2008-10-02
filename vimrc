@@ -115,9 +115,9 @@ endif
 let loaded_matchparen = 1
 
 " PHP
-let php_sql_query = 1
+"let php_sql_query = 1
 let php_baselib = 1
-let php_folding = 1
+let php_folding = 0
 
 " Java
 let java_allow_cpp_keywords = 1
@@ -224,6 +224,14 @@ if version >= 700
 endif
 " Mark a new section with cut marks
 nnoremap <Leader>S o----- 8< ----- 8< -----<Cr><Esc><Up>:call AddLineComment()<Cr><Down><Home>
+" The use of shift and an arrow key is ANNOYING! Make it stop!
+nnoremap <S-Up> <Esc>
+nnoremap <S-Down> <Esc>
+inoremap <S-Up> <C-O><Esc>
+inoremap <S-Down> <C-O><Esc>
+" Add a quick map top open NERDTree (Plugin must be installed.)
+" http://www.vim.org/scripts/script.php?script_id=1658
+noremap <Leader>z :NERDTree<Cr>
 
 " Section: Convenience Commands {{{1
 command Cwd cd %:h
@@ -266,27 +274,27 @@ function SetWrapNavigation( )
 	unmap k
 	unmap <Down>
 	unmap <Up>
-	unmap 0
-	unmap ^
-	unmap $
+	"unmap 0
+	"unmap ^
+	"unmap $
     else
 	set wrap
 	nnoremap <buffer> k gk
 	nnoremap <buffer> j gj
 	nnoremap <buffer> <Up> gk
 	nnoremap <buffer> <Down> gj
-	nnoremap <buffer> 0 g0
-	nnoremap <buffer> ^ g^
-	nnoremap <buffer> $ g$
+	"nnoremap <buffer> 0 g0
+	"nnoremap <buffer> ^ g^
+	"nnoremap <buffer> $ g$
 	inoremap <buffer> <Up> <C-O>gk
 	inoremap <buffer> <Down> <C-O>gj
 	vnoremap <buffer> k gk
 	vnoremap <buffer> j gj
 	vnoremap <buffer> <Up> gk
 	vnoremap <buffer> <Down> gj
-	vnoremap <buffer> 0 g0
-	vnoremap <buffer> ^ g^
-	vnoremap <buffer> $ g$
+	"vnoremap <buffer> 0 g0
+	"vnoremap <buffer> ^ g^
+	"vnoremap <buffer> $ g$
     endif
 endfunction
 

@@ -64,7 +64,7 @@ if has ("gui_win32") " Imfamous Win Hell
 
 " Mac OS {{{2
 elseif has ("gui_mac") " My Mac OS X Aqua Baby!
-    set guifont=Monaco:h12
+    set guifont=Andale\ Mono:h12
     set listchars+=tab:ии
     " MacVIM bombs when you use the bottom scroll bar.
     set guioptions-=b
@@ -96,6 +96,9 @@ endif
 " Prepare Script Options {{{1
 " Turn off the buffer menu
 let no_buffers_menu=1
+
+" GUI Specific maps {{{1
+nnoremap <Leader>z :set columns=112<Bar>NERDTree<Cr>
 
 " }}}1
 
