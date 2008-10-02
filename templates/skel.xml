@@ -1,7 +1,4 @@
-<?xml version="1.0" standalone="yes"?>
-<!-- XSL
-<?xml-stylesheet type="text/xml" href="foobar.xsl"?>
--->
+<?xml version="1.0" encoding="utf-8"?>
 
 <!-- Modeline for ViM {{{
 vim:set et ts=4:
