@@ -12,6 +12,8 @@
 "   http://www.open-oasis.org/docbook/
 "
 
+syntax spell toplevel
+
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
 if version < 600
