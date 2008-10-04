@@ -15,7 +15,7 @@ syntax enable
 " Section: OS Specifics {{{1
 " Standard Sizing {{{2
 " start gui with a standard size. (in case the calling term is not 80x25)
-set lines=45
+set lines=50
 if &diff
     set columns=140
 else
@@ -64,7 +64,7 @@ if has ("gui_win32") " Imfamous Win Hell
 
 " Mac OS {{{2
 elseif has ("gui_mac") " My Mac OS X Aqua Baby!
-    set guifont=Andale\ Mono:h12
+    set guifont=Courier:h14
     set listchars+=tab:ии
     " MacVIM bombs when you use the bottom scroll bar.
     set guioptions-=b
@@ -98,7 +98,7 @@ endif
 let no_buffers_menu=1
 
 " GUI Specific maps {{{1
-nnoremap <Leader>z :set columns=112<Bar>NERDTree<Cr>
+nnoremap <Leader>z :set columns=122<Bar>NERDTree<Cr>
 
 " }}}1
 
