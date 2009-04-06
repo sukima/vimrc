@@ -18,15 +18,17 @@ if executable("git")
 endif
 
 function! <SID>PrepareAsciidoc(bang,title)
-    if a:bang == '!'
-        let title = input("Title of document: ")
-    elseif empty(a:title)
-        let title = "Title"
+    if empty(a:title)
+        if empty(a:bang)
+            let title = input("Title of document: ")
+        else
+            let title = "Title"
+        endif
     else
         let title = a:title
     endif
     let x = append(0, ['= '.title, g:author_name . ' <' . g:author_email . '>', 'Draft, ' . strftime('%B %d, %Y')])
-    let x = append(line('$'), '// vim:set ai et ts=8 sw=4 syntax=asciidoc:')
+    let x = append(line('$'), '// vi'.'m:set ai et ts=8 sw=4 syntax=asciidoc:')
 endfunction
 
 command! -nargs=* -bang Asciidoc call s:PrepareAsciidoc("<bang>","<args>")
