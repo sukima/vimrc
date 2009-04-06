@@ -1,6 +1,6 @@
-" VIM rc $Revision$
+" VIM rc $Revision: 129 $
 
-" Section: Global Options {{{1 
+" Section: Global Options {{{1
  
 " Section: Common Options  {{{2
 set nocompatible

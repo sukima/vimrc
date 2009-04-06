@@ -1,0 +1,3 @@
+[submodule "ftplugin"]
+	path = ftplugin
+	url = sukirepoman@tritarget.org:xmledit.git
