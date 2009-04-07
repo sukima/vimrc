@@ -1,5 +1,5 @@
 " Name:     asciidoc.vim
-" Version:  0.1
+" Version:  0.2
 " Author:   Devin Weaver <suki@tritarget.org>
 " Summary:  Personal Vim plugin to easily prepare a text file for asciidoc
 "           notation.
@@ -35,7 +35,7 @@ function! <SID>PrepareAsciidoc(bang,title)
     else
         let title = a:title
     endif
-    let x = append(0, ['= '.title, g:author_name . ' <' . g:author_email . '>', 'Draft, ' . strftime('%B %d, %Y')])
+    let x = append(0, ['= '.title, g:author_name . ' <' . g:author_email . '>', '0.1, ' . strftime('%B %d %Y')])
     let x = append(line('$'), '// vi'.'m:set ai et ts=8 sw=4 syntax=asciidoc:')
 endfunction
 
