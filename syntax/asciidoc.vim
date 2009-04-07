@@ -239,8 +239,8 @@ highlight link asciidocQuoted Label
 let b:current_syntax = "asciidoc"
 
 "Show tab and trailing characters
-set listchars=tab:»·,trail:·
-set list
+"set listchars=tab:»·,trail:·
+"set list
 
 "
 "set textwidth=78 formatoptions=tcqn autoindent
