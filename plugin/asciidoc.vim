@@ -35,8 +35,8 @@ function! <SID>PrepareAsciidoc(bang,title)
     else
         let title = a:title
     endif
-    let x = append(0, ['= '.title, g:author_name . ' <' . g:author_email . '>', '0.1, ' . strftime('%B %d %Y')])
-    let x = append(line('$'), '// vi'.'m:set ai et ts=8 sw=4 syntax=asciidoc:')
+    let x = append(0, [title, substitute(title, '.', '=', 'g'), g:author_name . ' <' . g:author_email . '>', '0.1, ' . strftime('%B %d %Y'), ""])
+    let x = append(line('$'), ["", '// vi'.'m:set ai et ts=8 sw=4 syntax=asciidoc:'])
 endfunction
 
 command! -nargs=* -bang Asciidoc call s:PrepareAsciidoc("<bang>","<args>")
