@@ -217,6 +217,7 @@ nnoremap <Leader>H yyp^v$r-o<Esc>
 " would render this improperly if there was no text after the opening { 
 "inoremap <Leader><Cr> <Cr>{<Cr>}<Up><Cr>
 inoremap <Leader><Cr> <Cr>{<Cr>x<Cr>}<Up><End><Backspace>
+inoremap <Leader>] <Space>{<Cr>x<Cr>}<Up><End><Backspace>
 " Make a quick comment. Uses 'commentstring' setting
 " and the toggleComment() function defined below.
 if version >= 700
