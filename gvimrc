@@ -3,6 +3,8 @@
 " Section: Options {{{1
 set mousehide
 set guioptions=agmrbtT
+" The 'e' option is for nice graphical tabs. Otherwise it uses text tabs.
+"set guioptions+=e
 set listchars+=tab:мн
 set nohlsearch
 
