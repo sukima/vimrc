@@ -187,7 +187,7 @@ endif
 if version >= 700
     " add a mapping for convenience since vimspell will not be loaded in
     " version 7.x
-    noremap <Leader>s :set spell!<Cr><Bar>:echo "Spell checking: " . strpart("OffOn", 3 * &spell, 3)<Cr>
+    noremap <Leader>s :call SetSpellingNavigation()<Cr>
 endif
 " <Leader>w conflicts with some filetype mappings.
 noremap <Leader>ww :silent! call SetWrapNavigation()<Cr>
@@ -298,6 +298,31 @@ function SetWrapNavigation( )
 	"vnoremap <buffer> 0 g0
 	"vnoremap <buffer> ^ g^
 	"vnoremap <buffer> $ g$
+    endif
+endfunction
+
+" Section: Toggle Spelling Navigation {{{2
+function SetSpellingNavigation( )
+    " ViewSetup() has conflicting mappings. Can't use spell while nomodifiable
+    " anyway.
+    if g:viewState == 0
+        echohl Error
+        echo "Cannot use spelling. File nomodifiable."
+        echohl None
+    else
+        if &spell
+            set nospell
+            nunmap <Cr>
+            nunmap <Space>
+            nunmap <S-Space>
+            echo "Spell checking: Off"
+        else
+            set spell
+            nnoremap <Cr> z=
+            nnoremap <Space> ]s
+            nnoremap <S-Space> [s
+            echo "Spell checking: On ([Space] Next, [Enter] Suggest, [S-Space] Prev)"
+        endif
     endif
 endfunction
 
