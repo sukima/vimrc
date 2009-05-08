@@ -329,13 +329,16 @@ endfunction
 " Section: Pager Function for 'view' {{{2 
 " Used for paging in a view command (like more)
 function ViewSetup( )
+    if &spell
+        call SetSpellingNavigation()
+    endif
     if g:viewState == 0
 	set modifiable
 	"filetype detect
 	nunmap q
 	nunmap Q
 	nunmap <Space>
-	nunmap -
+	nunmap <S-Space>
 	echo "View Mode: Off"
 	let g:viewState = 1
     else
@@ -343,9 +346,9 @@ function ViewSetup( )
 	nnoremap q :q!<Cr>
 	nnoremap Q :qa!<Cr>
 	nnoremap <Space> <C-f>
-	nnoremap - <C-b>
+	nnoremap <S-Space> <C-b>
 	if g:viewState != 2
-	    echo "View Mode: On"
+	    echo "View Mode: On ([Space] Page Down, [S-Space] Page Up, [q] Quit)"
 	endif
 	let g:viewState = 0
     endif
