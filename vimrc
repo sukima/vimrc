@@ -1,4 +1,4 @@
-" VIM rc $Revision: 129 $
+" VIM rc
 
 " Section: Global Options {{{1
  
@@ -127,7 +127,7 @@ let xml_allow_docbk_keywords = 1
 let xml_jump_string = "`"
 
 " Explore
-let g:explHideFiles='^\.,\.gz$,\.exe$,\.zip$'
+let explHideFiles='^\.,\.gz$,\.exe$,\.zip$'
 
 " File Type Detect {{{2
 augroup filetypedetect
@@ -189,7 +189,8 @@ if version >= 700
     " version 7.x
     noremap <Leader>s :set spell!<Cr><Bar>:echo "Spell checking: " . strpart("OffOn", 3 * &spell, 3)<Cr>
 endif
-noremap <Leader>w :silent! call SetWrapNavigation()<Cr>
+" <Leader>w conflicts with some filetype mappings.
+noremap <Leader>ww :silent! call SetWrapNavigation()<Cr>
 noremap <Leader>l :set list!<Cr>
 noremap <Leader>n :set nu!<Cr>
 noremap <Leader>t :set et!<Cr>
