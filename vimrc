@@ -119,6 +119,9 @@ let loaded_matchparen = 1
 let php_baselib = 1
 let php_folding = 0
 
+" Obj-C
+let filetype_m='objc'
+
 " Java
 let java_allow_cpp_keywords = 1
 
@@ -196,7 +199,7 @@ noremap <Leader>n :set nu!<Cr>
 noremap <Leader>t :set et!<Cr>
 noremap <silent> <Leader>f :if &fdc==0<Cr>set fdc=2<Cr>else<Cr>set fdc=0<Cr>endif<Cr>
 noremap <Leader>p :set paste!<Cr><Bar>:echo "Paste mode: " . strpart("OffOn", 3 * &paste, 3)<Cr>
-noremap <Leader>h :set hls!<Cr><Bar>:echo "highlight search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
+noremap <Leader>H :set hls!<Cr><Bar>:echo "highlight search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
  
 " Section: Quick Commands (Window Nav.) {{{2
 noremap <C-q> :close<Cr>
@@ -212,7 +215,9 @@ noremap <Leader>r ggg?G``
 " For safe measures lets make a quick backup mapping.
 noremap <Leader>b :let x=&backup<Bar>set backup<Bar>write<Bar>let &backup=x<Bar>unlet x<Cr>
 " For convinent headers in text files
-nnoremap <Leader>H yyp^v$r-o<Esc>
+nnoremap <Leader>h1 yyp^v$r=o<Esc>
+nnoremap <Leader>h2 yyp^v$r-o<Esc>
+nnoremap <Leader>h3 yyp^v$r~o<Esc>
 " For quick brackets for functions/if/then/etc deffinitions
 " The first map used to work. But the new indent code (read: php indent)
 " would render this improperly if there was no text after the opening { 
