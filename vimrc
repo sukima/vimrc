@@ -127,7 +127,7 @@ let java_allow_cpp_keywords = 1
 
 " XML
 let xml_allow_docbk_keywords = 1
-let xml_jump_string = "`"
+let xml_jump_string = "-j-"
 
 " Explore
 let explHideFiles='^\.,\.gz$,\.exe$,\.zip$'
