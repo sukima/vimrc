@@ -29,7 +29,7 @@ if version >= 500
     set listchars=eol:$,tab:T-,trail:_,precedes:+,extends:+
     set showbreak=+
     set linebreak
-    set cino={0,(0,u0,t0
+    set cino={0,(0,W4,u0,t0
     set nojoinspaces
     set mouse=a	" set mouse enabled in all modes
     set mousemodel=extend
@@ -365,6 +365,7 @@ ab syncronize  synchronize
 ab syncronized synchronized
 ab responce response
 ab HttpServletResponce HttpServletResponse
+ab dominent dominant
  
 " My convince date completion commands
 cab date strftime("%a %b %d %T %Z %Y")
