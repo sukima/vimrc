@@ -196,10 +196,10 @@ endif
 noremap <Leader>ww :silent! call SetWrapNavigation()<Cr>
 noremap <Leader>l :set list!<Cr>
 noremap <Leader>n :set nu!<Cr>
-noremap <Leader>t :set et!<Cr>
+noremap <Leader>t :set et!<Cr><Bar>:echo "Expand Tab: " . strpart("OffOn", 3 * &et, 3)<Cr>
 noremap <silent> <Leader>f :if &fdc==0<Cr>set fdc=2<Cr>else<Cr>set fdc=0<Cr>endif<Cr>
 noremap <Leader>p :set paste!<Cr><Bar>:echo "Paste mode: " . strpart("OffOn", 3 * &paste, 3)<Cr>
-noremap <Leader>H :set hls!<Cr><Bar>:echo "highlight search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
+noremap <Leader>h :set hls!<Cr><Bar>:echo "Highlight Search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
  
 " Section: Quick Commands (Window Nav.) {{{2
 noremap <C-q> :close<Cr>
@@ -322,11 +322,20 @@ function SetSpellingNavigation( )
             nunmap <S-Space>
             echo "Spell checking: Off"
         else
-            set spell
-            nnoremap <Cr> z=
-            nnoremap <Space> ]s
-            nnoremap <S-Space> [s
-            echo "Spell checking: On ([Space] Next, [Enter] Suggest, [S-Space] Prev)"
+            " There are random bugs that crash vim when spell checking. Force
+            " the file to be saved before continuing.
+            if bufname("%") == ""
+                echohl Error
+                echo "Due to possible crashing during spell checking buffer must be saved first."
+                echohl Normal
+            else
+                silent write
+                set spell
+                nnoremap <Cr> z=
+                nnoremap <Space> ]s
+                nnoremap <S-Space> [s
+                echo "Spell checking: On ([Space] Next, [Enter] Suggest, [S-Space] Prev)"
+            endif
         endif
     endif
 endfunction
