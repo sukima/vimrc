@@ -26,7 +26,7 @@ endif
 " NOTE: Objective C is abbreviated to ObjC/objc
 " and uses *.h, *.m as file extensions!
 
-syn match  cocoaDirective    "@property\|@synthesize"
+syn match  cocoaDirective    "@property\|@synthesize\|@optional"
 
 syn region cocoaProperty matchgroup=cocoaDirective start="@property\s*(" end=")" contains=cocoaPropertyParam
 syn keyword cocoaPropertyParam atomic nonatomic retain assign contained
