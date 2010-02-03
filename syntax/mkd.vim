@@ -7,6 +7,7 @@
 " Remark:	Uses HTML syntax file
 " Remark:	I don't do anything with angle brackets (<>) because that would too easily
 "		easily conflict with HTML syntax
+" Remark:       Uses YAML syntax file for Jekyll Front Matter
 " TODO: 	Handle stuff contained within stuff (e.g. headings within blockquotes)
 
 
@@ -18,17 +19,16 @@ else
   unlet b:current_syntax
 endif
 
-" Read the YAML syntax for use in jekyll
-if version > 600
-  syntax include @yaml $VIMRUNTIME/syntax/yaml.vim
-  unlet b:current_syntax
-  syntax region yamlFrontMatter start='^---' end='^---' contains=@yaml
-endif
-
 if version < 600
   syntax clear
 elseif exists("b:current_syntax")
   finish
+endif
+
+" Read the YAML syntax for use in jekyll
+if version > 600
+  syntax include @yaml $VIMRUNTIME/syntax/yaml.vim
+  syntax region yamlFrontMatter start='^---'ms=s+3 end='^---'me=s-3 contains=@yaml
 endif
 
 " don't use standard HiLink, it will not work with included syntax files
