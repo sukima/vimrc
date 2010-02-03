@@ -18,6 +18,13 @@ else
   unlet b:current_syntax
 endif
 
+" Read the YAML syntax for use in jekyll
+if version > 600
+  syntax include @yaml $VIMRUNTIME/syntax/yaml.vim
+  unlet b:current_syntax
+  syntax region yamlFrontMatter start='^---' end='^---' contains=@yaml
+endif
+
 if version < 600
   syntax clear
 elseif exists("b:current_syntax")
