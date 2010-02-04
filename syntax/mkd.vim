@@ -25,12 +25,6 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-" Read the YAML syntax for use in jekyll
-if version > 600
-  syntax include @yaml $VIMRUNTIME/syntax/yaml.vim
-  syntax region yamlFrontMatter start='^---'ms=s+3 end='^---'me=s-3 contains=@yaml
-endif
-
 " don't use standard HiLink, it will not work with included syntax files
 if version < 508
   command! -nargs=+ HtmlHiLink hi link <args>
@@ -88,6 +82,12 @@ syn region htmlH5       start="^\s*#####"               end="\($\|#\+\)" contain
 syn region htmlH6       start="^\s*######"              end="\($\|#\+\)" contains=@Spell
 syn match  htmlH1       /^.\+\n=\+$/ contains=@Spell
 syn match  htmlH2       /^.\+\n-\+$/ contains=@Spell
+
+" Read the YAML syntax for use in jekyll
+if version > 600
+  syntax include @yaml $VIMRUNTIME/syntax/yaml.vim
+  syntax region yamlFrontMatter matchgroup=mkdBlockquote start='^---\s*\n' end='^---\s*\n' contains=@yaml
+endif
 
 "highlighting for Markdown groups
 HtmlHiLink mkdString	    String
