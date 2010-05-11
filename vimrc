@@ -99,6 +99,9 @@ if filereadable("/usr/share/dict/words")
     set dictionary+=/usr/share/dict/words
 endif
 
+" Section: Load Pathogen {{{2
+call pathogen#runtime_append_all_bundles()
+
 " Section: File Type & Syntax Options{{{1
 " Plugin / Syntax Options {{{2
 " vimspell

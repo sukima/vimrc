@@ -1,3 +1,6 @@
 [submodule "ftplugin"]
 	path = ftplugin
 	url = git@github.com:sukima/xmledit.git
+[submodule "autoload"]
+	path = autoload
+	url = git://github.com/paulnicholson/vim-pathogen.git
