@@ -100,7 +100,9 @@ if filereadable("/usr/share/dict/words")
 endif
 
 " Section: Load Pathogen {{{2
-call pathogen#runtime_append_all_bundles()
+if exists("*pathogen#runtime_append_all_bundles")
+    call pathogen#runtime_append_all_bundles()
+endif
 
 " Section: File Type & Syntax Options{{{1
 " Plugin / Syntax Options {{{2
