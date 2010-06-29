@@ -15,6 +15,8 @@ else
     set number
 endif
 set nobackup
+set modeline
+set modelines=3
 
 " Section: VIM 5.x Options {{{2
 if version >= 500 
