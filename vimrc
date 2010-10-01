@@ -58,7 +58,7 @@ if version >= 500
     " File type stuff.
     set fileformats+=mac
     " Force all non GUI to have a dark background (Overriden in gvimrc)
-    set background=dark
+    "set background=dark
 endif
 
 " Section: VIM 6.x Options {{{2
@@ -75,7 +75,7 @@ if version >= 600
     " Allows suffixes to be added to a `gf' file search
     set suffixesadd=.java
     " Force all non GUI to have a dark background (Overriden in gvimrc)
-    set background=dark
+    "set background=dark
     " Make Jikes supported for QuickFix.
     "set efm+=%A%f:%l:%c:%*\\d:%*\\d:,
     "    \%C%*\\s%trror:%m,
@@ -104,6 +104,7 @@ endif
 " Section: Load Pathogen {{{2
 if exists("*pathogen#runtime_append_all_bundles")
     call pathogen#runtime_append_all_bundles()
+    call pathogen#helptags()
 endif
 
 " Section: File Type & Syntax Options{{{1
@@ -134,7 +135,7 @@ let java_allow_cpp_keywords = 1
 
 " XML
 let xml_allow_docbk_keywords = 1
-let xml_jump_string = "-j-"
+"let xml_jump_string = "-j-"
 
 " Explore
 let explHideFiles='^\.,\.gz$,\.exe$,\.zip$'
@@ -200,13 +201,14 @@ if version >= 700
     noremap <Leader>s :call SetSpellingNavigation()<Cr>
 endif
 " <Leader>w conflicts with some filetype mappings.
-noremap <Leader>ww :silent! call SetWrapNavigation()<Cr>
-noremap <Leader>l :set list!<Cr>
-noremap <Leader>n :set nu!<Cr>
-noremap <Leader>t :set et!<Cr><Bar>:echo "Expand Tab: " . strpart("OffOn", 3 * &et, 3)<Cr>
-noremap <silent> <Leader>f :if &fdc==0<Cr>set fdc=2<Cr>else<Cr>set fdc=0<Cr>endif<Cr>
-noremap <Leader>p :set paste!<Cr><Bar>:echo "Paste mode: " . strpart("OffOn", 3 * &paste, 3)<Cr>
-noremap <Leader>h :set hls!<Cr><Bar>:echo "Highlight Search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
+nnoremap <Leader>ww :silent! call SetWrapNavigation()<Cr>
+nnoremap <Leader>l :set list!<Cr>
+nnoremap <Leader>n :set nu!<Cr>
+nnoremap <Leader>t :set et!<Cr><Bar>:echo "Expand Tab: " . strpart("OffOn", 3 * &et, 3)<Cr>
+nnoremap <silent> <Leader>f :if &fdc==0<Cr>set fdc=2<Cr>else<Cr>set fdc=0<Cr>endif<Cr>
+nnoremap <Leader>p :set paste!<Cr><Bar>:echo "Paste mode: " . strpart("OffOn", 3 * &paste, 3)<Cr>
+set pastetoggle=<ESC>1 " For added ease
+nnoremap <Leader>/ :set hls!<Cr><Bar>:echo "Highlight Search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
  
 " Section: Quick Commands (Window Nav.) {{{2
 noremap <C-q> :close<Cr>
@@ -252,6 +254,13 @@ noremap <Leader>z :NERDTree<Cr>
 command Cwd cd %:h
 command Undiff set nodiff foldcolumn=0
 command Ant set makeprg=ant\ -find\ build.xml | set efm=%A\ %#[.\\{-1,}]\ %f:%l:\ %m,%-Z\ %#[.\\{-1,}]\ %p^,%-C%.%#
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+
+" Section: GPG Commands {{{1
+command GPGclearsign %!gpg --clearsign
+command GPGencryptsign %!gpg -seat
+command GPGencrypt %!gpg -eat
+command GPGdecrypt %!gpg -d
 
 " Section: Functions {{{1 
 " Section: Toggle Comment Functions {{{2
