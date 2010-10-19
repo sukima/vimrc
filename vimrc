@@ -1,5 +1,21 @@
 " VIM rc
 
+" This repository has a submodule for vim-update-bundles
+" (http://github.com/bronson/vim-update-bundles)
+" run install.sh to setup this process.
+
+" Preffered bundles:
+" BUNDLE: git@github.com:sukima/xmledit.git
+" BUNDLE: git://github.com/tpope/vim-rails.git
+" BUNDLE: git://github.com/tpope/vim-vividchalk.git
+" BUNDLE: git://github.com/tpope/vim-haml.git
+" BUNDLE: git://github.com/tpope/vim-endwise.git
+" BUNDLE: git://github.com/tpope/vim-surround.git
+" BUNDLE: git://github.com/tpope/vim-abolish.git
+" BUNDLE: git://github.com/tpope/vim-repeat.git
+" BUNDLE: git://github.com/scrooloose/nerdtree.git
+" BUNDLE: git://github.com/scrooloose/nerdcommenter.git
+
 " Section: Global Options {{{1
  
 " Section: Common Options  {{{2
@@ -103,8 +119,8 @@ endif
 
 " Section: Load Pathogen {{{2
 if exists("*pathogen#runtime_append_all_bundles")
+    filetype off
     call pathogen#runtime_append_all_bundles()
-    call pathogen#helptags()
 endif
 
 " Section: File Type & Syntax Options{{{1
