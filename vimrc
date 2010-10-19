@@ -265,6 +265,12 @@ inoremap <S-Down> <C-O><Esc>
 " Add a quick map top open NERDTree (Plugin must be installed.)
 " http://www.vim.org/scripts/script.php?script_id=1658
 noremap <Leader>z :NERDTree<Cr>
+" Bubble single lines
+nmap <C-k> ddkP
+nmap <C-j> ddp
+" Bubble multiple lines
+vmap <C-k> xkP`[V`]
+vmap <C-j> xp`[V`]
 
 " Section: Convenience Commands {{{1
 command Cwd cd %:h
