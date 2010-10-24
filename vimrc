@@ -15,6 +15,7 @@
 " BUNDLE: git://github.com/tpope/vim-repeat.git
 " BUNDLE: git://github.com/scrooloose/nerdtree.git
 " BUNDLE: git://github.com/scrooloose/nerdcommenter.git
+" BUNDLE: git://repo.or.cz/vcscommand
 
 " Section: Global Options {{{1
  
