@@ -5,7 +5,7 @@
 " run install.sh to setup this process.
 
 " Preffered bundles:
-" BUNDLE: git@github.com:sukima/xmledit.git
+" BUNDLE: https://sukima@github.com/sukima/xmledit.git
 " BUNDLE: git://github.com/tpope/vim-rails.git
 " BUNDLE: git://github.com/tpope/vim-vividchalk.git
 " BUNDLE: git://github.com/tpope/vim-haml.git
