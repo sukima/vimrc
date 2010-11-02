@@ -16,13 +16,13 @@ syntax enable
 " Section: OS Specifics {{{1
 " Standard Sizing {{{2
 " start gui with a standard size. (in case the calling term is not 80x25)
-set lines=50
-if &diff
+"set lines=50
+"if &diff
     set columns=140
-else
+"else
    " 80 plus the 9 for the numbers in 'set nu' plus 2 for foldcolumn
-    set columns=91
-endif
+   "set columns=91
+"endif
 
 " Windows Based Platforms {{{2 
 if has ("gui_win32") " Imfamous Win Hell

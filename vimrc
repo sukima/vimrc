@@ -4,7 +4,7 @@
 " (http://github.com/bronson/vim-update-bundles)
 " run install.sh to setup this process.
 
-" Preffered bundles:
+" Preferred bundles:
 " BUNDLE: https://sukima@github.com/sukima/xmledit.git
 " BUNDLE: git://github.com/tpope/vim-rails.git
 " BUNDLE: git://github.com/tpope/vim-vividchalk.git
@@ -16,6 +16,12 @@
 " BUNDLE: git://github.com/scrooloose/nerdtree.git
 " BUNDLE: git://github.com/scrooloose/nerdcommenter.git
 " BUNDLE: git://repo.or.cz/vcscommand
+
+" Section: Load Pathogen {{{1
+if exists("*pathogen#runtime_append_all_bundles")
+    filetype off
+    call pathogen#runtime_append_all_bundles()
+endif
 
 " Section: Global Options {{{1
  
@@ -116,12 +122,6 @@ if filereadable($VIM . "/words")
 endif
 if filereadable("/usr/share/dict/words")
     set dictionary+=/usr/share/dict/words
-endif
-
-" Section: Load Pathogen {{{2
-if exists("*pathogen#runtime_append_all_bundles")
-    filetype off
-    call pathogen#runtime_append_all_bundles()
 endif
 
 " Section: File Type & Syntax Options{{{1
