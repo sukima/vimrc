@@ -13,9 +13,10 @@
 " BUNDLE: git://github.com/tpope/vim-surround.git
 " BUNDLE: git://github.com/tpope/vim-abolish.git
 " BUNDLE: git://github.com/tpope/vim-repeat.git
+" BUNDLE: git://github.com/tpope/vim-fugitive.git
 " BUNDLE: git://github.com/scrooloose/nerdtree.git
 " BUNDLE: git://github.com/scrooloose/nerdcommenter.git
-" BUNDLE: git://repo.or.cz/vcscommand
+" BUNDLE: git://github.com/vim-scripts/Gist.vim.git
 
 " Section: Load Pathogen {{{1
 if exists("*pathogen#runtime_append_all_bundles")
