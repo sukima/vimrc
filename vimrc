@@ -158,6 +158,12 @@ let xml_allow_docbk_keywords = 1
 " Explore
 let explHideFiles='^\.,\.gz$,\.exe$,\.zip$'
 
+" Fugitive
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+" NERDCommenter
+let g:NERDSpaceDelims=1
+
 " File Type Detect {{{2
 augroup filetypedetect
     " phplib template files
@@ -266,7 +272,8 @@ inoremap <S-Up> <C-O><Esc>
 inoremap <S-Down> <C-O><Esc>
 " Add a quick map top open NERDTree (Plugin must be installed.)
 " http://www.vim.org/scripts/script.php?script_id=1658
-noremap <Leader>z :NERDTree<Cr>
+noremap <Leader>zz :NERDTreeToggle<Cr>
+noremap <Leader>zm :NERDTreeMirror<Cr>
 " Bubble single lines
 nmap <C-k> ddkP
 nmap <C-j> ddp
