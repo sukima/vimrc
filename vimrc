@@ -7,7 +7,6 @@
 " Preferred bundles:
 " BUNDLE: https://sukima@github.com/sukima/xmledit.git
 " BUNDLE: git://github.com/tpope/vim-rails.git
-" BUNDLE: git://github.com/tpope/vim-vividchalk.git
 " BUNDLE: git://github.com/tpope/vim-haml.git
 " BUNDLE: git://github.com/tpope/vim-endwise.git
 " BUNDLE: git://github.com/tpope/vim-surround.git
