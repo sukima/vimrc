@@ -18,10 +18,8 @@
 " BUNDLE: git://github.com/vim-scripts/Gist.vim.git
 
 " Section: Load Pathogen {{{1
-if exists("*pathogen#runtime_append_all_bundles")
-    filetype off
-    call pathogen#runtime_append_all_bundles()
-endif
+filetype off
+silent! call pathogen#runtime_append_all_bundles()
 
 " Section: Global Options {{{1
  
