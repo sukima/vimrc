@@ -13,6 +13,7 @@
 " BUNDLE: git://github.com/tpope/vim-abolish.git
 " BUNDLE: git://github.com/tpope/vim-repeat.git
 " BUNDLE: git://github.com/tpope/vim-fugitive.git
+" BUNDLE: git://github.com/tpope/vim-markdown.git
 " BUNDLE: git://github.com/scrooloose/nerdtree.git
 " BUNDLE: git://github.com/scrooloose/nerdcommenter.git
 " BUNDLE: git://github.com/vim-scripts/Gist.vim.git
