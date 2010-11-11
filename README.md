@@ -1,6 +1,6 @@
 EDITOR=`which vim`
 
-if [ -x $EDITOR ]
+if [ -x $EDITOR ]; then
     VIMRUNTIME=`vim -e -T dumb --cmd 'exe "set t_cm=\<C-M>"|echo $VIMRUNTIME|quit' | tr -d '\015' `
     if [ -x $VIMRUNTIME/macros/less.sh ]; then
         PAGER=$VIMRUNTIME/macros/less.sh
