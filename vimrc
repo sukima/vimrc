@@ -16,7 +16,7 @@
 " BUNDLE: git://github.com/tpope/vim-markdown.git
 " BUNDLE: git://github.com/scrooloose/nerdtree.git
 " BUNDLE: git://github.com/scrooloose/nerdcommenter.git
-" BUNDLE: git://github.com/vim-scripts/Gist.vim.git
+" BUNDLE: git://github.com/mattn/zencoding-vim.git
 
 " Section: Load Pathogen {{{1
 filetype off
