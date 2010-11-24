@@ -162,6 +162,9 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " NERDCommenter
 let g:NERDSpaceDelims=1
 
+" zencoding-vim
+let g:user_zen_leader_key='<c-e>'
+
 " File Type Detect {{{2
 augroup filetypedetect
     " phplib template files
