@@ -17,6 +17,8 @@
 " BUNDLE: git://github.com/scrooloose/nerdtree.git
 " BUNDLE: git://github.com/scrooloose/nerdcommenter.git
 " BUNDLE: git://github.com/mattn/zencoding-vim.git
+" BUNDLE: git://github.com/msanders/snipmate.vim.git
+" BUNDLE: git://github.com/scrooloose/snipmate-snippets.git
 
 " Section: Load Pathogen {{{1
 filetype off
@@ -165,6 +167,13 @@ let g:NERDSpaceDelims=1
 " zencoding-vim
 let g:user_zen_leader_key='<c-e>'
 
+" snipMate
+" This overrides the deafult location which is to search the &rtp. Because
+" snipmate-snippets overides the defaults in snipMate we force snippets to
+" load only from these directory excluding the defaults.
+let g:snippets_dir="$HOME/.vim/snippets,$HOME/.vim/bundle/snipmate-snippets"
+let g:snips_author='Devin Weaver'
+
 " File Type Detect {{{2
 augroup filetypedetect
     " phplib template files
@@ -199,6 +208,7 @@ augroup END
 " Turn on filetype checks and syntax highlighting 
 filetype plugin indent on
 syntax on
+
 
 " Section: Mappings {{{1
  
