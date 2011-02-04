@@ -5,20 +5,19 @@
 " run install.sh to setup this process.
 
 " Preferred bundles:
-" BUNDLE: https://sukima@github.com/sukima/xmledit.git
-" BUNDLE: git://github.com/tpope/vim-rails.git
-" BUNDLE: git://github.com/tpope/vim-haml.git
-" BUNDLE: git://github.com/tpope/vim-endwise.git
-" BUNDLE: git://github.com/tpope/vim-surround.git
-" BUNDLE: git://github.com/tpope/vim-abolish.git
-" BUNDLE: git://github.com/tpope/vim-repeat.git
-" BUNDLE: git://github.com/tpope/vim-fugitive.git
-" BUNDLE: git://github.com/tpope/vim-markdown.git
-" BUNDLE: git://github.com/scrooloose/nerdtree.git
-" BUNDLE: git://github.com/scrooloose/nerdcommenter.git
-" BUNDLE: git://github.com/mattn/zencoding-vim.git
-" BUNDLE: git://github.com/msanders/snipmate.vim.git
-" BUNDLE: git://github.com/scrooloose/snipmate-snippets.git
+" BUNDLE: https://github.com/tpope/vim-rails.git
+" BUNDLE: https://github.com/tpope/vim-haml.git
+" BUNDLE: https://github.com/tpope/vim-endwise.git
+" BUNDLE: https://github.com/tpope/vim-surround.git
+" BUNDLE: https://github.com/tpope/vim-abolish.git
+" BUNDLE: https://github.com/tpope/vim-repeat.git
+" BUNDLE: https://github.com/tpope/vim-fugitive.git
+" BUNDLE: https://github.com/tpope/vim-markdown.git
+" BUNDLE: https://github.com/scrooloose/nerdtree.git
+" BUNDLE: https://github.com/scrooloose/nerdcommenter.git
+" BUNDLE: https://github.com/mattn/zencoding-vim.git
+" BUNDLE: https://github.com/msanders/snipmate.vim.git
+" BUNDLE: https://github.com/scrooloose/snipmate-snippets.git
 
 " Section: Load Pathogen {{{1
 filetype off
