@@ -5,6 +5,7 @@
 " run install.sh to setup this process.
 
 " Preferred bundles:
+" BUNDLE: https://github.com/edsono/vim-matchit.git
 " BUNDLE: https://github.com/tpope/vim-rails.git
 " BUNDLE: https://github.com/tpope/vim-haml.git
 " BUNDLE: https://github.com/tpope/vim-endwise.git
