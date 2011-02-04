@@ -375,9 +375,12 @@ function SetSpellingNavigation( )
     else
         if &spell
             set nospell
-            nunmap <Cr>
+            nunmap <CR>
+            nunmap +
             nunmap <Space>
+            nunmap =
             nunmap <S-Space>
+            nunmap -
             echo "Spell checking: Off"
         else
             " There are random bugs that crash vim when spell checking. Force
@@ -389,10 +392,13 @@ function SetSpellingNavigation( )
             else
                 silent write
                 set spell
-                nnoremap <Cr> z=
+                nnoremap <CR> z=
+                nnoremap + z=
                 nnoremap <Space> ]s
+                nnoremap = ]s
                 nnoremap <S-Space> [s
-                echo "Spell checking: On ([Space] Next, [Enter] Suggest, [S-Space] Prev)"
+                nnoremap - [s
+                echo "Spell checking: On ([Space/=] Next, [Enter/+] Suggest, [S-Space/-] Prev)"
             endif
         endif
     endif
