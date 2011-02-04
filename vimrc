@@ -448,11 +448,14 @@ cab ldate strftime("%B %d, %Y")
 cab fdate strftime("%m%d%Y")
 
 " Section: Misc. {{{1 
-" Is there a tags file? Is so I'd like to use it's absolute path in case we
+" Is there a tags file? If so I'd like to use it's absolute path in case we
 " chdir later
 if filereadable("tags")
     exec "set tags+=" . getcwd() . "/tags"
 endif
+
+" Allow easy creation of tags. Assuming ctags installed.
+command Ctags !ctags -R --exclude=.svn --exclude=.git --exclude=log*
 
 " Are we using VIM as a pager?
 if v:progname =~ "view"
