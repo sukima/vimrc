@@ -1,0 +1,8 @@
+context "GET :new" do
+  setup do
+    get :new
+  end
+  should assign_to(:${1:model})
+  should respond_with :success
+  should render_template :new
+end${2}

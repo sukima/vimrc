@@ -1,0 +1,8 @@
+context "GET :index" do
+  setup do
+    get :index
+  end
+  should assign_to(:${1:model}s)
+  should respond_with :success
+  should render_template :index
+end${2}

@@ -1,0 +1,8 @@
+context "PUT :update" do
+  setup do
+    @f = Factory(:${1:factory})
+    @f.${2:field} = "test_update_model_$1_field_$2"
+    put :update, :id => @f.id, :$1 => @f.attributes
+  end
+  should redirect_to(":show") { $1_path(@f) }
+end${3}

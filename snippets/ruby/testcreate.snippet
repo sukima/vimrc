@@ -1,0 +1,11 @@
+context "POST :create" do
+  setup do
+    @f = Factory.build(:${1:model})
+    @old_count = ${2:Model}.count
+    post :create, :$1 => @f.attributes
+  end
+  should "increase count by 1" do
+    assert $2.count - @old_count == 1
+  end
+  should redirect_to(":show") { $1_path($2.last) }
+end${3}
