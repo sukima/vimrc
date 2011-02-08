@@ -447,6 +447,8 @@ ab catagory category
 ab Catagory Category
 ab catagories categories
 ab Catagories Categories
+ab technition technician
+ab Technition Technician
  
 " My convince date completion commands
 cab date strftime("%a %b %d %T %Z %Y")
