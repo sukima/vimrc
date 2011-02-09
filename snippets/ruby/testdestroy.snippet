@@ -1,0 +1,11 @@
+context "GET :destroy" do
+  setup do
+    @f = Factory(:${1:factory})
+    @old_count = ${2:Model}.count
+    delete :destroy, :id => @f.id
+  end
+  should "decrease count by 1" do
+    assert $2.count - @old_count == -1
+  end
+  should redirect_to(":index") { $1s_path }
+end${3}

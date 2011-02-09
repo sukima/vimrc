@@ -1,0 +1,9 @@
+context "GET :edit" do
+  setup do
+    @f = Factory(:${1:factory})
+    get :edit, :id => @f.id
+  end
+  should assign_to(:$1)
+  should respond_with :success
+  should render_template :edit
+end${2}

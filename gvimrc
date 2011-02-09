@@ -99,7 +99,8 @@ endif
 let no_buffers_menu=1
 
 " GUI Specific maps {{{1
-nnoremap <Leader>z :set columns=122<Bar>NERDTree<Cr>
+"Incorporated into vimrc no longer used.
+"nnoremap <Leader>z :set columns=122<Bar>NERDTree<Cr>
 
 " }}}1
 

@@ -5,18 +5,20 @@
 " run install.sh to setup this process.
 
 " Preferred bundles:
-" BUNDLE: https://sukima@github.com/sukima/xmledit.git
-" BUNDLE: git://github.com/tpope/vim-rails.git
-" BUNDLE: git://github.com/tpope/vim-haml.git
-" BUNDLE: git://github.com/tpope/vim-endwise.git
-" BUNDLE: git://github.com/tpope/vim-surround.git
-" BUNDLE: git://github.com/tpope/vim-abolish.git
-" BUNDLE: git://github.com/tpope/vim-repeat.git
-" BUNDLE: git://github.com/tpope/vim-fugitive.git
-" BUNDLE: git://github.com/tpope/vim-markdown.git
-" BUNDLE: git://github.com/scrooloose/nerdtree.git
-" BUNDLE: git://github.com/scrooloose/nerdcommenter.git
-" BUNDLE: git://github.com/mattn/zencoding-vim.git
+" BUNDLE: https://github.com/edsono/vim-matchit.git
+" BUNDLE: https://github.com/tpope/vim-rails.git
+" BUNDLE: https://github.com/tpope/vim-haml.git
+" BUNDLE: https://github.com/tpope/vim-endwise.git
+" BUNDLE: https://github.com/tpope/vim-surround.git
+" BUNDLE: https://github.com/tpope/vim-abolish.git
+" BUNDLE: https://github.com/tpope/vim-repeat.git
+" BUNDLE: https://github.com/tpope/vim-fugitive.git
+" BUNDLE: https://github.com/tpope/vim-markdown.git
+" BUNDLE: https://github.com/scrooloose/nerdtree.git
+" BUNDLE: https://github.com/scrooloose/nerdcommenter.git
+" BUNDLE: https://github.com/mattn/zencoding-vim.git
+" BUNDLE: https://github.com/msanders/snipmate.vim.git
+" BUNDLE: https://github.com/scrooloose/snipmate-snippets.git
 
 " Section: Load Pathogen {{{1
 filetype off
@@ -162,6 +164,16 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 " NERDCommenter
 let g:NERDSpaceDelims=1
 
+" zencoding-vim
+let g:user_zen_leader_key='<c-e>'
+
+" snipMate
+" This overrides the deafult location which is to search the &rtp. Because
+" snipmate-snippets overides the defaults in snipMate we force snippets to
+" load only from these directory excluding the defaults.
+let g:snippets_dir="$HOME/.vim/snippets,$HOME/.vim/bundle/snipmate-snippets"
+let g:snips_author='Devin Weaver'
+
 " File Type Detect {{{2
 augroup filetypedetect
     " phplib template files
@@ -196,6 +208,7 @@ augroup END
 " Turn on filetype checks and syntax highlighting 
 filetype plugin indent on
 syntax on
+
 
 " Section: Mappings {{{1
  
@@ -362,9 +375,12 @@ function SetSpellingNavigation( )
     else
         if &spell
             set nospell
-            nunmap <Cr>
+            nunmap <CR>
+            nunmap +
             nunmap <Space>
+            nunmap =
             nunmap <S-Space>
+            nunmap -
             echo "Spell checking: Off"
         else
             " There are random bugs that crash vim when spell checking. Force
@@ -376,10 +392,13 @@ function SetSpellingNavigation( )
             else
                 silent write
                 set spell
-                nnoremap <Cr> z=
+                nnoremap <CR> z=
+                nnoremap + z=
                 nnoremap <Space> ]s
+                nnoremap = ]s
                 nnoremap <S-Space> [s
-                echo "Spell checking: On ([Space] Next, [Enter] Suggest, [S-Space] Prev)"
+                nnoremap - [s
+                echo "Spell checking: On ([Space/=] Next, [Enter/+] Suggest, [S-Space/-] Prev)"
             endif
         endif
     endif
@@ -413,34 +432,15 @@ function ViewSetup( )
     endif
 endfunction
 
-" Section: Auto Correction {{{1
-" My commonly misspelled words.
-ab syncronize  synchronize
-ab Syncronize  Synchronize
-ab syncronized synchronized
-ab Syncronized Synchronized
-ab responce response
-ab Responce Response
-ab HttpServletResponce HttpServletResponse
-ab dominent dominant
-ab Dominent Dominant
-ab catagory category
-ab Catagory Category
-ab catagories categories
-ab Catagories Categories
- 
-" My convince date completion commands
-cab date strftime("%a %b %d %T %Z %Y")
-cab sdate strftime("%m/%d/%y")
-cab ldate strftime("%B %d, %Y")
-cab fdate strftime("%m%d%Y")
-
 " Section: Misc. {{{1 
-" Is there a tags file? Is so I'd like to use it's absolute path in case we
+" Is there a tags file? If so I'd like to use it's absolute path in case we
 " chdir later
 if filereadable("tags")
     exec "set tags+=" . getcwd() . "/tags"
 endif
+
+" Allow easy creation of tags. Assuming ctags installed.
+command Ctags !ctags -R --exclude=.svn --exclude=.git --exclude=log*
 
 " Are we using VIM as a pager?
 if v:progname =~ "view"
@@ -460,6 +460,9 @@ if (version < 600 && filereadable($VIMRUNTIME . "/macros/explorer.vim"))
 endif
 
 "}}}1
+
+" Load abbreviations
+runtime abbrev.vim
 
 " So multiple places can have a special config without affecting the core
 " vimrc.
