@@ -167,6 +167,10 @@ let g:NERDSpaceDelims=1
 " zencoding-vim
 let g:user_zen_leader_key='<c-e>'
 
+" Rails
+" tmux buggers up vim's display avoid using it.
+let g:rails_gnu_screen=0
+
 " snipMate
 " This overrides the deafult location which is to search the &rtp. Because
 " snipmate-snippets overides the defaults in snipMate we force snippets to
