@@ -295,6 +295,9 @@ nmap <C-j> ddp
 " Bubble multiple lines
 vmap <C-k> xkP`[V`]
 vmap <C-j> xp`[V`]
+" Add blank lines without insert
+nmap <Leader>o o<Esc>
+nmap <Leader>O O<Esc>
 
 " Section: Convenience Commands {{{1
 command Cwd cd %:h
