@@ -19,6 +19,7 @@
 " BUNDLE: https://github.com/mattn/zencoding-vim.git
 " BUNDLE: https://github.com/msanders/snipmate.vim.git
 " BUNDLE: https://github.com/scrooloose/snipmate-snippets.git
+" BUNDLE: https://github.com/kchmck/vim-coffee-script.git
 
 " Section: Load Pathogen {{{1
 filetype off
