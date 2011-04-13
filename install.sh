@@ -31,6 +31,10 @@ if [ -e $HOME/.gvimrc ]; then
         echo "Saved old gvimrc to $HOME/gvimrc.old"
     fi
 fi
+if [ ! -d $HOME/tmp ]; then
+    mkdir $HOME/tmp
+    echo "Created swapfile directory: $HOME/tmp"
+fi
 
 
 if [ ! -e $HOME/.vimrc ]; then

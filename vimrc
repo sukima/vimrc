@@ -42,6 +42,9 @@ endif
 set nobackup
 set modeline
 set modelines=3
+" Save swapfile to home tmp directory.
+" You must have a `$HOME/tmp` directory for this to work.
+set directory=~/tmp
 
 " Section: VIM 5.x Options {{{2
 if version >= 500 
