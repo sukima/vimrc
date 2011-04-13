@@ -262,44 +262,47 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " Section: Utility Mappings {{{2
-" A panic button! So no one accidentally sees words they arn't supposed to.
+" A panic button! {{{3
+" So no one accidentally sees words they arn't supposed to.
 noremap <Leader>r ggg?G``
-" For safe measures lets make a quick backup mapping.
+" For safe measures lets make a quick backup mapping. {{{3
 noremap <Leader>b :let x=&backup<Bar>set backup<Bar>write<Bar>let &backup=x<Bar>unlet x<Cr>
-" For convinent headers in text files
+" For convinent headers in text files {{{3
 nnoremap <Leader>h1 yyp^v$r=o<Esc>
 nnoremap <Leader>h2 yyp^v$r-o<Esc>
 nnoremap <Leader>h3 yyp^v$r~o<Esc>
-" For quick brackets for functions/if/then/etc deffinitions
+" For quick brackets for functions/if/then/etc deffinitions {{{3
+" ** Deprecated for endwise bundle. **
 " The first map used to work. But the new indent code (read: php indent)
 " would render this improperly if there was no text after the opening { 
 "inoremap <Leader><Cr> <Cr>{<Cr>}<Up><Cr>
-inoremap <Leader><Cr> <Cr>{<Cr>x<Cr>}<Up><End><Backspace>
-inoremap <Leader>] <Space>{<Cr>x<Cr>}<Up><End><Backspace>
-" Make a quick comment. Uses 'commentstring' setting
-" and the toggleComment() function defined below.
-if version >= 700
-    nnoremap <Leader>c :call AddLineComment()<Cr>
-    nnoremap <Leader>C :call RemoveLineComment()<Cr>
-endif
-" Mark a new section with cut marks
+" inoremap <Leader><Cr> <Cr>{<Cr>x<Cr>}<Up><End><Backspace>
+" inoremap <Leader>] <Space>{<Cr>x<Cr>}<Up><End><Backspace>
+" Make a quick comment. {{{3
+" ** Deprecated for nerdcommenter. **
+" Uses 'commentstring' setting and the toggleComment() function defined below.
+" if version >= 700
+    " nnoremap <Leader>c :call AddLineComment()<Cr>
+    " nnoremap <Leader>C :call RemoveLineComment()<Cr>
+" endif
+" Mark a new section with cut marks {{{3
 nnoremap <Leader>S o----- 8< ----- 8< -----<Cr><Esc><Up>:call AddLineComment()<Cr><Down><Home>
-" The use of shift and an arrow key is ANNOYING! Make it stop!
+" The use of shift and an arrow key is ANNOYING! Make it stop! {{{3
 nnoremap <S-Up> <Esc>
 nnoremap <S-Down> <Esc>
 inoremap <S-Up> <C-O><Esc>
 inoremap <S-Down> <C-O><Esc>
-" Add a quick map top open NERDTree (Plugin must be installed.)
+" Add a quick map top open NERDTree (Plugin must be installed.) {{{3
 " http://www.vim.org/scripts/script.php?script_id=1658
 noremap <Leader>zz :NERDTreeToggle<Cr>
 noremap <Leader>zm :NERDTreeMirror<Cr>
-" Bubble single lines
+" Bubble single lines {{{3
 nmap <C-k> ddkP
 nmap <C-j> ddp
-" Bubble multiple lines
+" Bubble multiple lines {{{3
 vmap <C-k> xkP`[V`]
 vmap <C-j> xp`[V`]
-" Add blank lines without insert
+" Add blank lines without insert {{{3
 nmap <Leader>o o<Esc>
 nmap <Leader>O O<Esc>
 
