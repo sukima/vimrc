@@ -20,6 +20,7 @@
 " BUNDLE: https://github.com/msanders/snipmate.vim.git
 " BUNDLE: https://github.com/scrooloose/snipmate-snippets.git
 " BUNDLE: https://github.com/kchmck/vim-coffee-script.git
+" BUNDLE: https://github.com/vim-scripts/vimwiki.git
 
 " Section: Load Pathogen {{{1
 filetype off
@@ -244,7 +245,7 @@ if version >= 700
     noremap <Leader>s :call SetSpellingNavigation()<Cr>
 endif
 " <Leader>w conflicts with some filetype mappings.
-nnoremap <Leader>ww :silent! call SetWrapNavigation()<Cr>
+nnoremap <Leader>W :silent! call SetWrapNavigation()<Cr>
 nnoremap <Leader>l :set list!<Cr>
 nnoremap <Leader>n :set nu!<Cr>
 nnoremap <Leader>t :set et!<Cr><Bar>:echo "Expand Tab: " . strpart("OffOn", 3 * &et, 3)<Cr>
