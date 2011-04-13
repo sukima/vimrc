@@ -306,6 +306,9 @@ vmap <C-j> xp`[V`]
 " Add blank lines without insert {{{3
 nmap <Leader>o o<Esc>
 nmap <Leader>O O<Esc>
+" initiate a date stamped note {{{3
+map <Leader>J I<C-r>=strftime("%m/%d/%Y")<Cr>:<Space>
+
 
 " Section: Convenience Commands {{{1
 command Cwd cd %:h
