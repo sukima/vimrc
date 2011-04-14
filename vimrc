@@ -307,7 +307,7 @@ vmap <C-j> xp`[V`]
 nmap <Leader>o o<Esc>
 nmap <Leader>O O<Esc>
 " initiate a date stamped note {{{3
-map <Leader>J I<C-r>=strftime("%m/%d/%Y")<Cr>:<Space>
+map <Leader>J I<C-r>=strftime("%m/%d/%Y")<Cr>:<Space><Esc>A
 
 
 " Section: Convenience Commands {{{1
