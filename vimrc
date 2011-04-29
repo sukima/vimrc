@@ -23,7 +23,6 @@
 " BUNDLE: https://github.com/vim-scripts/vimwiki.git
 
 " Section: Load Pathogen {{{1
-filetype off
 silent! call pathogen#runtime_append_all_bundles()
 
 " Section: Global Options {{{1
