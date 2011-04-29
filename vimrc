@@ -163,9 +163,6 @@ let xml_allow_docbk_keywords = 1
 " Explore
 let explHideFiles='^\.,\.gz$,\.exe$,\.zip$'
 
-" Fugitive
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
 " NERDCommenter
 let g:NERDSpaceDelims=1
 
@@ -450,6 +447,16 @@ function ViewSetup( )
     endif
 endfunction
 
+" Section: Custom statusline info {{{2
+" used to display custom data or fugative output
+function ExtraStatusInfo()
+    if exists("*fugitive#statusline")
+        return fugitive#statusline()
+    else
+        return ""
+    endif
+endfunction
+
 " Section: Misc. {{{1 
 " Is there a tags file? If so I'd like to use it's absolute path in case we
 " chdir later
@@ -476,6 +483,9 @@ endif
 if (version < 600 && filereadable($VIMRUNTIME . "/macros/explorer.vim"))
     nmap ,e :so $VIMRUNTIME/macros/explorer.vim<Cr>,e
 endif
+
+" Custom status line
+set statusline=%<%f\ %h%m%r%{ExtraStatusInfo()}%=%-14.(%l,%c%V%)\ %P
 
 "}}}1
 
