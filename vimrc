@@ -167,6 +167,11 @@ let g:NERDSpaceDelims=1
 
 " zencoding-vim
 let g:user_zen_leader_key='<c-e>'
+let g:user_zen_settings = {
+\  'html' : {
+\    'indentation' : '  '
+\  },
+\}
 
 " Rails
 " tmux buggers up vim's display avoid using it.
