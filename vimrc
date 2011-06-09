@@ -307,6 +307,8 @@ vmap <C-j> xp`[V`]
 " Add blank lines without insert {{{3
 nmap <Leader>o o<Esc>
 nmap <Leader>O O<Esc>
+" Make text multiline {{{3
+vnoremap <Leader>o <Esc>`>a<Cr><Esc>`<i<Cr><Esc>
 " initiate a date stamped note {{{3
 map <Leader>J I<C-r>=strftime("%m/%d/%Y")<Cr>:<Space><Esc>A
 
