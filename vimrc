@@ -274,12 +274,11 @@ nnoremap <Leader>h1 yyp^v$r=o<Esc>
 nnoremap <Leader>h2 yyp^v$r-o<Esc>
 nnoremap <Leader>h3 yyp^v$r~o<Esc>
 " For quick brackets for functions/if/then/etc deffinitions {{{3
-" ** Deprecated for endwise bundle. **
 " The first map used to work. But the new indent code (read: php indent)
 " would render this improperly if there was no text after the opening { 
-"inoremap <Leader><Cr> <Cr>{<Cr>}<Up><Cr>
-" inoremap <Leader><Cr> <Cr>{<Cr>x<Cr>}<Up><End><Backspace>
-" inoremap <Leader>] <Space>{<Cr>x<Cr>}<Up><End><Backspace>
+" "inoremap <Leader><Cr> <Cr>{<Cr>}<Up><Cr>
+inoremap <Leader><Cr> <Cr>{<Cr>x<Cr>}<Up><End><Backspace>
+inoremap <Leader>] <Space>{<Cr>x<Cr>}<Up><End><Backspace>
 " Make a quick comment. {{{3
 " ** Deprecated for nerdcommenter. **
 " Uses 'commentstring' setting and the toggleComment() function defined below.
