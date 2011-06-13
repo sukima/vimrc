@@ -21,6 +21,7 @@
 " BUNDLE: https://github.com/scrooloose/snipmate-snippets.git
 " BUNDLE: https://github.com/kchmck/vim-coffee-script.git
 " BUNDLE: https://github.com/vim-scripts/vimwiki.git
+" BUNDLE: https://github.com/vim-scripts/Gist.vim.git
 
 " Section: Load Pathogen {{{1
 silent! call pathogen#runtime_append_all_bundles()
