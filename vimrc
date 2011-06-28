@@ -310,7 +310,7 @@ nmap <Leader>O O<Esc>
 " Make text multiline {{{3
 vnoremap <Leader>o <Esc>`>a<Cr><Esc>`<i<Cr><Esc>
 " initiate a date stamped note {{{3
-map <Leader>J I<C-r>=strftime("%m/%d/%Y")<Cr>:<Space><Esc>A
+nmap <Leader>J ^"=strftime("%m/%d/%Y")<Cr>Pa:<Space><Esc>
 
 
 " Section: Convenience Commands {{{1
