@@ -172,6 +172,9 @@ let g:user_zen_settings = {
 \  'html' : {
 \    'indentation' : '  '
 \  },
+\  'xml' : {
+\    'indentation' : '  '
+\  }
 \}
 
 " Rails
