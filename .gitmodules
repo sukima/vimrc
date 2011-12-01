@@ -1,6 +1,6 @@
-[submodule "autoload"]
-	path = autoload
-	url = git://github.com/paulnicholson/vim-pathogen.git
 [submodule "scripts/vim-update-bundles"]
 	path = scripts/vim-update-bundles
 	url = http://github.com/bronson/vim-update-bundles.git
+[submodule "dotfiles/.vim/autoload"]
+	path = dotfiles/.vim/autoload
+	url = http://github.com/paulnicholson/vim-pathogen.git
