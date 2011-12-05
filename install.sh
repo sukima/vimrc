@@ -104,24 +104,24 @@ if test $INSTALL_ARG == no; then
 else
     if test $WIN == no; then
         if test $FORCE == yes; then
-            test -e $HOME/.vimrc && { rm -f $HOME/.vimrc; echo "$HOME/.vimrc DESTROYED!"; }
-            test -e $HOME/.gvimrc && { rm -f $HOME/.gvimrc; echo "$HOME/.gvimrc DESTROYED!"; }
-            test -e $HOME/.vim && { rm -rf $HOME/.vim; echo "$HOME/.vim DESTROYED!"; }
+            test -e "$HOME/.vimrc" && { rm -f "$HOME/.vimrc"; echo "$HOME/.vimrc DESTROYED!"; }
+            test -e "$HOME/.gvimrc" && { rm -f "$HOME/.gvimrc"; echo "$HOME/.gvimrc DESTROYED!"; }
+            test -e "$HOME/.vim" && { rm -rf "$HOME/.vim"; echo "$HOME/.vim DESTROYED!"; }
         fi
-        if test -e $HOME/.vimrc; then
+        if test -e "$HOME/.vimrc"; then
             echo "$HOME/.vimrc exists. Skipping. (Using -f will destroy it!)"
         else
-            ln -s $DIR/dotfiles/.vimrc $HOME/.vimrc
+            ln -s "$DIR/dotfiles/.vimrc" "$HOME/.vimrc"
         fi
-        if test -e $HOME/.gvimrc; then
+        if test -e "$HOME/.gvimrc"; then
             echo "$HOME/.gvimrc exists. Skipping. (Using -f will destroy it!)"
         else
-            ln -s $DIR/dotfiles/.gvimrc $HOME/.gvimrc
+            ln -s "$DIR/dotfiles/.gvimrc" "$HOME/.gvimrc"
         fi
-        if test -e $HOME/.vim; then
+        if test -e "$HOME/.vim"; then
             echo "$HOME/.vim exists. Skipping. (Using -f will destroy it!)"
         else
-            ln -s $DIR/dotfiles/.vim $HOME/.vim
+            ln -s "$DIR/dotfiles/.vim" "$HOME/.vim"
         fi
     else
         cd "$DIR"
@@ -133,17 +133,17 @@ else
         if test -e ../_vimrc; then
             echo "../_vimrc exists. Skipping. (Using -f will destroy it!)"
         else
-            cp $DIR/dotfiles/.vimrc ../_vimrc
+            cp "$DIR/dotfiles/.vimrc" ../_vimrc
         fi
         if test -e ../_gvimrc; then
             echo "../_gvimrc exists. Skipping. (Using -f will destroy it!)"
         else
-            cp $DIR/dotfiles/.gvimrc ../_gvimrc
+            cp "$DIR/dotfiles/.gvimrc" ../_gvimrc
         fi
         if test -e ../vimfiles; then
             echo "../vimfiles exists. Skipping. (Using -f will destroy it!)"
         else
-            cp -r $DIR/dotfiles/.vim ../vimfiles
+            cp -r "$DIR/dotfiles/.vim" ../vimfiles
         fi
     fi
 fi
