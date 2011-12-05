@@ -1,25 +1,26 @@
 #!/bin/sh
 
 function display_usage() {
-    echo "Usage: install.sh [-M][-i][-f][-w][-p][-v][-b]"
+    echo >&2 "Usage: install.sh [-M][-i][-f][-w][-p][-v][-b] [-d prefix]"
 }
 
 function display_help() {
     display_usage
-    echo "  -M,--no-managers          Do not download and install plugin managers"
-    echo "  -i,--install              Install .vimrc, .gvimrc and .vim"
-    echo "  -w,--windows              Use windows paths (_vimrc, _gvimrc, vimfiles)"
-    echo "  -f,--force                Force overwriting vimrc, gvimrc, etc. ** DESTRUCTIVE **"
-    echo "  -p,--pathogen             Install pathogen package"
-    echo "  -b,--vim-upadate-bundles  Install vim-update-bundles package"
-    echo "  -v,--vundle               Install vundle package even if -p was used"
-    echo "  -h,--help                 This cruft"
-    echo "Cannot concatinate arguments (-IM will not work, use -I -M instead)."
+    echo >&2 "  -M,--no-managers          Do not download and install plugin managers"
+    echo >&2 "  -i,--install              Install .vimrc, .gvimrc and .vim"
+    echo >&2 "  -w,--windows              Use windows paths (_vimrc, _gvimrc, vimfiles)"
+    echo >&2 "  -f,--force                Force overwriting vimrc, gvimrc, etc. ** DESTRUCTIVE **"
+    echo >&2 "  -p,--pathogen             Install pathogen package"
+    echo >&2 "  -b,--vim-upadate-bundles  Install vim-update-bundles package"
+    echo >&2 "  -v,--vundle               Install vundle package even if -p was used"
+    echo >&2 "  -h,--help                 This cruft"
+    echo >&2 "  -d,--dir prefix           Install to prefix instead of default $HOME/.vim"
+    echo >&2 "Cannot concatinate arguments (-IM will not work, use -I -M instead)."
 }
 
 function install_package() {
     package=$1; url=$2; loc=$3
-    test -n "$loc" || loc="bundle/$package"
+    test -n "$loc" || loc="${PREFIX}/bundle/${package}"
     test -d "$loc" || mkdir -p "$loc"
     echo "$url" | grep -q "://" || url="https://github.com/${url}.git"
     echo "Using $PROG to fetch plugin manager $package to $loc."
@@ -55,6 +56,7 @@ UPDATE_BUNDLES=no
 INSTALL_ARG=no
 NO_MANAGER_ARG=no
 DIR=`dirname $0`
+PREFIX="$HOME/.vim"
 
 while test -n "$1"; do
     case "$1" in
@@ -65,38 +67,16 @@ while test -n "$1"; do
         -v|--vundle) VUNDLE_ARG=yes ;;
         -b|--vim-update-bundles) UPDATE_BUNDLES=yes ;;
         -p|--pathogen) PATHOGEN_ARG=yes ;;
+        -d|--prefix)
+            test -n "$2" || { display_usage; exit 128; }
+            PREFIX=$2;
+            shift
+            ;;
         -h|--help) display_help; exit 128 ;;
         *) display_usage; exit 128 ;;
     esac
     shift
 done
-
-
-if test $NO_MANAGER_ARG == yes; then
-    echo "Skipping plugin management install."
-else
-    if hash git 2>&-; then
-        PROG=git
-        VUNDLE=yes
-        PATHOGEN=no
-    elif hash curl 2>&-; then
-        PROG=curl
-        VUNDLE=no
-        PATHOGEN=yes
-        hash tar 2>&- || { echo >&2 "curl downloads a tar file. However, I was unable to find tar in your PATH. Aborting."; exit 1; }
-        test $VUNDLE_ARG == yes && echo >&2 "Vundle requires git which is not found in your PATH. Use at your own risk!"
-    else
-        echo >&2 "I require git or curl but was unable to find either in your PATH. Aborting."
-        exit 1
-    fi
-
-    test $PATHOGEN_ARG == yes && PATHOGEN=yes
-    test $VUNDLE_ARG == yes && VUNDLE=yes
-
-    test $VUNDLE == yes && install_package "Vundle" "gmarik/vundle"
-    test $PATHOGEN == yes && install_package "Pathogen" "tpope/vim-pathogen"
-    test $UPDATE_BUNDLES == yes && install_package "vim-update-bundles" "bronson/vim-update-bundles" "scripts/vim-update-bundles"
-fi
 
 
 if test $INSTALL_ARG == no; then
@@ -146,4 +126,32 @@ else
             cp -r "$DIR/dotfiles/in+.vim" ../vimfiles
         fi
     fi
+fi
+
+
+if test $NO_MANAGER_ARG == yes; then
+    echo "Skipping plugin management install."
+else
+    test -d "$PREFIX" || { echo >&2 "$PREFIX does not exists yet. Have you tried usinf the -i option?"; exit -1; }
+    if hash git 2>&-; then
+        PROG=git
+        VUNDLE=yes
+        PATHOGEN=no
+    elif hash curl 2>&-; then
+        PROG=curl
+        VUNDLE=no
+        PATHOGEN=yes
+        hash tar 2>&- || { echo >&2 "curl downloads a tar file. However, I was unable to find tar in your PATH. Aborting."; exit 1; }
+        test $VUNDLE_ARG == yes && echo >&2 "Vundle requires git which is not found in your PATH. Use at your own risk!"
+    else
+        echo >&2 "I require git or curl but was unable to find either in your PATH. Aborting."
+        exit 1
+    fi
+
+    test $PATHOGEN_ARG == yes && PATHOGEN=yes
+    test $VUNDLE_ARG == yes && VUNDLE=yes
+
+    test $VUNDLE == yes && install_package "Vundle" "gmarik/vundle"
+    test $PATHOGEN == yes && install_package "Pathogen" "tpope/vim-pathogen"
+    test $UPDATE_BUNDLES == yes && install_package "vim-update-bundles" "bronson/vim-update-bundles" "scripts/vim-update-bundles"
 fi
