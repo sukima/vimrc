@@ -4,32 +4,40 @@
 " (http://github.com/bronson/vim-update-bundles)
 " run install.sh to setup this process.
 
-" Preferred bundles:
-" BUNDLE: https://github.com/edsono/vim-matchit.git
-" BUNDLE: https://github.com/tpope/vim-rails.git
-" BUNDLE: https://github.com/tpope/vim-haml.git
-" BUNDLE: https://github.com/tpope/vim-endwise.git
-" BUNDLE: https://github.com/tpope/vim-surround.git
-" BUNDLE: https://github.com/tpope/vim-abolish.git
-" BUNDLE: https://github.com/tpope/vim-repeat.git
-" BUNDLE: https://github.com/tpope/vim-fugitive.git
-" BUNDLE: https://github.com/tpope/vim-markdown.git
-" BUNDLE: https://github.com/scrooloose/nerdtree.git
-" BUNDLE: https://github.com/scrooloose/nerdcommenter.git
-" BUNDLE: https://github.com/mattn/zencoding-vim.git
-" BUNDLE: https://github.com/msanders/snipmate.vim.git
-" BUNDLE: https://github.com/scrooloose/snipmate-snippets.git
-" BUNDLE: https://github.com/kchmck/vim-coffee-script.git
-" BUNDLE: https://github.com/vim-scripts/vimwiki.git
-" BUNDLE: https://github.com/vim-scripts/Gist.vim.git
+" Section: Plugin Management {{{1
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+if exsits("*Vundle#rc")
+    call Vundle#rc()
+else
+    com! -nargs=? Bundle
+    set rtp+=~/.vim/bundle/pathogen
+    silent! call Pathogen#inject()
+endif
 
-" Section: Load Pathogen {{{1
-silent! call pathogen#runtime_append_all_bundles()
+" Section: Preferred bundles {{{1
+Bundle 'edsono/vim-matchit'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-markdown'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'mattn/zencoding-vim'
+Bundle 'msanders/snipmate.vim'
+Bundle 'scrooloose/snipmate-snippets'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'vim-scripts/vimwiki'
+Bundle 'vim-scripts/Gist.vim'
 
 " Section: Global Options {{{1
  
 " Section: Common Options  {{{2
-set nocompatible
 set tabstop=8
 set shiftwidth=4
 set textwidth=0
