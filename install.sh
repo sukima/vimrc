@@ -1,51 +1,149 @@
-#!/bin/bash
+#!/bin/sh
 
-exit_code=0
-which git > /dev/null
-if [ $? -ne 0 ]; then
-    echo "Git is not installed on this system."
-    exit_code=1
-fi
-which ruby > /dev/null
-if [ $? -ne 0 ]; then
-    echo "Ruby is not installed on this system."
-    exit_code=1
-fi
-if [ $exit_code -ne 0 ]; then
-    exit $exit_code
+function display_usage() {
+    echo "Usage: install.sh [-M][-i][-f][-w][-p][-v][-b]"
+}
+
+function display_help() {
+    display_usage
+    echo "  -M,--no-managers          Do not download and install plugin managers"
+    echo "  -i,--install              Install .vimrc, .gvimrc and .vim"
+    echo "  -w,--windows              Use windows paths (_vimrc, _gvimrc, vimfiles)"
+    echo "  -f,--force                Force overwriting vimrc, gvimrc, etc. ** DESTRUCTIVE **"
+    echo "  -p,--pathogen             Install pathogen package"
+    echo "  -b,--vim-upadate-bundles  Install vim-update-bundles package"
+    echo "  -v,--vundle               Install vundle package even if -p was used"
+    echo "  -h,--help                 This cruft"
+    echo "Cannot concatinate arguments (-IM will not work, use -I -M instead)."
+}
+
+function install_package() {
+    package=$1; url=$2; loc=$3
+    test -n "$loc" || loc="bundle/$package"
+    test -d "$loc" || mkdir -p "$loc"
+    echo "$url" | grep -q "://" || url="https://github.com/${url}.git"
+    echo "Using $PROG to fetch plugin manager $package to $loc."
+    if test $PROG == git; then
+        if test -d "$loc/.git"; then
+            echo "Git repository found, updateing..."
+            cd "$loc" >&-
+            git pull
+            cd - >&-
+        else
+            echo "Repository: $url"
+            git clone --depth 1 "$url" "$loc"
+        fi
+    else
+        if ls -A "$loc" >&-; then
+            echo >&2 "Existing $package install found. Skipping."
+        else
+            cd "$loc" >&-
+            tarurl=`echo "$url" | sed -e s+\.git$+/tarball/master+`
+            echo "Attempting to download $tarurl"
+            curl -L "$tarurl" | tar zx --strip-components 1
+            cd - >&-
+        fi
+    fi
+}
+
+
+FORCE=no
+WIN=no
+VUNDLE_ARG=no
+PATHOGEN_ARG=no
+UPDATE_BUNDLES=no
+INSTALL_ARG=no
+NO_MANAGER_ARG=no
+DIR=`dirname $0`
+
+while test -n "$1"; do
+    case "$1" in
+        -M|--no-managers) NO_MANAGER_ARG=yes ;;
+        -i|--install) INSTALL_ARG=yes ;;
+        -f|--force) FORCE=yes ;;
+        -w|--windows) WIN=yes ;;
+        -v|--vundle) VUNDLE_ARG=yes ;;
+        -b|--vim-update-bundles) UPDATE_BUNDLES=yes ;;
+        -p|--pathogen) PATHOGEN_ARG=yes ;;
+        -h|--help) display_help; exit 128 ;;
+        *) display_usage; exit 128 ;;
+    esac
+    shift
+done
+
+
+if test $NO_MANAGER_ARG == yes; then
+    echo "Skipping plugin management install."
+else
+    if hash git 2>&-; then
+        PROG=git
+        VUNDLE=yes
+        PATHOGEN=no
+    elif hash curl 2>&-; then
+        PROG=curl
+        VUNDLE=no
+        PATHOGEN=yes
+        hash tar 2>&- || { echo >&2 "curl downloads a tar file. However, I was unable to find tar in your PATH. Aborting."; exit 1; }
+        test $VUNDLE_ARG == yes && echo >&2 "Vundle requires git which is not found in your PATH. Use at your own risk!"
+    else
+        echo >&2 "I require git or curl but was unable to find either in your PATH. Aborting."
+        exit 1
+    fi
+
+    test $PATHOGEN_ARG == yes && PATHOGEN=yes
+    test $VUNDLE_ARG == yes && VUNDLE=yes
+
+    test $VUNDLE == yes && install_package "Vundle" "gmarik/vundle"
+    test $PATHOGEN == yes && install_package "Pathogen" "tpope/vim-pathogen"
+    test $UPDATE_BUNDLES == yes && install_package "vim-update-bundles" "bronson/vim-update-bundles" "scripts/vim-update-bundles"
 fi
 
-# install symlinks
-# If we are on a system that does not support links then how is this bash
-# script being executed?
-echo "Checking symbolic links"
-if [ -e $HOME/.vimrc ]; then
-    if [ ! -h $HOME/.vimrc ]; then
-        mv $HOME/.vimrc $HOME/vimrc.old
-        echo "Saved old vimrc to $HOME/vimrc.old"
+
+if test $INSTALL_ARG == no; then
+    echo "Skipping vimrc et al install."
+else
+    if test $WIN == no; then
+        if test $FORCE == yes; then
+            test -e $HOME/.vimrc && { rm -f $HOME/.vimrc; echo "$HOME/.vimrc DESTROYED!"; }
+            test -e $HOME/.gvimrc && { rm -f $HOME/.gvimrc; echo "$HOME/.gvimrc DESTROYED!"; }
+            test -e $HOME/.vim && { rm -rf $HOME/.vim; echo "$HOME/.vim DESTROYED!"; }
+        fi
+        if test -e $HOME/.vimrc; then
+            echo "$HOME/.vimrc exists. Skipping. (Using -f will destroy it!)"
+        else
+            ln -s $DIR/dotfiles/.vimrc $HOME/.vimrc
+        fi
+        if test -e $HOME/.gvimrc; then
+            echo "$HOME/.gvimrc exists. Skipping. (Using -f will destroy it!)"
+        else
+            ln -s $DIR/dotfiles/.gvimrc $HOME/.gvimrc
+        fi
+        if test -e $HOME/.vim; then
+            echo "$HOME/.vim exists. Skipping. (Using -f will destroy it!)"
+        else
+            ln -s $DIR/dotfiles/.vim $HOME/.vim
+        fi
+    else
+        cd "$DIR"
+        if test $FORCE == yes; then
+            test -e ../_vimrc && { rm -f ../_vimrc; echo "../_vimrc DESTROYED!"; }
+            test -e ../_gvimrc && { rm -f ../_gvimrc; echo "../_gvimrc DESTROYED!"; }
+            test -e ../vimfiles && { rm -rf ../vimfiles; echo "../vimfiles DESTROYED!"; }
+        fi
+        if test -e ../_vimrc; then
+            echo "../_vimrc exists. Skipping. (Using -f will destroy it!)"
+        else
+            cp $DIR/dotfiles/.vimrc ../_vimrc
+        fi
+        if test -e ../_gvimrc; then
+            echo "../_gvimrc exists. Skipping. (Using -f will destroy it!)"
+        else
+            cp $DIR/dotfiles/.gvimrc ../_gvimrc
+        fi
+        if test -e ../vimfiles; then
+            echo "../vimfiles exists. Skipping. (Using -f will destroy it!)"
+        else
+            cp -r $DIR/dotfiles/.vim ../vimfiles
+        fi
     fi
 fi
-if [ -e $HOME/.gvimrc ]; then
-    if [ ! -h $HOME/.gvimrc ]; then
-        mv $HOME/.gvimrc $HOME/gvimrc.old
-        echo "Saved old gvimrc to $HOME/gvimrc.old"
-    fi
-fi
-if [ ! -d $HOME/tmp ]; then
-    mkdir $HOME/tmp
-    echo "Created swapfile directory: $HOME/tmp"
-fi
-
-
-if [ ! -e $HOME/.vimrc ]; then
-    ln -s $PWD/vimrc $HOME/.vimrc
-fi
-if [ ! -e $HOME/.gvimrc ]; then
-    ln -s $PWD/gvimrc $HOME/.gvimrc
-fi
-
-git submodule init
-git submodule update
-ruby scripts/vim-update-bundles/vim-update-bundles
-
-exit $exit_code
