@@ -111,17 +111,17 @@ else
         if test -e "$HOME/.vimrc"; then
             echo "$HOME/.vimrc exists. Skipping. (Using -f will destroy it!)"
         else
-            ln -s "$DIR/dotfiles/.vimrc" "$HOME/.vimrc"
+            ln -s "$DIR/vimrc" "$HOME/.vimrc"
         fi
         if test -e "$HOME/.gvimrc"; then
             echo "$HOME/.gvimrc exists. Skipping. (Using -f will destroy it!)"
         else
-            ln -s "$DIR/dotfiles/.gvimrc" "$HOME/.gvimrc"
+            ln -s "$DIR/gvimrc" "$HOME/.gvimrc"
         fi
         if test -e "$HOME/.vim"; then
             echo "$HOME/.vim exists. Skipping. (Using -f will destroy it!)"
         else
-            ln -s "$DIR/dotfiles/.vim" "$HOME/.vim"
+            ln -s "$DIR/vimfiles" "$HOME/.vim"
         fi
     else
         cd "$DIR"
@@ -133,17 +133,17 @@ else
         if test -e ../_vimrc; then
             echo "../_vimrc exists. Skipping. (Using -f will destroy it!)"
         else
-            cp "$DIR/dotfiles/.vimrc" ../_vimrc
+            cp "$DIR/vimrc" ../_vimrc
         fi
         if test -e ../_gvimrc; then
             echo "../_gvimrc exists. Skipping. (Using -f will destroy it!)"
         else
-            cp "$DIR/dotfiles/.gvimrc" ../_gvimrc
+            cp "$DIR/gvimrc" ../_gvimrc
         fi
         if test -e ../vimfiles; then
             echo "../vimfiles exists. Skipping. (Using -f will destroy it!)"
         else
-            cp -r "$DIR/dotfiles/.vim" ../vimfiles
+            cp -r "$DIR/vimfiles" ../vimfiles
         fi
     fi
 fi
