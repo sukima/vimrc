@@ -121,7 +121,7 @@ else
         if test -e "$HOME/.vim"; then
             echo "$HOME/.vim exists. Skipping. (Using -f will destroy it!)"
         else
-            ln -s "$DIR/vimfiles" "$HOME/.vim"
+            ln -s "$DIR/dotfiles/in+.vim" "$HOME/.vim"
         fi
     else
         cd "$DIR"
@@ -143,7 +143,7 @@ else
         if test -e ../vimfiles; then
             echo "../vimfiles exists. Skipping. (Using -f will destroy it!)"
         else
-            cp -r "$DIR/vimfiles" ../vimfiles
+            cp -r "$DIR/dotfiles/in+.vim" ../vimfiles
         fi
     fi
 fi
