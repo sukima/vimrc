@@ -1,8 +1,7 @@
 " VIM rc
-
-" This repository has a submodule for vim-update-bundles
-" (http://github.com/bronson/vim-update-bundles)
-" run install.sh to setup this process.
+" Copyright (C) 2011, Devin Weaver
+" This work is part of my vimrc project at http://github.com/sukima/vimrc
+" It is licensed under a Creative Commons Attribution 3.0 Unported License.
 
 " Section: Plugin Management {{{1
 set nocompatible

@@ -1,4 +1,7 @@
-" GVIM rc $Revision$
+" GVIM rc
+" Copyright (C) 2011, Devin Weaver
+" This work is part of my vimrc project at http://github.com/sukima/vimrc
+" It is licensed under a Creative Commons Attribution 3.0 Unported License.
 
 " Section: Options {{{1
 set mousehide
