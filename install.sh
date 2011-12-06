@@ -1,13 +1,13 @@
 #!/bin/sh
 
 function display_usage() {
-    echo >&2 "Usage: install.sh [-M][-i][-f][-w][-p][-v][-b] [-d prefix]"
+    echo >&2 "Usage: install.sh [-M][-I][-f][-w][-p][-v][-b] [-d prefix]"
 }
 
 function display_help() {
     display_usage
     echo >&2 "  -M,--no-managers          Do not download and install plugin managers"
-    echo >&2 "  -i,--install              Install .vimrc, .gvimrc and .vim"
+    echo >&2 "  -I,--no-install           Do not install .vimrc, .gvimrc and .vim"
     echo >&2 "  -w,--windows              Use windows paths (_vimrc, _gvimrc, vimfiles)"
     echo >&2 "  -f,--force                Force overwriting vimrc, gvimrc, etc. ** DESTRUCTIVE **"
     echo >&2 "  -p,--pathogen             Install pathogen package"
@@ -53,7 +53,7 @@ WIN=no
 VUNDLE_ARG=no
 PATHOGEN_ARG=no
 UPDATE_BUNDLES=no
-INSTALL_ARG=no
+NO_INSTALL_ARG=no
 NO_MANAGER_ARG=no
 DIR=`dirname $0`
 PREFIX="$HOME/.vim"
@@ -61,7 +61,7 @@ PREFIX="$HOME/.vim"
 while test -n "$1"; do
     case "$1" in
         -M|--no-managers) NO_MANAGER_ARG=yes ;;
-        -i|--install) INSTALL_ARG=yes ;;
+        -I|--no-install) NO_INSTALL_ARG=yes ;;
         -f|--force) FORCE=yes ;;
         -w|--windows) WIN=yes ;;
         -v|--vundle) VUNDLE_ARG=yes ;;
@@ -79,7 +79,7 @@ while test -n "$1"; do
 done
 
 
-if test $INSTALL_ARG == no; then
+if test $NO_INSTALL_ARG == yes; then
     echo "Skipping vimrc et al install."
 else
     if test $WIN == no; then
@@ -151,7 +151,7 @@ else
     test $PATHOGEN_ARG == yes && PATHOGEN=yes
     test $VUNDLE_ARG == yes && VUNDLE=yes
 
-    test $VUNDLE == yes && install_package "Vundle" "gmarik/vundle"
-    test $PATHOGEN == yes && install_package "Pathogen" "tpope/vim-pathogen"
+    test $VUNDLE == yes && install_package "vundle" "gmarik/vundle"
+    test $PATHOGEN == yes && install_package "pathogen" "tpope/vim-pathogen"
     test $UPDATE_BUNDLES == yes && install_package "vim-update-bundles" "bronson/vim-update-bundles" "scripts/vim-update-bundles"
 fi

@@ -7,16 +7,16 @@
 " Section: Plugin Management {{{1
 set nocompatible
 filetype off
+com! -nargs=? Bundle
 set rtp+=~/.vim/bundle/vundle/
-if exsits(":Bundle")
-    call Vundle#rc()
-else
-    com! -nargs=? Bundle
+silent! call vundle#rc()
+if !exists("*vundle#rc")
     set rtp+=~/.vim/bundle/pathogen
-    silent! call Pathogen#inject()
+    silent! call pathogen#inject()
 endif
 
 " Section: Preferred bundles {{{1
+Bundle 'gmarik/vundle'
 Bundle 'edsono/vim-matchit'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-haml'
