@@ -14,7 +14,7 @@ function display_help() {
     echo >&2 "  -b,--vim-upadate-bundles  Install vim-update-bundles package"
     echo >&2 "  -v,--vundle               Install vundle package even if -p was used"
     echo >&2 "  -h,--help                 This cruft"
-    echo >&2 "  -d,--dir prefix           Install to prefix instead of default $HOME/.vim"
+    echo >&2 "  -d,--dir prefix           Install to prefix instead of default \$HOME/.vim"
     echo >&2 "Cannot concatinate arguments (-IM will not work, use -I -M instead)."
 }
 
