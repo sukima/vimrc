@@ -6,11 +6,12 @@ class DottyRepository < Thor
 
   desc "bootstrap", "Bootstrap VIM bundles"
   def bootstrap
-    run "sh install.sh -v"
+    run "sh install.sh -I -v"
   end
 
   desc "implode", "Implode VIM bundles"
   def implode
+    # TODO: Remove left over bundles?
   end
 end
 # vim:set sw=2 et ft=ruby:
