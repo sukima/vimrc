@@ -123,7 +123,7 @@ else
         if test -e ../vimfiles; then
             echo "../vimfiles exists. Skipping. (Using -f will destroy it!)"
         else
-            cp -r "$DIR/dotfiles/in+.vim" ../vimfiles
+            cp -R "$DIR/dotfiles/in+.vim" ../vimfiles
         fi
     fi
 fi

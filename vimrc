@@ -8,7 +8,7 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
-if exsits("*Vundle#rc")
+if exsits(":Bundle")
     call Vundle#rc()
 else
     com! -nargs=? Bundle
