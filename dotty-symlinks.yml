@@ -1,2 +1,10 @@
 vimrc: .vimrc
 gvimrc: .gvimrc
+vimfiles/abbrev.vim: .vim/abbrev.vim 
+vimfiles/ftdetect:   .vim/ftdetect
+vimfiles/indent:     .vim/indent
+vimfiles/plugin:     .vim/plugin
+vimfiles/snippets:   .vim/snippets
+vimfiles/spell:      .vim/spell
+vimfiles/syntax:     .vim/syntax
+vimfiles/templates:  .vim/templates
