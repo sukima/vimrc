@@ -31,8 +31,9 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'scrooloose/snipmate-snippets'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'vim-scripts/vimwiki'
 Bundle 'vim-scripts/Gist.vim'
+Bundle 'csexton/jekyll.vim'
+Bundle 'sukima/LSLvim'
 
 " Section: Global Options {{{1
  
