@@ -15,11 +15,11 @@
 # See <http://www.gnu.org/licenses/> for more information.
 
 
-function display_usage() {
+display_usage() {
     echo >&2 "Usage: install.sh [-M][-I][-f][-w][-p][-v][-b] [-d prefix]"
 }
 
-function display_help() {
+display_help() {
     display_usage
     echo >&2 "  -M,--no-managers          Do not download and install plugin managers"
     echo >&2 "  -I,--no-install           Do not install .vimrc, .gvimrc and .vim"
@@ -33,7 +33,7 @@ function display_help() {
     echo >&2 "Cannot concatinate arguments (-IM will not work, use -I -M instead)."
 }
 
-function install_package() {
+install_package() {
     package=$1; url=$2; loc=$3
     test -n "$loc" || loc="${PREFIX}/bundle/${package}"
     test -d "$loc" || mkdir -p "$loc"
