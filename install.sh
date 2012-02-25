@@ -75,13 +75,13 @@ PREFIX="$HOME/.vim"
 
 while test -n "$1"; do
     case "$1" in
-        -M|--no-managers) NO_MANAGER_ARG=yes ;;
-        -I|--no-install) NO_INSTALL_ARG=yes ;;
-        -f|--force) FORCE=yes ;;
-        -w|--windows) WIN=yes ;;
-        -v|--vundle) VUNDLE_ARG=yes ;;
-        -b|--vim-update-bundles) UPDATE_BUNDLES=yes ;;
-        -p|--pathogen) PATHOGEN_ARG=yes ;;
+        -M|--no-managers) NO_MANAGER_ARG="yes" ;;
+        -I|--no-install) NO_INSTALL_ARG="yes" ;;
+        -f|--force) FORCE="yes" ;;
+        -w|--windows) WIN="yes" ;;
+        -v|--vundle) VUNDLE_ARG="yes" ;;
+        -b|--vim-update-bundles) UPDATE_BUNDLES="yes" ;;
+        -p|--pathogen) PATHOGEN_ARG="yes" ;;
         -d|--prefix)
             test -n "$2" || { display_usage; exit 128; }
             PREFIX=$2;
@@ -94,11 +94,11 @@ while test -n "$1"; do
 done
 
 
-if test $NO_INSTALL_ARG == yes; then
+if test "$NO_INSTALL_ARG" == "yes"; then
     echo "Skipping vimrc et al install."
 else
-    if test $WIN == no; then
-        if test $FORCE == yes; then
+    if test "$WIN" == "no"; then
+        if test "$FORCE" == "yes"; then
             test -e "$HOME/.vimrc" && { rm -f "$HOME/.vimrc"; echo "$HOME/.vimrc DESTROYED!"; }
             test -e "$HOME/.gvimrc" && { rm -f "$HOME/.gvimrc"; echo "$HOME/.gvimrc DESTROYED!"; }
             test -e "$HOME/.vim" && { rm -rf "$HOME/.vim"; echo "$HOME/.vim DESTROYED!"; }
@@ -120,7 +120,7 @@ else
         fi
     else
         cd "$DIR"
-        if test $FORCE == yes; then
+        if test "$FORCE" == "yes"; then
             test -e ../_vimrc && { rm -f ../_vimrc; echo "../_vimrc DESTROYED!"; }
             test -e ../_gvimrc && { rm -f ../_gvimrc; echo "../_gvimrc DESTROYED!"; }
             test -e ../vimfiles && { rm -rf ../vimfiles; echo "../vimfiles DESTROYED!"; }
@@ -144,29 +144,29 @@ else
 fi
 
 
-if test $NO_MANAGER_ARG == yes; then
+if test "$NO_MANAGER_ARG" == "yes"; then
     echo "Skipping plugin management install."
 else
     test -d "$PREFIX" || { echo >&2 "$PREFIX does not exists yet. Have you tried usinf the -i option?"; exit -1; }
     if hash git 2>&-; then
         PROG=git
-        VUNDLE=yes
-        PATHOGEN=no
+        VUNDLE="yes"
+        PATHOGEN="no"
     elif hash curl 2>&-; then
         PROG=curl
-        VUNDLE=no
-        PATHOGEN=yes
+        VUNDLE="no"
+        PATHOGEN="yes"
         hash tar 2>&- || { echo >&2 "curl downloads a tar file. However, I was unable to find tar in your PATH. Aborting."; exit 1; }
-        test $VUNDLE_ARG == yes && echo >&2 "Vundle requires git which is not found in your PATH. Use at your own risk!"
+        test "$VUNDLE_ARG" == "yes" && echo >&2 "Vundle requires git which is not found in your PATH. Use at your own risk!"
     else
         echo >&2 "I require git or curl but was unable to find either in your PATH. Aborting."
         exit 1
     fi
 
-    test $PATHOGEN_ARG == yes && PATHOGEN=yes
-    test $VUNDLE_ARG == yes && VUNDLE=yes
+    test "$PATHOGEN_ARG" == "yes" && PATHOGEN="yes"
+    test "$VUNDLE_ARG" == "yes" && VUNDLE="yes"
 
-    test $VUNDLE == yes && install_package "vundle" "gmarik/vundle"
-    test $PATHOGEN == yes && install_package "pathogen" "tpope/vim-pathogen"
-    test $UPDATE_BUNDLES == yes && install_package "vim-update-bundles" "bronson/vim-update-bundles" "scripts/vim-update-bundles"
+    test "$VUNDLE" == "yes" && install_package "vundle" "gmarik/vundle"
+    test "$PATHOGEN" == "yes" && install_package "pathogen" "tpope/vim-pathogen"
+    test "$UPDATE_BUNDLES" == "yes" && install_package "vim-update-bundles" "bronson/vim-update-bundles" "scripts/vim-update-bundles"
 fi
