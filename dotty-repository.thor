@@ -10,7 +10,7 @@ class DottyRepository < Thor
 
   desc "bootstrap", "Bootstrap VIM bundles"
   def bootstrap
-    run "sh install.sh -I -v"
+    run "install.sh -I -v"
   end
 
   desc "implode", "Implode VIM bundles"
