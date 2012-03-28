@@ -15,6 +15,7 @@ if !exists("*vundle#rc")
 endif
 
 " Section: Preferred bundles {{{1
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'gmarik/vundle'
 Bundle 'edsono/vim-matchit'
 Bundle 'tpope/vim-rails'
@@ -505,6 +506,13 @@ endif
 set statusline=%<%f\ %h%m%r%{ExtraStatusInfo()}%=%-14.(%l,%c%V%)\ %P
 
 "}}}1
+" Color scheme
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+silent! colorscheme solarized
 
 " Load abbreviations
 runtime abbrev.vim

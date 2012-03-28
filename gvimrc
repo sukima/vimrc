@@ -15,6 +15,7 @@ set nohlsearch
 set background=light
 highlight Normal guibg=#ffffe6 " Change the bgcolor.
 syntax enable
+silent! colorscheme solarized
 
 " Section: OS Specifics ** Deprecated ** {{{1
 " ** Depricated in favor of placing directives in local.vim **
