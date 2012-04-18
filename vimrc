@@ -215,20 +215,20 @@ augroup filetypedetect
 augroup END
 
 " File Type Auto Settings {{{2
-augroup filetypesetup
-    autocmd!
-    "au FileType c,cpp,java,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et
-    au FileType inform set nocin si ai cinwords= efm+=%f(%l):\ %*[^:]:\ %m
-    au FileType mail set tw=72 et nocin nosi ai cinwords= comments=n:>,fb:-,fb:*,b:#
-    au FileType docbk set sw=2 cinwords= efm=jade:%f:%l:%c:%t:%m
-    au FileType java ab syspl System.out.println
-    au FileType java ab sysp System.out.print
-    au FileType java set makeprg=ant\ -find\ build.xml
-    " Support Ant compile error detection.
-    au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
-    au FileType mail        call SetWrapNavigation()
-    au FileType mail        set tw=68
-augroup END
+" augroup filetypesetup
+    " autocmd!
+    " "au FileType c,cpp,java,css,php3,perl,javascript,jsp,pascal,tcl set nosi ai cin et
+    " au FileType inform set nocin si ai cinwords= efm+=%f(%l):\ %*[^:]:\ %m
+    " au FileType mail set tw=72 et nocin nosi ai cinwords= comments=n:>,fb:-,fb:*,b:#
+    " au FileType docbk set sw=2 cinwords= efm=jade:%f:%l:%c:%t:%m
+    " au FileType java ab syspl System.out.println
+    " au FileType java ab sysp System.out.print
+    " au FileType java set makeprg=ant\ -find\ build.xml
+    " " Support Ant compile error detection.
+    " au FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
+    " au FileType mail        call SetWrapNavigation()
+    " au FileType mail        set tw=68
+" augroup END
 
 " }}}
 " Turn on filetype checks and syntax highlighting 
