@@ -43,7 +43,9 @@ Bundle 'sukima/asciidoc-vim'
 set tabstop=8
 set shiftwidth=4
 set textwidth=0
-set smartindent
+set nosmartindent
+set nocindent
+set autoindent
 set nowrap
 if &columns < 50
     set nonumber
