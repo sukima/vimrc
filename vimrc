@@ -286,9 +286,15 @@ noremap <Leader>r ggg?G``
 " For safe measures lets make a quick backup mapping. {{{3
 noremap <Leader>b :let x=&backup<Bar>set backup<Bar>write<Bar>let &backup=x<Bar>unlet x<Cr>
 " For convinent headers in text files {{{3
-nnoremap <Leader>h1 yyp^v$r=o<Esc>
-nnoremap <Leader>h2 yyp^v$r-o<Esc>
-nnoremap <Leader>h3 yyp^v$r~o<Esc>
+" For underlined header style
+nnoremap <Leader>H1 yyp^v$r=o<Esc>
+nnoremap <Leader>H2 yyp^v$r-o<Esc>
+nnoremap <Leader>H3 yyp^v$r~o<Esc>
+" For octothorp header style
+nnoremap <Leader>h1 :s/^.*$/# & #/<Cr>
+nnoremap <Leader>h2 :s/^.*$/## & ##/<Cr>
+nnoremap <Leader>h3 :s/^.*$/### & ###/<Cr>
+nnoremap <Leader>h4 :s/^.*$/#### & ####/<Cr>
 " For quick brackets for functions/if/then/etc deffinitions {{{3
 " The first map used to work. But the new indent code (read: php indent)
 " would render this improperly if there was no text after the opening { 
