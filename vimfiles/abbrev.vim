@@ -20,7 +20,8 @@ ab summery summary
 ab Summery Summary
  
 " My convince date completion commands
-cab date strftime("%a %b %d %T %Z %Y")
+cab _fulldate strftime("%a %b %d %T %Z %Y")
+cab _date strftime("%Y-%m-%d %H:%M")
 cab sdate strftime("%m/%d/%y")
 cab ldate strftime("%B %d, %Y")
 cab fdate strftime("%m%d%Y")
