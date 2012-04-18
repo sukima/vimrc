@@ -35,6 +35,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/Gist.vim'
 Bundle 'csexton/jekyll.vim'
 Bundle 'sukima/LSLvim'
+Bundle 'sukima/asciidoc-vim'
 
 " Section: Global Options {{{1
  
