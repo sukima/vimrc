@@ -36,6 +36,7 @@ Bundle 'vim-scripts/Gist.vim'
 Bundle 'csexton/jekyll.vim'
 Bundle 'sukima/LSLvim'
 Bundle 'sukima/asciidoc-vim'
+Bundle 'sjl/gundo.vim'
 
 " Section: Global Options {{{1
  
@@ -199,6 +200,12 @@ let g:rails_gnu_screen=0
 " load only from these directory excluding the defaults.
 let g:snippets_dir="$HOME/.vim/snippets,$HOME/.vim/bundle/snipmate-snippets"
 let g:snips_author='Devin Weaver'
+
+" Gundo
+" Place in .vim/local.vim to disable (if no python)
+"let g:gundo_disable = 1
+"let g:gundo_preview_bottom = 1
+nmap <Leader>u :GundoToggle<Cr>
 
 " File Type Detect {{{2
 augroup filetypedetect
