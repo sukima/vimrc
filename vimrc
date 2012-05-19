@@ -236,6 +236,7 @@ augroup END
     " au FileType mail        call SetWrapNavigation()
     " au FileType mail        set tw=68
 " augroup END
+au FileType ruby setl sw=2 sts=2 et
 
 " }}}
 " Turn on filetype checks and syntax highlighting 
