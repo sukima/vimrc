@@ -42,7 +42,7 @@ Bundle 'sjl/gundo.vim'
  
 " Section: Common Options  {{{2
 set tabstop=8
-set shiftwidth=4
+set shiftwidth=2
 set textwidth=0
 set nosmartindent
 set nocindent
@@ -105,7 +105,7 @@ endif
 
 " Section: VIM 6.x Options {{{2
 if version >= 600
-    set softtabstop=4
+    "set softtabstop=4
     if &columns < 40
 	set foldcolumn=0
     else
