@@ -32,6 +32,7 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'scrooloose/snipmate-snippets'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'mattn/webapi-vim'
 Bundle 'vim-scripts/Gist.vim'
 Bundle 'csexton/jekyll.vim'
 Bundle 'sukima/LSLvim'
@@ -70,7 +71,8 @@ if version >= 500
     set formatoptions+=ro2l
     set nohlsearch
     set noincsearch
-    set listchars=eol:$,tab:T-,trail:_,precedes:+,extends:+
+    set sidescroll=5
+    set listchars=eol:$,tab:T-,trail:_,precedes:<,extends:>
     set showbreak=+
     set linebreak
     set cino={0,(0,W4,u0,t0
