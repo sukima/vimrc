@@ -30,4 +30,8 @@ let no_buffers_menu=1
 
 " }}}1
 
+" So multiple places can have a special config without affecting the core
+" gvimrc.
+runtime local_gui.vim
+
 " vim600: set foldmethod=marker :
