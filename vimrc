@@ -184,12 +184,7 @@ let g:NERDSpaceDelims=1
 " zencoding-vim
 let g:user_zen_leader_key='<c-e>'
 let g:user_zen_settings = {
-\  'html' : {
-\    'indentation' : '  '
-\  },
-\  'xml' : {
-\    'indentation' : '  '
-\  }
+\  'indentation' : '  '
 \}
 
 " Rails
