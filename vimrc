@@ -135,6 +135,9 @@ if version >= 700
     set nospell
     " Spell works better in the GUI when you can right click on the word.
     set mousemodel=popup
+    " Display textwidth highlighting
+    " (solarized sets ColorColumn only for GUI)
+    set cc=+1
 endif
  
 " Section: Dictionary Support {{{2
