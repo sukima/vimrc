@@ -138,6 +138,9 @@ if version >= 700
     " Display textwidth highlighting
     " (solarized sets ColorColumn only for GUI)
     set cc=+1
+    " This option only available after version 7.3
+    " I still want the best for encryption. (Otherwise what's the point?)
+    set cryptmethod=blowfish
 endif
  
 " Section: Dictionary Support {{{2
