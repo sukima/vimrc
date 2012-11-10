@@ -135,11 +135,9 @@ if version >= 700
     set nospell
     " Spell works better in the GUI when you can right click on the word.
     set mousemodel=popup
-    if version >= 730
-      " This option only available after versio 7.3
-      " I still want the best for encryption. (Otherwise what's the point?)
-      set cryptmethod=blowfish
-    endif
+    " This option only available after version 7.3
+    " I still want the best for encryption. (Otherwise what's the point?)
+    set cryptmethod=blowfish
 endif
  
 " Section: Dictionary Support {{{2
