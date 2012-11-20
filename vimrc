@@ -42,6 +42,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'chrisbra/NrrwRgn'
 
 " Section: Global Options {{{1
  
