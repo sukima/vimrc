@@ -39,6 +39,7 @@ Bundle 'csexton/jekyll.vim'
 Bundle 'sukima/LSLvim'
 Bundle 'sukima/asciidoc-vim'
 Bundle 'sjl/gundo.vim'
+Bundle 'ervandew/supertab'
 
 " Section: Global Options {{{1
  
