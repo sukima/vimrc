@@ -41,6 +41,7 @@ Bundle 'sukima/asciidoc-vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
+Bundle 'Lokaltog/vim-easymotion'
 
 " Section: Global Options {{{1
  
