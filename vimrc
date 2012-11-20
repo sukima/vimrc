@@ -40,6 +40,7 @@ Bundle 'sukima/LSLvim'
 Bundle 'sukima/asciidoc-vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'ervandew/supertab'
+Bundle 'majutsushi/tagbar'
 
 " Section: Global Options {{{1
  
