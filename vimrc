@@ -34,10 +34,15 @@ Bundle 'scrooloose/snipmate-snippets'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mattn/webapi-vim'
 Bundle 'vim-scripts/Gist.vim'
+Bundle 'vim-scripts/ZoomWin'
 Bundle 'csexton/jekyll.vim'
 Bundle 'sukima/LSLvim'
 Bundle 'sukima/asciidoc-vim'
 Bundle 'sjl/gundo.vim'
+Bundle 'ervandew/supertab'
+Bundle 'majutsushi/tagbar'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'chrisbra/NrrwRgn'
 
 " Section: Global Options {{{1
  
@@ -138,6 +143,9 @@ if version >= 700
     " Display textwidth highlighting
     " (solarized sets ColorColumn only for GUI)
     set cc=+1
+    " This option only available after version 7.3
+    " I still want the best for encryption. (Otherwise what's the point?)
+    set cryptmethod=blowfish
 endif
  
 " Section: Dictionary Support {{{2
