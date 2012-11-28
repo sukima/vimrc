@@ -539,6 +539,10 @@ if has('gui_running')
 else
     set background=dark
 endif
+
+" Setup solarized theme
+set t_Co=16
+let g:solarized_termcolors=16
 silent! colorscheme solarized
 
 " Load abbreviations
