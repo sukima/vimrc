@@ -1,5 +1,5 @@
-vimrc: .vimrc
-gvimrc: .gvimrc
+_vimrc: .vimrc
+_gvimrc: .gvimrc
 vimfiles/abbrev.vim: .vim/abbrev.vim 
 vimfiles/ftdetect:   .vim/ftdetect
 vimfiles/indent:     .vim/indent
