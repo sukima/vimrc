@@ -64,7 +64,7 @@ set modeline
 set modelines=3
 " Save swapfile to home tmp directory.
 " You must have a `$HOME/tmp` directory for this to work.
-set directory=~/tmp
+set directory=~/tmp,.,/tmp,c:\tmp,c:\temp
 
 " Section: VIM 5.x Options {{{2
 if version >= 500 
