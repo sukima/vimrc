@@ -217,6 +217,11 @@ let g:snips_author='Devin Weaver'
 "let g:gundo_preview_bottom = 1
 nmap <Leader>u :GundoToggle<Cr>
 
+" Fugitive
+" Convenience mappings
+map <C-s>a :Gwrite<Cr>
+map <C-s>c :Gcommit<Cr>
+
 " File Type Detect {{{2
 augroup filetypedetect
     " phplib template files
@@ -294,6 +299,9 @@ noremap <C-q> :close<Cr>
 inoremap <C-z> <C-o><C-z>
 nnoremap <C-s> :w<Cr>
 inoremap <C-s> <C-o>:w<Cr>
+" To help with finger spasms
+nnoremap <C-s><C-s> :w<Cr>
+inoremap <C-s><C-s> <C-o>:w<Cr>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
