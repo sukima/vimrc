@@ -48,7 +48,7 @@ Bundle 'chrisbra/NrrwRgn'
 " Section: Global Options {{{1
  
 " Section: Common Options  {{{2
-set tabstop=8
+set tabstop=2
 set shiftwidth=2
 set textwidth=0
 set nosmartindent
@@ -71,7 +71,9 @@ set directory=~/tmp,.,/tmp,c:\tmp,c:\temp
 if version >= 500 
     set wildmenu
     set smarttab
-    set expandtab " Spaces are better
+    " Spaces are better. However they are interfering with other people's
+    " code. Default to tabs and add expandtab to mod lines instead.
+    set noexpandtab
     set wrapmargin=0
     set backspace=2
     set formatoptions+=ro2l
@@ -113,7 +115,7 @@ endif
 
 " Section: VIM 6.x Options {{{2
 if version >= 600
-    "set softtabstop=4
+    set softtabstop=0
     if &columns < 40
 	set foldcolumn=0
     else
