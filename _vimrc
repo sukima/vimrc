@@ -66,14 +66,15 @@ set modelines=3
 " Save swapfile to home tmp directory.
 " You must have a `$HOME/tmp` directory for this to work.
 set directory=~/tmp,.,/tmp,c:\tmp,c:\temp
+" Allow per directory config files
+" Consider set secure as well?
+set exrc
 
 " Section: VIM 5.x Options {{{2
 if version >= 500 
     set wildmenu
     set smarttab
-    " Spaces are better. However they are interfering with other people's
-    " code. Default to tabs and add expandtab to mod lines instead.
-    set noexpandtab
+    set expandtab " Spaces are better.
     set wrapmargin=0
     set backspace=2
     set formatoptions+=ro2l
