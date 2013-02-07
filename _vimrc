@@ -296,7 +296,11 @@ nnoremap <silent> <Leader>f :if &fdc==0<Cr>set fdc=2<Cr>else<Cr>set fdc=0<Cr>end
 nnoremap <Leader>p :set paste!<Cr><Bar>:echo "Paste mode: " . strpart("OffOn", 3 * &paste, 3)<Cr>
 set pastetoggle=<ESC>1 " For added ease
 nnoremap <Leader>/ :set hls!<Cr><Bar>:echo "Highlight Search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
- 
+nnoremap <Leader>2<Tab> :set sw=2 ts=2 noet<Cr><Bar>:echo "Indent set to two (tabs)"<Cr>
+nnoremap <Leader>4<Tab> :set sw=4 ts=4 noet<Cr><Bar>:echo "Indent set to four (tabs)"<Cr>
+nnoremap <Leader>2<Space> :set sw=2 ts=2 et<Cr><Bar>:echo "Indent set to two (spaces)"<Cr>
+nnoremap <Leader>4<Space> :set sw=4 ts=4 et<Cr><Bar>:echo "Indent set to four (spaces)"<Cr>
+
 " Section: Quick Commands (Window Nav.) {{{2
 noremap <C-q> :close<Cr>
 inoremap <C-z> <C-o><C-z>
