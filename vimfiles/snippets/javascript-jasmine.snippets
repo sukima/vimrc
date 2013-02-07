@@ -18,64 +18,64 @@ snippet des
 	});
 # Expect not to be defined
 snippet notd
-	expect(${1:target}).not.toBeDefined();
+	expect( ${1:target} ).not.toBeDefined();
 # Expect not to be falsy
 snippet notf
-	expect(${1:target}).not.toBeFalsy();
+	expect( ${1:target} ).not.toBeFalsy();
 # Expect not to be null
 snippet notn
-	expect(${1:target}).not.toBeNull();
+	expect( ${1:target} ).not.toBeNull();
 # Expect to be truthy
 snippet nott
-	expect(${1:target}).not.toBeTruthy();
+	expect( ${1:target} ).not.toBeTruthy();
 # Expect not to contain
 snippet notc
-	expect(${1:target}).not.toContain(${2:value});
+	expect( ${1:target} ).not.toContain(${2:value});
 # Expect not to equal
 snippet note
-	expect(${1:target}).not.toEqual(${2:value});
+	expect( ${1:target} ).not.toEqual(${2:value});
 # Expect not to match
 snippet notm
-	expect(${1:target}).not.toBeDefined();
+	expect( ${1:target} ).not.toBeDefined();
 # Expect not
 snippet notx
-	expect(${1:target}).not;
+	expect( ${1:target} ).not${2};
 # Expect to be defined
 snippet ed
-	expect(${1:target}).toBeDefined();
+	expect( ${1:target} ).toBeDefined();
 # Expect to be falsy
 snippet ef
-	expect(${1:target}).toBeFalsy();
+	expect( ${1:target} ).toBeFalsy();
 # Expect to be null
 snippet en
-	expect(${1:target}).toBeNull();
+	expect( ${1:target} ).toBeNull();
 # Expect to be truthy
 snippet et
-	expect(${1:target}).toBeTruthy();
+	expect( ${1:target} ).toBeTruthy();
 # Expect to contain
 snippet ec
-	expect(${1:target}).toContain(${2:value});
+	expect( ${1:target} ).toContain(${2:value});
 # Expect to equal
 snippet ee
-	expect(${1:target}).toEqual(${2:value});
+	expect( ${1:target} ).toEqual(${2:value});
 # Expect to match
 snippet em
-	expect(${1:target}).toMatch(${2:pattern});
+	expect( ${1:target} ).toMatch(${2:pattern});
 # Expect was called with
 snippet escw
-	expect(${1:target}).wasCalledWith(${2:arguments});
+	expect( ${1:target} ).wasCalledWith(${2:arguments});
 # Expect was called
 snippet esc
-	expect(${1:target}).wasCalled();
+	expect( ${1:target} ).wasCalled();
 # Expect was not called with
 snippet notscw
-	expect(${1:target}).wasNotCalledWith(${2:arguments});
+	expect( ${1:target} ).wasNotCalledWith(${2:arguments});
 # Expect was not called
 snippet notsc
-	expect(${1:target}).wasNotCalled();
+	expect( ${1:target} ).wasNotCalled();
 # Expect
 snippet ex
-	expect(${1:target});
+	expect( ${1:target} )${2};
 # It
 snippet it
 	it("${1:description}", function() {
