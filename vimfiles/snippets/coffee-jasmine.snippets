@@ -27,10 +27,10 @@ snippet nott
 	expect( ${1:target} ).not.toBeTruthy()
 # Expect not to contain
 snippet notc
-	expect( ${1:target} ).not.toContain(${2:value})
+	expect( ${1:target} ).not.toContain ${2:value}
 # Expect not to equal
 snippet note
-	expect( ${1:target} ).not.toEqual(${2:value})
+	expect( ${1:target} ).not.toEqual ${2:value}
 # Expect not to match
 snippet notm
 	expect( ${1:target} ).not.toBeDefined()
@@ -51,22 +51,22 @@ snippet et
 	expect( ${1:target} ).toBeTruthy()
 # Expect to contain
 snippet ec
-	expect( ${1:target} ).toContain(${2:value})
+	expect( ${1:target} ).toContain ${2:value}
 # Expect to equal
 snippet ee
-	expect( ${1:target} ).toEqual(${2:value})
+	expect( ${1:target} ).toEqual ${2:value}
 # Expect to match
 snippet em
-	expect( ${1:target} ).toMatch(${2:pattern})
+	expect( ${1:target} ).toMatch ${2:pattern}
 # Expect was called with
 snippet escw
-	expect( ${1:target} ).wasCalledWith(${2:arguments})
+	expect( ${1:target} ).wasCalledWith ${2:arguments}
 # Expect was called
 snippet esc
 	expect( ${1:target} ).wasCalled()
 # Expect was not called with
 snippet notscw
-	expect( ${1:target} ).wasNotCalledWith(${2:arguments})
+	expect( ${1:target} ).wasNotCalledWith ${2:arguments}
 # Expect was not called
 snippet notsc
 	expect( ${1:target} ).wasNotCalled()
@@ -83,19 +83,19 @@ snippet ru
 		${1}
 # Spy on and call fake
 snippet scf
-	spyOn(${1:object}, "${2:method}").andCallFake(${3:function})
+	spyOn(${1:object}, "${2:method}").andCallFake ${3:function}
 # Spy on and call through
 snippet sct
 	spyOn(${1:object}, "${2:method}").andCallThrough()
 # Spy on and return
 snippet sr
-	spyOn(${1:object}, "${2:method}").andReturn(${3:arguments})
+	spyOn(${1:object}, "${2:method}").andReturn ${3:arguments}
 # Spy on and throw
 snippet st
 	spyOn(${1:object}, "${2:method}").andThrow(${3:exception})
 # Spy on
 snippet s
-	spyOn(${1:object}, "${2:method}")
+	spyOn ${1:object}, "${2:method}"
 # Waits
 snippet wa
-	waits(${1})
+	waits ${1}
