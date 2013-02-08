@@ -375,6 +375,21 @@ command Undiff set nodiff foldcolumn=0
 command Ant set makeprg=ant\ -find\ build.xml | set efm=%A\ %#[.\\{-1,}]\ %f:%l:\ %m,%-Z\ %#[.\\{-1,}]\ %p^,%-C%.%#
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
+" Section: Session Commands {{{1
+let g:session_dir="~/tmp/sessions/"
+command SaveSession wa | exec "mksession! " . v:this_session
+function MakeNewSession()
+  let session_name=input("New session name: ")
+  if session_name != ""
+    exec "let v:this_session=\"" . g:session_dir . session_name . ".vim\""
+    exec "mksession! " . v:this_session
+    echo "New session saved to: " . v:this_session
+  else
+    echo "Aborted."
+  endif
+endfunction
+command NewSession wa | call MakeNewSession()
+
 " Section: GPG Commands {{{1
 command GPGclearsign %!gpg --clearsign
 command GPGencryptsign %!gpg -seat
