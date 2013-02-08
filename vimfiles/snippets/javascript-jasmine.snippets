@@ -63,16 +63,16 @@ snippet em
 	expect( ${1:target} ).toMatch(${2:pattern});
 # Expect was called with
 snippet escw
-	expect( ${1:target} ).wasCalledWith(${2:arguments});
+	expect( ${1:target} ).toHaveBeenCalledWith(${2:arguments});
 # Expect was called
 snippet esc
-	expect( ${1:target} ).wasCalled();
+	expect( ${1:target} ).toHaveBeenCalled();
 # Expect was not called with
-snippet notscw
-	expect( ${1:target} ).wasNotCalledWith(${2:arguments});
+snippet esncw
+	expect( ${1:target} ).not.toHaveBeenCalledWith(${2:arguments});
 # Expect was not called
-snippet notsc
-	expect( ${1:target} ).wasNotCalled();
+snippet esnc
+	expect( ${1:target} ).not.toHaveBeenCalled();
 # Expect
 snippet ex
 	expect( ${1:target} )${2};
