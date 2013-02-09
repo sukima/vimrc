@@ -33,7 +33,7 @@ snippet note
 	expect( ${1:target} ).not.toEqual ${2:value}
 # Expect not to match
 snippet notm
-	expect( ${1:target} ).not.toBeDefined()
+	expect( ${1:target} ).not.toMatch ${2:pattern}
 # Expect not
 snippet notx
 	expect( ${1:target} ).not${2}
@@ -65,10 +65,10 @@ snippet escw
 snippet esc
 	expect( ${1:target} ).toHaveBeenCalled()
 # Expect was not called with
-snippet esncw
+snippet notscw
 	expect( ${1:target} ).not.toHaveBeenCalledWith ${2:arguments}
 # Expect was not called
-snippet esnc
+snippet notsc
 	expect( ${1:target} ).not.toHaveBeenCalled()
 # Expect
 snippet ex
