@@ -377,18 +377,22 @@ command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | di
 
 " Section: Session Commands {{{1
 let g:session_dir="~/tmp/sessions/"
-command SaveSession wa | exec "mksession! " . v:this_session
-function MakeNewSession()
-  let session_name=input("New session name: ")
+command SaveSession wa | exec "mksession! " . v:this_session | echo "Session saved. (" . v:this_session . ")"
+function MakeNewSession(name)
+  if a:name != ""
+    let session_name = a:name
+  else
+    let session_name=input("New session name: ")
+  endif
   if session_name != ""
     exec "let v:this_session=\"" . g:session_dir . session_name . ".vim\""
     exec "mksession! " . v:this_session
-    echo "New session saved to: " . v:this_session
+    echo session_name . " session saved. (" . v:this_session . ")"
   else
     echo "Aborted."
   endif
 endfunction
-command NewSession wa | call MakeNewSession()
+command -nargs=? NewSession wa | call MakeNewSession(<q-args>)
 
 " Section: GPG Commands {{{1
 command GPGclearsign %!gpg --clearsign
