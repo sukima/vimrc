@@ -44,6 +44,7 @@ Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'chrisbra/NrrwRgn'
+Bundle 'sukima/vim-docbk'
 
 " Section: Global Options {{{1
  
