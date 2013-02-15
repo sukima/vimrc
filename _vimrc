@@ -280,10 +280,6 @@ if &term == "rxvt"
   imap <Esc>[1~ <C-o>0
   map <Esc>[4~ $
   imap <Esc>[4~ <C-o>$
-elseif $TMUX != ""
-  " Found this fix from:
-  " http://www.chrisvanpatten.com/blog/2012/07/vim-tmux-tip/
-  map <Esc>[B <Down>
 endif
 
 " Section: Quick Options {{{2
