@@ -393,7 +393,20 @@ function MakeNewSession(name)
     echo "Aborted."
   endif
 endfunction
+function LoadSavedSession(name)
+  if a:name != ""
+    let session_name = a:name
+  else
+    let session_name=input("Session name: ")
+  endif
+  if session_name != ""
+    exec "source " . g:session_dir . session_name . ".vim"
+  else
+    echo "Aborted."
+  endif
+endfunction
 command -nargs=? NewSession wa | call MakeNewSession(<q-args>)
+command -nargs=? LoadSession wa | call LoadSavedSession(<q-args>)
 
 " Section: GPG Commands {{{1
 command GPGclearsign %!gpg --clearsign
