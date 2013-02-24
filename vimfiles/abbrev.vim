@@ -18,6 +18,10 @@ ab technition technician
 ab Technition Technician
 ab summery summary
 ab Summery Summary
+ab deffered deferred
+ab Deffered Deferred
+ab deffer defer
+ab Deffer Defer
  
 " My convince date completion commands
 cab _fulldate strftime("%a %b %d %T %Z %Y")
