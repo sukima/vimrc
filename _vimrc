@@ -591,8 +591,9 @@ else
 endif
 
 " Setup solarized theme
-set t_Co=16
-let g:solarized_termcolors=16
+" set t_Co=16
+" let g:solarized_termcolors=16
+let g:solarized_termtrans = 1
 silent! colorscheme solarized
 
 " Load abbreviations
