@@ -45,6 +45,9 @@ Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'sukima/vim-docbk'
+" Command-T uses native code and +ruby
+" To build Command-T see :help command-t-pathogen
+Bundle 'wincent/Command-T'
 
 " Section: Global Options {{{1
  
@@ -292,7 +295,7 @@ endif
 nnoremap <Leader>W :silent! call SetWrapNavigation()<Cr>
 nnoremap <Leader>l :set list!<Cr>
 nnoremap <Leader>n :set nu!<Cr>
-nnoremap <Leader>t :set et!<Cr><Bar>:echo "Expand Tab: " . strpart("OffOn", 3 * &et, 3)<Cr>
+nnoremap <Leader>e :set et!<Cr><Bar>:echo "Expand Tab: " . strpart("OffOn", 3 * &et, 3)<Cr>
 nnoremap <silent> <Leader>f :if &fdc==0<Cr>set fdc=2<Cr>else<Cr>set fdc=0<Cr>endif<Cr>
 nnoremap <Leader>p :set paste!<Cr><Bar>:echo "Paste mode: " . strpart("OffOn", 3 * &paste, 3)<Cr>
 set pastetoggle=<ESC>1 " For added ease
