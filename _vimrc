@@ -45,9 +45,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'sukima/vim-docbk'
-" Command-T uses native code and +ruby
-" To build Command-T see :help command-t-pathogen
-Bundle 'wincent/Command-T'
+Bundle 'kien/ctrlp.vim'
 
 " Section: Global Options {{{1
  
