@@ -224,8 +224,9 @@ nmap <Leader>u :GundoToggle<Cr>
 
 " Fugitive
 " Convenience mappings
-map <C-s>a :Gwrite<Cr>
-map <C-s>c :Gcommit<Cr>
+nnoremap <C-s>a :Gwrite<Cr>
+inoremap <C-s>a <C-o>:Gwrite<Cr>
+nnoremap <C-s>c :Gcommit<Cr>
 
 " File Type Detect {{{2
 augroup filetypedetect
