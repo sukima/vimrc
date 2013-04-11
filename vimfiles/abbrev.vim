@@ -22,6 +22,10 @@ ab deffered deferred
 ab Deffered Deferred
 ab deffer defer
 ab Deffer Defer
+ab libary library
+ab Libary Library
+ab libaries libraries
+ab Libaries Libraries
  
 " My convince date completion commands
 cab _fulldate strftime("%a %b %d %T %Z %Y")
