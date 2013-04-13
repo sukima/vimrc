@@ -322,7 +322,7 @@ noremap <Leader>r ggg?G``
 " For safe measures lets make a quick backup mapping. {{{3
 noremap <Leader>b :let x=&backup<Bar>set backup<Bar>write<Bar>let &backup=x<Bar>unlet x<Cr>
 " Allow for multiple time stamped backups
-map ;s :up \| saveas! %:p:r-<C-R>=strftime("%y%m%d-%H:%M")<CR>-bak.<C-R>=expand("%:e")<CR> \| 3sleep \| e #<CR>
+" map ;s :up \| saveas! %:p:r-<C-R>=strftime("%y%m%d-%H:%M")<CR>-bak.<C-R>=expand("%:e")<CR> \| 3sleep \| e #<CR>
 " For convinent headers in text files {{{3
 " For underlined header style
 nnoremap <Leader>H1 yyp^v$r=o<Esc>
