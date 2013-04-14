@@ -597,7 +597,7 @@ endif
 " let g:solarized_termcolors=16
 let g:solarized_termtrans = 1
 silent! colorscheme solarized
-call togglebg#map("<F5>")
+silent! call togglebg#map("<F5>")
 
 " Load abbreviations
 runtime abbrev.vim
