@@ -1,4 +1,4 @@
-# After Each
+# After Eaoh
 snippet aft
 	afterEach ->
 		${1} 
@@ -37,6 +37,9 @@ snippet note
 # Expect not to match
 snippet notm
 	expect( ${1:target} ).not.toMatch ${2:pattern}
+# Expect not to throw
+snippet nottw
+	expect( -> ${1:target} ).not.toThrow()
 # Expect not
 snippet notx
 	expect( ${1:target} ).not${2}
@@ -76,6 +79,9 @@ snippet notscw
 # Expect was not called
 snippet notsc
 	expect( ${1:target} ).not.toHaveBeenCalled()
+# Expect to throw
+snippet etw
+	expect( -> ${1:target} ).toThrow()
 # Expect
 snippet ex
 	expect( ${1:target} )${2}
