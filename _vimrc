@@ -388,7 +388,7 @@ function MakeNewSession(name)
     let session_name=input("New session name: ")
   endif
   if session_name != ""
-    exec "let v:this_session=\"" . g:session_dir . session_name . ".vim\""
+    exec "let v:this_session=\"" . simplify( g:session_dir . "/" . session_name . ".vim" ) . "\""
     exec "mksession! " . v:this_session
     echo session_name . " session saved. (" . v:this_session . ")"
   else
@@ -402,7 +402,7 @@ function LoadSavedSession(name)
     let session_name=input("Session name: ")
   endif
   if session_name != ""
-    exec "source " . g:session_dir . session_name . ".vim"
+    exec "source " . simplify( g:session_dir . "/" . session_name . ".vim" )
   else
     echo "Aborted."
   endif
