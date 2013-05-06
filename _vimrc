@@ -228,6 +228,15 @@ nnoremap <C-s>a :Gwrite<Cr>
 inoremap <C-s>a <C-o>:Gwrite<Cr>
 nnoremap <C-s>c :Gcommit<Cr>
 
+" Ctrl-p
+" Allow ctrl-p to use git ls-files (better) with fallback
+let g:ctrlp_user_command = {
+  \ 'types': {
+    \ 1: ['.git', 'cd %s && git ls-files'],
+    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+    \ }
+  \ }
+
 " File Type Detect {{{2
 augroup filetypedetect
     " phplib template files
