@@ -48,7 +48,7 @@ Bundle 'sukima/vim-docbk'
 Bundle 'kien/ctrlp.vim'
 
 " Section: Global Options {{{1
- 
+
 " Section: Common Options  {{{2
 set tabstop=2
 set shiftwidth=2
@@ -73,7 +73,7 @@ set directory=~/tmp,.,/tmp,c:\tmp,c:\temp
 set exrc
 
 " Section: VIM 5.x Options {{{2
-if version >= 500 
+if version >= 500
     set wildmenu
     set smarttab
     set expandtab " Spaces are better.
@@ -88,19 +88,19 @@ if version >= 500
     set linebreak
     set cino={0,(0,W4,u0,t0
     set nojoinspaces
-    set mouse=a	" set mouse enabled in all modes
+    set mouse=a " set mouse enabled in all modes
     set mousemodel=extend
     if &lines < 20
-	set laststatus=0	" Never have a status line
-	set noshowmatch
-	set noshowcmd
+    set laststatus=0 " Never have a status line
+    set noshowmatch
+    set noshowcmd
     else
-	set laststatus=2	" Always have a status line
-	set showmatch
-	set showcmd
+    set laststatus=2 " Always have a status line
+    set showmatch
+    set showcmd
     endif
-    set ruler	" have curser position always on status bar
-    set magic	" allow searches to be more perl like
+    set ruler " have curser position always on status bar
+    set magic " allow searches to be more perl like
     set ignorecase
     " 'smartcase' turn off ignorecase in a typed search if an uppercase char exists.
     set smartcase
