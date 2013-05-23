@@ -28,6 +28,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/syntastic'
 Bundle 'mattn/zencoding-vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'scrooloose/snipmate-snippets'
@@ -560,14 +561,27 @@ function ViewSetup( )
 endfunction
 
 " Section: Custom statusline info {{{2
-" used to display custom data or fugative output
-function ExtraStatusInfo()
+" used to display custom data or plugin output
+function SetStatusLine()
+    set statusline=%<%f\ %h%m%r
+
+    " Fugative
     if exists("*fugitive#statusline")
-        return fugitive#statusline()
-    else
-        return ""
+        set statusline+=%{fugitive#statusline()}
     endif
+
+    " Syntastic
+    if exists("*SyntasticStatuslineFlag")
+        set statusline+=\ %#warningmsg#
+        set statusline+=%{SyntasticStatuslineFlag()}
+        set statusline+=%*
+    endif
+
+    set statusline+=%=%-14.(%l,%c%V%)\ %P
 endfunction
+
+" Custom status line
+autocmd VimEnter * call SetStatusLine()
 
 " Section: Custom 'tabline' {{{2
 if exists("+showtabline")
@@ -626,9 +640,6 @@ endif
 if (version < 600 && filereadable($VIMRUNTIME . "/macros/explorer.vim"))
     nmap ,e :so $VIMRUNTIME/macros/explorer.vim<Cr>,e
 endif
-
-" Custom status line
-set statusline=%<%f\ %h%m%r%{ExtraStatusInfo()}%=%-14.(%l,%c%V%)\ %P
 
 "}}}1
 " Color scheme
