@@ -87,7 +87,7 @@ if version >= 500
     set nohlsearch
     set noincsearch
     set sidescroll=5
-    set listchars=eol:$,tab:T-,trail:_,precedes:<,extends:>
+    set listchars=eol:$,tab:\|-,trail:-,precedes:<,extends:>,nbsp:=
     set showbreak=+
     set linebreak
     set cino={0,(0,W4,u0,t0
