@@ -37,6 +37,7 @@ Bundle 'vim-scripts/Gist.vim'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'vim-scripts/vim-json-bundle'
 Bundle 'vim-scripts/grep.vim'
+Bundle 'vim-scripts/vim-easy-align'
 Bundle 'vim-scripts/git-time-lapse'
 Bundle 'csexton/jekyll.vim'
 Bundle 'sukima/LSLvim'
@@ -238,6 +239,9 @@ let g:ctrlp_user_command = {
     \ 2: ['.hg', 'hg --cwd %s locate -I .'],
     \ }
   \ }
+
+" EasyAlign
+vnoremap <silent> <Enter> :EasyAlign<cr>
 
 " File Type Detect {{{2
 augroup filetypedetect
