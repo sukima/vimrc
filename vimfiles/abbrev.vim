@@ -26,6 +26,7 @@ ab libary library
 ab Libary Library
 ab libaries libraries
 ab Libaries Libraries
+ab funciton function
  
 " My convince date completion commands
 cab _fulldate strftime("%a %b %d %T %Z %Y")
