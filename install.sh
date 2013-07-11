@@ -70,7 +70,7 @@ PATHOGEN_ARG=no
 UPDATE_BUNDLES=no
 NO_INSTALL_ARG=no
 NO_MANAGER_ARG=no
-DIR=`dirname $0`
+DIR=$(cd `dirname $0`; pwd)
 PREFIX="$HOME/.vim"
 
 while test -n "$1"; do
@@ -99,46 +99,46 @@ if test "$NO_INSTALL_ARG" = "yes"; then
 else
     if test "$WIN" = "no"; then
         if test "$FORCE" = "yes"; then
-            test -e "$HOME/.vimrc" && { rm -f "$HOME/.vimrc"; echo "$HOME/.vimrc DESTROYED!"; }
-            test -e "$HOME/.gvimrc" && { rm -f "$HOME/.gvimrc"; echo "$HOME/.gvimrc DESTROYED!"; }
-            test -e "$HOME/.vim" && { rm -rf "$HOME/.vim"; echo "$HOME/.vim DESTROYED!"; }
+            rm -f "$HOME/.vimrc"; echo "$HOME/.vimrc DESTROYED!";
+            rm -f "$HOME/.gvimrc"; echo "$HOME/.gvimrc DESTROYED!";
+            rm -f "$HOME/.vim"; echo "$HOME/.vim DESTROYED!";
         fi
         if test -e "$HOME/.vimrc"; then
             echo "$HOME/.vimrc exists. Skipping. (Using -f will destroy it!)"
         else
-            ln -s "$DIR/vimrc" "$HOME/.vimrc"
+            ln -s "$DIR/_vimrc" "$HOME/.vimrc"
         fi
         if test -e "$HOME/.gvimrc"; then
             echo "$HOME/.gvimrc exists. Skipping. (Using -f will destroy it!)"
         else
-            ln -s "$DIR/gvimrc" "$HOME/.gvimrc"
+            ln -s "$DIRa/_gvimrc" "$HOME/.gvimrc"
         fi
         if test -e "$HOME/.vim"; then
             echo "$HOME/.vim exists. Skipping. (Using -f will destroy it!)"
         else
-            ln -s "$DIR/dotfiles/in+.vim" "$HOME/.vim"
+            ln -s "$DIR/vimfiles" "$HOME/.vim"
         fi
     else
         cd "$DIR"
         if test "$FORCE" = "yes"; then
-            test -e ../_vimrc && { rm -f ../_vimrc; echo "../_vimrc DESTROYED!"; }
-            test -e ../_gvimrc && { rm -f ../_gvimrc; echo "../_gvimrc DESTROYED!"; }
-            test -e ../vimfiles && { rm -rf ../vimfiles; echo "../vimfiles DESTROYED!"; }
+            rm -f ../_vimrc; echo "../_vimrc DESTROYED!";
+            rm -f ../_gvimrc; echo "../_gvimrc DESTROYED!";
+            rm -rf ../vimfiles; echo "../vimfiles DESTROYED!";
         fi
         if test -e ../_vimrc; then
             echo "../_vimrc exists. Skipping. (Using -f will destroy it!)"
         else
-            cp "$DIR/vimrc" ../_vimrc
+            cp "$DIR/_vimrc" ../_vimrc
         fi
         if test -e ../_gvimrc; then
             echo "../_gvimrc exists. Skipping. (Using -f will destroy it!)"
         else
-            cp "$DIR/gvimrc" ../_gvimrc
+            cp "$DIRa_/gvimrc" ../_gvimrc
         fi
         if test -e ../vimfiles; then
             echo "../vimfiles exists. Skipping. (Using -f will destroy it!)"
         else
-            cp -R "$DIR/dotfiles/in+.vim" ../vimfiles
+            cp -R "$DIR/vimfiles" ../vimfiles
         fi
     fi
 fi
@@ -147,7 +147,7 @@ fi
 if test "$NO_MANAGER_ARG" = "yes"; then
     echo "Skipping plugin management install."
 else
-    test -d "$PREFIX" || { echo >&2 "$PREFIX does not exists yet. Have you tried usinf the -i option?"; exit -1; }
+    test -d "$PREFIX" || { echo >&2 "$PREFIX does not exists yet."; exit -1; }
     if hash git 2>&-; then
         PROG=git
         VUNDLE="yes"
