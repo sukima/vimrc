@@ -244,6 +244,9 @@ let g:ctrlp_user_command = {
 " EasyAlign
 vnoremap <silent> <Enter> :EasyAlign<cr>
 
+" SuperTab
+let g:SuperTabNoCompleteBefore = ['^', ',', ':', '\s']
+
 " File Type Detect {{{2
 augroup filetypedetect
     " phplib template files
