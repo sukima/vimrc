@@ -83,7 +83,7 @@ if version >= 500
     set expandtab " Spaces are better.
     set wrapmargin=0
     set backspace=2
-    set formatoptions+=ro2l
+    set formatoptions+=ro2lt
     set nohlsearch
     set noincsearch
     set sidescroll=5
@@ -202,6 +202,9 @@ let explHideFiles='^\.,\.gz$,\.exe$,\.zip$'
 " NERDCommenter
 let g:NERDSpaceDelims=1
 let g:NERDDefaultNesting=1
+let g:NERDCustomDelimiters = {
+  \ 'litcoffee': { 'left': '#', 'leftAlt': '<!--', 'rightAlt': '-->' }
+\ }
 
 " zencoding-vim
 let g:user_zen_leader_key='<c-e>'
@@ -666,4 +669,4 @@ runtime abbrev.vim
 " vimrc.
 runtime local.vim
 
-" vim600: set foldmethod=marker :
+" vim600:set fdm=marker sw=4 ts=4 et:
