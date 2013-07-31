@@ -51,6 +51,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'sukima/vim-docbk'
 Bundle 'kien/ctrlp.vim'
+Bundle 'benmills/vimux'
 
 " Section: Global Options {{{1
 
