@@ -299,17 +299,10 @@ endif
 if version >= 700
     " add a mapping for convenience since vimspell will not be loaded in
     " version 7.x
-    noremap <Leader>s :call SetSpellingNavigation()<Cr>
+    nnoremap [oz :call SetSpellingNavigation(1)<Cr>
+    nnoremap ]oz :call SetSpellingNavigation(0)<Cr>
+    nnoremap coz :call ToggleSpellingNavigation()<Cr>
 endif
-" <Leader>w conflicts with some filetype mappings.
-nnoremap <Leader>W :silent! call SetWrapNavigation()<Cr>
-nnoremap <Leader>l :set list!<Cr>
-nnoremap <Leader>n :set nu!<Cr>
-nnoremap <Leader>e :set et!<Cr><Bar>:echo "Expand Tab: " . strpart("OffOn", 3 * &et, 3)<Cr>
-nnoremap <silent> <Leader>f :if &fdc==0<Cr>set fdc=2<Cr>else<Cr>set fdc=0<Cr>endif<Cr>
-nnoremap <Leader>p :set paste!<Cr><Bar>:echo "Paste mode: " . strpart("OffOn", 3 * &paste, 3)<Cr>
-set pastetoggle=<ESC>1 " For added ease
-nnoremap <Leader>/ :set hls!<Cr><Bar>:echo "Highlight Search: " . strpart("OffOn", 3 * &hlsearch, 3)<Cr>
 nnoremap <Leader>2<Tab> :set sw=2 ts=2 noet<Cr><Bar>:echo "Indent set to two (tabs)"<Cr>
 nnoremap <Leader>4<Tab> :set sw=4 ts=4 noet<Cr><Bar>:echo "Indent set to four (tabs)"<Cr>
 nnoremap <Leader>2<Space> :set sw=2 ts=2 et<Cr><Bar>:echo "Indent set to two (spaces)"<Cr>
@@ -488,7 +481,15 @@ function SetWrapNavigation( )
 endfunction
 
 " Section: Toggle Spelling Navigation {{{2
-function SetSpellingNavigation( )
+function ToggleSpellingNavigation( )
+    if !exists("g:spell_navigation_enabled") || g:spell_navigation_enabled == 0
+        call SetSpellingNavigation(1)
+    else
+        call SetSpellingNavigation(0)
+    endif
+endfunction
+
+function SetSpellingNavigation( enabled )
     " ViewSetup() has conflicting mappings. Can't use spell while nomodifiable
     " anyway.
     if g:viewState == 0
@@ -496,33 +497,24 @@ function SetSpellingNavigation( )
         echo "Cannot use spelling. File nomodifiable."
         echohl None
     else
-        if &spell
-            set nospell
-            nunmap <CR>
-            nunmap +
-            nunmap <Space>
-            nunmap =
-            nunmap <S-Space>
-            nunmap -
-            echo "Spell checking: Off"
+        if a:enabled == 0
+            silent! nunmap <buffer> <CR>
+            silent! nunmap <buffer> +
+            silent! nunmap <buffer> <Space>
+            silent! nunmap <buffer> =
+            silent! nunmap <buffer> <S-Space>
+            silent! nunmap <buffer> -
+            let g:spell_navigation_enabled = 0
+            echo "Spell mappings: Off"
         else
-            " There are random bugs that crash vim when spell checking. Force
-            " the file to be saved before continuing.
-            if bufname("%") == ""
-                echohl Error
-                echo "Due to possible crashing during spell checking buffer must be saved first."
-                echohl Normal
-            else
-                silent write
-                set spell
-                nnoremap <CR> z=
-                nnoremap + z=
-                nnoremap <Space> ]s
-                nnoremap = ]s
-                nnoremap <S-Space> [s
-                nnoremap - [s
-                echo "Spell checking: On ([Space/=] Next, [Enter/+] Suggest, [S-Space/-] Prev)"
-            endif
+            silent! nnoremap <buffer> <CR> z=
+            silent! nnoremap <buffer> + z=
+            silent! nnoremap <buffer> <Space> ]s
+            silent! nnoremap <buffer> = ]s
+            silent! nnoremap <buffer> <S-Space> [s
+            silent! nnoremap <buffer> - [s
+            let g:spell_navigation_enabled = 1
+            echo "Spell mappings: On ([Space/=] Next, [Enter/+] Suggest, [S-Space/-] Prev)"
         endif
     endif
 endfunction
