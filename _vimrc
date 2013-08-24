@@ -640,6 +640,7 @@ endif
 " set t_Co=16
 " let g:solarized_termcolors=16
 let g:solarized_termtrans = 1
+let g:solarized_hitrail = 1
 silent! colorscheme solarized
 silent! call togglebg#map("<F5>")
 
