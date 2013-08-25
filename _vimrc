@@ -53,6 +53,7 @@ Bundle 'chrisbra/NrrwRgn'
 Bundle 'sukima/vim-docbk'
 Bundle 'kien/ctrlp.vim'
 Bundle 'benmills/vimux'
+Bundle 'airblade/vim-gitgutter'
 
 " Section: Global Options {{{1
 
