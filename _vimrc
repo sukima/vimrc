@@ -562,28 +562,9 @@ function ViewSetup( )
             echo "View Mode: On ([Space] Page Down, [S-Space] Page Up, [q] Quit)"
         endif
         let g:viewState = 0
-" Section: Custom statusline info {{{2
-" used to display custom data or plugin output
-function SetStatusLine()
-    set statusline=%<%f\ %h%m%r
-
-    " Fugative
-    if exists("*fugitive#statusline")
-        set statusline+=%{fugitive#statusline()}
     endif
-
-    " Syntastic
-    if exists("*SyntasticStatuslineFlag")
-        set statusline+=\ %#warningmsg#
-        set statusline+=%{SyntasticStatuslineFlag()}
-        set statusline+=%*
-    endif
-
-    set statusline+=%=%-14.(%l,%c%V%)\ %P
 endfunction
 
-" Custom status line
-autocmd VimEnter * call SetStatusLine()
 
 " Section: Custom 'tabline' {{{2
 if exists("+showtabline")
