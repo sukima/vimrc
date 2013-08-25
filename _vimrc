@@ -98,13 +98,13 @@ if version >= 500
     set mouse=a " set mouse enabled in all modes
     set mousemodel=extend
     if &lines < 20
-    set laststatus=0 " Never have a status line
-    set noshowmatch
-    set noshowcmd
+        set laststatus=0 " Never have a status line
+        set noshowmatch
+        set noshowcmd
     else
-    set laststatus=2 " Always have a status line
-    set showmatch
-    set showcmd
+        set laststatus=2 " Always have a status line
+        set showmatch
+        set showcmd
     endif
     set ruler " have curser position always on status bar
     set magic " allow searches to be more perl like
@@ -127,9 +127,9 @@ endif
 if version >= 600
     set softtabstop=0
     if &columns < 40
-	set foldcolumn=0
+        set foldcolumn=0
     else
-	set foldcolumn=2
+        set foldcolumn=2
     endif
     set winminheight=0
     set modeline
@@ -144,7 +144,7 @@ if version >= 600
     "    \%+C%*[^:]%trror:%m,
     "    \%C%*\\s%tarning:%m,
     "    \%C%m
-endif 
+endif
 
 " Section: VIM 7.x Options {{{2
 if version >= 700
@@ -160,7 +160,7 @@ if version >= 700
     " I still want the best for encryption. (Otherwise what's the point?)
     set cryptmethod=blowfish
 endif
- 
+
 " Section: Dictionary Support {{{2
 if filereadable($VIM . "/words")
     set dictionary+=$VIM/words
@@ -169,9 +169,9 @@ if filereadable("/usr/share/dict/words")
     set dictionary+=/usr/share/dict/words
 endif
 
-" Section: File Type & Syntax Options{{{1
+" Section: Plugin | File Type | Syntax Options{{{1
 " Plugin / Syntax Options {{{2
-" vimspell
+" vimspell {{{3
 if version >= 700
     " No need to load the old vimspell because VIM 7.x has built in spelling
     let loaded_vimspell = 1
@@ -181,64 +181,64 @@ else
     let spell_insert_mode = 0
 endif
 
-" Highlight Matching Brackets
+" Highlight Matching Brackets {{{3
 let loaded_matchparen = 1
 
-" PHP
+" PHP {{{3
 "let php_sql_query = 1
 let php_baselib = 1
 let php_folding = 0
 
-" Obj-C
+" Obj-C {{{3
 let filetype_m='objc'
 
-" Java
+" Java {{{3
 let java_allow_cpp_keywords = 1
 
-" XML
+" XML {{{3
 let xml_allow_docbk_keywords = 1
 "let xml_jump_string = "-j-"
 
-" Explore
+" Explore {{{3
 let explHideFiles='^\.,\.gz$,\.exe$,\.zip$'
 
-" NERDCommenter
+" NERDCommenter {{{3
 let g:NERDSpaceDelims=1
 let g:NERDDefaultNesting=1
 let g:NERDCustomDelimiters = {
   \ 'litcoffee': { 'left': '#', 'leftAlt': '<!--', 'rightAlt': '-->' }
 \ }
 
-" zencoding-vim
+" zencoding-vim {{{3
 let g:user_zen_leader_key='<c-e>'
 let g:user_zen_settings = {
 \  'indentation' : '  '
 \}
 
-" Rails
+" Rails {{{3
 " tmux buggers up vim's display avoid using it.
 let g:rails_gnu_screen=0
 
-" snipMate
+" snipMate {{{3
 " This overrides the deafult location which is to search the &rtp. Because
 " snipmate-snippets overides the defaults in snipMate we force snippets to
 " load only from these directory excluding the defaults.
 let g:snippets_dir="$HOME/.vim/snippets,$HOME/.vim/bundle/snipmate-snippets"
 let g:snips_author='Devin Weaver'
 
-" Gundo
+" Gundo {{{3
 " Place in .vim/local.vim to disable (if no python)
 "let g:gundo_disable = 1
 "let g:gundo_preview_bottom = 1
 nmap <Leader>u :GundoToggle<Cr>
 
-" Fugitive
+" Fugitive {{{3
 " Convenience mappings
 nnoremap <C-s>a :Gwrite<Cr>
 inoremap <C-s>a <C-o>:Gwrite<Cr>
 nnoremap <C-s>c :Gcommit<Cr>
 
-" Ctrl-p
+" CTRLP {{{3
 " Allow ctrl-p to use git ls-files (better) with fallback
 let g:ctrlp_user_command = {
   \ 'types': {
@@ -247,10 +247,10 @@ let g:ctrlp_user_command = {
     \ }
   \ }
 
-" EasyAlign
+" EasyAlign {{{3
 vnoremap <silent> <Enter> :EasyAlign<cr>
 
-" SuperTab
+" SuperTab {{{3
 let g:SuperTabNoCompleteBefore = ['^', ',', ':', '\s']
 
 " File Type Detect {{{2
@@ -262,22 +262,22 @@ augroup filetypedetect
     " Custom ChangeLog Syntax
     "au! BufNewFile,BufRead ChangeLog*		     setf chlog
     au BufNewFile,BufRead *
-	\ if getline(1) =~ '^\(.\+\)(\d).*\1(\d)$' |
-	\   setf man |
-	\ endif
+        \ if getline(1) =~ '^\(.\+\)(\d).*\1(\d)$' |
+        \   setf man |
+        \ endif
 augroup END
 
 " File Type Auto Settings {{{2
 au FileType ruby setl sw=2 sts=2 et
 
 " }}}
-" Turn on filetype checks and syntax highlighting 
+" Turn on filetype checks and syntax highlighting
 filetype plugin indent on
 syntax on
 
 
 " Section: Mappings {{{1
- 
+
 " Section: mapleader {{{2
 " Check if this is the Pocket PC version
 if exists("$CELIBVERSION")
@@ -339,7 +339,7 @@ nnoremap <Leader>h3 :s/^.*$/### & ###/<Cr>
 nnoremap <Leader>h4 :s/^.*$/#### & ####/<Cr>
 " For quick brackets for functions/if/then/etc deffinitions {{{3
 " The first map used to work. But the new indent code (read: php indent)
-" would render this improperly if there was no text after the opening { 
+" would render this improperly if there was no text after the opening {
 " "inoremap <Leader><Cr> <Cr>{<Cr>}<Up><Cr>
 inoremap <Leader><Cr> <Cr>{<Cr>x<Cr>}<Up><End><Backspace>
 inoremap <Leader>] <Space>{<Cr>x<Cr>}<Up><End><Backspace>
@@ -420,15 +420,15 @@ command GPGencryptsign %!gpg -seat
 command GPGencrypt %!gpg -eat
 command GPGdecrypt %!gpg -d
 
-" Section: Functions {{{1 
+" Section: Functions {{{1
 " Section: Toggle Comment Functions {{{2
 if version >= 700
 function LoadCommentString( )
     let comment = matchlist (&commentstring, '\(.*\)%s\(.*\)')
     if (comment == [])
-	echohl WarningMsg
-	echo "Malformed 'commentstring' or setting not set"
-	echohl None
+        echohl WarningMsg
+        echo "Malformed 'commentstring' or setting not set"
+        echohl None
     endif
     let scomment = get (comment, 1, '# ') " default to shell comment
     let ecomment = get (comment, 2, '')
@@ -441,7 +441,7 @@ function AddLineComment( )
     exe 'normal ^'
 endfunction
 function RemoveLineComment( )
-    let c = LoadCommentString() 
+    let c = LoadCommentString()
     let c[0] = substitute(c[0], '/', '\\/', 'g')
     let c[1] = substitute(c[1], '/', '\\/', 'g')
     exe 'substitute /\V' . c[0] . '\s\*\(\.\{-\}\)\s\*' . c[1] . '/\1/'
@@ -451,32 +451,32 @@ endif
 " Section: Wrap Navigation Function {{{2
 function SetWrapNavigation( )
     if &wrap
-	set nowrap
-	unmap j
-	unmap k
-	unmap <Down>
-	unmap <Up>
-	"unmap 0
-	"unmap ^
-	"unmap $
+        set nowrap
+        unmap j
+        unmap k
+        unmap <Down>
+        unmap <Up>
+        "unmap 0
+        "unmap ^
+        "unmap $
     else
-	set wrap
-	nnoremap <buffer> k gk
-	nnoremap <buffer> j gj
-	nnoremap <buffer> <Up> gk
-	nnoremap <buffer> <Down> gj
-	"nnoremap <buffer> 0 g0
-	"nnoremap <buffer> ^ g^
-	"nnoremap <buffer> $ g$
-	inoremap <buffer> <Up> <C-O>gk
-	inoremap <buffer> <Down> <C-O>gj
-	vnoremap <buffer> k gk
-	vnoremap <buffer> j gj
-	vnoremap <buffer> <Up> gk
-	vnoremap <buffer> <Down> gj
-	"vnoremap <buffer> 0 g0
-	"vnoremap <buffer> ^ g^
-	"vnoremap <buffer> $ g$
+        set wrap
+        nnoremap <buffer> k gk
+        nnoremap <buffer> j gj
+        nnoremap <buffer> <Up> gk
+        nnoremap <buffer> <Down> gj
+        "nnoremap <buffer> 0 g0
+        "nnoremap <buffer> ^ g^
+        "nnoremap <buffer> $ g$
+        inoremap <buffer> <Up> <C-O>gk
+        inoremap <buffer> <Down> <C-O>gj
+        vnoremap <buffer> k gk
+        vnoremap <buffer> j gj
+        vnoremap <buffer> <Up> gk
+        vnoremap <buffer> <Down> gj
+        "vnoremap <buffer> 0 g0
+        "vnoremap <buffer> ^ g^
+        "vnoremap <buffer> $ g$
     endif
 endfunction
 
@@ -519,34 +519,31 @@ function SetSpellingNavigation( enabled )
     endif
 endfunction
 
-" Section: Pager Function for 'view' {{{2 
+" Section: Pager Function for 'view' {{{2
 " Used for paging in a view command (like more)
 function ViewSetup( )
     if &spell
         call SetSpellingNavigation()
     endif
     if g:viewState == 0
-	set modifiable
-	"filetype detect
-	nunmap q
-	nunmap Q
-	nunmap <Space>
-	nunmap <S-Space>
-	echo "View Mode: Off"
-	let g:viewState = 1
+        set modifiable
+        "filetype detect
+        nunmap q
+        nunmap Q
+        nunmap <Space>
+        nunmap <S-Space>
+        echo "View Mode: Off"
+        let g:viewState = 1
     else
-	set nomodifiable
-	nnoremap q :q!<Cr>
-	nnoremap Q :qa!<Cr>
-	nnoremap <Space> <C-f>
-	nnoremap <S-Space> <C-b>
-	if g:viewState != 2
-	    echo "View Mode: On ([Space] Page Down, [S-Space] Page Up, [q] Quit)"
-	endif
-	let g:viewState = 0
-    endif
-endfunction
-
+        set nomodifiable
+        nnoremap q :q!<Cr>
+        nnoremap Q :qa!<Cr>
+        nnoremap <Space> <C-f>
+        nnoremap <S-Space> <C-b>
+        if g:viewState != 2
+            echo "View Mode: On ([Space] Page Down, [S-Space] Page Up, [q] Quit)"
+        endif
+        let g:viewState = 0
 " Section: Custom statusline info {{{2
 " used to display custom data or plugin output
 function SetStatusLine()
@@ -601,7 +598,7 @@ if exists("+showtabline")
   set tabline=%!MyTabLine()
 endif
 
-" Section: Misc. {{{1 
+" Section: Misc. {{{1
 " Is there a tags file? If so I'd like to use it's absolute path in case we
 " chdir later
 if filereadable("tags")
@@ -623,7 +620,7 @@ else
 endif
 
 " by default run explorer.vim but only if I call for it.
-" VIM 6.x includes it by default. 
+" VIM 6.x includes it by default.
 if (version < 600 && filereadable($VIMRUNTIME . "/macros/explorer.vim"))
     nmap ,e :so $VIMRUNTIME/macros/explorer.vim<Cr>,e
 endif
