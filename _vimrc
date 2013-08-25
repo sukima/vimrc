@@ -17,6 +17,7 @@ endif
 " Section: Preferred bundles {{{1
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'bling/vim-airline'
 Bundle 'edsono/vim-matchit'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-haml'
@@ -253,6 +254,22 @@ vnoremap <silent> <Enter> :EasyAlign<cr>
 
 " SuperTab {{{3
 let g:SuperTabNoCompleteBefore = ['^', ',', ':', '\s']
+
+" vim-airline {{{3
+if has('mac')
+    " let g:airline_left_sep = '»'
+    let g:airline_left_sep = '▶'
+    " let g:airline_right_sep = '«'
+    let g:airline_right_sep = '◀'
+    let g:airline_linecolumn_prefix = '␊ '
+    " let g:airline_linecolumn_prefix = '␤ '
+    " let g:airline_linecolumn_prefix = '¶ '
+    let g:airline#extensions#branch#symbol = '⎇ '
+    let g:airline#extensions#paste#symbol = 'ρ'
+    " let g:airline#extensions#paste#symbol = 'Þ'
+    " let g:airline#extensions#paste#symbol = '∥'
+    let g:airline#extensions#whitespace#symbol = 'Ξ'
+endif
 
 " File Type Detect {{{2
 augroup filetypedetect
