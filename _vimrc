@@ -146,6 +146,7 @@ if version >= 600
     "    \%+C%*[^:]%trror:%m,
     "    \%C%*\\s%tarning:%m,
     "    \%C%m
+    set cursorline
 endif
 
 " Section: VIM 7.x Options {{{2
@@ -184,7 +185,7 @@ else
 endif
 
 " Highlight Matching Brackets {{{3
-let loaded_matchparen = 1
+" let loaded_matchparen = 1
 
 " PHP {{{3
 "let php_sql_query = 1
