@@ -55,6 +55,9 @@ Bundle 'sukima/vim-docbk'
 Bundle 'kien/ctrlp.vim'
 Bundle 'benmills/vimux'
 Bundle 'airblade/vim-gitgutter'
+" Required by vim-session
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-session'
 
 " Section: Global Options {{{1
 
@@ -272,6 +275,9 @@ if has('mac')
     let g:airline#extensions#whitespace#symbol = 'Ξ'
 endif
 
+" vim-session {{{3
+let g:session_autosave = 'no'
+
 " File Type Detect {{{2
 augroup filetypedetect
     " phplib template files
@@ -400,38 +406,6 @@ command Cwd cd %:h
 command Undiff set nodiff foldcolumn=0
 command Ant set makeprg=ant\ -find\ build.xml | set efm=%A\ %#[.\\{-1,}]\ %f:%l:\ %m,%-Z\ %#[.\\{-1,}]\ %p^,%-C%.%#
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
-
-" Section: Session Commands {{{1
-let g:session_dir="~/tmp/sessions/"
-command SaveSession wa | exec "mksession! " . v:this_session | echo "Session saved. (" . v:this_session . ")"
-function MakeNewSession(name)
-  if a:name != ""
-    let session_name = a:name
-  else
-    let session_name=input("New session name: ")
-  endif
-  if session_name != ""
-    exec "let v:this_session=\"" . simplify( g:session_dir . "/" . session_name . ".vim" ) . "\""
-    exec "mksession! " . v:this_session
-    echo session_name . " session saved. (" . v:this_session . ")"
-  else
-    echo "Aborted."
-  endif
-endfunction
-function LoadSavedSession(name)
-  if a:name != ""
-    let session_name = a:name
-  else
-    let session_name=input("Session name: ")
-  endif
-  if session_name != ""
-    exec "source " . simplify( g:session_dir . "/" . session_name . ".vim" )
-  else
-    echo "Aborted."
-  endif
-endfunction
-command -nargs=? NewSession wa | call MakeNewSession(<q-args>)
-command -nargs=? LoadSession wa | call LoadSavedSession(<q-args>)
 
 " Section: GPG Commands {{{1
 command GPGclearsign %!gpg --clearsign
