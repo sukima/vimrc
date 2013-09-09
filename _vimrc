@@ -278,6 +278,32 @@ endif
 " vim-session {{{3
 let g:session_autosave = 'no'
 
+" vimux {{{3
+" Prompt for a command to run
+map <Leader>vp :VimuxPromptCommand<CR>
+" Run last command executed by VimuxRunCommand
+map <Leader>vl :VimuxRunLastCommand<CR>
+" Inspect runner pane
+map <Leader>vi :VimuxInspectRunner<CR>
+" Close vim tmux runner opened by VimuxRunCommand
+map <Leader>vq :VimuxCloseRunner<CR>
+" Interrupt any command running in the runner pane
+map <Leader>vx :VimuxInterruptRunner<CR>
+function SetVimuxOrientation(orientation)
+    if a:orientation == "h"
+        let g:VimuxOrientation = "h"
+        let g:VimuxHeight = "40"
+        echo "Vimux orientation set to horizontal split ( | )"
+    else
+        let g:VimuxOrientation = "v"
+        let g:VimuxHeight = "20"
+        echo "Vimux orientation set to vertical split ( - )"
+    endif
+endfunction
+map <Leader>v" :call SetVimuxOrientation("v")<Cr>
+map <Leader>v% :call SetVimuxOrientation("h")<Cr>
+silent! call SetVimuxOrientation("v")
+
 " File Type Detect {{{2
 augroup filetypedetect
     " phplib template files
@@ -590,7 +616,7 @@ if v:progname =~ "view"
     call ViewSetup()
 else
     let viewState = 1
-    nnoremap <Leader>v :call ViewSetup()<Cr>
+    nnoremap <Leader>vv :call ViewSetup()<Cr>
 endif
 
 " by default run explorer.vim but only if I call for it.
