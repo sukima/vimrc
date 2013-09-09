@@ -27,7 +27,11 @@ ab Libary Library
 ab libaries libraries
 ab Libaries Libraries
 ab funciton function
- 
+ab sanatize sanitize
+ab Sanatize Sanitize
+ab sanatized sanitized
+ab Sanatized Sanitized
+
 " My convince date completion commands
 cab _fulldate strftime("%a %b %d %T %Z %Y")
 cab _date strftime("%Y-%m-%d %H:%M")
