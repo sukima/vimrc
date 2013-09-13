@@ -31,7 +31,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'ervandew/snipmate.vim'
 " Bundle 'scrooloose/snipmate-snippets'
 Bundle 'kchmck/vim-coffee-script'
@@ -215,9 +215,9 @@ let g:NERDCustomDelimiters = {
   \ 'litcoffee': { 'left': '#', 'leftAlt': '<!--', 'rightAlt': '-->' }
 \ }
 
-" zencoding-vim {{{3
-let g:user_zen_leader_key='<c-e>'
-let g:user_zen_settings = {
+" emmet-vim {{{3
+let g:user_emmet_leader_key='<c-e>'
+let g:user_emmet_settings = {
 \  'indentation' : '  '
 \}
 
