@@ -15,6 +15,7 @@ if !exists("*vundle#rc")
 endif
 
 " Section: Preferred bundles {{{1
+Bundle 'vimoutliner/vimoutliner'
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
