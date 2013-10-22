@@ -317,6 +317,7 @@ augroup filetypedetect
         \ if getline(1) =~ '^\(.\+\)(\d).*\1(\d)$' |
         \   setf man |
         \ endif
+    au BufRead,BufNewFile *.json set filetype=json
 augroup END
 
 " File Type Auto Settings {{{2
