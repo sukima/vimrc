@@ -246,6 +246,7 @@ nnoremap <C-s>c :Gcommit<Cr>
 
 " CTRLP {{{3
 " Allow ctrl-p to use git ls-files (better) with fallback
+let g:ctrlp_open_new_file = 't'
 let g:ctrlp_user_command = {
   \ 'types': {
     \ 1: ['.git', 'cd %s && git ls-files'],
