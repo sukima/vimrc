@@ -59,6 +59,7 @@ Bundle 'airblade/vim-gitgutter'
 " Required by vim-session
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
+Bundle 'wavded/vim-stylus'
 
 " Section: Global Options {{{1
 
