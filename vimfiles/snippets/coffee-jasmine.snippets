@@ -1,7 +1,7 @@
 # After Eaoh
 snippet aft
 	afterEach ->
-		${1} 
+		${1}
 # Any
 snippet any
 	jasmine.any(${1})
@@ -12,6 +12,7 @@ snippet bef
 # Describe
 snippet des
 	describe "${1:description}", ->
+
 		${2}
 # Expect not to be defined
 snippet notd
@@ -88,6 +89,7 @@ snippet ex
 # It
 snippet it
 	it "should ${1:description}", ->
+
 		${2}
 # Runs
 snippet ru
@@ -111,3 +113,6 @@ snippet s
 # Waits
 snippet wa
 	waits ${1}
+# WaitsFor
+snippet wf
+	waitsFor (->${1:ready}), "${2:reason}", ${3:10}

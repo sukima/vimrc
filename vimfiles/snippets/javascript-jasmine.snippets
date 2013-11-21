@@ -1,7 +1,7 @@
 # After Each
 snippet aft
-	afterEach(function() { 
-		${1} 
+	afterEach(function() {
+		${1}
 	});
 # Any
 snippet any
@@ -14,7 +14,9 @@ snippet bef
 # Describe
 snippet des
 	describe("${1:description}", function() {
+
 		${2}
+
 	});
 # Expect not to be defined
 snippet notd
@@ -91,7 +93,9 @@ snippet ex
 # It
 snippet it
 	it("should ${1:description}", function() {
+
 		${2}
+
 	});
 # Runs
 snippet ru
@@ -116,3 +120,6 @@ snippet s
 # Waits
 snippet wa
 	waits(${1});
+# WaitsFor
+snippet wf
+	waitsFor(function() { return ${1:ready}; }, "${2:reason}", ${3:10});
