@@ -13,10 +13,7 @@ snippet bef
 	});
 # Describe
 snippet des
-	describe("${1:description}", function() {
-
-		${2}
-
+	describe("${1:description}", function() {${2}
 	});
 # Expect not to be defined
 snippet notd
@@ -92,13 +89,11 @@ snippet ex
 	expect( ${1:target} )${2};
 # It
 snippet it
-	it("should ${1:description}", function() {
-		${2}
+	it("should ${1:description}", function() {${2}
 	});
 # Runs
 snippet ru
-	runs(function() {
-		${1}
+	runs(function() {${1}
 	});
 # Spy on and call fake
 snippet scf

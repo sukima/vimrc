@@ -11,9 +11,7 @@ snippet bef
 		${1}
 # Describe
 snippet des
-	describe "${1:description}", ->
-
-		${2}
+	describe "${1:description}", ->${2}
 # Expect not to be defined
 snippet notd
 	expect( ${1:target} ).not.toBeDefined()
@@ -88,8 +86,7 @@ snippet ex
 	expect( ${1:target} )${2}
 # It
 snippet it
-	it "should ${1:description}", ->
-		${2}
+	it "should ${1:description}", ->${2}
 # Runs
 snippet ru
 	runs ->
