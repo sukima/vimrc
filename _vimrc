@@ -307,7 +307,7 @@ map <Leader>v" :call SetVimuxOrientation("v")<Cr>
 map <Leader>v% :call SetVimuxOrientation("h")<Cr>
 silent! call SetVimuxOrientation("v")
 
-" CoffeeTags
+" CoffeeTags {{{3
 if executable('coffeetags')
   let g:tagbar_type_coffee = {
         \ 'ctagsbin' : 'coffeetags',
@@ -541,6 +541,7 @@ function SetSpellingNavigation( enabled )
         echohl None
     else
         if a:enabled == 0
+            setlocal nospell
             silent! nunmap <buffer> <CR>
             silent! nunmap <buffer> +
             silent! nunmap <buffer> <Space>
@@ -550,6 +551,7 @@ function SetSpellingNavigation( enabled )
             let g:spell_navigation_enabled = 0
             echo "Spell mappings: Off"
         else
+            setlocal spell
             silent! nnoremap <buffer> <CR> z=
             silent! nnoremap <buffer> + z=
             silent! nnoremap <buffer> <Space> ]s
