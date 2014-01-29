@@ -19,7 +19,7 @@ if executable('muttqt') > 0
         let name = entry[1]
         let service = entry[2]
         if !empty(name)
-          let email = '"' . name . '" <' . email . '>'
+          let email = name . ' <' . email . '>'
         endif
         call add(res, {'word': email, 'menu': service})
       endfor
