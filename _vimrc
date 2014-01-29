@@ -677,6 +677,9 @@ let g:solarized_hitrail = 1
 silent! colorscheme solarized
 silent! call togglebg#map("<F5>")
 
+command Solarized16  let g:solarized_termcolors=16 | colorscheme solarized
+command Solarized256 let g:solarized_termcolors=256 | colorscheme solarized
+
 " Load abbreviations
 runtime abbrev.vim
 
