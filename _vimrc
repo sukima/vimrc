@@ -462,6 +462,7 @@ command GPGclearsign %!gpg --clearsign
 command GPGencryptsign %!gpg -seat
 command GPGencrypt %!gpg -eat
 command GPGdecrypt %!gpg -d
+command GPGencryptSymetric %!gpg -ceat
 
 " Section: Functions {{{1
 " Section: Toggle Comment Functions {{{2
