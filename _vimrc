@@ -674,4 +674,4 @@ runtime abbrev.vim
 " vimrc.
 runtime local.vim
 
-" vim600:set fdm=marker sw=4 ts=4 et:
+" vim600:set fdm=marker sw=2 ts=2 et:
