@@ -398,6 +398,11 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " Section: Utility Mappings {{{2
+" Remove default EX mode with Q {{{3
+" I don't like the default EX mode I keep hitting it accidentally
+" Use gQ instead (That's VIM's version which is better the the default EX
+" mode.)
+noremap Q <nop>
 " A panic button! {{{3
 " So no one accidentally sees words they arn't supposed to.
 noremap <Leader>r ggg?G``
