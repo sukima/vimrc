@@ -247,7 +247,7 @@ nmap <Leader>u :GundoToggle<Cr>
 " Convenience mappings
 nnoremap <C-s>a :Gwrite<Cr>
 inoremap <C-s>a <C-o>:Gwrite<Cr>
-nnoremap <C-s>c :Gcommit<Cr>
+nnoremap <C-s>c :Gcommit -v<Cr>
 
 " CTRLP {{{3
 " Allow ctrl-p to use git ls-files (better) with fallback
