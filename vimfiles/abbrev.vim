@@ -27,10 +27,14 @@ ab Libary Library
 ab libaries libraries
 ab Libaries Libraries
 ab funciton function
+ab fucntion function
+ab functoin function
 ab sanatize sanitize
 ab Sanatize Sanitize
 ab sanatized sanitized
 ab Sanatized Sanitized
+ab simular similar
+ab Simular Similar
 
 " My convince date completion commands
 cab _fulldate strftime("%a %b %d %T %Z %Y")
