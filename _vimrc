@@ -28,6 +28,7 @@ Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
+Bundle 'sampsyo/autolink.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -46,10 +47,11 @@ Bundle 'vim-scripts/vim-easy-align'
 Bundle 'vim-scripts/git-time-lapse'
 Bundle 'csexton/jekyll.vim'
 Bundle 'sukima/LSLvim'
-Bundle 'sukima/asciidoc-vim'
+" Bundle 'sukima/asciidoc-vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
+Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'sukima/vim-docbk'
@@ -60,6 +62,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
 Bundle 'wavded/vim-stylus'
+Bundle 'tfnico/vim-gradle'
 
 " Section: Global Options {{{1
 
@@ -323,6 +326,9 @@ if executable('coffeetags')
         \ }
         \ }
 endif
+
+" SplitJoin {{{3
+let g:splitjoin_normalize_whitespace = 1
 
 " File Type Detect {{{2
 augroup filetypedetect
