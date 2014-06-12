@@ -64,6 +64,7 @@ Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
 Bundle 'wavded/vim-stylus'
 Bundle 'tfnico/vim-gradle'
+Bundle 'yaifa.vim'
 
 " Section: Global Options {{{1
 
@@ -332,6 +333,9 @@ endif
 
 " SplitJoin {{{3
 let g:splitjoin_normalize_whitespace = 1
+
+" yaifa {{{3
+map <leader>i :YAIFAMagic <cr>
 
 " File Type Detect {{{2
 augroup filetypedetect
