@@ -428,15 +428,8 @@ nnoremap <Leader>h4 :s/^.*$/#### & ####/<Cr>
 " "inoremap <Leader><Cr> <Cr>{<Cr>}<Up><Cr>
 inoremap <Leader><Cr> <Cr>{<Cr>x<Cr>}<Up><End><Backspace>
 inoremap <Leader>] <Space>{<Cr>x<Cr>}<Up><End><Backspace>
-" Make a quick comment. {{{3
-" ** Deprecated for nerdcommenter. **
-" Uses 'commentstring' setting and the toggleComment() function defined below.
-" if version >= 700
-    " nnoremap <Leader>c :call AddLineComment()<Cr>
-    " nnoremap <Leader>C :call RemoveLineComment()<Cr>
-" endif
 " Mark a new section with cut marks {{{3
-nnoremap <Leader>S o----- 8< ----- 8< -----<Cr><Esc><Up>:call AddLineComment()<Cr><Down><Home>
+nnoremap <Leader>S o------------------------ >8 ------------------------<Esc>
 " The use of shift and an arrow key is ANNOYING! Make it stop! {{{3
 nnoremap <S-Up> <Esc>
 nnoremap <S-Down> <Esc>
@@ -478,33 +471,6 @@ command GPGdecrypt %!gpg -d
 command GPGencryptSymetric %!gpg -ceat
 
 " Section: Functions {{{1
-" Section: Toggle Comment Functions {{{2
-if version >= 700
-function LoadCommentString( )
-    let comment = matchlist (&commentstring, '\(.*\)%s\(.*\)')
-    if (comment == [])
-        echohl WarningMsg
-        echo "Malformed 'commentstring' or setting not set"
-        echohl None
-    endif
-    let scomment = get (comment, 1, '# ') " default to shell comment
-    let ecomment = get (comment, 2, '')
-    return [scomment, ecomment]
-endfunction
-function AddLineComment( )
-    let c = LoadCommentString()
-    exe 'normal I' . c[0] . ' '
-    exe 'normal A ' . c[1]
-    exe 'normal ^'
-endfunction
-function RemoveLineComment( )
-    let c = LoadCommentString()
-    let c[0] = substitute(c[0], '/', '\\/', 'g')
-    let c[1] = substitute(c[1], '/', '\\/', 'g')
-    exe 'substitute /\V' . c[0] . '\s\*\(\.\{-\}\)\s\*' . c[1] . '/\1/'
-endfunction
-endif
-
 " Section: Wrap Navigation Function {{{2
 function SetWrapNavigation( )
     if &wrap
