@@ -191,6 +191,13 @@ endif
 nmap <Leader>l  :call ListTrans_toggle_format()<CR>
 vmap <Leader>l  :call ListTrans_toggle_format('visual')<CR>
 
+" dragvisuals.vim {{{3
+vmap  <expr>  <C-h>    DVB_Drag('left')
+vmap  <expr>  <C-l>    DVB_Drag('right')
+vmap  <expr>  <C-j>    DVB_Drag('down')
+vmap  <expr>  <C-k>    DVB_Drag('up')
+vmap  <expr>  D        DVB_Duplicate()
+
 " vimspell {{{3
 if version >= 700
     " No need to load the old vimspell because VIM 7.x has built in spelling
