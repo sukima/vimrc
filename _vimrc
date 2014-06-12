@@ -187,6 +187,10 @@ endif
 
 " Section: Plugin | File Type | Syntax Options{{{1
 " Plugin / Syntax Options {{{2
+" listtrans.vim {{{3
+nmap <Leader>l  :call ListTrans_toggle_format()<CR>
+vmap <Leader>l  :call ListTrans_toggle_format('visual')<CR>
+
 " vimspell {{{3
 if version >= 700
     " No need to load the old vimspell because VIM 7.x has built in spelling
@@ -370,7 +374,6 @@ au FileType ruby setl sw=2 sts=2 et
 " Turn on filetype checks and syntax highlighting
 filetype plugin indent on
 syntax on
-
 
 " Section: Mappings {{{1
 
