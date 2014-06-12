@@ -334,6 +334,9 @@ endif
 " SplitJoin {{{3
 let g:splitjoin_normalize_whitespace = 1
 
+" git-time-lapse {{{3
+map <leader>gt :call TimeLapse() <cr>
+
 " yaifa {{{3
 map <leader>i :YAIFAMagic <cr>
 
