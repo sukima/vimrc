@@ -88,6 +88,8 @@ set directory=~/tmp,.,/tmp,c:\tmp,c:\temp
 " Allow per directory config files
 " Consider set secure as well?
 set exrc
+" Keep up-to-date with disk changes
+set autoread
 
 " Section: VIM 5.x Options {{{2
 if version >= 500
