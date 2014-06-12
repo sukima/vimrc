@@ -65,6 +65,7 @@ Bundle 'xolox/vim-session'
 Bundle 'wavded/vim-stylus'
 Bundle 'tfnico/vim-gradle'
 Bundle 'yaifa.vim'
+Bundle 'szw/vim-dict'
 
 " Section: Global Options {{{1
 
