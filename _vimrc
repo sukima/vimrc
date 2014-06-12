@@ -340,6 +340,13 @@ map <leader>gt :call TimeLapse() <cr>
 " yaifa {{{3
 map <leader>i :YAIFAMagic <cr>
 
+" Syntastic
+let g:syntastic_mode_map = {
+    \ 'mode': 'passive',
+    \ 'active_filetypes': ['ruby', 'javascript', 'coffee', 'css'],
+    \ 'passive_filetypes': ['html', 'xml']
+    \ }
+
 " File Type Detect {{{2
 augroup filetypedetect
     " phplib template files
