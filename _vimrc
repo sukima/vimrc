@@ -64,6 +64,7 @@ Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
 Bundle 'wavded/vim-stylus'
 Bundle 'tfnico/vim-gradle'
+Bundle 'terryma/vim-multiple-cursors'
 Bundle 'yaifa.vim'
 Bundle 'szw/vim-dict'
 
