@@ -94,6 +94,8 @@ set directory=~/tmp,.,/tmp,c:\tmp,c:\temp
 set exrc
 " Keep up-to-date with disk changes
 set autoread
+" Fix slow O inserts
+set timeout timeoutlen=1000 ttimeoutlen=100
 
 " Section: VIM 5.x Options {{{2
 if version >= 500
