@@ -35,6 +35,8 @@ ab sanatized sanitized
 ab Sanatized Sanitized
 ab simular similar
 ab Simular Similar
+ab persicion precision
+ab Persicion Precision
 
 " My convince date completion commands
 cab _fulldate strftime("%a %b %d %T %Z %Y")
