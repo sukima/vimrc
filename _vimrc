@@ -482,9 +482,11 @@ vnoremap <Leader>o <Esc>`>a<Cr><Esc>`<i<Cr><Esc>
 " initiate a date stamped note {{{3
 nmap <Leader>J ^"=strftime("%m/%d/%Y")<Cr>Pa:<Space><Esc>
 
-" Remove trailing space
+" Remove trailing space {{{3
 nmap <Leader>s :%s/\s\+$//<Cr>
 
+" Quick insert current directory of file {{{3
+cnoremap %% <C-r>=expand('%:h').'/'<cr>
 
 " Section: Convenience Commands {{{1
 command Cwd cd %:h
