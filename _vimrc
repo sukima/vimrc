@@ -285,19 +285,20 @@ vnoremap <silent> <Enter> :EasyAlign<cr>
 let g:SuperTabNoCompleteBefore = ['^', ',', ':', '\s']
 
 " vim-airline {{{3
+let g:airline#extensions#hunks#non_zero_only = 1
 if has('mac')
-    " let g:airline_left_sep = '»'
-    let g:airline_left_sep = '▶'
-    " let g:airline_right_sep = '«'
-    let g:airline_right_sep = '◀'
-    let g:airline_linecolumn_prefix = '␊ '
-    " let g:airline_linecolumn_prefix = '␤ '
-    " let g:airline_linecolumn_prefix = '¶ '
-    let g:airline#extensions#branch#symbol = '⎇ '
-    let g:airline#extensions#paste#symbol = 'ρ'
-    " let g:airline#extensions#paste#symbol = 'Þ'
-    " let g:airline#extensions#paste#symbol = '∥'
-    let g:airline#extensions#whitespace#symbol = 'Ξ'
+  " let g:airline_left_sep = '»'
+  let g:airline_left_sep = '▶'
+  " let g:airline_right_sep = '«'
+  let g:airline_right_sep = '◀'
+  let g:airline_linecolumn_prefix = '␊ '
+  " let g:airline_linecolumn_prefix = '␤ '
+  " let g:airline_linecolumn_prefix = '¶ '
+  let g:airline#extensions#branch#symbol = '⎇ '
+  let g:airline#extensions#paste#symbol = 'ρ'
+  " let g:airline#extensions#paste#symbol = 'Þ'
+  " let g:airline#extensions#paste#symbol = '∥'
+  let g:airline#extensions#whitespace#symbol = 'Ξ'
 endif
 
 " vim-session {{{3
