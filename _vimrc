@@ -672,7 +672,62 @@ if (version < 600 && filereadable($VIMRUNTIME . "/macros/explorer.vim"))
     nmap ,e :so $VIMRUNTIME/macros/explorer.vim<Cr>,e
 endif
 
-"}}}1
+" Statusline {{{1
+" Dynamic git branch {{{2
+function! DynamicFugitiveStatus()
+  if !exists('*fugitive#head')
+    return ''
+  endif
+  let branch = fugitive#head(8)
+  if branch == ''
+    return ''
+  endif
+  if has('mac')
+    let unicode='⎇ ' "Branching FTW
+  else
+    let unicode=''
+  endif
+  return '(' . unicode . branch . ') '
+endfunction
+
+" Dynamic Syntastic errors {{{2
+function! DynamicSyntasticStatus()
+  if !exists('*SyntasticStatuslineFlag')
+    return ''
+  endif
+  let status = SyntasticStatuslineFlag()
+  if status == ''
+    return ''
+  endif
+  if has('mac')
+    let unicode='😡 ' "Branching FTW
+  else
+    let unicode=''
+  endif
+  return ' ' . unicode . status
+endfunction
+" }}}2
+
+set statusline=%f          "relative filename
+set statusline+=(%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%{&ff})    "file format
+set statusline+=%y         "filetype
+set statusline+=%h         "help file flag
+set statusline+=%w         "Preview window flag
+set statusline+=%q         "Quickfix list flag
+set statusline+=%m         "modified flag
+set statusline+=%r         "read only flag
+set statusline+=%=         "left/right separator
+set statusline+=%{DynamicFugitiveStatus()} "git branch
+set statusline+=%P         "percent through file
+if has('mac')
+  set statusline+=\ ␊\     "unicode FTW!
+endif
+set statusline+=%l:        "cursor line/total lines
+set statusline+=%c         "cursor column
+set statusline+=%#warningmsg#%{DynamicSyntasticStatus()}%*
+" }}}1
+
 " Color scheme
 if has('gui_running')
     set background=light
