@@ -67,6 +67,7 @@ Bundle 'tfnico/vim-gradle'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'yaifa.vim'
 Bundle 'szw/vim-dict'
+Bundle 'rizzatti/dash.vim'
 
 " Section: Global Options {{{1
 
@@ -356,12 +357,15 @@ map <leader>gt :call TimeLapse() <cr>
 " yaifa {{{3
 map <leader>i :YAIFAMagic <cr>
 
-" Syntastic
+" Syntastic {{{3
 let g:syntastic_mode_map = {
     \ 'mode': 'passive',
     \ 'active_filetypes': ['ruby', 'javascript', 'coffee', 'css'],
     \ 'passive_filetypes': ['html', 'xml']
     \ }
+
+" Dash {{{3
+nmap <silent> <leader>d <Plug>DashSearch
 
 " File Type Detect {{{2
 augroup filetypedetect
