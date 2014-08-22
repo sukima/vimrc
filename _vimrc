@@ -80,9 +80,11 @@ set nocindent
 set autoindent
 set nowrap
 if &columns < 50
-    set nonumber
+  set nonumber
+  set norelativenumber
 else
-    set number
+  set number
+  set relativenumber
 endif
 set nobackup
 set modeline
