@@ -429,6 +429,7 @@ nnoremap <C-s><C-s> :w<Cr>
 inoremap <C-s><C-s> <C-o>:w<Cr>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
+command! W write
 
 " Section: Utility Mappings {{{2
 " Remove default EX mode with Q {{{3
