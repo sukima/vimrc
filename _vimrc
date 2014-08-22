@@ -79,11 +79,8 @@ set nosmartindent
 set nocindent
 set autoindent
 set nowrap
-if &columns < 50
-    set nonumber
-else
-    set number
-endif
+set nonumber
+set relativenumber
 set nobackup
 set modeline
 set modelines=3
