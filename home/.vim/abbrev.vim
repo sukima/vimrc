@@ -1,0 +1,1 @@
+../../vimfiles/abbrev.vim
