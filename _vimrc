@@ -173,9 +173,6 @@ if version >= 700
     set nospell
     " Spell works better in the GUI when you can right click on the word.
     set mousemodel=popup
-    " This option only available after version 7.3
-    " I still want the best for encryption. (Otherwise what's the point?)
-    set cryptmethod=blowfish
 endif
 
 if version >= 730
@@ -187,6 +184,9 @@ if version >= 730
   " Display textwidth highlighting
   " (solarized sets ColorColumn only for GUI)
   set cc=+1
+  " This option only available after version 7.3
+  " I still want the best for encryption. (Otherwise what's the point?)
+  set cryptmethod=blowfish
 endif
 
 " Section: Dictionary Support {{{2
