@@ -81,10 +81,8 @@ set autoindent
 set nowrap
 if &columns < 50
   set nonumber
-  set norelativenumber
 else
   set number
-  set relativenumber
 endif
 set nobackup
 set modeline
@@ -175,12 +173,20 @@ if version >= 700
     set nospell
     " Spell works better in the GUI when you can right click on the word.
     set mousemodel=popup
-    " Display textwidth highlighting
-    " (solarized sets ColorColumn only for GUI)
-    set cc=+1
     " This option only available after version 7.3
     " I still want the best for encryption. (Otherwise what's the point?)
     set cryptmethod=blowfish
+endif
+
+if version >= 730
+  if &columns < 50
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+  " Display textwidth highlighting
+  " (solarized sets ColorColumn only for GUI)
+  set cc=+1
 endif
 
 " Section: Dictionary Support {{{2
@@ -721,7 +727,9 @@ set statusline+=%{&ff})    "file format
 set statusline+=%y         "filetype
 set statusline+=%h         "help file flag
 set statusline+=%w         "Preview window flag
-set statusline+=%q         "Quickfix list flag
+if version >= 730
+  set statusline+=%q         "Quickfix list flag
+endif
 set statusline+=%m         "modified flag
 set statusline+=%r         "read only flag
 set statusline+=%=         "left/right separator
