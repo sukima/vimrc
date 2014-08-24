@@ -175,7 +175,7 @@ if version >= 700
     set mousemodel=popup
 endif
 
-if version >= 730
+if version >= 703
   if &columns < 50
     set norelativenumber
   else
