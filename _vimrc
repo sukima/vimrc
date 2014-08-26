@@ -421,6 +421,9 @@ if version >= 700
     nnoremap ]oz :call SetSpellingNavigation(0)<Cr>
     nnoremap coz :call ToggleSpellingNavigation()<Cr>
 endif
+if version >= 703
+  nnoremap gr :set relativenumber!<Cr>
+endif
 nnoremap <Leader>2<Tab> :set sw=2 ts=2 noet<Cr><Bar>:echo "Indent set to two (tabs)"<Cr>
 nnoremap <Leader>4<Tab> :set sw=4 ts=4 noet<Cr><Bar>:echo "Indent set to four (tabs)"<Cr>
 nnoremap <Leader>2<Space> :set sw=2 ts=2 et<Cr><Bar>:echo "Indent set to two (spaces)"<Cr>
