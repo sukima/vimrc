@@ -63,6 +63,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'yaifa.vim'
 Plugin 'szw/vim-dict'
 Plugin 'rizzatti/dash.vim'
+Plugin 'mustache/vim-mustache-handlebars'
 silent! call vundle#end()
 
 " Section: Global Options {{{1
