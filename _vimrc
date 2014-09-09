@@ -84,6 +84,7 @@ endif
 set nobackup
 set modeline
 set modelines=3
+set cpoptions+=$
 " Save swapfile to home tmp directory.
 " You must have a `$HOME/tmp` directory for this to work.
 set directory=~/tmp,.,/tmp,c:\tmp,c:\temp
