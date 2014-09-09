@@ -172,11 +172,6 @@ if version >= 700
 endif
 
 if version >= 703
-  if &columns < 50
-    set norelativenumber
-  else
-    set relativenumber
-  endif
   " Display textwidth highlighting
   " (solarized sets ColorColumn only for GUI)
   set cc=+1
