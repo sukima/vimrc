@@ -64,6 +64,7 @@ Plugin 'yaifa.vim'
 Plugin 'szw/vim-dict'
 Plugin 'rizzatti/dash.vim'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'groenewege/vim-less'
 silent! call vundle#end()
 
 " Section: Global Options {{{1
