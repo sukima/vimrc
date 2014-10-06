@@ -13,7 +13,7 @@ snippet bef
 	});
 # Describe
 snippet des
-	describe("${1:description}", function() {${2}
+	describe('${1:description}', function() {${2}
 	});
 # Expect not to be defined
 snippet notd
@@ -89,7 +89,7 @@ snippet ex
 	expect( ${1:target} )${2};
 # It
 snippet it
-	it("${1:description}", function() {${2}
+	it('${1:description}', function() {${2}
 	});
 # Runs
 snippet ru
@@ -97,22 +97,22 @@ snippet ru
 	});
 # Spy on and call fake
 snippet scf
-	spyOn(${1:object}, "${2:method}").andCallFake(${3:function});
+	spyOn(${1:object}, '${2:method}').andCallFake(${3:function});
 # Spy on and call through
 snippet sct
-	spyOn(${1:object}, "${2:method}").andCallThrough();
+	spyOn(${1:object}, '${2:method}').andCallThrough();
 # Spy on and return
 snippet sr
-	spyOn(${1:object}, "${2:method}").andReturn(${3:arguments});
+	spyOn(${1:object}, '${2:method}').andReturn(${3:arguments});
 # Spy on and throw
 snippet st
-	spyOn(${1:object}, "${2:method}").andThrow(${3:exception});
+	spyOn(${1:object}, '${2:method}').andThrow(${3:exception});
 # Spy on
 snippet s
-	spyOn(${1:object}, "${2:method}");
+	spyOn(${1:object}, '${2:method}');
 # Waits
 snippet wa
 	waits(${1});
 # WaitsFor
 snippet wf
-	waitsFor(function() { return ${1:ready}; }, "${2:reason}", ${3:10});
+	waitsFor(function() { return ${1:ready}; }, '${2:reason}', ${3:10});
