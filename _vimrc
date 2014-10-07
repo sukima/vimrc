@@ -761,6 +761,7 @@ command Solarized256 let g:solarized_termcolors=256 | colorscheme solarized
 
 " Load abbreviations
 runtime abbrev.vim
+runtime digraphs.vim
 
 " So multiple places can have a special config without affecting the core
 " vimrc.
