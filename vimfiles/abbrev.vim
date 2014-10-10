@@ -37,6 +37,8 @@ ab simular similar
 ab Simular Similar
 ab persicion precision
 ab Persicion Precision
+ab writen written
+ab Writen Written
 
 " My convince date completion commands
 cab _fulldate strftime("%a %b %d %T %Z %Y")
