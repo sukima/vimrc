@@ -441,6 +441,10 @@ cnoremap <C-e> <End>
 command! W write
 
 " Section: Utility Mappings {{{2
+" Convinent Esc alternatives {{{3
+inoremap jk <esc>
+cnoremap jk <c-c>
+vnoremap v <esc>
 " Remove default EX mode with Q {{{3
 " I don't like the default EX mode I keep hitting it accidentally
 " Use gQ instead (That's VIM's version which is better the the default EX
