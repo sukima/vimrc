@@ -468,11 +468,10 @@ nnoremap <Leader>h2 :s/^.*$/## & ##/<Cr>
 nnoremap <Leader>h3 :s/^.*$/### & ###/<Cr>
 nnoremap <Leader>h4 :s/^.*$/#### & ####/<Cr>
 " For quick brackets for functions/if/then/etc deffinitions {{{3
-" The first map used to work. But the new indent code (read: php indent)
-" would render this improperly if there was no text after the opening {
-" "inoremap <Leader><Cr> <Cr>{<Cr>}<Up><Cr>
-inoremap <Leader><Cr> <Cr>{<Cr>x<Cr>}<Up><End><Backspace>
-inoremap <Leader>] <Space>{<Cr>x<Cr>}<Up><End><Backspace>
+inoremap <Leader>) <Esc>F(a<Cr><Cr><Up><Esc>S
+inoremap <Leader>] <Esc>F[a<Cr><Cr><Up><Esc>S
+inoremap <Leader>} <Esc>F{a<Cr><Cr><Up><Esc>S
+imap <Leader><Leader> <Leader>}
 " Mark a new section with cut marks {{{3
 nnoremap <Leader>S o------------------------ >8 ------------------------<Esc>
 " The use of shift and an arrow key is ANNOYING! Make it stop! {{{3
