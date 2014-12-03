@@ -39,6 +39,8 @@ ab persicion precision
 ab Persicion Precision
 ab writen written
 ab Writen Written
+ab infinate infinite
+ab Infinate Infinite
 
 " My convince date completion commands
 cab _fulldate strftime("%a %b %d %T %Z %Y")
