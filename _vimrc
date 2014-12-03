@@ -443,7 +443,9 @@ command! W write
 " Section: Utility Mappings {{{2
 " Convinent Esc alternatives {{{3
 inoremap jk <esc>
+inoremap jj <esc>
 cnoremap jk <c-c>
+cnoremap jj <c-c>
 vnoremap v <esc>
 " Remove default EX mode with Q {{{3
 " I don't like the default EX mode I keep hitting it accidentally
