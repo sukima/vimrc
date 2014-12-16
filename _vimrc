@@ -45,7 +45,7 @@ Plugin 'vim-scripts/git-time-lapse'
 Plugin 'csexton/jekyll.vim'
 Plugin 'sukima/LSLvim'
 " Plugin 'sukima/asciidoc-vim'
-Plugin 'sjl/gundo.vim'
+Plugin 'mbbill/undotree'
 Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
 Plugin 'Lokaltog/vim-easymotion'
@@ -260,11 +260,8 @@ let g:rails_gnu_screen=0
 let g:snippets_dir="$HOME/.vim/snippets,$HOME/.vim/bundle/snipmate-snippets"
 let g:snips_author='Devin Weaver'
 
-" Gundo {{{3
-" Place in .vim/local.vim to disable (if no python)
-"let g:gundo_disable = 1
-"let g:gundo_preview_bottom = 1
-nmap <Leader>u :GundoToggle<Cr>
+" Undotree {{{3
+nnoremap <Leader>u :UndotreeToggle<Cr>
 
 " Fugitive {{{3
 " Convenience mappings
