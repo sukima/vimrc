@@ -65,6 +65,7 @@ Plugin 'szw/vim-dict'
 Plugin 'rizzatti/dash.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'groenewege/vim-less'
+Plugin 'freitass/todo.txt-vim'
 silent! call vundle#end()
 
 " Section: Global Options {{{1
