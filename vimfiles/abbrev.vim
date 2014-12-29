@@ -41,6 +41,17 @@ ab writen written
 ab Writen Written
 ab infinate infinite
 ab Infinate Infinite
+ab canceled cancelled
+ab Canceled Cancelled
+ab cancelation cancellation
+ab Cancelation Cancellation
+ab CancelationError CancellationError
+ab cancle cancel
+ab cancled cancelled
+ab Cancled Cancelled
+ab canclation cancellation
+ab Canclation Cancellation
+ab CanclationError CancellationError
 
 " My convince date completion commands
 cab _fulldate strftime("%a %b %d %T %Z %Y")
