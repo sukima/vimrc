@@ -503,6 +503,10 @@ nmap <Leader>s :%s/\s\+$//<Cr>
 " Quick insert current directory of file {{{3
 cnoremap %% <C-r>=expand('%:h').'/'<cr>
 
+" Markdown links {{{3g
+vnoremap <Leader>M "my`<i[<Esc>`>la][]<Esc>mm}o[<C-r>m]:<Space><Esc>mua
+nmap <Leader>M viw<Leader>M
+
 " Section: Convenience Commands {{{1
 command Cwd cd %:h
 command Undiff set nodiff foldcolumn=0
