@@ -368,6 +368,10 @@ let g:syntastic_mode_map = {
 " Dash {{{3
 nmap <silent> <leader>d <Plug>DashSearch
 
+" mustache-handlebars {{{3
+" I don't want the plugin features, just the syntax highlighting
+let g:loaded_mustache_handlebars = 1
+
 " File Type Detect {{{2
 augroup filetypedetect
     " phplib template files
