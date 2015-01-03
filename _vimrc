@@ -183,6 +183,7 @@ if version >= 703
   " This option only available after version 7.3
   " I still want the best for encryption. (Otherwise what's the point?)
   set cryptmethod=blowfish
+  set diffopt=filler,context:4,vertical
 endif
 
 " Section: Dictionary Support {{{2
