@@ -202,11 +202,11 @@ nmap <Leader>l  :call ListTrans_toggle_format()<CR>
 vmap <Leader>l  :call ListTrans_toggle_format('visual')<CR>
 
 " dragvisuals.vim {{{3
-vmap  <expr>  <C-h>    DVB_Drag('left')
-vmap  <expr>  <C-l>    DVB_Drag('right')
-vmap  <expr>  <C-j>    DVB_Drag('down')
-vmap  <expr>  <C-k>    DVB_Drag('up')
-vmap  <expr>  D        DVB_Duplicate()
+vnoremap  <expr>  <C-h>    DVB_Drag('left')
+vnoremap  <expr>  <C-l>    DVB_Drag('right')
+vnoremap  <expr>  <C-j>    DVB_Drag('down')
+vnoremap  <expr>  <C-k>    DVB_Drag('up')
+vnoremap  <expr>  D        DVB_Duplicate()
 
 " vimspell {{{3
 if version >= 700
@@ -490,8 +490,8 @@ inoremap <S-Down> <C-O><Esc>
 noremap <Leader>zz :NERDTreeToggle<Cr>
 noremap <Leader>zm :NERDTreeMirror<Cr>
 " Bubble multiple lines {{{3
-vmap <C-k> xkP`[V`]
-vmap <C-j> xp`[V`]
+vnoremap <C-k> xkP`[V`]
+vnoremap <C-j> xp`[V`]
 " Add blank lines without insert {{{3
 nmap <Leader>o o<Esc>
 nmap <Leader>O O<Esc>
