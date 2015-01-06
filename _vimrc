@@ -489,9 +489,6 @@ inoremap <S-Down> <C-O><Esc>
 " http://www.vim.org/scripts/script.php?script_id=1658
 noremap <Leader>zz :NERDTreeToggle<Cr>
 noremap <Leader>zm :NERDTreeMirror<Cr>
-" Bubble single lines {{{3
-nmap <C-k> ddkP
-nmap <C-j> ddp
 " Bubble multiple lines {{{3
 vmap <C-k> xkP`[V`]
 vmap <C-j> xp`[V`]
