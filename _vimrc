@@ -79,7 +79,7 @@ set textwidth=0
 set nosmartindent
 set nocindent
 set autoindent
-set copyindent
+set nocopyindent
 set nowrap
 if &columns < 50
   set nonumber
