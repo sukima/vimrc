@@ -134,7 +134,7 @@ if version >= 500
     " 'smartcase' turn off ignorecase in a typed search if an uppercase char exists.
     set smartcase
     set infercase
-    set shortmess=aotTO
+    set shortmess=aotTOI
     set shellslash
     set nrformats-=octal
     set viminfo='20,\"50
