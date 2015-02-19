@@ -457,8 +457,10 @@ command! W write
 " Section: Utility Mappings {{{2
 " Convinent Esc alternatives {{{3
 inoremap jk <esc>
+inoremap kj <esc>
 inoremap jj <esc>
 cnoremap jk <c-c>
+cnoremap kj <esc>
 cnoremap jj <c-c>
 vnoremap v <esc>
 " Remove default EX mode with Q {{{3
