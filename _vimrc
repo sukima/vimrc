@@ -401,6 +401,7 @@ augroup END
 
 " File Type Auto Settings {{{2
 au FileType ruby setl sw=2 sts=2 et
+au Filetype gitcommit setlocal spell textwidth=72
 
 " }}}
 " Turn on filetype checks and syntax highlighting
