@@ -16,7 +16,7 @@ Abolish libar{y,ies} librar{}
 Abolish deffer{,ed} defer{,red}
 Abolish summer{y,ies} summar{}
 Abolish techni{t,c}{ian,ion}{,s} techni{c}{ian}{}
-Abolish catagor{y,ies} categor{}
 Abolish dominent{,s,or} dominant{}
 Abolish responce{,s} response{}
 Abolish syncronize{,d}  synchronize{}
+Abolish {,un,re}catagor{y,ize,ized,ization,izations,ies,izing} {}categor{}
