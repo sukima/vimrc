@@ -68,6 +68,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'groenewege/vim-less'
 Plugin 'freitass/todo.txt-vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'myusuf3/numbers.vim'
 silent! call vundle#end()
 
 " Section: Global Options {{{1
@@ -383,6 +384,9 @@ let g:javascript_conceal_return    = "⇚"
 let g:javascript_conceal_undefined = "¿"
 let g:javascript_conceal_NaN       = "ℕ"
 let g:javascript_conceal_prototype = "¶"
+
+" numbers.vim {{{3
+let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'gundo', 'minibufexpl', 'nerdtree']
 
 " File Type Detect {{{2
 augroup filetypedetect
