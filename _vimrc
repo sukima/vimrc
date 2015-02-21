@@ -90,7 +90,6 @@ endif
 set nobackup
 set modeline
 set modelines=3
-set cpoptions+=$
 " Save swapfile to home tmp directory.
 " You must have a `$HOME/tmp` directory for this to work.
 set directory=~/tmp,.,/tmp,c:\tmp,c:\temp
@@ -167,7 +166,6 @@ if version >= 600
     "    \%+C%*[^:]%trror:%m,
     "    \%C%*\\s%tarning:%m,
     "    \%C%m
-    set cursorline
 endif
 
 " Section: VIM 7.x Options {{{2
