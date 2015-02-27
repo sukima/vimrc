@@ -21,3 +21,5 @@ Abolish responce{,s} response{}
 Abolish syncronize{,d}  synchronize{}
 Abolish {,un,re}catagor{y,ize,ized,ization,izations,ies,izing} {}categor{}
 Abolish {,non,semi,un}volitil{e,ity} {}volatil{}
+Abolish bussiness{,es} business{}
+Abolish {,un}nessisary {}necessary
