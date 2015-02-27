@@ -128,7 +128,7 @@ if version >= 500
         set showmatch
         set showcmd
     endif
-    set ruler " have curser position always on status bar
+    set ruler " have cursor position always on status bar
     set magic " allow searches to be more perl like
     set ignorecase
     " 'smartcase' turn off ignorecase in a typed search if an uppercase char exists.
@@ -385,6 +385,10 @@ let g:javascript_conceal_prototype = "¶"
 
 " numbers.vim {{{3
 let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'gundo', 'minibufexpl', 'nerdtree']
+
+" vim-multiple-cursors {{{3
+highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
+highlight link multiple_cursors_visual Visual
 
 " File Type Detect {{{2
 augroup filetypedetect
