@@ -23,3 +23,4 @@ Abolish {,un,re}catagor{y,ize,ized,ization,izations,ies,izing} {}categor{}
 Abolish {,non,semi,un}volitil{e,ity} {}volatil{}
 Abolish bussiness{,es} business{}
 Abolish {,un}nessisary {}necessary
+Abolish sinserly sincerely
