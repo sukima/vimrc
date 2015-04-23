@@ -519,8 +519,8 @@ inoremap <S-Down> <C-O><Esc>
 noremap <Leader>zz :NERDTreeToggle<Cr>
 noremap <Leader>zm :NERDTreeMirror<Cr>
 " Bubble multiple lines {{{3
-vnoremap <C-k> xkP`[V`]
-vnoremap <C-j> xp`[V`]
+" vnoremap <C-k> xkP`[V`]
+" vnoremap <C-j> xp`[V`]
 " Add blank lines without insert {{{3
 nmap <Leader>o o<Esc>
 nmap <Leader>O O<Esc>
