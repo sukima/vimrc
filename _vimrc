@@ -109,7 +109,7 @@ if version >= 500
     set expandtab " Spaces are better.
     set wrapmargin=0
     set backspace=2
-    set formatoptions+=ro2lt
+    set formatoptions+=nro2lt
     set nohlsearch
     set noincsearch
     set sidescroll=5
