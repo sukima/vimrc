@@ -110,6 +110,7 @@ if version >= 500
     set wrapmargin=0
     set backspace=2
     set formatoptions+=nro2lt
+    set noshowmatch
     set nohlsearch
     set incsearch
     set sidescroll=5
@@ -122,11 +123,9 @@ if version >= 500
     set mousemodel=extend
     if &lines < 20
         set laststatus=0 " Never have a status line
-        set noshowmatch
         set noshowcmd
     else
         set laststatus=2 " Always have a status line
-        set showmatch
         set showcmd
     endif
     set ruler " have cursor position always on status bar
