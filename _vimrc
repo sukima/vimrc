@@ -111,7 +111,7 @@ if version >= 500
     set backspace=2
     set formatoptions+=nro2lt
     set nohlsearch
-    set noincsearch
+    set incsearch
     set sidescroll=5
     set listchars=eol:$,tab:>~,trail:-,precedes:<,extends:>,nbsp:=
     set showbreak=+
@@ -135,6 +135,7 @@ if version >= 500
     " 'smartcase' turn off ignorecase in a typed search if an uppercase char exists.
     set smartcase
     set infercase
+    set gdefault
     set shortmess=aotTOI
     set shellslash
     set nrformats-=octal
