@@ -12,8 +12,7 @@ set nohlsearch
 
 " Section: Syntax Highlighting {{{1 
 " Fixes coloring bug when gvim opened from a dark term.
-set background=light
-highlight Normal guibg=#ffffe6 " Change the bgcolor.
+set background=dark
 syntax enable
 silent! colorscheme solarized
 

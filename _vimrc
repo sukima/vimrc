@@ -176,6 +176,7 @@ if version >= 700
     set nospell
     " Spell works better in the GUI when you can right click on the word.
     set mousemodel=popup
+    set cursorline
 endif
 
 if version >= 703
@@ -781,23 +782,21 @@ set statusline+=%c         "cursor column
 set statusline+=%#warningmsg#%{DynamicSyntasticStatus()}%*
 " }}}1
 
-" Color scheme
-if has('gui_running')
-    set background=light
-else
-    set background=dark
-endif
-
 " Setup solarized theme
 " set t_Co=16
 " let g:solarized_termcolors=16
 let g:solarized_termtrans = 1
-let g:solarized_hitrail = 1
-silent! colorscheme solarized
+let g:solarized_hitrail = 0
 silent! call togglebg#map("<F5>")
 
 command Solarized16  let g:solarized_termcolors=16 | colorscheme solarized
 command Solarized256 let g:solarized_termcolors=256 | colorscheme solarized
+
+" Color scheme
+set background=dark
+" fail late, reverse preferential order
+silent! colorscheme darkblue
+silent! colorscheme solarized
 
 " Load abbreviations
 runtime abbrev.vim
