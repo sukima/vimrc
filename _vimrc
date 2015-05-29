@@ -376,6 +376,10 @@ let g:syntastic_mode_map = {
 
 " Dash {{{3
 nmap <silent> <leader>d <Plug>DashSearch
+let g:dash_map = {
+  \ 'coffee': ['nodejs', 'javascript', 'coffee'],
+  \ 'javascript': ['nodejs', 'javascript']
+  \ }
 
 " mustache-handlebars {{{3
 " I don't want the plugin features, just the syntax highlighting
