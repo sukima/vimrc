@@ -273,6 +273,7 @@ nnoremap <Leader>u :UndotreeToggle<Cr>
 nnoremap <C-s>a :Gwrite<Cr>
 inoremap <C-s>a <C-o>:Gwrite<Cr>
 nnoremap <C-s>c :Gcommit -v<Cr>
+nnoremap <C-s>cc :Gcommit -v --amend<Cr>
 
 " CTRLP {{{3
 " Allow ctrl-p to use git ls-files (better) with fallback
