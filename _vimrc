@@ -429,12 +429,8 @@ syntax on
 " Section: Mappings {{{1
 
 " Section: mapleader {{{2
-" Check if this is the Pocket PC version
-if exists("$CELIBVERSION")
-    let mapleader = ","
-else
-    let mapleader = "\\"
-endif
+" let mapleader = "\\"
+let mapleader = "\<Space>"
 
 " Section: Terminal Mappings {{{2
 " terminfo doesn't map rxvt's <Home> and <End> correctly I guess
