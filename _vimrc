@@ -462,7 +462,6 @@ nnoremap <Leader>2<Space> :set sw=2 ts=2 et<Cr><Bar>:echo "Indent set to two (sp
 nnoremap <Leader>4<Space> :set sw=4 ts=4 et<Cr><Bar>:echo "Indent set to four (spaces)"<Cr>
 
 " Section: Quick Commands (Window Nav.) {{{2
-noremap <C-q> :close<Cr>
 inoremap <C-z> <C-o><C-z>
 nnoremap <C-s> :w<Cr>
 inoremap <C-s> <C-o>:w<Cr>
@@ -509,10 +508,10 @@ nnoremap <Leader>h4 :s/^.*$/#### & ####/<Cr>
 nnoremap <Leader>T :t.<Cr>:s/[^\|]/-/g<Cr>
 
 " For quick brackets for functions/if/then/etc deffinitions {{{3
-inoremap <Leader>) <Esc>F(a<Cr><Cr><Up><Esc>S
-inoremap <Leader>] <Esc>F[a<Cr><Cr><Up><Esc>S
-inoremap <Leader>} <Esc>F{a<Cr><Cr><Up><Esc>S
-imap <Leader><Leader> <Leader>}
+nnoremap <Leader>) $F(a<Cr><Cr><Up><Esc>S
+nnoremap <Leader>] $F[a<Cr><Cr><Up><Esc>S
+nnoremap <Leader>} $F{a<Cr><Cr><Up><Esc>S
+nmap <Leader>[ <Leader>}
 " Mark a new section with cut marks {{{3
 nnoremap <Leader>S o------------------------ >8 ------------------------<Esc>
 " The use of shift and an arrow key is ANNOYING! Make it stop! {{{3
