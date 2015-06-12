@@ -400,7 +400,7 @@ let g:javascript_conceal_NaN       = "ℕ"
 let g:javascript_conceal_prototype = "¶"
 
 " numbers.vim {{{3
-let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'gundo', 'minibufexpl', 'nerdtree']
+let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'minibufexpl', 'nerdtree']
 
 " vim-multiple-cursors {{{3
 highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
