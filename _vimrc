@@ -189,6 +189,10 @@ if version >= 703
   set diffopt=filler,context:4,vertical
 endif
 
+" Section: mapleader {{{2
+" let mapleader = "\\"
+let mapleader = "\<Space>"
+
 " Section: Dictionary Support {{{2
 if filereadable($VIM . "/words")
     set dictionary+=$VIM/words
@@ -427,10 +431,6 @@ filetype plugin indent on
 syntax on
 
 " Section: Mappings {{{1
-
-" Section: mapleader {{{2
-" let mapleader = "\\"
-let mapleader = "\<Space>"
 
 " Section: Terminal Mappings {{{2
 " terminfo doesn't map rxvt's <Home> and <End> correctly I guess
