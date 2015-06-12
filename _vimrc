@@ -467,6 +467,8 @@ inoremap <C-s><C-s> <C-o>:w<Cr>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 command! W write
+command! Wa wall
+command! WA wall
 
 " Section: Utility Mappings {{{2
 " Convinent Esc alternatives {{{3
