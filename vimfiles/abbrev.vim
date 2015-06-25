@@ -15,3 +15,10 @@ ab functoin function
 ab HttpServletResponce HttpServletResponse
 ab CancelationError CancellationError
 ab CanclationError CancellationError
+
+" Personal goofy emoji
+iab &shrug; ¯\_(ツ)_/¯
+iab &mshrug; ¯\\\_(ツ)\_/¯
+iab &bear; ʕ •ᴥ•ʔ
+iab &rage; ლ(ಠ益ಠლ)
+iab &flip; (╯°□°）╯︵ ┻━┻
