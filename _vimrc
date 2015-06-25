@@ -297,6 +297,8 @@ let g:SuperTabNoCompleteBefore = ['^', ',', ':', '\s']
 
 " vim-airline {{{3
 let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#branch#format = 1
 if has('mac')
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -307,6 +309,7 @@ if has('mac')
   let g:airline_left_sep = '▶'
   " let g:airline_right_sep = '«'
   let g:airline_right_sep = '◀'
+  let g:airline_symbols.crypt = '🔒'
   let g:airline_symbols.linenr = '␊'
   " let g:airline_symbols.linenr = '␤'
   " let g:airline_symbols.linenr = '¶'
