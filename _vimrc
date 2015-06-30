@@ -334,6 +334,8 @@ map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 " Interrupt any command running in the runner pane
 map <Leader>vx :VimuxInterruptRunner<CR>
+" Zoom the tmux runner page
+map <Leader>vz :VimuxZoomRunner<CR>
 function SetVimuxOrientation(orientation)
     if a:orientation == "h"
         let g:VimuxOrientation = "h"
