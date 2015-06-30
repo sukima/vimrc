@@ -25,3 +25,4 @@ Abolish bussiness{,es} business{}
 Abolish {,un}nessisary {}necessary
 Abolish p{or,ro}cel{i,e,a,ie,ei,ia,ai}n porcelain
 Abolish sin{c,s}er{,ly,e,ely} sincer{e,ely}
+Abolish enviroment{,s,al} environment{}
