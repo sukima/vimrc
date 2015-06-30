@@ -347,8 +347,8 @@ function SetVimuxOrientation(orientation)
         echo "Vimux orientation set to vertical split ( - )"
     endif
 endfunction
-map <Leader>v" :call SetVimuxOrientation("v")<Cr>
-map <Leader>v% :call SetVimuxOrientation("h")<Cr>
+map <Leader>v' :call SetVimuxOrientation("v")<Cr>
+map <Leader>v" :call SetVimuxOrientation("h")<Cr>
 silent! call SetVimuxOrientation("v")
 
 " CoffeeTags {{{3
