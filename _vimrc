@@ -510,10 +510,10 @@ nnoremap <Leader>h4 :s/^.*$/#### & ####/<Cr>
 " For convinient markdown table header {{{3
 nnoremap <Leader>T :t.<Cr>:s/[^\|]/-/g<Cr>
 
-" For quick brackets for functions/if/then/etc deffinitions {{{3
-nnoremap <Leader>) $F(a<Cr><Cr><Up><Esc>S
-nnoremap <Leader>] $F[a<Cr><Cr><Up><Esc>S
-nnoremap <Leader>} $F{a<Cr><Cr><Up><Esc>S
+" Quick brackets for functions/if/then/etc deffinitions {{{3
+nnoremap <Leader>) $F(a<Cr><Cr><Up><Esc>"_S
+nnoremap <Leader>] $F[a<Cr><Cr><Up><Esc>"_S
+nnoremap <Leader>} $F{a<Cr><Cr><Up><Esc>"_S
 nmap <Leader>[ <Leader>}
 " Mark a new section with cut marks {{{3
 nnoremap <Leader>S o------------------------ >8 ------------------------<Esc>
@@ -522,7 +522,7 @@ nnoremap <S-Up> <Esc>
 nnoremap <S-Down> <Esc>
 inoremap <S-Up> <C-O><Esc>
 inoremap <S-Down> <C-O><Esc>
-" Add a quick map top open NERDTree (Plugin must be installed.) {{{3
+" Open NERDTree (Plugin must be installed.) {{{3
 " http://www.vim.org/scripts/script.php?script_id=1658
 noremap <Leader>zz :NERDTreeToggle<Cr>
 noremap <Leader>zm :NERDTreeMirror<Cr>
