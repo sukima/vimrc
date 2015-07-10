@@ -42,6 +42,13 @@ Plugin 'vim-scripts/vim-json-bundle'
 Plugin 'vim-scripts/grep.vim'
 Plugin 'vim-scripts/vim-easy-align'
 Plugin 'vim-scripts/git-time-lapse'
+
+" Motions / Text Objects
+Plugin 'vim-scripts/argtextobj.vim'
+Plugin 'bkad/CamelCaseMotion'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+
 Plugin 'csexton/jekyll.vim'
 Plugin 'sukima/LSLvim'
 " Plugin 'sukima/asciidoc-vim'
