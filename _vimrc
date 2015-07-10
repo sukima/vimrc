@@ -488,9 +488,9 @@ command! WA wall
 inoremap jk <esc>
 inoremap kj <esc>
 inoremap jj <esc>
-cnoremap jk <c-c>
+cnoremap jk <esc>
 cnoremap kj <esc>
-cnoremap jj <c-c>
+cnoremap jj <esc>
 vnoremap v <esc>
 " Remove default EX mode with Q {{{3
 " I don't like the default EX mode I keep hitting it accidentally
