@@ -44,6 +44,7 @@ Plugin 'vim-scripts/vim-easy-align'
 Plugin 'vim-scripts/git-time-lapse'
 
 " Motions / Text Objects
+Plugin 'kana/vim-textobj-user.git'
 Plugin 'vim-scripts/argtextobj.vim'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'michaeljsmith/vim-indent-object'
