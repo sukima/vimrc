@@ -506,9 +506,9 @@ noremap <Leader>b :let x=&backup<Bar>set backup<Bar>write<Bar>let &backup=x<Bar>
 " map ;s :up \| saveas! %:p:r-<C-R>=strftime("%y%m%d-%H:%M")<CR>-bak.<C-R>=expand("%:e")<CR> \| 3sleep \| e #<CR>
 " For convinent headers in text files {{{3
 " For underlined header style
-nnoremap <Leader>H1 :t.<Cr>:s/./=/g<Cr>
-nnoremap <Leader>H2 :t.<Cr>:s/./-/g<Cr>
-nnoremap <Leader>H3 :t.<Cr>:s/./~/g<Cr>
+nnoremap <Leader>H1 :t.<Cr>:s/./=/<Cr>
+nnoremap <Leader>H2 :t.<Cr>:s/./-/<Cr>
+nnoremap <Leader>H3 :t.<Cr>:s/./~/<Cr>
 " For octothorp header style
 nnoremap <Leader>h1 :s/^.*$/# & #/<Cr>
 nnoremap <Leader>h2 :s/^.*$/## & ##/<Cr>
@@ -516,7 +516,7 @@ nnoremap <Leader>h3 :s/^.*$/### & ###/<Cr>
 nnoremap <Leader>h4 :s/^.*$/#### & ####/<Cr>
 
 " For convinient markdown table header {{{3
-nnoremap <Leader>T :t.<Cr>:s/[^\|]/-/g<Cr>
+nnoremap <Leader>T :t.<Cr>:s/[^\|]/-/<Cr>
 
 " Quick brackets for functions/if/then/etc deffinitions {{{3
 nnoremap <Leader>) $F(a<Cr><Cr><Up><Esc>"_S
