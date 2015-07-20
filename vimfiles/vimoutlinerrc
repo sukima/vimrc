@@ -32,7 +32,7 @@ let maplocalleader = ',,'		" uncomment for compatibility with
 "setlocal tw=78
 setlocal tabstop=2			" tabstop and shiftwidth must match
 setlocal shiftwidth=2			" values from 2 to 8 work well
-set expandtab
+setlocal noexpandtab
 "setlocal background=dark		" for dark backgrounds
 "setlocal nowrap
 
