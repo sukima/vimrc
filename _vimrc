@@ -473,6 +473,8 @@ nnoremap <Leader>2<Tab> :set sw=2 ts=2 noet<Cr><Bar>:echo "Indent set to two (ta
 nnoremap <Leader>4<Tab> :set sw=4 ts=4 noet<Cr><Bar>:echo "Indent set to four (tabs)"<Cr>
 nnoremap <Leader>2<Space> :set sw=2 ts=2 et<Cr><Bar>:echo "Indent set to two (spaces)"<Cr>
 nnoremap <Leader>4<Space> :set sw=4 ts=4 et<Cr><Bar>:echo "Indent set to four (spaces)"<Cr>
+nnoremap <silent> n   n:call HLNext(0.4)<cr>
+nnoremap <silent> N   N:call HLNext(0.4)<cr>
 
 " Section: Quick Commands (Window Nav.) {{{2
 inoremap <C-z> <C-o><C-z>
@@ -706,6 +708,18 @@ if exists("+showtabline")
   set showtabline=1
   set tabline=%!MyTabLine()
 endif
+
+" Section: Blink Highlight Next Search {{{2
+function! HLNext (blinktime)
+  let [bufnum, lnum, col, off] = getpos('.')
+  let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+  let target_pat = '\c\%#\%('.@/.'\)'
+  let ring = matchadd('Search', target_pat, 101)
+  redraw
+  exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+  call matchdelete(ring)
+  redraw
+endfunction
 
 " Section: Misc. {{{1
 " Is there a tags file? If so I'd like to use it's absolute path in case we
