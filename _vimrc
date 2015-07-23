@@ -162,7 +162,10 @@ if version >= 600
     else
         set foldcolumn=2
     endif
-    set winminheight=0
+    set winwidth=84
+    set winheight=10
+    set winminheight=10
+    set winheight=999
     set modeline
     set virtualedit=block
     " Allows suffixes to be added to a `gf' file search
