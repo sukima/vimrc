@@ -707,15 +707,6 @@ if exists("+showtabline")
   set tabline=%!MyTabLine()
 endif
 
-" Section: SetupEditServer {{{2
-" Convinience method to be called from the edit-server script to seup any
-" settings used while editing text from a website.
-function SetupEditServer()
-  set tw=0
-  set wrap
-  silent! call SetSpellingNavigation(1)
-endfunction
-
 " Section: Misc. {{{1
 " Is there a tags file? If so I'd like to use it's absolute path in case we
 " chdir later
