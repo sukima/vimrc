@@ -14,6 +14,7 @@ silent! call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'vimoutliner/vimoutliner'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'skwp/greplace.vim'
 Plugin 'bling/vim-airline'
 Plugin 'edsono/vim-matchit'
 Plugin 'tpope/vim-rails'
