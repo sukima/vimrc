@@ -166,6 +166,8 @@ if version >= 600
     set winheight=10
     set winminheight=10
     set winheight=999
+    set splitbelow
+    set splitright
     set modeline
     set virtualedit=block
     " Allows suffixes to be added to a `gf' file search
