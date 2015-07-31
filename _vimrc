@@ -186,6 +186,7 @@ if version >= 700
     " Default to no spelling for now. Easily turn it on and off with mapping
     " below.
     set nospell
+    set complete+=kspell
     " Spell works better in the GUI when you can right click on the word.
     set mousemodel=popup
     set cursorline
