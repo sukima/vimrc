@@ -213,6 +213,9 @@ endif
 if filereadable("/usr/share/dict/words")
     set dictionary+=/usr/share/dict/words
 endif
+if filereadable($HOME . "/.vim/mthesaur.txt")
+  set thesaurus+=$HOME/.vim/mthesaur.txt
+endif
 
 " Section: Plugin | File Type | Syntax Options{{{1
 " Plugin / Syntax Options {{{2
