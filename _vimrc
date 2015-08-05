@@ -444,8 +444,15 @@ augroup filetypedetect
 augroup END
 
 " File Type Auto Settings {{{2
-au FileType ruby setl sw=2 sts=2 et
-au Filetype gitcommit setlocal spell textwidth=72
+augroup Git
+  au Filetype gitcommit setlocal spell textwidth=72
+augroup END
+
+" Useful for my Quick Notes feature in my tmuxrc
+augroup QuickNotes
+  au BufWrite,VimLeave NOTES.otl mkview
+  au BufRead           NOTES.otl silent loadview
+augroup END
 
 " }}}
 " Turn on filetype checks and syntax highlighting
