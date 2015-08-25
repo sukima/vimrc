@@ -555,9 +555,6 @@ noremap <Leader>zm :NERDTreeMirror<Cr>
 " Bubble multiple lines {{{3
 " vnoremap <C-k> xkP`[V`]
 " vnoremap <C-j> xp`[V`]
-" Add blank lines without insert {{{3
-nmap <Leader>o o<Esc>
-nmap <Leader>O O<Esc>
 " Make text multiline {{{3
 vnoremap <Leader>o <Esc>`>a<Cr><Esc>`<i<Cr><Esc>
 " initiate a date stamped note {{{3
