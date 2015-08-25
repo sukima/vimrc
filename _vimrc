@@ -751,12 +751,6 @@ else
     nnoremap <Leader>vv :call ViewSetup()<Cr>
 endif
 
-" by default run explorer.vim but only if I call for it.
-" VIM 6.x includes it by default.
-if (version < 600 && filereadable($VIMRUNTIME . "/macros/explorer.vim"))
-    nmap ,e :so $VIMRUNTIME/macros/explorer.vim<Cr>,e
-endif
-
 " Statusline {{{1
 " Dynamic git branch {{{2
 function! DynamicFugitiveStatus()
