@@ -12,6 +12,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 " Section: Preferred plugins {{{1
 silent! call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
+Plugin 'jamessan/vim-gnupg'
 Plugin 'vimoutliner/vimoutliner'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'skwp/greplace.vim'
