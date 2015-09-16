@@ -162,10 +162,7 @@ if version >= 600
     else
         set foldcolumn=2
     endif
-    set winwidth=84
-    set winheight=5
-    set winminheight=5
-    set winheight=30
+    set winminheight=0
     set splitbelow
     set splitright
     set modeline
