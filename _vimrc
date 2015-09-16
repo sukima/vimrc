@@ -311,6 +311,7 @@ vnoremap <silent> <Enter> :EasyAlign<cr>
 
 " SuperTab {{{3
 let g:SuperTabNoCompleteBefore = ['^', ',', ':', '\s']
+let g:SuperTabMappingTabLiteral = '<C-l>'
 
 " vim-airline {{{3
 let g:airline#extensions#hunks#non_zero_only = 1
