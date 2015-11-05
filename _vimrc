@@ -109,6 +109,8 @@ set exrc
 set autoread
 " Fix slow O inserts
 set timeout timeoutlen=1000 ttimeoutlen=100
+" Print Options
+set printoptions=paper:letter,formfeed:y
 
 " Section: VIM 5.x Options {{{2
 if version >= 500
