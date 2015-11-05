@@ -366,7 +366,7 @@ function SetVimuxOrientation(orientation)
 endfunction
 map <Leader>v' :call SetVimuxOrientation("v")<Cr>
 map <Leader>v" :call SetVimuxOrientation("h")<Cr>
-silent! call SetVimuxOrientation("v")
+silent! call SetVimuxOrientation("h")
 
 " CoffeeTags {{{3
 if executable('coffeetags')
@@ -565,7 +565,7 @@ nmap <Leader>s :%s/\s\+$//<Cr>
 " Quick insert current directory of file {{{3
 cnoremap %% <C-r>=expand('%:h').'/'<cr>
 
-" Markdown links {{{3g
+" Markdown links {{{3
 vnoremap <Leader>M "my`<i[<Esc>`>la][]<Esc>mm}o[<C-r>m]:<Space><Esc>mua
 nmap <Leader>M viw<Leader>M
 
