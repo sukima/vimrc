@@ -28,3 +28,4 @@ Abolish sin{c,s}er{,ly,e,ely} sincer{e,ely}
 Abolish enviroment{,s,al} environment{}
 Abolish extention{,s} extension{}
 Abolish seperat{e,ing,er,ed} separat{}
+Abolish perminent{,ce} permanent{}
