@@ -427,6 +427,9 @@ let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3
 highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
 highlight link multiple_cursors_visual Visual
 
+" Gist {{{3
+let g:gist_update_on_write = 2
+
 " File Type Detect {{{2
 augroup filetypedetect
     " phplib template files
