@@ -5,6 +5,13 @@
 
 " Section: Plugin Management {{{1
 set nocompatible
+
+if version >= 730 && version < 740
+  " Prevent bad exit code on Mac OS X install
+  " https://github.com/VundleVim/Vundle.vim/issues/167#issuecomment-55700048
+  filetype on
+endif
+
 filetype off
 com! -nargs=? Plugin
 set rtp+=~/.vim/bundle/Vundle.vim
