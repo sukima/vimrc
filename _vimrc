@@ -345,6 +345,7 @@ endif
 
 " vim-session {{{3
 let g:session_autosave = 'no'
+let g:session_autoload = 'no'
 
 " vimux {{{3
 " Prompt for a command to run
