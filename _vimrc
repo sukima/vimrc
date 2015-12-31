@@ -81,7 +81,7 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'groenewege/vim-less'
 Plugin 'freitass/todo.txt-vim'
-Plugin 'pangloss/vim-javascript'
+Plugin 'othree/yajs.vim'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'toyamarinyon/vim-swift'
 silent! call vundle#end()
