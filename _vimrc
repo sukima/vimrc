@@ -138,13 +138,6 @@ if version >= 500
     set nojoinspaces
     set mouse=a " set mouse enabled in all modes
     set mousemodel=extend
-    if &lines < 20
-        set laststatus=0 " Never have a status line
-        set noshowcmd
-    else
-        set laststatus=2 " Always have a status line
-        set showcmd
-    endif
     set ruler " have cursor position always on status bar
     set magic " allow searches to be more perl like
     set ignorecase
@@ -795,6 +788,23 @@ function! DynamicSyntasticStatus()
   endif
   return ' ' . unicode . status
 endfunction
+" }}}2
+" Dynamic vertical spacing {{{2
+function! RedrawStatusLine()
+  if &lines < 20
+    set laststatus=0
+    set noshowcmd
+  else
+    set laststatus=2
+    set showcmd
+  endif
+endfunction
+
+augroup vimrc
+  au VimResized * call RedrawStatusLine()
+augroup END
+
+call RedrawStatusLine()
 " }}}2
 
 set statusline=%f          "relative filename
