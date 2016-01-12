@@ -85,6 +85,7 @@ Plugin 'othree/yajs.vim'
 Plugin 'jbgutierrez/vim-babel'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'toyamarinyon/vim-swift'
+Plugin 'sukima/vim-tiddlywiki'
 silent! call vundle#end()
 
 " Section: Global Options {{{1
