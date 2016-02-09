@@ -509,10 +509,8 @@ command! WA wall
 " Section: Utility Mappings {{{2
 " Convinent Esc alternatives {{{3
 inoremap jk <esc>
-inoremap kj <esc>
 inoremap jj <esc>
 cnoremap jk <esc>
-cnoremap kj <esc>
 cnoremap jj <esc>
 vnoremap v <esc>
 " Soft-wrap paragraph {{{3
