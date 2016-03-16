@@ -80,12 +80,16 @@ Plugin 'szw/vim-dict'
 Plugin 'rizzatti/dash.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'groenewege/vim-less'
-Plugin 'freitass/todo.txt-vim'
-Plugin 'othree/yajs.vim'
-Plugin 'jbgutierrez/vim-babel'
 Plugin 'myusuf3/numbers.vim'
+Plugin 'jbgutierrez/vim-babel'
+
+" Filetypes
+Plugin 'othree/yajs.vim'
+Plugin 'freitass/todo.txt-vim'
 Plugin 'toyamarinyon/vim-swift'
 Plugin 'sukima/vim-tiddlywiki'
+Plugin 'ledger/vim-ledger'
+
 silent! call vundle#end()
 
 " Section: Global Options {{{1
@@ -432,6 +436,10 @@ highlight link multiple_cursors_visual Visual
 
 " Gist {{{3
 let g:gist_update_on_write = 2
+
+" Ledger {{{3
+let g:ledger_fold_blanks = 1
+let g:ledger_align_at = 50
 
 " File Type Detect {{{2
 augroup filetypedetect
