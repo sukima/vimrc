@@ -34,11 +34,11 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-sleuth' " Auto Indent Detect
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-commentary'
 Plugin 'sampsyo/autolink.vim'
 Plugin 'yaymukund/vim-rabl'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'mattn/emmet-vim'
 " Plugin 'ervandew/snipmate.vim'
@@ -265,13 +265,6 @@ let xml_allow_docbk_keywords = 1
 
 " Explore {{{3
 let explHideFiles='^\.,\.gz$,\.exe$,\.zip$'
-
-" NERDCommenter {{{3
-let g:NERDSpaceDelims=1
-let g:NERDDefaultNesting=1
-let g:NERDCustomDelimiters = {
-  \ 'litcoffee': { 'left': '#', 'leftAlt': '<!--', 'rightAlt': '-->' }
-\ }
 
 " emmet-vim {{{3
 let g:user_emmet_leader_key='<c-e>'
