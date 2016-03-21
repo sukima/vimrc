@@ -35,6 +35,7 @@ Plugin 'tpope/vim-sleuth' " Auto Indent Detect
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-commentary'
+Plugin 'christoomey/vim-system-copy'
 Plugin 'sampsyo/autolink.vim'
 Plugin 'yaymukund/vim-rabl'
 Plugin 'tpope/vim-unimpaired'
