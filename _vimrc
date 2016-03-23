@@ -460,6 +460,7 @@ augroup END
 
 " Useful for my Quick Notes feature in my tmuxrc
 augroup QuickNotes
+  au BufRead           NOTES setf markdown
   au BufWrite,VimLeave NOTES.otl mkview
   au BufRead           NOTES.otl silent loadview
 augroup END
