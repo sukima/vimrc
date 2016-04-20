@@ -188,7 +188,7 @@ if version >= 600
 endif
 
 " Section: VIM 7.x Options {{{2
-if version >= 700
+if v:version >= 700
     " Default to no spelling for now. Easily turn it on and off with mapping
     " below.
     set nospell
@@ -198,7 +198,7 @@ if version >= 700
     set cursorline
 endif
 
-if version >= 703
+if v:version >= 703
   " Display textwidth highlighting
   " (solarized sets ColorColumn only for GUI)
   set cc=+1
@@ -206,6 +206,10 @@ if version >= 703
   " I still want the best for encryption. (Otherwise what's the point?)
   set cryptmethod=blowfish
   set diffopt=filler,context:4,vertical
+endif
+
+if v:version > 704 || (v:version == 704 && has('patch401'))
+  set cryptmethod=blowfish2
 endif
 
 " Section: mapleader {{{2
