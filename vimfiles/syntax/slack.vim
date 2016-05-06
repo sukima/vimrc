@@ -16,7 +16,7 @@ syn match slackItalic "_[^_]\+_" oneline contains=@slackEntities
 syn match slackEmoji ":[^:]\+:" oneline
 syn match slackInlineCode "`[^`]\+`" oneline
 syn match slackLink "<[^>]*|[^>]*>" oneline contains=slackUrl
-syn match slackUrl "\<https\?://[[:alnum:]-_.+%?=&#/]\+" oneline
+syn match slackUrl "\<https\?://[[:alnum:]-_.+%?=&#/:]\+" oneline
 syn match slackUrl "\<[[:alnum:]-_.+]\+@[[:alnum:]-_.+]\+" oneline
 syn match slackChannel "#[[:alnum:]-_]\+" oneline
 syn match slackMention "@[[:alnum:]-_.]\+" oneline
