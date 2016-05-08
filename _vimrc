@@ -484,11 +484,9 @@ endif
 
 " Section: Quick Options {{{2
 if version >= 700
-    " add a mapping for convenience since vimspell will not be loaded in
-    " version 7.x
-    nnoremap [oz :call SetSpellingNavigation(1)<Cr>
-    nnoremap ]oz :call SetSpellingNavigation(0)<Cr>
-    nnoremap coz :call ToggleSpellingNavigation()<Cr>
+  nnoremap [oz :call SetSpellingNavigation(1)<Cr>
+  nnoremap ]oz :call SetSpellingNavigation(0)<Cr>
+  nnoremap coz :call ToggleSpellingNavigation()<Cr>
 endif
 if version >= 703
   nnoremap gr :set relativenumber!<Cr>
@@ -593,38 +591,6 @@ command GPGencrypt %!gpg -eat
 command GPGdecrypt %!gpg -d
 command GPGencryptSymetric %!gpg -ceat
 
-" Section: Functions {{{1
-" Section: Wrap Navigation Function {{{2
-function SetWrapNavigation( )
-    if &wrap
-        set nowrap
-        unmap j
-        unmap k
-        unmap <Down>
-        unmap <Up>
-        "unmap 0
-        "unmap ^
-        "unmap $
-    else
-        set wrap
-        nnoremap <buffer> k gk
-        nnoremap <buffer> j gj
-        nnoremap <buffer> <Up> gk
-        nnoremap <buffer> <Down> gj
-        "nnoremap <buffer> 0 g0
-        "nnoremap <buffer> ^ g^
-        "nnoremap <buffer> $ g$
-        inoremap <buffer> <Up> <C-O>gk
-        inoremap <buffer> <Down> <C-O>gj
-        vnoremap <buffer> k gk
-        vnoremap <buffer> j gj
-        vnoremap <buffer> <Up> gk
-        vnoremap <buffer> <Down> gj
-        "vnoremap <buffer> 0 g0
-        "vnoremap <buffer> ^ g^
-        "vnoremap <buffer> $ g$
-    endif
-endfunction
 
 " Section: Toggle Spelling Navigation {{{2
 function ToggleSpellingNavigation( )
