@@ -612,24 +612,18 @@ function SetSpellingNavigation( enabled )
         if a:enabled == 0
             setlocal nospell
             silent! nunmap <buffer> <CR>
-            silent! nunmap <buffer> +
-            silent! nunmap <buffer> <Space>
-            silent! nunmap <buffer> =
-            silent! nunmap <buffer> <S-Space>
-            silent! nunmap <buffer> -
+            silent! nunmap <buffer> f
+            silent! nunmap <buffer> b
             let g:spell_navigation_enabled = 0
             echo "Spell mappings: Off"
         else
             setlocal spell
             silent! nnoremap <buffer> <CR> z=
-            silent! nnoremap <buffer> + z=
-            silent! nnoremap <buffer> <Space> ]s
-            silent! nnoremap <buffer> = ]s
-            silent! nnoremap <buffer> <S-Space> [s
-            silent! nnoremap <buffer> - [s
+            silent! nnoremap <buffer> f ]s
+            silent! nnoremap <buffer> b [s
             let g:spell_navigation_enabled = 1
-            echo "Spell mappings: On ([Space/=] Next, [Enter/+] Suggest, [S-Space/-] Prev)"
-        endif
+            echo "Spell mappings: On ( f Next, <Enter> Suggest, b Prev )"
+          endif
     endif
 endfunction
 
@@ -640,22 +634,20 @@ function ViewSetup( )
         call SetSpellingNavigation()
     endif
     if g:viewState == 0
-        set modifiable
+        setlocal modifiable
         "filetype detect
-        nunmap q
-        nunmap Q
-        nunmap <Space>
-        nunmap <S-Space>
+        silent! nunmap <buffer> q
+        silent! nunmap <buffer> f
+        silent! nunmap <buffer> b
         echo "View Mode: Off"
         let g:viewState = 1
     else
-        set nomodifiable
-        nnoremap q :q!<Cr>
-        nnoremap Q :qa!<Cr>
-        nnoremap <Space> <C-f>
-        nnoremap <S-Space> <C-b>
+        setlocal nomodifiable
+        silent! nnoremap q :q!<Cr>
+        silent! nnoremap f <C-f>
+        silent! nnoremap b <C-b>
         if g:viewState != 2
-            echo "View Mode: On ([Space] Page Down, [S-Space] Page Up, [q] Quit)"
+            echo "View Mode: On ( f Page-Down, b Page-Up, q Quit )"
         endif
         let g:viewState = 0
     endif
@@ -718,11 +710,11 @@ command Ctags !ctags -R --exclude=.svn --exclude=.git --exclude=log*
 " Are we using VIM as a pager?
 if v:progname =~ "view"
     au BufRead * set ro
-    set nomodified
-    let viewState = 2
+    setlocal nomodified
+    let g:viewState = 2
     call ViewSetup()
 else
-    let viewState = 1
+    let g:viewState = 1
     nnoremap <Leader>vv :call ViewSetup()<Cr>
 endif
 
