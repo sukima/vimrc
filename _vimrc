@@ -17,7 +17,9 @@ com! -nargs=? Plugin
 set rtp+=~/.vim/bundle/Vundle.vim
 
 " Section: Preferred plugins {{{1
+if (!exists('g:vundle#bundles'))
 silent! call vundle#begin()
+
 Plugin 'gmarik/Vundle.vim'
 Plugin 'jamessan/vim-gnupg'
 Plugin 'vimoutliner/vimoutliner'
@@ -92,6 +94,7 @@ Plugin 'sukima/vim-tiddlywiki'
 Plugin 'ledger/vim-ledger'
 
 silent! call vundle#end()
+endif
 
 " Section: Global Options {{{1
 
@@ -357,7 +360,7 @@ map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 " Zoom the tmux runner page
 map <Leader>vz :VimuxZoomRunner<CR>
-function SetVimuxOrientation(orientation)
+function! SetVimuxOrientation(orientation)
     if a:orientation == "h"
         let g:VimuxOrientation = "h"
         let g:VimuxHeight = "40"
@@ -578,22 +581,21 @@ vnoremap <Leader>M "my`<i[<Esc>`>la][]<Esc>mm}o[<C-r>m]:<Space><Esc>mua
 nmap <Leader>M viw<Leader>M
 
 " Section: Convenience Commands {{{1
-command Cwd cd %:h
-command Undiff set nodiff foldcolumn=0
-command Ant set makeprg=ant\ -find\ build.xml | set efm=%A\ %#[.\\{-1,}]\ %f:%l:\ %m,%-Z\ %#[.\\{-1,}]\ %p^,%-C%.%#
-command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
-command SudoWrite exec 'w !sudo dd of=' . shellescape(expand('%'))
+command! Cwd cd %:h
+command! Undiff set nodiff foldcolumn=0
+command! Ant set makeprg=ant\ -find\ build.xml | set efm=%A\ %#[.\\{-1,}]\ %f:%l:\ %m,%-Z\ %#[.\\{-1,}]\ %p^,%-C%.%#
+command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+command! SudoWrite exec 'w !sudo dd of=' . shellescape(expand('%'))
 
 " Section: GPG Commands {{{1
-command GPGclearsign %!gpg --clearsign
-command GPGencryptsign %!gpg -seat
-command GPGencrypt %!gpg -eat
-command GPGdecrypt %!gpg -d
-command GPGencryptSymetric %!gpg -ceat
-
+command! GPGclearsign %!gpg --clearsign
+command! GPGencryptsign %!gpg -seat
+command! GPGencrypt %!gpg -eat
+command! GPGdecrypt %!gpg -d
+command! GPGencryptSymetric %!gpg -ceat
 
 " Section: Toggle Spelling Navigation {{{2
-function ToggleSpellingNavigation( )
+function! ToggleSpellingNavigation( )
     if !exists("g:spell_navigation_enabled") || g:spell_navigation_enabled == 0
         call SetSpellingNavigation(1)
     else
@@ -601,7 +603,7 @@ function ToggleSpellingNavigation( )
     endif
 endfunction
 
-function SetSpellingNavigation( enabled )
+function! SetSpellingNavigation( enabled )
     " ViewSetup() has conflicting mappings. Can't use spell while nomodifiable
     " anyway.
     if g:viewState == 0
@@ -629,7 +631,7 @@ endfunction
 
 " Section: Pager Function for 'view' {{{2
 " Used for paging in a view command (like more)
-function ViewSetup( )
+function! ViewSetup( )
     if &spell
         call SetSpellingNavigation()
     endif
@@ -656,7 +658,7 @@ endfunction
 
 " Section: Custom 'tabline' {{{2
 if exists("+showtabline")
-  function MyTabLine()
+  function! MyTabLine()
     let s = ''
     let t = tabpagenr()
     let i = 1
@@ -705,7 +707,7 @@ if filereadable("tags")
 endif
 
 " Allow easy creation of tags. Assuming ctags installed.
-command Ctags !ctags -R --exclude=.svn --exclude=.git --exclude=log*
+command! Ctags !ctags -R --exclude=.svn --exclude=.git --exclude=log*
 
 " Are we using VIM as a pager?
 if v:progname =~ "view"
@@ -800,8 +802,8 @@ let g:solarized_termtrans = 1
 let g:solarized_hitrail = 0
 silent! call togglebg#map("<F5>")
 
-command Solarized16  let g:solarized_termcolors=16 | colorscheme solarized
-command Solarized256 let g:solarized_termcolors=256 | colorscheme solarized
+command! Solarized16  let g:solarized_termcolors=16 | colorscheme solarized
+command! Solarized256 let g:solarized_termcolors=256 | colorscheme solarized
 
 " Color scheme
 set background=dark
