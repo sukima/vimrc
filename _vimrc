@@ -399,6 +399,15 @@ let g:syntastic_mode_map = {
     \ 'passive_filetypes': ['html', 'xml']
     \ }
 
+function! HasConfig(file, dir)
+    return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
+endfunction
+
+autocmd BufNewFile,BufReadPre *.js  let b:syntastic_checkers =
+    \ HasConfig('.eslintrc', expand('<amatch>:h')) ? ['eslint'] :
+    \ HasConfig('.jshintrc', expand('<amatch>:h')) ? ['jshint'] :
+    \     ['standard']
+
 " Dash {{{3
 nmap <silent> <leader>d <Plug>DashSearch
 let g:dash_map = {
