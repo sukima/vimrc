@@ -13,7 +13,7 @@ syn cluster slackInline contains=@slackEntities,slackBold,slackItalic
 
 syn match slackBold "\*[^\*]\+\*" oneline contains=@slackEntities
 syn match slackItalic "_[^_]\+_" oneline contains=@slackEntities
-syn match slackEmoji ":[[:alnum:]]\+:" oneline
+syn match slackEmoji ":[[:alnum:]_]\+:" oneline
 syn match slackInlineCode "`[^`]\+`" oneline
 syn match slackLink "<[^>]*|[^>]*>" oneline contains=slackUrl
 syn match slackUrl "\<https\?://[[:alnum:]-_.+%?=&#/:]\+" oneline
