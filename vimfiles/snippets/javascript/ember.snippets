@@ -24,8 +24,14 @@ snippet emmixin
 	export default Ember.Mixin.create({
 		${0}
 	});
+snippet emhelper
+	export default Ember.Helper.helper(function (/* params, hash */) {
+		${0}
+	});
 snippet emtest
 	test('${0}', function(assert) {
 		assert.expect(1);
 		${1}
 	});
+snippet imi18n
+	import { translationMacro as t } from 'ember-i18n';
