@@ -580,6 +580,16 @@ cnoremap %% <C-r>=expand('%:h').'/'<cr>
 vnoremap <Leader>M "my`<i[<Esc>`>la][]<Esc>mm}o[<C-r>m]:<Space><Esc>mua
 nmap <Leader>M viw<Leader>M
 
+" Syntax highlighting info {{{3
+" Show syntax highlighting groups for word under cursor
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+nmap gS :call SynStack()<CR>
+
 " Section: Convenience Commands {{{1
 command! Cwd cd %:h
 command! Undiff set nodiff foldcolumn=0
