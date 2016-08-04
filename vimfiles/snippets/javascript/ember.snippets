@@ -1,32 +1,77 @@
 snippet imember
 	import Ember from 'ember';
 snippet emcont
-	export default Ember.Controller.extend({
+	const {
+		Controller, get, set,
+		computed, computed: {}
+	} = Ember;
+
+	export default Controller.extend({
 		${0}
 	});
 snippet emroute
-	export default Ember.Route.extend({
+	const {
+		Route, get, set,
+		computed, computed: {}
+	} = Ember;
+
+	export default Route.extend({
 		${0}
 	});
 snippet emservice
-	export default Ember.Service.extend({
+	const {
+		Service, get, set,
+		computed, computed: {}
+	} = Ember;
+
+	export default Service.extend({
 		${0}
 	});
 snippet emcomp
-	export default Ember.Component.extend({
+	const {
+		Component, get, set,
+		computed, computed: {}
+	} = Ember;
+
+	export default Component.extend({
 		${0}
 	});
 snippet emobject
+	const {
+		get, set,
+		computed, computed: {}
+	} = Ember;
+
 	export default Ember.Object.extend({
 		${0}
 	});
 snippet emmixin
-	export default Ember.Mixin.create({
+	const {
+		Mixin, getm set,
+		computed, computed: {}
+	} = Ember;
+
+	export default Mixin.create({
 		${0}
 	});
+snippet emhelperextend
+	const {
+		Helper, get, set,
+		computed, computed: {}
+	} = Ember;
+
+	export default Helper.extend({
+		compute([${0}], {${1}}) {
+			${2}
+		}
+	});
 snippet emhelper
-	export default Ember.Helper.helper(function (/* params, hash */) {
-		${0}
+	const {
+		Helper
+	} = Ember;
+
+	export default Helper.helper(function (${0}) {
+		${1}
 	});
 snippet emtest
 	test('${0}', function(assert) {
@@ -35,3 +80,5 @@ snippet emtest
 	});
 snippet imi18n
 	import { translationMacro as t } from 'ember-i18n';
+snippet imhbs
+	import hbs from 'htmlbars-inline-precompile';
