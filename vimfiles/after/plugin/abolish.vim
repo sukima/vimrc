@@ -29,3 +29,4 @@ Abolish enviroment{,s,al} environment{}
 Abolish extention{,s} extension{}
 Abolish seperat{e,ing,er,ed} separat{}
 Abolish perminent{,ce} permanent{}
+Abolish parrent{,s,ing,al} parent{}
