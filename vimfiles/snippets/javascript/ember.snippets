@@ -62,8 +62,8 @@ snippet emhelperextend
 	} = Ember;
 
 	export default Helper.extend({
-		compute([${0}], {${1}}) {
-			${2}
+		compute([${1}], {${2}}) {
+			${0}
 		}
 	});
 snippet emhelper
@@ -71,13 +71,14 @@ snippet emhelper
 		Helper
 	} = Ember;
 
-	export default Helper.helper(function (${0}) {
-		${1}
-	});
+	export function ${1:helperName}([${2}], {${3}}) {
+	  ${0}
+	}
+
+	export default Helper.helper($1);
 snippet emtest
-	test('${0}', function(assert) {
-		assert.expect(1);
-		${1}
+	test('${1}', function (assert) {
+		${0}
 	});
 snippet imi18n
 	import { translationMacro as t } from 'ember-i18n';
