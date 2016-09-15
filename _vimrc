@@ -105,7 +105,7 @@ set nosmartindent
 set nocindent
 set autoindent
 set nocopyindent
-set nowrap
+set wrap
 if &columns < 50
   set nonumber
 else
@@ -140,7 +140,7 @@ if version >= 500
     set incsearch
     set sidescroll=5
     set listchars=eol:$,tab:>~,trail:-,precedes:<,extends:>,nbsp:=
-    set showbreak=+
+    set showbreak=\
     set linebreak
     set cino={0,(0,W4,u0,t0
     set nojoinspaces
@@ -212,6 +212,12 @@ endif
 
 if v:version > 704 || (v:version == 704 && has('patch401'))
   set cryptmethod=blowfish2
+endif
+
+" Section: VIM 8.x Options {{{2
+if v:version >= 800
+  set breakindent
+  set breakindentopt=min:4,shift:2,sbr
 endif
 
 " Section: mapleader {{{2
