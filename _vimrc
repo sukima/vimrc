@@ -85,7 +85,7 @@ Plugin 'jbgutierrez/vim-babel'
 
 " Filetypes
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'joukevandermaas/vim-ember-hbs'
 Plugin 'othree/yajs.vim'
 Plugin 'freitass/todo.txt-vim'
 Plugin 'toyamarinyon/vim-swift'
