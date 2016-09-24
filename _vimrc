@@ -92,6 +92,9 @@ Plugin 'toyamarinyon/vim-swift'
 Plugin 'sukima/vim-tiddlywiki'
 Plugin 'ledger/vim-ledger'
 
+" Utility Plugins
+Plugin 'MarcWeber/vim-addon-mw-utils'
+
 silent! call vundle#end()
 endif
 
