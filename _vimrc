@@ -440,6 +440,8 @@ let g:javascript_conceal_prototype = "¶"
 
 " numbers.vim {{{3
 let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'minibufexpl', 'nerdtree']
+nnoremap <Leader>n :NumbersDisable<Cr>:set nornu nu<Cr>
+nnoremap <Leader>N :NumbersEnable<Cr>:set rnu nu<Cr>
 
 " vim-multiple-cursors {{{3
 highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
