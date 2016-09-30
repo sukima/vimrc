@@ -94,6 +94,7 @@ Plugin 'ledger/vim-ledger'
 
 " Utility Plugins
 Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
 
 silent! call vundle#end()
 endif
