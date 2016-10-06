@@ -608,6 +608,11 @@ nmap gS :call SynStack()<CR>
 " shell is in normal mode.
 inoremap <c-g><c-g> <esc>:qa!<cr>
 
+" No-Ops {{{3
+" Some keys are more annoying then useful
+nnoremap <F1> <nop>
+nnoremap K <nop>
+
 " Section: Convenience Commands {{{1
 command! Cwd cd %:h
 command! Undiff set nodiff foldcolumn=0
