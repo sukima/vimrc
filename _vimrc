@@ -603,6 +603,11 @@ function! SynStack()
 endfunc
 nmap gS :call SynStack()<CR>
 
+" Fast exit from insert {{{3
+" This is reaction to that anoying state you get when typing 'vim' but the
+" shell is in normal mode.
+inoremap <c-g><c-g> <esc>:qa!<cr>
+
 " Section: Convenience Commands {{{1
 command! Cwd cd %:h
 command! Undiff set nodiff foldcolumn=0
