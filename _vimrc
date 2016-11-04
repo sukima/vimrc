@@ -115,6 +115,7 @@ else
   set number
 endif
 set nobackup
+set hidden
 set modeline
 set modelines=3
 " Save swapfile to home tmp directory.
