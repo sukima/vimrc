@@ -419,6 +419,9 @@ autocmd BufNewFile,BufReadPre *.js  let b:syntastic_checkers =
     \ HasConfig('.jshintrc', expand('<amatch>:h')) ? ['jshint'] :
     \     ['standard']
 
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " Dash {{{3
 nmap <silent> <leader>d <Plug>DashSearch
 let g:dash_map = {
