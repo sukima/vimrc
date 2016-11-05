@@ -607,18 +607,25 @@ function! SynStack()
 endfunc
 nmap gS :call SynStack()<CR>
 
-" Auto format for prose {{{3
-" Toggle auto-format on demand
-function! AutoFormatToggle()
+" Formating for writing prose {{{3
+function! ProseFormatingToggle()
   if &fo =~ 'a'
+    set nospell
+    set tw=0
     set fo-=a
-    echo "Auto Formatting OFF"
+    set fp=
+    echo "Prose formatting mode OFF"
   else
+    set spell
+    set tw=80
     set fo+=a
-    echo "Auto Formatting ON"
+    if executable("par")
+      set fp=par\ -w80
+    endif
+    echo "Prose formatting mode ON"
   endif
 endfunction
-nmap <Leader>f :call AutoFormatToggle()<Cr>
+nmap <Leader>p :call ProseFormatingToggle()<Cr>
 
 " Fast exit from insert {{{3
 " This is reaction to that anoying state you get when typing 'vim' but the
