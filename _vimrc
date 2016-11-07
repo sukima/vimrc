@@ -172,11 +172,7 @@ endif
 " Section: VIM 6.x Options {{{2
 if version >= 600
     set softtabstop=0
-    if &columns < 40
-        set foldcolumn=0
-    else
-        set foldcolumn=2
-    endif
+    set foldcolumn=0
     set winminheight=0
     set splitbelow
     set splitright
@@ -504,6 +500,10 @@ endif
 
 " Section: Quick Options {{{2
 if version >= 700
+  nnoremap ]of :set foldcolumn=2<cr>
+  nnoremap [of :set foldcolumn=0<cr>
+  nnoremap cof :call FoldColumnToggle(2)<cr>
+
   nnoremap [oz :call SetSpellingNavigation(1)<Cr>
   nnoremap ]oz :call SetSpellingNavigation(0)<Cr>
   nnoremap coz :call ToggleSpellingNavigation()<Cr>
@@ -651,6 +651,15 @@ command! GPGencryptsign %!gpg -seat
 command! GPGencrypt %!gpg -eat
 command! GPGdecrypt %!gpg -d
 command! GPGencryptSymetric %!gpg -ceat
+
+" Toggle foldcolumn {{{2
+function! FoldColumnToggle(value)
+  if &foldcolumn
+    let &foldcolumn=0
+  else
+    let &foldcolumn=a:value
+  endif
+endfunction
 
 " Toggle Spelling Navigation {{{2
 function! ToggleSpellingNavigation( )
