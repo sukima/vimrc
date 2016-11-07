@@ -195,7 +195,8 @@ if v:version >= 700
   " Default to no spelling for now. Easily turn it on and off with mapping
   " below.
   set nospell
-  set complete+=kspell
+  set thesaurus+=$HOME/.vim/thesaurus.txt
+  set complete+=s,kspell
   " Spell works better in the GUI when you can right click on the word.
   set mousemodel=popup
   set cursorline
@@ -607,26 +608,6 @@ function! SynStack()
 endfunc
 nmap gS :call SynStack()<CR>
 
-" Formating for writing prose {{{3
-function! ProseFormatingToggle()
-  if &fo =~ 'a'
-    set nospell
-    set tw=0
-    set fo-=a
-    set fp=
-    echo "Prose formatting mode OFF"
-  else
-    set spell
-    set tw=80
-    set fo+=a
-    if executable("par")
-      set fp=par\ -w80
-    endif
-    echo "Prose formatting mode ON"
-  endif
-endfunction
-nmap <Leader>p :call ProseFormatingToggle()<Cr>
-
 " Fast exit from insert {{{3
 " This is reaction to that anoying state you get when typing 'vim' but the
 " shell is in normal mode.
@@ -651,6 +632,44 @@ command! GPGencryptsign %!gpg -seat
 command! GPGencrypt %!gpg -eat
 command! GPGdecrypt %!gpg -d
 command! GPGencryptSymetric %!gpg -ceat
+
+" Formating for writing prose {{{2
+function! ProseFormattingOn()
+  nnoremap <buffer> j gj
+  nnoremap <buffer> k gk
+  setlocal spell
+  setlocal tw=80
+  setlocal fo+=a,1
+  if executable("par")
+    setlocal fp=par\ -w80
+  endif
+  echo "Prose formatting mode ON"
+  let b:prose_mode_enabled=1
+endfunction
+
+function! ProseFormattingOff()
+  nunmap <buffer> j
+  nunmap <buffer> k
+  setlocal nospell
+  setlocal tw=0
+  setlocal fo-=a,1
+  setlocal fp=
+  echo "Prose formatting mode OFF"
+  let b:prose_mode_enabled=0
+endfunction
+
+function! ProseFormattingToggle()
+  if b:prose_mode_enabled
+    call ProseFormattingOff()
+  else
+    call ProseFormattingOn()
+  endif
+endfunction
+
+command! ProseOn  call ProseFormattingOn()
+command! ProseOff call ProseFormattingOff()
+command! Prose    call ProseFormattingToggle()
+
 
 " Toggle foldcolumn {{{2
 function! FoldColumnToggle(value)
