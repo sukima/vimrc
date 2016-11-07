@@ -196,13 +196,13 @@ endif
 
 " Section: VIM 7.x Options {{{2
 if v:version >= 700
-    " Default to no spelling for now. Easily turn it on and off with mapping
-    " below.
-    set nospell
-    set complete+=kspell
-    " Spell works better in the GUI when you can right click on the word.
-    set mousemodel=popup
-    set cursorline
+  " Default to no spelling for now. Easily turn it on and off with mapping
+  " below.
+  set nospell
+  set complete+=kspell
+  " Spell works better in the GUI when you can right click on the word.
+  set mousemodel=popup
+  set cursorline
 endif
 
 if v:version >= 703
@@ -637,21 +637,22 @@ inoremap <c-g><c-g> <esc>:qa!<cr>
 nnoremap <F1> <nop>
 nnoremap K <nop>
 
-" Section: Convenience Commands {{{1
+" Section: Commands {{{1
+" Convenience Commands {{{2
 command! Cwd cd %:h
 command! Undiff set nodiff foldcolumn=0
 command! Ant set makeprg=ant\ -find\ build.xml | set efm=%A\ %#[.\\{-1,}]\ %f:%l:\ %m,%-Z\ %#[.\\{-1,}]\ %p^,%-C%.%#
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 command! SudoWrite exec 'w !sudo dd of=' . shellescape(expand('%'))
 
-" Section: GPG Commands {{{1
+" GPG Commands {{{2
 command! GPGclearsign %!gpg --clearsign
 command! GPGencryptsign %!gpg -seat
 command! GPGencrypt %!gpg -eat
 command! GPGdecrypt %!gpg -d
 command! GPGencryptSymetric %!gpg -ceat
 
-" Section: Toggle Spelling Navigation {{{2
+" Toggle Spelling Navigation {{{2
 function! ToggleSpellingNavigation( )
     if !exists("g:spell_navigation_enabled") || g:spell_navigation_enabled == 0
         call SetSpellingNavigation(1)
@@ -686,7 +687,7 @@ function! SetSpellingNavigation( enabled )
     endif
 endfunction
 
-" Section: Pager Function for 'view' {{{2
+" Pager Function for 'view' {{{2
 " Used for paging in a view command (like more)
 function! ViewSetup( )
     if &spell
@@ -713,7 +714,7 @@ function! ViewSetup( )
 endfunction
 
 
-" Section: Custom 'tabline' {{{2
+" Custom 'tabline' {{{2
 if exists("+showtabline")
   function! MyTabLine()
     let s = ''
@@ -744,7 +745,7 @@ if exists("+showtabline")
   set tabline=%!MyTabLine()
 endif
 
-" Section: Blink Highlight Next Search {{{2
+" Blink Highlight Next Search {{{2
 function! HLNext (blinktime)
   let [bufnum, lnum, col, off] = getpos('.')
   let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
