@@ -79,7 +79,6 @@ Plugin 'yaifa.vim'
 Plugin 'szw/vim-dict'
 Plugin 'rizzatti/dash.vim'
 Plugin 'groenewege/vim-less'
-Plugin 'myusuf3/numbers.vim'
 Plugin 'jbgutierrez/vim-babel'
 
 " Filetypes
@@ -200,6 +199,13 @@ if v:version >= 700
   " Spell works better in the GUI when you can right click on the word.
   set mousemodel=popup
   set cursorline
+  if &columns < 50
+    set nonumber
+    set norelativenumber
+  else
+    set number
+    set relativenumber
+  endif
 endif
 
 if v:version >= 703
