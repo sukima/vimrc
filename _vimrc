@@ -456,6 +456,9 @@ let g:gist_update_on_write = 2
 let g:ledger_fold_blanks = 1
 let g:ledger_align_at = 50
 
+" NERDTree {{{3
+let NERDTreeShowLineNumbers=1
+
 " File Type Detect {{{2
 augroup filetypedetect
     " phplib template files
