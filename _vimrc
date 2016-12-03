@@ -751,6 +751,19 @@ function! ViewSetup( )
 endfunction
 
 
+" Rename file with buffer name update {{{2
+function! RenameFile(new_name)
+  let old_name = expand('%')
+  if a:new_name != '' && a:new_name != old_name
+    exec ':saveas ' . a:new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  else
+    echohl WarningMsg | echo "Nothing to rename" | echohl None
+  endif
+endfunction
+command! -nargs=1 -complete=file MV call RenameFile("<args>")
+
 " Custom 'tabline' {{{2
 if exists("+showtabline")
   function! MyTabLine()
