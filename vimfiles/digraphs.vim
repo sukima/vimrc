@@ -7,3 +7,4 @@ digraph ** 8226  " • BULLET
 digraph .: 8756  " ∴ THEREFORE
 digraph [( 12304 "【 LEFT BLACK LENTICULAR BRACKET
 digraph )] 12305 " 】RIGHT BLACK LENTICULAR BRACKET
+digraph sn 9924  " ⛄SNOWMAN
