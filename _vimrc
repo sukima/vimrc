@@ -107,7 +107,7 @@ set nosmartindent
 set nocindent
 set autoindent
 set nocopyindent
-set wrap
+set nowrap
 if &columns < 50
   set nonumber
 else
