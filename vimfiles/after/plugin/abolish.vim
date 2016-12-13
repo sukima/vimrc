@@ -32,3 +32,4 @@ Abolish perminent{,ce} permanent{}
 Abolish parrent{,s,ing,al} parent{}
 Abolish plausab{ility,le} plausib{}
 Abolish explination explanation
+Abolish concatinate{s,d,dProperties} concatenate{}
