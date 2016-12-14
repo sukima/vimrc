@@ -668,7 +668,7 @@ function! ProseFormattingOff()
 endfunction
 
 function! ProseFormattingToggle()
-  if b:prose_mode_enabled
+  if exists('b:prose_mode_enabled') && b:prose_mode_enabled
     call ProseFormattingOff()
   else
     call ProseFormattingOn()
