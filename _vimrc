@@ -330,6 +330,7 @@ let g:airline_theme = 'solarized'
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#branch#format = 1
 let g:airline#extensions#tabline#enabled = 0
+let g:airline_section_c = '%n:%t'
 
 " vim-session {{{3
 let g:session_autosave = 'no'
@@ -863,7 +864,8 @@ augroup END
 call RedrawStatusLine()
 " }}}2
 
-set statusline=%f          "relative filename
+set statusline=%n:         "buffer number
+set statusline+=%f         "relative filename
 set statusline+=(%{strlen(&fenc)?&fenc:'none'}, "file encoding
 set statusline+=%{&ff})    "file format
 set statusline+=%y         "filetype
