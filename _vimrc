@@ -631,7 +631,7 @@ function! ProseFormattingOn()
   nnoremap <buffer> k gk
   setlocal spell
   setlocal tw=80
-  setlocal fo+=a,1
+  setlocal fo+=1
   if executable("par")
     setlocal fp=par\ -w80
   endif
@@ -644,7 +644,7 @@ function! ProseFormattingOff()
   nunmap <buffer> k
   setlocal nospell
   setlocal tw=0
-  setlocal fo-=a,1
+  setlocal fo-=1
   setlocal fp=
   echo "Prose formatting mode OFF"
   let b:prose_mode_enabled=0
