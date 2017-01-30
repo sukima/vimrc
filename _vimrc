@@ -60,7 +60,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'airblade/vim-gitgutter'
+
 " Required by vim-session
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
