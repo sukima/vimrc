@@ -498,6 +498,7 @@ if version >= 700
 endif
 if version >= 703
   nnoremap gr :set relativenumber!<Cr>
+  nnoremap gR :call ToggleRelativeNumbers()<Cr>
 endif
 nnoremap <Leader>2<Tab> :set sw=2 ts=2 noet<Cr><Bar>:echo "Indent set to two (tabs)"<Cr>
 nnoremap <Leader>4<Tab> :set sw=4 ts=4 noet<Cr><Bar>:echo "Indent set to four (tabs)"<Cr>
@@ -783,6 +784,17 @@ function! HLNext (blinktime)
   exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
   call matchdelete(ring)
   redraw
+endfunction
+
+" Toggle relative numbers (globally) {{{2
+function! ToggleRelativeNumbers()
+  let current_buffer = bufnr('%')
+  if &relativenumber
+    bufdo set norelativenumber
+  else
+    bufdo set relativenumber
+  endif
+  exec 'buf ' . current_buffer
 endfunction
 
 " Section: Misc. {{{1
