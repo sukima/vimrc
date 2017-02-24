@@ -57,7 +57,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'mbbill/undotree'
 Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 
@@ -317,6 +317,9 @@ let g:ctrlp_user_command = {
     \ 2: ['.hg', 'hg --cwd %s locate -I .'],
     \ }
   \ }
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPLastMode'
+let g:ctrlp_working_path_mode = 'ra'
 
 " EasyAlign {{{3
 vnoremap <silent> <Enter> :EasyAlign<cr>
