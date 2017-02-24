@@ -330,7 +330,6 @@ let g:airline_theme = 'solarized'
 let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline#extensions#branch#format = 1
 let g:airline#extensions#tabline#enabled = 0
-let g:airline_section_c = '%n:%t'
 
 " vim-session {{{3
 let g:session_autosave = 'no'
