@@ -205,7 +205,7 @@ if v:version >= 700
     set norelativenumber
   else
     set number
-    set norelativenumber
+    set relativenumber
   endif
 endif
 
