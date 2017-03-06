@@ -403,11 +403,6 @@ function! HasConfig(file, dir)
     return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
 endfunction
 
-autocmd BufNewFile,BufReadPre *.js  let b:syntastic_checkers =
-    \ HasConfig('.eslintrc', expand('<amatch>:h')) ? ['eslint'] :
-    \ HasConfig('.jshintrc', expand('<amatch>:h')) ? ['jshint'] :
-    \     ['standard']
-
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
