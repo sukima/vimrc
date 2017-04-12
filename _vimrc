@@ -46,6 +46,7 @@ Plugin 'vim-scripts/grep.vim'
 Plugin 'vim-scripts/vim-easy-align'
 Plugin 'vim-scripts/git-time-lapse'
 Plugin 'garbas/vim-snipmate'
+Plugin 'AndrewRadev/splitjoin.vim'
 
 " Motions / Text Objects
 Plugin 'kana/vim-textobj-user.git'
