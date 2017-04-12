@@ -627,9 +627,6 @@ function! ProseFormattingOn()
   setlocal spell
   setlocal tw=80
   setlocal fo+=1
-  if executable("par")
-    setlocal fp=par\ -w80
-  endif
   echo "Prose formatting mode ON"
   let b:prose_mode_enabled=1
 endfunction
@@ -640,7 +637,6 @@ function! ProseFormattingOff()
   setlocal nospell
   setlocal tw=0
   setlocal fo-=1
-  setlocal fp=
   echo "Prose formatting mode OFF"
   let b:prose_mode_enabled=0
 endfunction
