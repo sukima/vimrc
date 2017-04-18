@@ -149,7 +149,7 @@ if version >= 500
     set listchars=eol:$,tab:>~,trail:-,precedes:<,extends:>,nbsp:=
     set showbreak=\
     set linebreak
-    set cino={0,(0,W4,u0,t0
+    set cino=l1,:1s,u0,t0
     set nojoinspaces
     set mouse=a " set mouse enabled in all modes
     set mousemodel=extend
