@@ -87,6 +87,7 @@ Plugin 'tfnico/vim-gradle'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'joukevandermaas/vim-ember-hbs'
 Plugin 'othree/yajs.vim' " Override vim-javascript syntax
+Plugin 'othree/es.next.syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'freitass/todo.txt-vim'
 Plugin 'toyamarinyon/vim-swift'
