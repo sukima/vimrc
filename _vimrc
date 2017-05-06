@@ -221,7 +221,7 @@ endif
 if v:version >= 703
   " Display textwidth highlighting
   " (solarized sets ColorColumn only for GUI)
-  set cc=+1
+  set colorcolumn=80
   " This option only available after version 7.3
   " I still want the best for encryption. (Otherwise what's the point?)
   set cryptmethod=blowfish
@@ -476,7 +476,7 @@ augroup END
 
 " File Type Auto Settings {{{2
 augroup Git
-  au Filetype gitcommit setlocal spell textwidth=72
+  au Filetype gitcommit setlocal spell textwidth=72 cc=72
 augroup END
 
 " Useful for my Quick Notes feature in my tmuxrc
