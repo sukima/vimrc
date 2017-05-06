@@ -38,7 +38,6 @@ Plugin 'christoomey/vim-system-copy'
 Plugin 'sampsyo/autolink.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'mattn/emmet-vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'vim-scripts/Gist.vim'
@@ -97,6 +96,13 @@ Plugin 'ledger/vim-ledger'
 " Utility Plugins
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
+
+" Linting
+if version >= 800
+  Plugin 'w0rp/ale'
+else
+  Plugin 'scrooloose/syntastic'
+endif
 
 silent! call vundle#end()
 endif
@@ -395,19 +401,29 @@ map <leader>gt :call TimeLapse() <cr>
 " yaifa {{{3
 map <leader>i :YAIFAMagic <cr>
 
-" Syntastic {{{3
-let g:syntastic_mode_map = {
-    \ 'mode': 'passive',
-    \ 'active_filetypes': ['ruby', 'javascript', 'coffee', 'css'],
-    \ 'passive_filetypes': ['html', 'xml']
-    \ }
+" Linting {{{3
+if version >= 800
+  " Ale
+  let g:ale_linters = {
+  \   'javascript': ['eslint'],
+  \   'ruby': ['rubocop'],
+  \}
 
-function! HasConfig(file, dir)
-    return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
-endfunction
-
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+  let g:ale_open_list = 0
+  let g:ale_echo_msg_format = '%severity% [%linter%] %s'
+else
+  " Syntastic
+  let g:syntastic_mode_map = {
+      \ 'mode': 'passive',
+      \ 'active_filetypes': ['ruby', 'javascript', 'coffee', 'css'],
+      \ 'passive_filetypes': ['html', 'xml']
+      \ }
+  function! HasConfig(file, dir)
+      return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
+  endfunction
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+endif
 
 " Dash {{{3
 nmap <silent> <leader>d <Plug>DashSearch
