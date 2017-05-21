@@ -405,9 +405,10 @@ map <leader>i :YAIFAMagic <cr>
 if version >= 800
   " Ale
   let g:ale_linters = {
-  \   'javascript': ['eslint'],
-  \   'ruby': ['rubocop'],
-  \}
+        \ 'handlebars': [],
+        \ 'javascript': ['eslint'],
+        \ 'ruby': ['rubocop'],
+        \}
 
   let g:ale_open_list = 0
   let g:ale_echo_msg_format = '%severity% [%linter%] %s'
