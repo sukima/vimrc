@@ -437,15 +437,6 @@ let g:dash_map = {
 " I don't want the plugin features, just the syntax highlighting
 let g:loaded_mustache_handlebars = 1
 
-" vim-javascript {{{3
-let g:javascript_conceal_function  = "ƒ"
-let g:javascript_conceal_null      = "ø"
-let g:javascript_conceal_this      = "@"
-let g:javascript_conceal_return    = "⇚"
-let g:javascript_conceal_undefined = "¿"
-let g:javascript_conceal_NaN       = "ℕ"
-let g:javascript_conceal_prototype = "¶"
-
 " vim-multiple-cursors {{{3
 highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
 highlight link multiple_cursors_visual Visual
