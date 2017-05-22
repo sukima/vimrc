@@ -27,8 +27,6 @@ Plugin 'jamessan/vim-gnupg'
 Plugin 'vimoutliner/vimoutliner'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'skwp/greplace.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sukima/vim-matchit'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-repeat'
@@ -839,7 +837,7 @@ function! DynamicFugitiveStatus()
   else
     let unicode=''
   endif
-  return '(' . unicode . branch . ') '
+  return '(' . unicode . branch . ')'
 endfunction
 
 " Dynamic Syntastic errors {{{2
@@ -858,7 +856,7 @@ function! DynamicSyntasticStatus()
   endif
   return ' ' . unicode . status
 endfunction
-" }}}2
+
 " Dynamic vertical spacing {{{2
 function! RedrawStatusLine()
   if &lines < 20
@@ -875,29 +873,89 @@ augroup vimrc
 augroup END
 
 call RedrawStatusLine()
-" }}}2
 
-set statusline=%n:         "buffer number
-set statusline+=%f         "relative filename
-set statusline+=(%{strlen(&fenc)?&fenc:'none'}, "file encoding
-set statusline+=%{&ff})    "file format
-set statusline+=%y         "filetype
-set statusline+=%h         "help file flag
-set statusline+=%w         "Preview window flag
-if version >= 730
-  set statusline+=%q         "Quickfix list flag
-endif
-set statusline+=%m         "modified flag
-set statusline+=%r         "read only flag
-set statusline+=%=         "left/right separator
-set statusline+=%{DynamicFugitiveStatus()} "git branch
-set statusline+=%P         "percent through file
-if has('mac')
-  set statusline+=\ ␊\     "unicode FTW!
-endif
-set statusline+=%l:        "cursor line/total lines
-set statusline+=%c         "cursor column
-set statusline+=%#warningmsg#%{DynamicSyntasticStatus()}%*
+" Status Function: {{{2
+function! Status(winnr)
+  let stat = ''
+  let active = winnr() == a:winnr
+  let buffer = winbufnr(a:winnr)
+
+  let modified = getbufvar(buffer, '&modified')
+  let readonly = getbufvar(buffer, '&ro')
+  let fname = bufname(buffer)
+
+  function! Color(active, num, content)
+    if a:active
+      return '%' . a:num . '*' . a:content . '%*'
+    else
+      return a:content
+    endif
+  endfunction
+
+  let stat .= Color(active, 2, '%3n:')         "buffer number
+
+  " file
+  let stat .= ' %<'
+
+  if fname == '__Gundo__'
+    let stat .= 'Gundo'
+  elseif fname == '__Gundo_Preview__'
+    let stat .= 'Gundo Preview'
+  else
+    let stat .= '%f'
+  endif
+
+  let stat .= ' (%{strlen(&fenc)?&fenc:"none"},' "file encoding
+  let stat .= '%{&ff})'    "file format
+  let stat .= '%y'         "filetype
+  let stat .= '%h'         "help file flag
+  let stat .= '%w'         "Preview window flag
+
+  if version >= 730
+    let stat .= '%q'       "Quickfix list flag
+  endif
+
+  let stat .= Color(active, 2, '%m')
+  let stat .= Color(active, 2, '%r')
+
+  let stat .= '%='         "left/right separator
+
+  if active && &paste
+    let stat .= Color(active, 2, '[P]') . ' '
+  endif
+
+  let stat .= '%{DynamicFugitiveStatus()}' "git branch
+
+  let stat .= ' %P '        "percent through file
+  if has('mac')
+    let stat .= '␊ '       "unicode FTW!
+  endif
+  let stat .= '%l:'        "cursor line/total lines
+  let stat .= '%c'         "cursor column
+
+  let stat .= '%#warningmsg#%{DynamicSyntasticStatus()}%*'
+
+  return stat
+endfunction
+" }}}
+
+" Status AutoCMD: {{{2
+function! SetStatus()
+  for nr in range(1, winnr('$'))
+    call setwinvar(nr, '&statusline', '%!Status('.nr.')')
+  endfor
+endfunction
+
+augroup status
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter,BufUnload * call SetStatus()
+augroup END
+
+" Status Colors: {{{2
+hi User1 ctermfg=33  guifg=#268bd2  ctermbg=15 guibg=#fdf6e3 gui=bold
+hi User2 ctermfg=125 guifg=#d33682  ctermbg=7  guibg=#eee8d5 gui=bold
+hi User3 ctermfg=64  guifg=#719e07  ctermbg=7  guibg=#eee8d5 gui=bold
+hi User4 ctermfg=37  guifg=#2aa198  ctermbg=7  guibg=#eee8d5 gui=bold
 " }}}1
 
 " Setup solarized theme
