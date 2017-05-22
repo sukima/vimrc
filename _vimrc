@@ -13,6 +13,8 @@ if version >= 730 && version < 740
 endif
 
 filetype off
+scriptencoding utf-8
+set encoding=utf-8
 com! -nargs=? Plugin
 set rtp+=~/.vim/bundle/Vundle.vim
 
