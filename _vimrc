@@ -212,9 +212,11 @@ if v:version >= 700
   if &columns < 50
     set nonumber
     set norelativenumber
+    set signcolumn=auto
   else
     set number
     set relativenumber
+    set signcolumn=yes
   endif
 endif
 
@@ -412,6 +414,8 @@ if version >= 800
 
   let g:ale_open_list = 0
   let g:ale_echo_msg_format = '%severity% [%linter%] %s'
+  let g:ale_change_sign_column_color = 1
+  let g:ale_sign_column_always = 1
 else
   " Syntastic
   let g:syntastic_mode_map = {
@@ -951,14 +955,8 @@ augroup status
   autocmd VimEnter,WinEnter,BufWinEnter,BufUnload * call SetStatus()
 augroup END
 
-" Status Colors: {{{2
-hi User1 ctermfg=33  guifg=#268bd2  ctermbg=15 guibg=#fdf6e3 gui=bold
-hi User2 ctermfg=125 guifg=#d33682  ctermbg=7  guibg=#eee8d5 gui=bold
-hi User3 ctermfg=64  guifg=#719e07  ctermbg=7  guibg=#eee8d5 gui=bold
-hi User4 ctermfg=37  guifg=#2aa198  ctermbg=7  guibg=#eee8d5 gui=bold
-" }}}1
-
-" Setup solarized theme
+" Section: Theming {{{1
+" Solarized theme {{{2
 " set t_Co=16
 " let g:solarized_termcolors=16
 let g:solarized_termtrans = 1
@@ -968,11 +966,21 @@ silent! call togglebg#map("<F5>")
 command! Solarized16  let g:solarized_termcolors=16 | colorscheme solarized
 command! Solarized256 let g:solarized_termcolors=256 | colorscheme solarized
 
-" Color scheme
+" Color scheme {{{2
 set background=dark
 " fail late, reverse preferential order
 silent! colorscheme darkblue
 silent! colorscheme solarized
+
+" Highlight: {{{2
+hi! User1 ctermfg=33  guifg=#268bd2  ctermbg=15 guibg=#fdf6e3 gui=bold
+hi! User2 ctermfg=125 guifg=#d33682  ctermbg=7  guibg=#eee8d5 gui=bold
+hi! User3 ctermfg=64  guifg=#719e07  ctermbg=7  guibg=#eee8d5 gui=bold
+hi! User4 ctermfg=37  guifg=#2aa198  ctermbg=7  guibg=#eee8d5 gui=bold
+hi! link SignColumn LineNr
+hi! link ALESignColumnWithErrors DiffDelete
+hi! link ALESignColumnWithoutErrors LineNr
+" }}}1
 
 " Load abbreviations
 runtime abbrev.vim
