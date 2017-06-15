@@ -212,11 +212,9 @@ if v:version >= 700
   if &columns < 50
     set nonumber
     set norelativenumber
-    set signcolumn=auto
   else
     set number
     set relativenumber
-    set signcolumn=yes
   endif
 endif
 
@@ -238,6 +236,11 @@ endif
 if v:version >= 800
   set breakindent
   set breakindentopt=min:4,shift:2,sbr
+  if &columns < 50
+    set signcolumn=auto
+  else
+    set signcolumn=yes
+  endif
 endif
 
 " Section: mapleader {{{2
