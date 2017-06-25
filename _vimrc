@@ -864,6 +864,20 @@ function! DynamicSyntasticStatus()
   return ' ' . unicode . status
 endfunction
 
+" Dynamic Ale errors {{{2
+function! ALEStatus() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+
+  return l:counts.total == 0 ? 'OK' : printf(
+  \   '%dW %dE',
+  \   all_non_errors,
+  \   all_errors
+  \)
+endfunction
+
 " Dynamic vertical spacing {{{2
 function! RedrawStatusLine()
   if &lines < 20
@@ -940,7 +954,11 @@ function! Status(winnr)
   let stat .= '%l:'        "cursor line/total lines
   let stat .= '%c'         "cursor column
 
-  let stat .= '%#warningmsg#%{DynamicSyntasticStatus()}%*'
+  if version >= 800
+    let stat .= '%#warningmsg#%{ALEStatus()}%*'
+  else
+    let stat .= '%#warningmsg#%{DynamicSyntasticStatus()}%*'
+  endif
 
   return stat
 endfunction
