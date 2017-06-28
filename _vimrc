@@ -151,7 +151,7 @@ if version >= 500
     set backspace=2
     set formatoptions+=nro2lt
     set list
-    set listchars=trail:.
+    set listchars=trail:·
     set noshowmatch
     set nohlsearch
     set incsearch

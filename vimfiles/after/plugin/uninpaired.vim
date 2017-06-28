@@ -58,10 +58,10 @@ endfunction
 function! SetListMode( enabled )
     if a:enabled == 0
       let g:list_mode = 0
-      setlocal listchars=trail:.
+      setlocal listchars=trail:·
     else
       let g:list_mode = 1
-      setlocal listchars=eol:$,tab:>~,trail:.,precedes:<,extends:>,nbsp:=
+      setlocal listchars=eol:$,tab:>~,trail:·,precedes:<,extends:>,nbsp:=
     endif
     setlocal list
 endfunction
