@@ -149,11 +149,12 @@ if version >= 500
     set wrapmargin=0
     set backspace=2
     set formatoptions+=nro2lt
+    set list
+    set listchars=trail:.
     set noshowmatch
     set nohlsearch
     set incsearch
     set sidescroll=5
-    set listchars=eol:$,tab:>~,trail:-,precedes:<,extends:>,nbsp:=
     set showbreak=\
     set linebreak
     set cino=l1,:1s,u0,t0
@@ -502,15 +503,6 @@ if &term == "rxvt"
 endif
 
 " Section: Quick Options {{{2
-if version >= 700
-  nnoremap ]of :set foldcolumn=2<cr>
-  nnoremap [of :set foldcolumn=0<cr>
-  nnoremap cof :call FoldColumnToggle(2)<cr>
-
-  nnoremap [oz :call SetSpellingNavigation(1)<Cr>
-  nnoremap ]oz :call SetSpellingNavigation(0)<Cr>
-  nnoremap coz :call ToggleSpellingNavigation()<Cr>
-endif
 if version >= 703
   nnoremap gr :set relativenumber!<Cr>
   nnoremap gR :call ToggleRelativeNumbers()<Cr>
@@ -669,50 +661,6 @@ command! ProseOn  call ProseFormattingOn()
 command! ProseOff call ProseFormattingOff()
 command! Prose    call ProseFormattingToggle()
 
-
-" Toggle foldcolumn {{{2
-function! FoldColumnToggle(value)
-  if &foldcolumn
-    let &foldcolumn=0
-  else
-    let &foldcolumn=a:value
-  endif
-endfunction
-
-" Toggle Spelling Navigation {{{2
-function! ToggleSpellingNavigation( )
-    if !exists("g:spell_navigation_enabled") || g:spell_navigation_enabled == 0
-        call SetSpellingNavigation(1)
-    else
-        call SetSpellingNavigation(0)
-    endif
-endfunction
-
-function! SetSpellingNavigation( enabled )
-    " ViewSetup() has conflicting mappings. Can't use spell while nomodifiable
-    " anyway.
-    if g:viewState == 0
-        echohl Error
-        echo "Cannot use spelling. File nomodifiable."
-        echohl None
-    else
-        if a:enabled == 0
-            setlocal nospell
-            silent! nunmap <buffer> <CR>
-            silent! nunmap <buffer> f
-            silent! nunmap <buffer> b
-            let g:spell_navigation_enabled = 0
-            echo "Spell mappings: Off"
-        else
-            setlocal spell
-            silent! nnoremap <buffer> <CR> z=
-            silent! nnoremap <buffer> f ]s
-            silent! nnoremap <buffer> b [s
-            let g:spell_navigation_enabled = 1
-            echo "Spell mappings: On ( f Next, <Enter> Suggest, b Prev )"
-          endif
-    endif
-endfunction
 
 " Pager Function for 'view' {{{2
 " Used for paging in a view command (like more)
