@@ -46,26 +46,6 @@ function! SetSpellingNavigation( enabled )
     endif
 endfunction
 
-" Toggle list mode {{{1
-function! ToggleListMode( )
-    if !exists("g:list_mode") || g:list_mode == 0
-        call SetListMode(1)
-    else
-        call SetListMode(0)
-    endif
-endfunction
-
-function! SetListMode( enabled )
-    if a:enabled == 0
-      let g:list_mode = 0
-      setlocal listchars=trail:·
-    else
-      let g:list_mode = 1
-      setlocal listchars=eol:$,tab:>~,trail:·,precedes:<,extends:>,nbsp:=
-    endif
-    setlocal list
-endfunction
-
 " Unimpaired cutom mappings {{{1
 if version >= 700
   nnoremap [of :set foldcolumn=2<cr>
@@ -75,10 +55,6 @@ if version >= 700
   nnoremap [oz :call SetSpellingNavigation(1)<Cr>
   nnoremap ]oz :call SetSpellingNavigation(0)<Cr>
   nnoremap coz :call ToggleSpellingNavigation()<Cr>
-
-  nnoremap [ol :call SetListMode(1)<Cr>
-  nnoremap ]ol :call SetListMode(0)<Cr>
-  nnoremap col :call ToggleListMode()<Cr>
 endif
 
 " vim600:set fdm=marker sw=2 ts=2 et:

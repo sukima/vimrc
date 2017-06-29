@@ -150,8 +150,8 @@ if version >= 500
     set wrapmargin=0
     set backspace=2
     set formatoptions+=nro2lt
-    set list
-    set listchars=trail:·
+    set nolist
+    set listchars=eol:$,tab:>~,trail:·,precedes:<,extends:>,nbsp:=
     set noshowmatch
     set nohlsearch
     set incsearch
