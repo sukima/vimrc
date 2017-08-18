@@ -21,6 +21,10 @@ set rtp+=~/.vim/bundle/Vundle.vim
 " Section: Preferred plugins {{{1
 if (!exists('g:vundle#bundles'))
 silent! call vundle#begin()
+" Plugin Utilities
+Plugin 'mattn/webapi-vim'
+Plugin 'kana/vim-textobj-user'
+Plugin 'xolox/vim-misc' " required by vim-session
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'jamessan/vim-gnupg'
@@ -40,7 +44,6 @@ Plugin 'sampsyo/autolink.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/emmet-vim'
-Plugin 'mattn/webapi-vim'
 Plugin 'vim-scripts/Gist.vim'
 Plugin 'vim-scripts/grep.vim'
 Plugin 'vim-scripts/vim-easy-align'
@@ -49,7 +52,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'AndrewRadev/splitjoin.vim'
 
 " Motions / Text Objects
-Plugin 'kana/vim-textobj-user.git'
+Plugin 'mattn/vim-textobj-url'
 Plugin 'vim-scripts/argtextobj.vim'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'nelstrom/vim-textobj-rubyblock'
@@ -62,8 +65,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 
-" Required by vim-session
-Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'yaifa.vim'
