@@ -816,6 +816,10 @@ endfunction
 
 " Dynamic Ale errors {{{2
 function! ALEStatus() abort
+  if !exists('*ale#statusline#Count')
+    return ''
+  endif
+
   let l:counts = ale#statusline#Count(bufnr(''))
 
   let l:all_errors = l:counts.error + l:counts.style_error
