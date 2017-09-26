@@ -80,6 +80,12 @@ snippet emtest
 	test('${1}', function (assert) {
 		${0}
 	});
+snippet empo
+	export const ${1:ComponentClass} = {
+		scope: '.${0}'
+	};
+
+	export default PageObject.create($1);
 snippet imi18n
 	import { translationMacro as t } from 'ember-i18n';
 snippet imhbs
