@@ -98,3 +98,10 @@ snippet impo
 	import PageObject from 'ember-cli-page-object';
 snippet _super
 	this._super(...arguments);
+snippet pagecontext
+	beforeEach() {
+		page.setContext(this);
+	},
+	afterEach() {
+		page.removeContext();
+	}
