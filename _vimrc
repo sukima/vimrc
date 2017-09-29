@@ -58,6 +58,7 @@ Plugin 'vim-scripts/argtextobj.vim'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'christoomey/vim-sort-motion'
 
 Plugin 'mbbill/undotree'
 Plugin 'ervandew/supertab'
