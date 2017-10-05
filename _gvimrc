@@ -23,9 +23,20 @@ silent! colorscheme solarized
 " Turn off the buffer menu
 let no_buffers_menu=1
 
-" GUI Specific maps {{{1
-"Incorporated into vimrc no longer used.
-"nnoremap <Leader>z :set columns=122<Bar>NERDTree<Cr>
+" Copy/Cut/Replace All menu items {{{1
+menu .401 Edit.-Sep-  :
+nmenu .402 Edit.Replace\ All\ with\ Clipboard  :%delete _\|1put +\|0delete _<CR>
+nmenu .403 Edit.Cut\ All  :%delete +<CR>
+nmenu .404 Edit.Copy\ All  :%yank +<CR>
+
+menu 1.510 ToolBar.-Sep-  :
+nmenu 1.510 ToolBar.BuiltIn16  :%delete _\|1put +\|0delete _<CR>
+nmenu 1.520 ToolBar.BuiltIn05  :%delete +<CR>
+nmenu 1.525 ToolBar.BuiltIn06  :%yank +<CR>
+
+tmenu ToolBar.BuiltIn16   Replace all with clipboard
+tmenu ToolBar.BuiltIn05   Cut all to clipboard
+tmenu ToolBar.BuiltIn06   Copy all to clipboard
 
 " }}}1
 
