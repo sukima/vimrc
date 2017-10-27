@@ -143,6 +143,8 @@ set autoread
 set timeout timeoutlen=1000 ttimeoutlen=100
 " Print Options
 set printoptions=paper:letter,formfeed:y
+" Default commentstring
+set commentstring=#\ %s
 
 " Section: VIM 5.x Options {{{2
 if version >= 500
