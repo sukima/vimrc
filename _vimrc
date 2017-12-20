@@ -533,6 +533,9 @@ command! W write
 command! Wa wall
 command! WA wall
 
+" Section: Tagbar {{{2
+nnoremap <Leader>t :TagbarToggle<Cr>
+
 " Section: Utility Mappings {{{2
 " Convinent Esc alternatives {{{3
 inoremap jk <esc>
@@ -626,6 +629,7 @@ command! Undiff set nodiff foldcolumn=0
 command! Ant set makeprg=ant\ -find\ build.xml | set efm=%A\ %#[.\\{-1,}]\ %f:%l:\ %m,%-Z\ %#[.\\{-1,}]\ %p^,%-C%.%#
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 command! SudoWrite exec 'w !sudo dd of=' . shellescape(expand('%'))
+command! Ctags exec 'silent !ctags -R .' | redraw!
 
 " GPG Commands {{{2
 command! GPGclearsign %!gpg --clearsign
