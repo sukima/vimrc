@@ -956,7 +956,7 @@ set background=dark
 silent! colorscheme darkblue
 silent! colorscheme solarized
 
-" Highlight: {{{2
+" Syntax / Highlight {{{2
 hi! User1 ctermfg=33  guifg=#268bd2  ctermbg=15 guibg=#fdf6e3 gui=bold
 hi! User2 ctermfg=125 guifg=#d33682  ctermbg=7  guibg=#eee8d5 gui=bold
 hi! User3 ctermfg=64  guifg=#719e07  ctermbg=7  guibg=#eee8d5 gui=bold
@@ -964,6 +964,9 @@ hi! User4 ctermfg=37  guifg=#2aa198  ctermbg=7  guibg=#eee8d5 gui=bold
 hi! link SignColumn LineNr
 hi! link ALESignColumnWithErrors DiffDelete
 hi! link ALESignColumnWithoutErrors LineNr
+
+match ErrorMsg '\%120v.\+'
+match ErrorMsg '\s\+$'
 " }}}1
 
 " Load abbreviations
