@@ -233,6 +233,7 @@ if v:version >= 703
   " I still want the best for encryption. (Otherwise what's the point?)
   set cryptmethod=blowfish
   set diffopt=filler,context:4,vertical
+  set formatoptions+=j
 endif
 
 if v:version > 704 || (v:version == 704 && has('patch401'))
