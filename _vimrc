@@ -335,7 +335,7 @@ nnoremap <C-s>cc :Gcommit -v --amend<Cr>
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_user_command = {
   \ 'types': {
-    \ 1: ['.git', 'cd %s && git ls-files'],
+    \ 1: ['.git', 'cd %s && git ls-files -co --exclude-standard'],
     \ 2: ['.hg', 'hg --cwd %s locate -I .'],
     \ }
   \ }
