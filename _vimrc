@@ -626,6 +626,7 @@ nnoremap K <nop>
 " Section: Commands {{{1
 " Convenience Commands {{{2
 command! Cwd cd %:h
+command! MkCwd call mkdir(expand('%:h'), 'p')
 command! Undiff set nodiff foldcolumn=0
 command! Ant set makeprg=ant\ -find\ build.xml | set efm=%A\ %#[.\\{-1,}]\ %f:%l:\ %m,%-Z\ %#[.\\{-1,}]\ %p^,%-C%.%#
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
