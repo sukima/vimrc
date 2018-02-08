@@ -2,64 +2,48 @@ snippet imember
 	import Ember from 'ember';
 snippet emcont
 	const {
-		Controller, get, set,
-		computed, computed: {}
+		Controller,
+		computed: { reads }
 	} = Ember;
 
 	export default Controller.extend({
-		${0}
+		${0}: reads('model')
 	});
 snippet emroute
-	const {
-		Route, get, set,
-		computed, computed: {}
-	} = Ember;
+	const { Route } = Ember;
 
 	export default Route.extend({
-		${0}
+		model(params) {
+			${0}
+		}
 	});
 snippet emservice
-	const {
-		Service, get, set,
-		computed, computed: {}
-	} = Ember;
+	const { Service } = Ember;
 
 	export default Service.extend({
 		${0}
 	});
 snippet emcomp
-	const {
-		Component, get, set,
-		computed, computed: {}
-	} = Ember;
+	const { Component } = Ember;
 
 	export default Component.extend({
 		${0}
 	});
 snippet emobject
-	const {
-		get, set,
-		computed, computed: {}
-	} = Ember;
+	const { EmObject: Object } = Ember;
 
-	export default Ember.Object.extend({
+	export default EmObject.extend({
 		${0}
 	});
 snippet emmixin
-	const {
-		Mixin, get, set,
-		computed, computed: {}
-	} = Ember;
+	const { Mixin } = Ember;
 
 	export default Mixin.create({
 		${0}
 	});
 
 snippet emhelperextend
-	const {
-		Helper, get, set,
-		computed, computed: {}
-	} = Ember;
+	const { Helper } = Ember;
 
 	export default Helper.extend({
 		compute([${1}], {${2}}) {
@@ -67,9 +51,7 @@ snippet emhelperextend
 		}
 	});
 snippet emhelper
-	const {
-		Helper
-	} = Ember;
+	const { Helper } = Ember;
 
 	export function ${1:helperName}([${2}], {${3}}) {
 	  ${0}
