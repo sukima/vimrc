@@ -29,10 +29,10 @@ nmenu .402 Edit.Replace\ All\ with\ Clipboard  :%delete _\|1put +\|0delete _<CR>
 nmenu .403 Edit.Cut\ All  :%delete +<CR>
 nmenu .404 Edit.Copy\ All  :%yank +<CR>
 
-menu 1.510 ToolBar.-Sep-  :
-nmenu 1.510 ToolBar.BuiltIn16  :%delete _\|1put +\|0delete _<CR>
-nmenu 1.520 ToolBar.BuiltIn05  :%delete +<CR>
-nmenu 1.525 ToolBar.BuiltIn06  :%yank +<CR>
+menu 1.150 ToolBar.-Sep-  :
+nmenu 1.150 ToolBar.BuiltIn16  :%delete _\|1put +\|0delete _<CR>
+nmenu 1.160 ToolBar.BuiltIn05  :%delete +<CR>
+nmenu 1.165 ToolBar.BuiltIn06  :%yank +<CR>
 
 tmenu ToolBar.BuiltIn16   Replace all with clipboard
 tmenu ToolBar.BuiltIn05   Cut all to clipboard
