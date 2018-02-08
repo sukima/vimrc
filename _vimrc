@@ -864,6 +864,7 @@ function! Status(winnr)
   let stat = ''
   let active = winnr() == a:winnr
   let buffer = winbufnr(a:winnr)
+  let size = winwidth(a:winnr)
 
   let modified = getbufvar(buffer, '&modified')
   let readonly = getbufvar(buffer, '&ro')
@@ -890,13 +891,18 @@ function! Status(winnr)
     let stat .= '%f'
   endif
 
-  let stat .= ' (%{strlen(&fenc)?&fenc:"none"},' "file encoding
-  let stat .= '%{&ff})'    "file format
-  let stat .= '%y'         "filetype
-  let stat .= '%h'         "help file flag
-  let stat .= '%w'         "Preview window flag
+  if size > 100
+    let stat .= ' (%{strlen(&fenc)?&fenc:"none"},' "file encoding
+    let stat .= '%{&ff})'    "file format
+    let stat .= '%y'         "filetype
+  endif
 
-  if version >= 730
+  if size > 20
+    let stat .= '%h'         "help file flag
+    let stat .= '%w'         "Preview window flag
+  endif
+
+  if size > 20 && version >= 730
     let stat .= '%q'       "Quickfix list flag
   endif
 
@@ -909,19 +915,24 @@ function! Status(winnr)
     let stat .= Color(active, 2, '[P]') . ' '
   endif
 
-  let stat .= '%{DynamicFugitiveStatus()}' "git branch
+  if size > 100
+    let stat .= '%{DynamicFugitiveStatus()}' "git branch
+  endif
 
   let stat .= ' %P '        "percent through file
-  if has('mac')
-    let stat .= '␊ '       "unicode FTW!
-  endif
-  let stat .= '%l:'        "cursor line/total lines
-  let stat .= '%c'         "cursor column
 
-  if version >= 800
-    let stat .= '%#warningmsg#%{ALEStatus()}%*'
-  else
-    let stat .= '%#warningmsg#%{DynamicSyntasticStatus()}%*'
+  if size > 100
+    if has('mac')
+      let stat .= '␊ '       "unicode FTW!
+    endif
+    let stat .= '%l:'        "cursor line/total lines
+    let stat .= '%c'         "cursor column
+
+    if exists('*ALEStatus')
+      let stat .= '%#warningmsg#%{ALEStatus()}%*'
+    else
+      let stat .= '%#warningmsg#%{DynamicSyntasticStatus()}%*'
+    endif
   endif
 
   return stat
