@@ -1,73 +1,9 @@
 snippet imember
 	import Ember from 'ember';
-snippet emcont
-	const {
-		Controller,
-		computed: { reads }
-	} = Ember;
-
-	export default Controller.extend({
-		${0}: reads('model')
-	});
-snippet emroute
-	const { Route } = Ember;
-
-	export default Route.extend({
-		model(params) {
-			${0}
-		}
-	});
-snippet emservice
-	const { Service } = Ember;
-
-	export default Service.extend({
-		${0}
-	});
-snippet emcomp
-	const { Component } = Ember;
-
-	export default Component.extend({
-		${0}
-	});
-snippet emobject
-	const { EmObject: Object } = Ember;
-
-	export default EmObject.extend({
-		${0}
-	});
-snippet emmixin
-	const { Mixin } = Ember;
-
-	export default Mixin.create({
-		${0}
-	});
-
-snippet emhelperextend
-	const { Helper } = Ember;
-
-	export default Helper.extend({
-		compute([${1}], {${2}}) {
-			${0}
-		}
-	});
-snippet emhelper
-	const { Helper } = Ember;
-
-	export function ${1:helperName}([${2}], {${3}}) {
-	  ${0}
-	}
-
-	export default Helper.helper($1);
-snippet emtest
-	test('${1}', function (assert) {
-		${0}
-	});
-snippet empo
-	export const ${1:ComponentClass} = {
-		scope: '.${0}'
-	};
-
-	export default PageObject.create($1);
+snippet imcomputed
+	import { computed } from '@ember/object';
+snippet imcomp
+	import { ${0} } from '@ember/object/computed';
 snippet imi18n
 	import { translationMacro as t } from 'ember-i18n';
 snippet imhbs
@@ -75,16 +11,117 @@ snippet imhbs
 snippet imec
 	import { task } from 'ember-concurrency';
 snippet imeo
-	import EmObject from 'ember-object';
+	import EmberObject from '@ember/object';
 snippet impo
 	import PageObject from 'ember-cli-page-object';
+snippet emcont
+	import Controller from '@ember/controller';
+	import { reads } from '@ember/object/computed';
+
+	export default Controller.extend({
+		${0}: reads('model')
+	});
+snippet emroute
+	import Route from '@ember/route';
+
+	export default Route.extend({
+		model(params) {
+			${0}
+		}
+	});
+snippet emservice
+	import Service from '@ember/service';
+
+	export default Service.extend({
+		${0}
+	});
+snippet emcomp
+	import Component from '@ember/component';
+
+	export default Component.extend({
+		${0}
+	});
+snippet emobject
+	import EmberObject from '@ember/object';
+
+	export default EmberObject.extend({
+		${0}
+	});
+snippet emmixin
+	import Mixin from '@ember/object/mixin';
+
+	export default Mixin.create({
+		${0}
+	});
+
+snippet emhelperextend
+	import Helper from '@ember/component/helper';
+
+	export default Helper.extend({
+		compute([${1}], {${2}}) {
+			${0}
+		}
+	});
+snippet emhelper
+	import Helper from '@ember/component/helper';
+
+	export function ${1:helperName}([${2}], {${3}}) {
+	  ${0}
+	}
+
+	export default Helper.helper($1);
+snippet emtestunit
+	import { module, test } from 'qunit';
+	import { setupTest } from 'ember-qunit';
+
+	module('Unit | Utility | ${1}', function(hooks) {
+		setupTest(hooks);
+
+		test('${0}', function(assert) {
+			assert.ok(true);
+		});
+	});
+snippet emtestint
+	import { module, test } from 'qunit';
+	import { setupRenderingTest } from 'ember-qunit';
+	import { render } from '@ember/test-helpers';
+	import hbs from 'htmlbars-inline-precompile';
+
+	module('Integration | Component | ${1}', function(hooks) {
+		setupRenderingTest(hooks);
+
+		test('${0}', async function(assert) {
+			await render(hbs`{{${2}}}`);
+			assert.ok(true);
+		});
+	});
+snippet emtestapp
+	import { module, test } from 'qunit';
+	import { setupApplicationTest } from 'ember-qunit';
+	import { visit } from '@ember/test-helpers';
+	import hbs from 'htmlbars-inline-precompile';
+
+	module('Acceptance | ${1}', function(hooks) {
+		setupApplicationTest(hooks);
+
+		test('${0}', async function(assert) {
+			await visit('/');
+			assert.ok(true);
+		});
+	});
+snippet empo
+	export const ${1:ComponentClass} = {
+		scope: '.${0}'
+	};
+
+	export default PageObject.create($1);
 snippet _super
 	this._super(...arguments);
 snippet pagecontext
-	beforeEach() {
+	hooks.beforeEach(function() {
 		page.setContext(this);
-	},
+	});
 
-	afterEach() {
+	hooks.afterEach(function() {
 		page.removeContext();
-	}
+	});
