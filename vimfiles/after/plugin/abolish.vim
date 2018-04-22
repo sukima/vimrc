@@ -34,3 +34,5 @@ Abolish plausab{ility,le} plausib{}
 Abolish explination explanation
 Abolish concatinate{s,d,dProperties} concatenate{}
 Abolish interperator{,s} interpreter{}
+Abolish comparetor{,s} comparator{}
+Abolish compari{son,tive,tivly,bility,ble,bles} compara{}

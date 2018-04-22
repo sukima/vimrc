@@ -27,3 +27,5 @@ truthy
 Addons
 meetups
 addons
+serializer
+deserialize
