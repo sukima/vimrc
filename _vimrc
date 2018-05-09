@@ -967,6 +967,7 @@ command! Solarized256 let g:solarized_termcolors=256 | colorscheme solarized
 set background=dark
 " fail late, reverse preferential order
 silent! colorscheme darkblue
+silent! colorscheme zenburn
 silent! colorscheme solarized
 
 " Syntax / Highlight {{{2
