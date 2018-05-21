@@ -962,6 +962,8 @@ function! Status(winnr)
     else
       let stat .= '%#warningmsg#%{DynamicSyntasticStatus()}%*'
     endif
+  else
+    let stat .= '%c'         "cursor column
   endif
 
   return stat
