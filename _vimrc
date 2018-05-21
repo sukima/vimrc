@@ -716,7 +716,38 @@ endfunction
 command! -nargs=1 -complete=file MV call RenameFile("<args>")
 
 " Custom 'tabline' {{{2
+let g:ember_pod_types = {
+      \"component": "CMP",
+      \"template": "TMPL",
+      \"controller": "CNT",
+      \"route": "RT",
+      \"service": "SVC",
+      \"model": "MDL"
+      \}
+
 if exists("+showtabline")
+  function! TabNameFor(file)
+    let isTest = v:false
+    let name = fnamemodify(a:file, ':p:t')
+    if name == ''
+      return '[No Name]'
+    endif
+    let type = fnamemodify(a:file, ':p:t:r')
+    if type =~ "-test$"
+      let isTest = v:true
+      let type = substitute(type, "-test$", "", "")
+    endif
+    if !has_key(g:ember_pod_types, type)
+      return name
+    endif
+    let name = fnamemodify(a:file, ':p:h:t')
+    let typeCode = g:ember_pod_types[type]
+    if isTest
+      let typeCode .= '-T'
+    endif
+    return name . ' [' . typeCode . ']'
+  endfunction
+
   function! MyTabLine()
     let s = ''
     let t = tabpagenr()
@@ -730,12 +761,7 @@ if exists("+showtabline")
       let s .= '[' . i . ']'
       let s .= '%*'
       let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
-      let file = bufname(buflist[winnr - 1])
-      let file = fnamemodify(file, ':p:t')
-      if file == ''
-        let file = '[No Name]'
-      endif
-      let s .= file
+      let s .= TabNameFor(bufname(buflist[winnr - 1]))
       let i = i + 1
     endwhile
     let s .= '%T%#TabLineFill#%='
