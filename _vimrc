@@ -719,12 +719,12 @@ command! -nargs=1 -complete=file MV call RenameFile("<args>")
 
 " Custom 'tabline' {{{2
 let g:ember_pod_types = {
-      \"component": "CMP",
-      \"template": "TMPL",
-      \"controller": "CNT",
-      \"route": "RT",
-      \"service": "SVC",
-      \"model": "MDL"
+      \"component": "C",
+      \"template": "T",
+      \"controller": "CN",
+      \"route": "R",
+      \"service": "S",
+      \"model": "M"
       \}
 
 if exists("+showtabline")
@@ -747,7 +747,7 @@ if exists("+showtabline")
     if isTest
       let typeCode .= '-T'
     endif
-    return name . ' [' . typeCode . ']'
+    return typeCode . ':' . name
   endfunction
 
   function! MyTabLine()
@@ -759,7 +759,6 @@ if exists("+showtabline")
       let winnr = tabpagewinnr(i)
       let s .= '%' . i . 'T'
       let s .= (i == t ? '%1*' : '%2*')
-      let s .= ' '
       let s .= '[' . i . ']'
       let s .= '%*'
       let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
