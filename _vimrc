@@ -98,6 +98,7 @@ Plugin 'freitass/todo.txt-vim'
 Plugin 'toyamarinyon/vim-swift'
 Plugin 'sukima/vim-tiddlywiki'
 Plugin 'ledger/vim-ledger'
+Plugin 'aklt/plantuml-syntax'
 
 " Utility Plugins
 Plugin 'MarcWeber/vim-addon-mw-utils'
