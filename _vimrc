@@ -628,7 +628,7 @@ function! SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-nmap gS :call SynStack()<CR>
+nmap <Leader>? :call SynStack()<CR>
 
 " Fast exit from insert {{{3
 " This is reaction to that anoying state you get when typing 'vim' but the
