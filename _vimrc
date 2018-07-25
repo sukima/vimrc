@@ -91,8 +91,6 @@ Plugin 'wavded/vim-stylus'
 Plugin 'tfnico/vim-gradle'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'joukevandermaas/vim-ember-hbs'
-Plugin 'othree/yajs.vim' " Override vim-javascript syntax
-Plugin 'othree/es.next.syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'freitass/todo.txt-vim'
 Plugin 'toyamarinyon/vim-swift'
@@ -407,6 +405,21 @@ if executable('coffeetags')
         \ }
         \ }
 endif
+
+" vim-javascript {{{3
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_conceal_function = "ƒ"
+let g:javascript_conceal_null = "ø"
+let g:javascript_conceal_this = "@"
+let g:javascript_conceal_return = "⇚"
+let g:javascript_conceal_undefined = "¿"
+let g:javascript_conceal_NaN = "ℕ"
+let g:javascript_conceal_prototype = "¶"
+let g:javascript_conceal_static = "•"
+let g:javascript_conceal_super = "Ω"
+let g:javascript_conceal_arrow_function = "⇒"
+set conceallevel=1
+highlight link jsObjectKey Label
 
 " SplitJoin {{{3
 let g:splitjoin_normalize_whitespace = 1
