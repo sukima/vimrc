@@ -244,6 +244,7 @@ endif
 
 " Section: VIM 8.x Options {{{2
 if v:version >= 800
+  set conceallevel=1
   set breakindent
   set breakindentopt=min:4,shift:2,sbr
   if &columns < 50
@@ -419,7 +420,6 @@ let g:javascript_conceal_prototype = "¶"
 let g:javascript_conceal_static = "•"
 let g:javascript_conceal_super = "Ω"
 let g:javascript_conceal_arrow_function = "⇒"
-set conceallevel=1
 highlight link jsObjectKey Label
 
 " SplitJoin {{{3
