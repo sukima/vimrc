@@ -117,6 +117,7 @@ endif
 " Section: Common Options  {{{2
 set tabstop=2
 set shiftwidth=2
+set shiftround
 set textwidth=0
 set nosmartindent
 set nocindent
