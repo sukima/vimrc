@@ -423,6 +423,7 @@ let g:javascript_conceal_arrow_function = "⇒"
 let g:javascript_conceal_noarg_arrow_function = "○"
 let g:javascript_conceal_underscore_arrow_function = "○"
 highlight link jsObjectKey Label
+highlight link jsArrowFuncArgs Special
 
 " SplitJoin {{{3
 let g:splitjoin_normalize_whitespace = 1
