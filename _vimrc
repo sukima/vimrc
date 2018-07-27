@@ -734,6 +734,7 @@ function! RenameFile(new_name)
 endfunction
 command! -nargs=1 -complete=file MV call RenameFile("<args>")
 
+" Section: UI Enhancements {{{1
 " Custom 'tabline' {{{2
 let g:ember_pod_types = {
       \"component": "C",
