@@ -244,7 +244,7 @@ endif
 
 " Section: VIM 8.x Options {{{2
 if v:version >= 800
-  set conceallevel=1
+  set conceallevel=0
   set breakindent
   set breakindentopt=min:4,shift:2,sbr
   if &columns < 50
