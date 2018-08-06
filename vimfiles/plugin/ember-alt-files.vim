@@ -1,4 +1,4 @@
-function! EmberLoadAltFile(file)
+function! EmberLoadAltFile(file, editCommand)
   let path = fnamemodify(bufname(a:file), ':p:h')
   let name = fnamemodify(bufname(a:file), ':p:t')
   if name == 'template.hbs'
@@ -15,7 +15,10 @@ function! EmberLoadAltFile(file)
     echohl NONE
     return
   endif
-  exec 'edit ' . altFile
+  exec a:editCommand . ' ' . fnameescape(altFile)
 endfunction
 
-command! A call EmberLoadAltFile("%")
+command! A call EmberLoadAltFile('%', 'edit')
+command! AS call EmberLoadAltFile('%', 'split')
+command! AT call EmberLoadAltFile('%', 'tabe')
+command! AV call EmberLoadAltFile('%', 'vsplit')
