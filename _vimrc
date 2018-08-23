@@ -76,6 +76,7 @@ Plugin 'groenewege/vim-less'
 
 " Filetypes
 Plugin 'tpope/vim-rails'
+Plugin 'elixir-editors/vim-elixir'
 Plugin 'yaymukund/vim-rabl'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-haml'
