@@ -439,6 +439,7 @@ map <leader>i :YAIFAMagic <cr>
 if version >= 800
   " Ale
   let g:ale_linters = {
+        \ 'html': ['ember-template-lint'],
         \ 'handlebars': ['ember-template-lint'],
         \ 'javascript': ['eslint'],
         \ 'ruby': ['rubocop'],
