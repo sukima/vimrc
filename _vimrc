@@ -595,6 +595,7 @@ nnoremap <Leader>T :t.<Cr>:s/[^\|]/-/<Cr>
 nnoremap <Leader>) $F(a<Cr><Cr><Up><Esc>"_S
 nnoremap <Leader>] $F[a<Cr><Cr><Up><Esc>"_S
 nnoremap <Leader>} $F{a<Cr><Cr><Up><Esc>"_S
+nnoremap <Leader>{ $F{a<Cr><Up><Esc>
 nmap <Leader>[ <Leader>}
 " Mark a new section with cut marks {{{3
 nnoremap <Leader>S o------------------------ >8 ------------------------<Esc>
