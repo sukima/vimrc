@@ -608,6 +608,8 @@ inoremap <S-Down> <C-O><Esc>
 " http://www.vim.org/scripts/script.php?script_id=1658
 noremap <Leader>zz :NERDTreeToggle<Cr>
 noremap <Leader>zm :NERDTreeMirror<Cr>
+noremap <Leader>zx :NERDTreeFind<Cr>
+
 " Bubble multiple lines {{{3
 " vnoremap <C-k> xkP`[V`]
 " vnoremap <C-j> xp`[V`]
