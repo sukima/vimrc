@@ -13,7 +13,7 @@ snippet imec
 snippet imeo
 	import EmberObject from '@ember/object';
 snippet impo
-	import PageObject from 'ember-cli-page-object';
+	import { create } from 'ember-cli-page-object';
 snippet emcont
 	import Controller from '@ember/controller';
 	import { reads } from '@ember/object/computed';
@@ -114,7 +114,7 @@ snippet empo
 		scope: '.${0}'
 	};
 
-	export default PageObject.create($1);
+	export default create($1);
 snippet _super
 	this._super(...arguments);
 snippet pagecontext
