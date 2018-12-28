@@ -1019,9 +1019,10 @@ augroup END
 " Section: Theming {{{1
 " Solarized theme {{{2
 " set t_Co=16
-" let g:solarized_termcolors=16
+let g:solarized_termcolors = 16
 let g:solarized_termtrans = 1
-let g:solarized_hitrail = 0
+" let g:solarized_termcolors = 256
+" let g:solarized_hitrail = 0
 silent! call togglebg#map("<F5>")
 
 command! Solarized16  let g:solarized_termcolors=16 | colorscheme solarized
