@@ -52,6 +52,9 @@ Plugin 'vim-scripts/git-time-lapse'
 Plugin 'garbas/vim-snipmate'
 Plugin 'AndrewRadev/splitjoin.vim'
 
+" Prose mode plugins
+Plugin 'junegunn/goyo.vim'
+
 " Motions / Text Objects
 Plugin 'mattn/vim-textobj-url'
 Plugin 'vim-scripts/argtextobj.vim'
@@ -673,6 +676,9 @@ function! ProseFormattingOn()
   setlocal tw=80
   setlocal fo+=1
   echo "Prose formatting mode ON"
+  if exists(':Goyo') == 2
+    Goyo
+  endif
   let b:prose_mode_enabled=1
 endfunction
 
@@ -683,6 +689,9 @@ function! ProseFormattingOff()
   setlocal tw=0
   setlocal fo-=1
   echo "Prose formatting mode OFF"
+  if exists(':Goyo') == 2
+    Goyo!
+  endif
   let b:prose_mode_enabled=0
 endfunction
 
