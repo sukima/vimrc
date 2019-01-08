@@ -101,6 +101,7 @@ Plugin 'toyamarinyon/vim-swift'
 Plugin 'sukima/vim-tiddlywiki'
 Plugin 'ledger/vim-ledger'
 Plugin 'aklt/plantuml-syntax'
+Plugin 'leafgarland/typescript-vim'
 
 " Utility Plugins
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -428,6 +429,9 @@ let g:javascript_conceal_noarg_arrow_function = "○"
 let g:javascript_conceal_underscore_arrow_function = "○"
 highlight link jsObjectKey Label
 highlight link jsArrowFuncArgs Special
+
+" typescript-vim {{{3
+let g:typescript_indent_disable = 1
 
 " SplitJoin {{{3
 let g:splitjoin_normalize_whitespace = 1
