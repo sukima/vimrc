@@ -30,3 +30,5 @@ addons
 serializer
 deserialize
 destructuring
+addon
+jQuery
