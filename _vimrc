@@ -669,11 +669,11 @@ command! SudoWrite exec 'w !sudo dd of=' . shellescape(expand('%'))
 command! Ctags exec 'silent !ctags -R .' | redraw!
 
 " GPG Commands {{{2
-command! GPGclearsign %!gpg --clearsign
-command! GPGencryptsign %!gpg -seat
-command! GPGencrypt %!gpg -eat
-command! GPGdecrypt %!gpg -d
-command! GPGencryptSymetric %!gpg -ceat
+" command! GPGclearsign %!gpg --clearsign
+" command! GPGencryptsign %!gpg -seat
+" command! GPGencrypt %!gpg -eat
+" command! GPGdecrypt %!gpg -d
+" command! GPGencryptSymetric %!gpg -ceat
 
 " Formating for writing prose {{{2
 function! ProseFormattingOn()
