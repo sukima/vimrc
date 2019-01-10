@@ -1047,6 +1047,7 @@ hi! User4 ctermfg=37  guifg=#2aa198  ctermbg=7  guibg=#eee8d5 gui=bold
 hi! link SignColumn LineNr
 hi! link ALESignColumnWithErrors DiffDelete
 hi! link ALESignColumnWithoutErrors LineNr
+hi! ErrorMsg term=reverse cterm=reverse ctermfg=1 ctermbg=0 guifg=White guibg=Red
 
 match ErrorMsg '\%120v.\+'
 match ErrorMsg '\s\+$'
