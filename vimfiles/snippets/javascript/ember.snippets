@@ -53,7 +53,6 @@ snippet emmixin
 	export default Mixin.create({
 		${0}
 	});
-
 snippet emhelperextend
 	import Helper from '@ember/component/helper';
 
@@ -70,6 +69,25 @@ snippet emhelper
 	}
 
 	export default Helper.helper($1);
+snippet emmodel
+	import Model from 'ember-data/model';
+	import attr from 'ember-data/attr';
+
+	export default Model.extend({
+	  ${0}
+	});
+snippet emadapter
+	import JSONAPIAdapter from 'ember-data/adapters/json-api';
+
+	export default JSONAPIAdapter.extend({
+	  ${0}
+	});
+snippet emserializer
+	import JSONAPISerializer from 'ember-data/serializers/json-api';
+
+	export default JSONAPISerializer.extend({
+	  ${0}
+	});
 snippet emtestunit
 	import { module, test } from 'qunit';
 	import { setupTest } from 'ember-qunit';
@@ -99,7 +117,6 @@ snippet emtestapp
 	import { module, test } from 'qunit';
 	import { setupApplicationTest } from 'ember-qunit';
 	import { visit } from '@ember/test-helpers';
-	import hbs from 'htmlbars-inline-precompile';
 
 	module('Acceptance | ${1}', function(hooks) {
 		setupApplicationTest(hooks);
