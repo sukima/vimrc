@@ -155,7 +155,7 @@ set commentstring=#\ %s
 
 " Section: VIM 5.x Options {{{2
 if version >= 500
-    set wildmode=full
+    set wildmode=longest,list,full
     set wildmenu
     set smarttab
     set expandtab " Spaces are better.
