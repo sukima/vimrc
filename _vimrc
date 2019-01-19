@@ -680,7 +680,8 @@ function! ProseFormattingOn()
   nnoremap <buffer> j gj
   nnoremap <buffer> k gk
   setlocal spell
-  setlocal tw=80
+  setlocal wrap
+  setlocal tw=0
   setlocal fo+=1
   echo "Prose formatting mode ON"
   if exists(':Goyo') == 2
@@ -693,6 +694,7 @@ function! ProseFormattingOff()
   nunmap <buffer> j
   nunmap <buffer> k
   setlocal nospell
+  setlocal nowrap
   setlocal tw=0
   setlocal fo-=1
   echo "Prose formatting mode OFF"
