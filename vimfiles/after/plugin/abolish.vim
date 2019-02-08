@@ -36,3 +36,4 @@ Abolish concatinate{s,d,dProperties} concatenate{}
 Abolish interperator{,s} interpreter{}
 Abolish comparetor{,s} comparator{}
 Abolish compari{son,tive,tivly,bility,ble,bles} compara{}
+Abolish indecator indicator
