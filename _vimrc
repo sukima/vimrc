@@ -577,7 +577,7 @@ vnoremap v <esc>
 " I don't like the default EX mode I keep hitting it accidentally. Use gQ
 " instead (That's VIM's version which is better then the default EX mode.)
 noremap Q <Nop>
-noremap <Leader>qq vipJ
+noremap <Leader>qq vipJ0
 
 " A panic button! {{{3
 " So no one accidentally sees words they arn't supposed to.
@@ -606,6 +606,9 @@ nnoremap <Leader>] $F[a<Cr><Cr><Up><Esc>"_S
 nnoremap <Leader>} $F{a<Cr><Cr><Up><Esc>"_S
 nnoremap <Leader>{ $F{a<Cr><Up><Esc>
 nmap <Leader>[ <Leader>}
+nnoremap <Leader>o o<Cr><Cr><Esc><Up>"_S
+nnoremap <Leader>O O<Cr><Cr><Esc><Up>"_S
+
 " Mark a new section with cut marks {{{3
 nnoremap <Leader>S o------------------------ >8 ------------------------<Esc>
 " The use of shift and an arrow key is ANNOYING! Make it stop! {{{3
