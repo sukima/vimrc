@@ -101,7 +101,11 @@ Plugin 'toyamarinyon/vim-swift'
 Plugin 'sukima/vim-tiddlywiki'
 Plugin 'ledger/vim-ledger'
 Plugin 'aklt/plantuml-syntax'
+" TypeScript
 Plugin 'leafgarland/typescript-vim'
+
+" Better JS/TS Indenting
+Plugin 'jason0x43/vim-js-indent'
 
 " Utility Plugins
 Plugin 'MarcWeber/vim-addon-mw-utils'
