@@ -559,6 +559,7 @@ nnoremap <silent> N   N:call HLNext(0.15)<cr>
 inoremap <C-z> <C-o><C-z>
 nnoremap <C-s> :w<Cr>
 inoremap <C-s> <C-o>:w<Cr>
+nnoremap <C-w><C-e> <C-w>t86<C-w><Bar>
 " To help with finger spasms
 nnoremap <C-s><C-s> :w<Cr>
 inoremap <C-s><C-s> <C-o>:w<Cr>
