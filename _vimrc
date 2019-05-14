@@ -453,6 +453,7 @@ if version >= 800
         \ 'html': ['ember-template-lint'],
         \ 'handlebars': ['ember-template-lint'],
         \ 'javascript': ['eslint'],
+        \ 'typescript': ['tslint'],
         \ 'ruby': ['rubocop'],
         \}
 
