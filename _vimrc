@@ -145,6 +145,7 @@ set modelines=3
 " Save swapfile to home tmp directory.
 " You must have a `$HOME/tmp` directory for this to work.
 set directory=~/tmp,.,/tmp,c:\tmp,c:\temp
+set backupdir=~/tmp,.,/tmp,c:\tmp,c:\temp
 " Allow per directory config files
 " Consider set secure as well?
 set exrc
