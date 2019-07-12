@@ -33,3 +33,6 @@ destructuring
 addon
 jQuery
 Rebase
+routable
+deduplicate
+deduplicates
