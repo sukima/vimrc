@@ -3,21 +3,17 @@
 " This work is part of my vimrc project at http://github.com/sukima/vimrc
 " It is licensed under a Creative Commons Attribution 3.0 Unported License.
 
-" Section: Plugin Management {{{1
 set nocompatible
-
 scriptencoding utf-8
 set encoding=utf-8
 
 " Section: Preferred plugins {{{1
-call plug#begin('~/.vim/bundles')
+call plug#begin('~/.vim/bundle')
 " Plugin Utilities
 Plug 'mattn/webapi-vim'
 Plug 'kana/vim-textobj-user'
 Plug 'xolox/vim-misc' " required by vim-session
 
-Plug 'gmarik/Vundle.vim'
-Plug 'jamessan/vim-gnupg'
 Plug 'vimoutliner/vimoutliner'
 Plug 'altercation/vim-colors-solarized'
 Plug 'sgur/vim-editorconfig'
@@ -61,7 +57,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'xolox/vim-session'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'yaifa.vim'
+Plug 'vim-scripts/yaifa.vim'
 Plug 'szw/vim-dict'
 Plug 'rizzatti/dash.vim'
 Plug 'groenewege/vim-less'
@@ -70,32 +66,31 @@ Plug 'groenewege/vim-less'
 Plug 'tpope/vim-rails'
 Plug 'elixir-editors/vim-elixir'
 Plug 'yaymukund/vim-rabl'
-Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-haml'
-Plug 'vim-scripts/vim-json-bundle'
+Plug 'vim-scripts/vim-json-bundle', { 'for': 'json' }
 Plug 'sukima/LSLvim'
 Plug 'posva/vim-vue'
 " Plug 'sukima/asciidoc-vim'
-Plug 'sukima/vim-emberlayout'
-Plug 'sukima/vim-javascript-imports'
-Plug 'sukima/vim-ember-imports'
+Plug 'sukima/vim-emberlayout', { 'for': 'javascript' }
+Plug 'sukima/vim-javascript-imports', { 'for': 'javascript' }
+Plug 'sukima/vim-ember-imports', { 'for': 'javascript' }
 Plug 'csexton/jekyll.vim'
 Plug 'sukima/vim-docbk'
 Plug 'wavded/vim-stylus'
 Plug 'tfnico/vim-gradle'
-Plug 'kchmck/vim-coffee-script'
 Plug 'joukevandermaas/vim-ember-hbs'
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'freitass/todo.txt-vim'
 Plug 'toyamarinyon/vim-swift'
 Plug 'sukima/vim-tiddlywiki'
 Plug 'ledger/vim-ledger'
 Plug 'aklt/plantuml-syntax'
 " TypeScript
-Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
 " Better JS/TS Indenting
-Plug 'jason0x43/vim-js-indent'
+Plug 'jason0x43/vim-js-indent', { 'for': 'javascript' }
 
 " Utility Plugs
 Plug 'MarcWeber/vim-addon-mw-utils'
