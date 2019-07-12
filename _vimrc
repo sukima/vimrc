@@ -6,120 +6,109 @@
 " Section: Plugin Management {{{1
 set nocompatible
 
-if version >= 730 && version < 740
-  " Prevent bad exit code on Mac OS X install
-  " https://github.com/VundleVim/Vundle.vim/issues/167#issuecomment-55700048
-  filetype on
-endif
-
-filetype off
 scriptencoding utf-8
 set encoding=utf-8
-com! -nargs=? Plugin
-set rtp+=~/.vim/bundle/Vundle.vim
 
 " Section: Preferred plugins {{{1
-if (!exists('g:vundle#bundles'))
-silent! call vundle#begin()
+call plug#begin('~/.vim/bundles')
 " Plugin Utilities
-Plugin 'mattn/webapi-vim'
-Plugin 'kana/vim-textobj-user'
-Plugin 'xolox/vim-misc' " required by vim-session
+Plug 'mattn/webapi-vim'
+Plug 'kana/vim-textobj-user'
+Plug 'xolox/vim-misc' " required by vim-session
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'jamessan/vim-gnupg'
-Plugin 'vimoutliner/vimoutliner'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'sgur/vim-editorconfig'
-Plugin 'skwp/greplace.vim'
-Plugin 'sukima/vim-matchit'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-speeddating'
-Plugin 'christoomey/vim-system-copy'
-Plugin 'sampsyo/autolink.vim'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'scrooloose/nerdtree'
-Plugin 'mattn/emmet-vim'
-Plugin 'vim-scripts/Gist.vim'
-Plugin 'vim-scripts/grep.vim'
-Plugin 'vim-scripts/vim-easy-align'
-Plugin 'garbas/vim-snipmate'
-Plugin 'AndrewRadev/splitjoin.vim'
+Plug 'gmarik/Vundle.vim'
+Plug 'jamessan/vim-gnupg'
+Plug 'vimoutliner/vimoutliner'
+Plug 'altercation/vim-colors-solarized'
+Plug 'sgur/vim-editorconfig'
+Plug 'skwp/greplace.vim'
+Plug 'sukima/vim-matchit'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-speeddating'
+Plug 'christoomey/vim-system-copy'
+Plug 'sampsyo/autolink.vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'scrooloose/nerdtree'
+Plug 'mattn/emmet-vim'
+Plug 'vim-scripts/Gist.vim'
+Plug 'vim-scripts/grep.vim'
+Plug 'vim-scripts/vim-easy-align'
+Plug 'garbas/vim-snipmate'
+Plug 'AndrewRadev/splitjoin.vim'
 
 " Prose mode plugins
-Plugin 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim'
 
 " Motions / Text Objects
-Plugin 'mattn/vim-textobj-url'
-Plugin 'vim-scripts/argtextobj.vim'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'christoomey/vim-sort-motion'
+Plug 'mattn/vim-textobj-url'
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'christoomey/vim-sort-motion'
 
-Plugin 'mbbill/undotree'
-Plugin 'ervandew/supertab'
-Plugin 'majutsushi/tagbar'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'benmills/vimux'
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'mbbill/undotree'
+Plug 'ervandew/supertab'
+Plug 'majutsushi/tagbar'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-navigator'
 
-Plugin 'xolox/vim-session'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'yaifa.vim'
-Plugin 'szw/vim-dict'
-Plugin 'rizzatti/dash.vim'
-Plugin 'groenewege/vim-less'
+Plug 'xolox/vim-session'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'yaifa.vim'
+Plug 'szw/vim-dict'
+Plug 'rizzatti/dash.vim'
+Plug 'groenewege/vim-less'
 
 " Filetypes
-Plugin 'tpope/vim-rails'
-Plugin 'elixir-editors/vim-elixir'
-Plugin 'yaymukund/vim-rabl'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-haml'
-Plugin 'vim-scripts/vim-json-bundle'
-Plugin 'sukima/LSLvim'
-Plugin 'posva/vim-vue'
-" Plugin 'sukima/asciidoc-vim'
-Plugin 'sukima/vim-emberlayout'
-Plugin 'sukima/vim-javascript-imports'
-Plugin 'sukima/vim-ember-imports'
-Plugin 'csexton/jekyll.vim'
-Plugin 'sukima/vim-docbk'
-Plugin 'wavded/vim-stylus'
-Plugin 'tfnico/vim-gradle'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'joukevandermaas/vim-ember-hbs'
-Plugin 'pangloss/vim-javascript'
-Plugin 'freitass/todo.txt-vim'
-Plugin 'toyamarinyon/vim-swift'
-Plugin 'sukima/vim-tiddlywiki'
-Plugin 'ledger/vim-ledger'
-Plugin 'aklt/plantuml-syntax'
+Plug 'tpope/vim-rails'
+Plug 'elixir-editors/vim-elixir'
+Plug 'yaymukund/vim-rabl'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-haml'
+Plug 'vim-scripts/vim-json-bundle'
+Plug 'sukima/LSLvim'
+Plug 'posva/vim-vue'
+" Plug 'sukima/asciidoc-vim'
+Plug 'sukima/vim-emberlayout'
+Plug 'sukima/vim-javascript-imports'
+Plug 'sukima/vim-ember-imports'
+Plug 'csexton/jekyll.vim'
+Plug 'sukima/vim-docbk'
+Plug 'wavded/vim-stylus'
+Plug 'tfnico/vim-gradle'
+Plug 'kchmck/vim-coffee-script'
+Plug 'joukevandermaas/vim-ember-hbs'
+Plug 'pangloss/vim-javascript'
+Plug 'freitass/todo.txt-vim'
+Plug 'toyamarinyon/vim-swift'
+Plug 'sukima/vim-tiddlywiki'
+Plug 'ledger/vim-ledger'
+Plug 'aklt/plantuml-syntax'
 " TypeScript
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 
 " Better JS/TS Indenting
-Plugin 'jason0x43/vim-js-indent'
+Plug 'jason0x43/vim-js-indent'
 
-" Utility Plugins
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
+" Utility Plugs
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
 
 " Linting
 if version >= 800
-  Plugin 'w0rp/ale'
+  Plug 'w0rp/ale'
 else
-  Plugin 'scrooloose/syntastic'
+  Plug 'scrooloose/syntastic'
 endif
 
-silent! call vundle#end()
-endif
+call plug#end()
 
 " Section: Global Options {{{1
 
