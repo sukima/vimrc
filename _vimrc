@@ -438,10 +438,11 @@ if version >= 800
         \ 'html': ['ember-template-lint'],
         \ 'handlebars': ['ember-template-lint'],
         \ 'javascript': ['eslint'],
-        \ 'typescript': ['tslint'],
         \ 'ruby': ['rubocop'],
         \}
-
+  let g:ale_linters_ignore = {
+        \ 'typescript': ['eslint', 'tslint']
+        \}
   let g:ale_open_list = 0
   let g:ale_echo_msg_format = '%severity% [%linter%] %s'
   let g:ale_change_sign_column_color = 1
