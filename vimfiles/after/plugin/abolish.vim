@@ -37,3 +37,4 @@ Abolish interperator{,s} interpreter{}
 Abolish comparetor{,s} comparator{}
 Abolish compari{son,tive,tivly,bility,ble,bles} compara{}
 Abolish indecator indicator
+Abolish concider{,ing,ed,ate} consider{}
