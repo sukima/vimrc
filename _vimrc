@@ -72,7 +72,7 @@ Plug 'vim-scripts/vim-json-bundle', { 'for': 'json' }
 Plug 'sukima/LSLvim'
 Plug 'posva/vim-vue'
 " Plug 'sukima/asciidoc-vim'
-Plug 'sukima/vim-javascript-imports'
+Plug 'sukima/vim-javascript-imports', { 'on': 'JSAdd' }
 Plug 'sukima/vim-ember-imports', { 'for': 'javascript' }
 Plug 'sukima/vim-emberlayout', { 'for': 'javascript' }
 Plug 'csexton/jekyll.vim'
