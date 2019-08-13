@@ -424,6 +424,9 @@ let g:typescript_indent_disable = 1
 
 " SplitJoin {{{3
 let g:splitjoin_normalize_whitespace = 1
+let g:splitjoin_html_attributes_bracket_on_new_line = 1
+let g:splitjoin_handlebars_hanging_arguments = 0
+let g:splitjoin_handlebars_closing_bracket_on_same_line = 0
 
 " git-time-lapse {{{3
 map <leader>gt :call TimeLapse() <cr>
