@@ -507,7 +507,7 @@ augroup END
 " File Type Auto Settings {{{2
 augroup Git
   au BufRead PULLREQ_EDITMSG setf markdown
-  au Filetype gitcommit setlocal spell textwidth=72 cc=72 com=:#,n:>
+  au Filetype gitcommit setlocal spell textwidth=72 cc=72 com=:#,n:> fo=tcqn12jrol
 augroup END
 
 " Useful for my Quick Notes feature in my tmuxrc
