@@ -150,7 +150,7 @@ if version >= 500
     set expandtab " Spaces are better.
     set wrapmargin=0
     set backspace=2
-    set formatoptions+=nro2lt
+    set formatoptions=tcqn12jrol
     set nolist
     set listchars=eol:$,tab:>~,trail:·,precedes:<,extends:>,nbsp:=
     set noshowmatch
