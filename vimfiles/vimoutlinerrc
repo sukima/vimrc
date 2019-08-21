@@ -54,10 +54,9 @@ setlocal noexpandtab
 "    [TODO][Feature] <-- not this
 
 let g:cbTags = [
-\ ['TODO','FEEDBACK','VERIFY','DELEGATED','HOLDING']
+\ ['TODO','CURRENT','DONE','SKIP']
 \,['Feature','Enhancement','Bug']
 \,['Low','Normal','High','URGENT']
-\,['@Home','@Lab','@Work','@Shopping']
 \]
 
 
