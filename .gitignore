@@ -1,2 +1,3 @@
 vimfiles/bundle
+vimfiles/autoload/plug.vim.old
 gVimPortableSettings.ini
