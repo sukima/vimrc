@@ -103,6 +103,8 @@ else
   Plug 'scrooloose/syntastic'
 endif
 
+runtime local_plug.vim
+
 call plug#end()
 
 " Section: Global Options {{{1
