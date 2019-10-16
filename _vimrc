@@ -306,6 +306,11 @@ let java_allow_cpp_keywords = 1
 let xml_allow_docbk_keywords = 1
 "let xml_jump_string = "-j-"
 
+" HTML {{{3
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+let g:html_indent_inctags = "html,body,head,tbody,p"
+
 " Explore {{{3
 let explHideFiles='^\.,\.gz$,\.exe$,\.zip$'
 
