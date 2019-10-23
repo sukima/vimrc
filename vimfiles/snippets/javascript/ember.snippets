@@ -1,50 +1,48 @@
+snippet _super
+	this._super(...arguments);
 snippet emcont
 	import Controller from '@ember/controller';
 	import { reads } from '@ember/object/computed';
 
-	export default Controller.extend({
-		${0}: reads('model')
-	});
+	export default class ${0:Controller} extends Controller {
+
+		${1}: reads('model')
+
+	}
 snippet emroute
 	import Route from '@ember/routing/route';
 
-	export default Route.extend({
+	export default class ${0:Route} extends Route {
+
 		model(params) {
-			${0}
+			${1}
 		}
-	});
+
+	}
 snippet emservice
 	import Service from '@ember/service';
 
-	export default Service.extend({
-		${0}
-	});
+	export default class ${0:Service} extends Service {
+
+		${1}
+
+	}
 snippet emcomp
 	import Component from '@ember/component';
 
-	export default Component.extend({
-		${0}
-	});
+	export default class ${0:Component} extends Component {
+
+		${1}
+
+	}
 snippet emobject
 	import EmberObject from '@ember/object';
 
-	export default EmberObject.extend({
-		${0}
-	});
-snippet emmixin
-	import Mixin from '@ember/object/mixin';
+	export default class ${0:Object} extends EmberObject {
 
-	export default Mixin.create({
-		${0}
-	});
-snippet emhelperextend
-	import Helper from '@ember/component/helper';
+		${1}
 
-	export default Helper.extend({
-		compute([${1}], {${2}}) {
-			${0}
-		}
-	});
+	}
 snippet emhelper
 	import Helper from '@ember/component/helper';
 
@@ -116,8 +114,6 @@ snippet empo
 	};
 
 	export default create($1);
-snippet _super
-	this._super(...arguments);
 snippet pagecontext
 	hooks.beforeEach(function() {
 		page.setContext(this);
@@ -125,4 +121,51 @@ snippet pagecontext
 
 	hooks.afterEach(function() {
 		page.removeContext();
+	});
+snippet cemcont
+	import Controller from '@ember/controller';
+	import { reads } from '@ember/object/computed';
+
+	export default Controller.extend({
+		${0}: reads('model')
+	});
+snippet cemroute
+	import Route from '@ember/routing/route';
+
+	export default Route.extend({
+		model(params) {
+			${0}
+		}
+	});
+snippet cemservice
+	import Service from '@ember/service';
+
+	export default Service.extend({
+		${0}
+	});
+snippet cemcomp
+	import Component from '@ember/component';
+
+	export default Component.extend({
+		${0}
+	});
+snippet cemobject
+	import EmberObject from '@ember/object';
+
+	export default EmberObject.extend({
+		${0}
+	});
+snippet cemmixin
+	import Mixin from '@ember/object/mixin';
+
+	export default Mixin.create({
+		${0}
+	});
+snippet cemhelperextend
+	import Helper from '@ember/component/helper';
+
+	export default Helper.extend({
+		compute([${1}], {${2}}) {
+			${0}
+		}
 	});
