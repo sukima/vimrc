@@ -4,43 +4,43 @@ snippet emcont
 	import Controller from '@ember/controller';
 	import { reads } from '@ember/object/computed';
 
-	export default class ${0:Controller} extends Controller {
+	export default class ${1:My}Controller extends Controller {
 
-		${1}: reads('model')
+		${0}: reads('model')
 
 	}
 snippet emroute
 	import Route from '@ember/routing/route';
 
-	export default class ${0:Route} extends Route {
+	export default class ${1:My}Route extends Route {
 
 		model(params) {
-			${1}
+			${0}
 		}
 
 	}
 snippet emservice
 	import Service from '@ember/service';
 
-	export default class ${0:Service} extends Service {
+	export default class ${1:My}Service extends Service {
 
-		${1}
+		${0}
 
 	}
 snippet emcomp
 	import Component from '@ember/component';
 
-	export default class ${0:Component} extends Component {
+	export default class ${1:My}Component extends Component {
 
-		${1}
+		${0}
 
 	}
 snippet emobject
 	import EmberObject from '@ember/object';
 
-	export default class ${0:Object} extends EmberObject {
+	export default class ${1:MyObject} extends EmberObject {
 
-		${1}
+		${0}
 
 	}
 snippet emhelper
