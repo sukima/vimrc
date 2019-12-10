@@ -32,6 +32,8 @@ snippet emcomp
 
 	export default class ${1:My}Component extends Component {
 
+		tagName = '';
+
 		${0}
 
 	}
@@ -147,6 +149,7 @@ snippet cemcomp
 	import Component from '@ember/component';
 
 	export default Component.extend({
+		tagName: '',
 		${0}
 	});
 snippet cemobject
