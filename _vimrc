@@ -553,6 +553,7 @@ nnoremap <silent> n   n:call HLNext(0.15)<cr>
 nnoremap <silent> N   N:call HLNext(0.15)<cr>
 
 " Section: Quick Commands (Window Nav.) {{{2
+nnoremap <Leader>b :buffers<Cr>:b<Space>
 inoremap <C-z> <C-o><C-z>
 nnoremap <C-s> :w<Cr>
 inoremap <C-s> <C-o>:w<Cr>
@@ -586,7 +587,7 @@ noremap <Leader>qq vipJ0
 " So no one accidentally sees words they arn't supposed to.
 noremap <Leader>r ggg?G``
 " For safe measures lets make a quick backup mapping. {{{3
-noremap <Leader>b :let x=&backup<Bar>set backup<Bar>write<Bar>let &backup=x<Bar>unlet x<Cr>
+noremap <Leader>B :let x=&backup<Bar>set backup<Bar>write<Bar>let &backup=x<Bar>unlet x<Cr>
 " Allow for multiple time stamped backups
 " map ;s :up \| saveas! %:p:r-<C-R>=strftime("%y%m%d-%H:%M")<CR>-bak.<C-R>=expand("%:e")<CR> \| 3sleep \| e #<CR>
 " For convinent headers in text files {{{3
