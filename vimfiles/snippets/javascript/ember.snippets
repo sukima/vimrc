@@ -2,17 +2,16 @@ snippet _super
 	this._super(...arguments);
 snippet emcont
 	import Controller from '@ember/controller';
-	import { reads } from '@ember/object/computed';
 
-	export default class ${1:My}Controller extends Controller {
+	export default class ${1:MyController} extends Controller {
 
-		${0}: reads('model')
+		${0}
 
 	}
 snippet emroute
 	import Route from '@ember/routing/route';
 
-	export default class ${1:My}Route extends Route {
+	export default class ${1:MyRoute} extends Route {
 
 		model(params) {
 			${0}
@@ -22,7 +21,7 @@ snippet emroute
 snippet emservice
 	import Service from '@ember/service';
 
-	export default class ${1:My}Service extends Service {
+	export default class ${1:MyService} extends Service {
 
 		${0}
 
@@ -30,11 +29,9 @@ snippet emservice
 snippet emcomp
 	import Component from '@ember/component';
 
-	export default class ${1:My}Component extends Component {
+	export default class ${1:MyComponent} extends Component {
 
 		tagName = '';
-
-		${0}
 
 	}
 snippet emobject
@@ -53,6 +50,16 @@ snippet emhelper
 	}
 
 	export default Helper.helper($1);
+snippet emhelperclass
+	import Helper from '@ember/component/helper';
+
+	export default class ${1:MyHelper} extends Helper {
+
+		compute([${2:param}], {${3}}) {
+			return ${0:something};
+		}
+
+	}
 snippet emmodel
 	import Model from 'ember-data/model';
 	import attr from 'ember-data/attr';
