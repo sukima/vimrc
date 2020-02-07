@@ -39,3 +39,4 @@ Abolish compari{son,tive,tivly,bility,ble,bles} compara{}
 Abolish indecator indicator
 Abolish concider{,ing,ed,ate} consider{}
 Abolish persistant{,ly} persistent{}
+Abolish sanatiz{e,er,ed,ing} sanitiz{}
