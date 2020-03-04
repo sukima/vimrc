@@ -14,6 +14,8 @@ Plug 'mattn/webapi-vim'
 Plug 'kana/vim-textobj-user'
 Plug 'xolox/vim-misc' " required by vim-session
 
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vimoutliner/vimoutliner'
 Plug 'altercation/vim-colors-solarized'
 Plug 'sgur/vim-editorconfig'
@@ -29,7 +31,6 @@ Plug 'tpope/vim-speeddating'
 Plug 'christoomey/vim-system-copy'
 Plug 'sampsyo/autolink.vim'
 Plug 'tpope/vim-unimpaired'
-Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/Gist.vim'
 Plug 'vim-scripts/grep.vim'
@@ -494,7 +495,17 @@ let g:ledger_fold_blanks = 1
 let g:ledger_align_at = 50
 
 " NERDTree {{{3
-let NERDTreeShowLineNumbers=1
+let NERDTreeShowLineNumbers=0
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeQuitOnOpen = 0
+
+augroup NERDTree
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if (argc() == 0 && !exists('s:std_in')) | NERDTree | endif
+  autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
+augroup END
 
 " File Type Detect {{{2
 augroup filetypedetect
