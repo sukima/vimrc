@@ -684,6 +684,7 @@ command! Ant set makeprg=ant\ -find\ build.xml | set efm=%A\ %#[.\\{-1,}]\ %f:%l
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 command! SudoWrite exec 'w !sudo dd of=' . shellescape(expand('%'))
 command! Ctags exec 'silent !ctags -R .' | redraw!
+command! -bang Pair setglobal nornu<bang> | bufdo setlocal nornu<bang>
 
 " GPG Commands {{{2
 " command! GPGclearsign %!gpg --clearsign
