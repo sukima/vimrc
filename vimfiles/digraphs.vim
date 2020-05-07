@@ -1,3 +1,4 @@
+digraph 0s 8203 " Zero-Width Space
 digraph .. 8230  " … HORIZONTAL ELLIPSIS
 digraph de 8710  " ∆ GREEK CAPITAL LETTER DELTA
 digraph ok 10003 " ✓ CHECK MARK
