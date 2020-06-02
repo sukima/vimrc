@@ -11,6 +11,8 @@ digraph xx 10060 " ❌ CROSS MARK
 digraph sn 9924  " ⛄ SNOWMAN
 digraph ++ 128077 " 👍 THUMBS UP SIGN
 digraph -- 128078 " 👎 THUMBS DOWN SIGN
+digraph [i 8505 " ℹ︎  INFORMATION SOURCE
+digraph [! 9888 " ⚠︎ WARNING SIGN
 digraph ^1 185 " ¹ SUPERSCRIPT ONE
 digraph ^2 178 " ² SUPERSCRIPT TWO
 digraph ^3 179 " ³ SUPERSCRIPT THREE
