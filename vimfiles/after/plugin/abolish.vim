@@ -40,3 +40,4 @@ Abolish indecator indicator
 Abolish concider{,ing,ed,ate} consider{}
 Abolish persistant{,ly} persistent{}
 Abolish sanatiz{e,er,ers,ed,ing} sanitiz{}
+Abolish presentor presenter
