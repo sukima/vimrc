@@ -7,6 +7,8 @@ set nocompatible
 scriptencoding utf-8
 set encoding=utf-8
 
+runtime local_flags.vim
+
 " Section: Preferred plugins {{{1
 call plug#begin('~/.vim/bundle')
 " Plugin Utilities
@@ -21,22 +23,26 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'sgur/vim-editorconfig'
 Plug 'skwp/greplace.vim'
 Plug 'sukima/vim-matchit'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-speeddating'
-Plug 'christoomey/vim-system-copy'
 Plug 'sampsyo/autolink.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/Gist.vim'
 Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/vim-easy-align'
-Plug 'garbas/vim-snipmate'
 Plug 'AndrewRadev/splitjoin.vim'
+
+if exists('g:use_coc')
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+else
+  Plug 'tpope/vim-endwise'
+  Plug 'garbas/vim-snipmate'
+endif
 
 " Prose mode plugins
 Plug 'junegunn/goyo.vim'
@@ -1076,6 +1082,10 @@ match ErrorMsg '\s\+$'
 " Load abbreviations
 runtime abbrev.vim
 runtime digraphs.vim
+
+if exists('g:use_coc')
+  runtime cocrc.vim
+endif
 
 " So multiple places can have a special config without affecting the core
 " vimrc.
