@@ -627,6 +627,7 @@ nnoremap <Leader>] $F[a<Cr><Cr><Up><Esc>"_S
 nnoremap <Leader>} $F{a<Cr><Cr><Up><Esc>"_S
 nnoremap <Leader>{ $F{a<Cr><Up><Esc>
 nmap <Leader>[ <Leader>}
+
 nnoremap <Leader>o o<Cr><Cr><Esc><Up>"_S
 nnoremap <Leader>O O<Cr><Cr><Esc><Up>"_S
 
@@ -646,8 +647,6 @@ noremap <Leader>zx :NERDTreeFind<Cr>
 " Bubble multiple lines {{{3
 " vnoremap <C-k> xkP`[V`]
 " vnoremap <C-j> xp`[V`]
-" Make text multiline {{{3
-vnoremap <Leader>o <Esc>`>a<Cr><Esc>`<i<Cr><Esc>
 " initiate a date stamped note {{{3
 nmap <Leader>J ^"=strftime("%m/%d/%Y")<Cr>Pa:<Space><Esc>
 
