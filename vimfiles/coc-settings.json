@@ -1,4 +1,6 @@
 {
+  "coc.preferences.hoverTarget": "preview",
+  "diagnostic.messageTarget": "echo",
   "suggest.autoTrigger": "trigger",
   "suggest.enablePreview": true
 }
