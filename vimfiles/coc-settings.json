@@ -2,5 +2,7 @@
   "coc.preferences.hoverTarget": "preview",
   "diagnostic.messageTarget": "echo",
   "suggest.autoTrigger": "trigger",
-  "suggest.enablePreview": true
+  "suggest.enablePreview": true,
+  "tsserver.implicitProjectConfig.checkJs": false,
+  "tsserver.implicitProjectConfig.experimentalDecorators": true
 }
