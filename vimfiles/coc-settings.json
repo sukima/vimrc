@@ -1,7 +1,7 @@
 {
   "coc.preferences.hoverTarget": "preview",
   "diagnostic.messageTarget": "echo",
-  "suggest.autoTrigger": "trigger",
+  "suggest.autoTrigger": "none",
   "suggest.enablePreview": true,
   "tsserver.implicitProjectConfig.checkJs": false,
   "tsserver.implicitProjectConfig.experimentalDecorators": true
