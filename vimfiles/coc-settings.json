@@ -3,6 +3,9 @@
   "diagnostic.messageTarget": "echo",
   "suggest.autoTrigger": "none",
   "suggest.enablePreview": true,
-  "tsserver.implicitProjectConfig.checkJs": false,
+  "signature.target": "float",
+  "signature.hideOnTextChange": true,
+  "signature.preferShownAbove": false,
+  "tsserver.implicitProjectConfig.checkJs": true,
   "tsserver.implicitProjectConfig.experimentalDecorators": true
 }
