@@ -884,10 +884,10 @@ endif
 " Statusline {{{1
 " Dynamic git branch {{{2
 function! DynamicFugitiveStatus()
-  if !exists('*fugitive#head')
+  if !exists('*FugitiveHead')
     return ''
   endif
-  let branch = fugitive#head(8)
+  let branch = FugitiveHead(8)
   if branch == ''
     return ''
   endif
