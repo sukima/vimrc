@@ -14,7 +14,7 @@ if !exists('b:module_prefix') && isdirectory('addon')
   try
     for line in readfile(findfile('package.json'), '', 10)
       if line =~ '"name":'
-        let b:module_prefix=substitute(substitute(line,'^\s*"name":.[^"]*"','',''),'".*$','','')
+        let b:module_prefix=substitute(substitute(line,'^\s*"name":.[^"]*"@\?','',''),'".*$','','')
         break
       endif
     endfor
