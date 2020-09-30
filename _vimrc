@@ -680,6 +680,14 @@ inoremap <c-g><c-g> <esc>:qa!<cr>
 nnoremap <F1> <nop>
 nnoremap K <nop>
 
+" Custom Text Objects {{{3
+" Personal test object mappings not provided by other plugins
+" Line wise text objects (https://github.com/kana/vim-textobj-line was over engineered)
+vnoremap <silent> al :<c-u>norm!0v$h<cr>
+vnoremap <silent> il :<c-u>norm!^vg_<cr>
+onoremap <silent> al :norm val<cr>
+onoremap <silent> il :norm vil<cr>
+
 " Section: Commands {{{1
 " Convenience Commands {{{2
 command! Cwd cd %:h
