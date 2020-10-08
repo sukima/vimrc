@@ -22,7 +22,6 @@ Plug 'vimoutliner/vimoutliner'
 Plug 'altercation/vim-colors-solarized'
 Plug 'sgur/vim-editorconfig'
 Plug 'skwp/greplace.vim'
-Plug 'sukima/vim-matchit'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
@@ -113,6 +112,8 @@ endif
 runtime local_plug.vim
 
 call plug#end()
+
+runtime macros/matchit.vim
 
 " Section: Global Options {{{1
 
