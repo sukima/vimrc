@@ -62,7 +62,6 @@ Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'xolox/vim-session'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-scripts/yaifa.vim'
 Plug 'szw/vim-dict'
 Plug 'rizzatti/dash.vim'
