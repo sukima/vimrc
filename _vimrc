@@ -91,8 +91,6 @@ Plug 'toyamarinyon/vim-swift'
 Plug 'sukima/vim-tiddlywiki'
 Plug 'ledger/vim-ledger'
 Plug 'aklt/plantuml-syntax'
-" TypeScript
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
 " Better JS/TS Indenting
 Plug 'jason0x43/vim-js-indent', { 'for': 'javascript' }
