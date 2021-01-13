@@ -149,6 +149,8 @@ set printoptions=paper:letter,formfeed:y
 " Default commentstring
 set commentstring=#\ %s
 
+set iskeyword+=-
+
 " Section: VIM 5.x Options {{{2
 if version >= 500
     set wildmode=longest,list,full
