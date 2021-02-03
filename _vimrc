@@ -544,6 +544,10 @@ augroup QuickNotes
   au BufRead           NOTES.otl silent loadview
 augroup END
 
+augroup Handlebars
+  au Filetype html.handlebars setlocal commentstring={{!%s}}
+augroup END
+
 " }}}
 " Turn on filetype checks and syntax highlighting
 filetype plugin indent on
