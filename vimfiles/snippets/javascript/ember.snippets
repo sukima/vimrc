@@ -88,13 +88,12 @@ snippet emtestunit
 	import { module, test } from 'qunit';
 	import { setupTest } from 'ember-qunit';
 
-	module('Unit | Utility | ${1}', function(hooks) {
+	module('Unit | Utility | ${1}', function (hooks) {
 		setupTest(hooks);
 
-		test('${0}', function(assert) {
+		test('${0}', function (assert) {
 			assert.ok(true);
 		});
-
 	});
 snippet emtestint
 	import { hbs } from 'ember-cli-htmlbars';
@@ -102,28 +101,34 @@ snippet emtestint
 	import { render } from '@ember/test-helpers';
 	import { setupRenderingTest } from 'ember-qunit';
 
-	module('Integration | Component | ${1}', function(hooks) {
+	module('Integration | Component | ${1}', function (hooks) {
 		setupRenderingTest(hooks);
 
-		test('${0}', async function(assert) {
+		test('${0}', async function (assert) {
 			await render(hbs`{{${2}}}`);
 			assert.ok(true);
 		});
-
 	});
 snippet emtestapp
 	import { module, test } from 'qunit';
 	import { setupApplicationTest } from 'ember-qunit';
 	import { visit } from '@ember/test-helpers';
 
-	module('Acceptance | ${1}', function(hooks) {
+	module('Acceptance | ${1}', function (hooks) {
 		setupApplicationTest(hooks);
 
-		test('${0}', async function(assert) {
+		test('${0}', async function (assert) {
 			await visit('/');
 			assert.ok(true);
 		});
-
+	});
+snippet qmodule
+	module('${1}', function() {
+		${0}
+	});
+snippet qtest
+	test('${1}', async function(assert) {
+		${0}
 	});
 snippet empo
 	export const ${1:ComponentClass} = {
