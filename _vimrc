@@ -703,6 +703,7 @@ command! Undiff set nodiff foldcolumn=0
 command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 command! SudoWrite exec 'w !sudo dd of=' . shellescape(expand('%'))
 command! Ctags exec 'silent !ctags -R .' | redraw!
+command! Scratch setlocal buftype=nofile bufhidden=hide noswapfile
 command! -bang Pair setglobal nornu<bang> | bufdo setlocal nornu<bang>
 
 " GPG Commands {{{2
