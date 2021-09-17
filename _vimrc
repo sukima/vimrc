@@ -15,7 +15,10 @@ call plug#begin('~/.vim/bundle')
 Plug 'mattn/webapi-vim'
 Plug 'kana/vim-textobj-user'
 Plug 'xolox/vim-misc' " required by vim-session
+Plug 'MarcWeber/vim-addon-mw-utils' " required by vim-snipmate
+Plug 'tomtom/tlib_vim'
 
+" Main plugin list
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vimoutliner/vimoutliner'
@@ -94,10 +97,6 @@ Plug 'aklt/plantuml-syntax'
 
 " Better JS/TS Indenting
 Plug 'jason0x43/vim-js-indent', { 'for': 'javascript' }
-
-" Utility Plugs
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
 
 " Linting
 if version >= 800
