@@ -95,9 +95,6 @@ Plug 'sukima/vim-tiddlywiki'
 Plug 'ledger/vim-ledger'
 Plug 'aklt/plantuml-syntax'
 
-" Better JS/TS Indenting
-Plug 'jason0x43/vim-js-indent', { 'for': 'javascript' }
-
 " Linting
 if version >= 800
   Plug 'w0rp/ale'
