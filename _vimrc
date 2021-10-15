@@ -74,7 +74,7 @@ Plug 'groenewege/vim-less'
 Plug 'tpope/vim-rails'
 Plug 'elixir-editors/vim-elixir'
 Plug 'yaymukund/vim-rabl'
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-haml'
 Plug 'vim-scripts/vim-json-bundle', { 'for': 'json' }
 Plug 'sukima/LSLvim'
