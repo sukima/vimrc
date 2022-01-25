@@ -453,7 +453,7 @@ if version >= 800
         \ 'ruby': ['rubocop'],
         \}
   let g:ale_linters_ignore = {
-        \ 'typescript': ['eslint', 'tslint']
+        \ 'typescript': ['tslint']
         \}
   let g:ale_open_list = 0
   let g:ale_echo_msg_format = '%severity% [%linter%] %s'
