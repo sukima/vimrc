@@ -13,7 +13,8 @@ runtime local_flags.vim
 call plug#begin('~/.vim/bundle')
 " Plugin Utilities
 Plug 'mattn/webapi-vim'
-Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-user' " custom text objects
+Plug 'jeanCarloMachado/vim-toop' " custom operations on text objects
 Plug 'xolox/vim-misc' " required by vim-session
 Plug 'MarcWeber/vim-addon-mw-utils' " required by vim-snipmate
 Plug 'tomtom/tlib_vim'
