@@ -353,11 +353,15 @@ vnoremap <silent> <Enter> :EasyAlign<cr>
 let g:SuperTabNoCompleteBefore = ['^', ',', ':', '\s']
 let g:SuperTabMappingTabLiteral = '<C-l>'
 
-" vim-airline {{{3
-let g:airline_theme = 'solarized'
-let g:airline#extensions#hunks#non_zero_only = 1
-let g:airline#extensions#branch#format = 1
-let g:airline#extensions#tabline#enabled = 0
+" vim-markdown {{{3
+let g:vim_markdown_fenced_languages = [
+      \ 'c++=cpp',
+      \ 'viml=vim',
+      \ 'bash=sh',
+      \ 'ini=dosini',
+      \ 'js=javascript',
+      \ 'hbs=handlebars'
+      \ ]
 
 " vim-session {{{3
 let g:session_autosave = 'no'
