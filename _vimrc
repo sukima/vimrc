@@ -61,7 +61,7 @@ Plug 'christoomey/vim-sort-motion'
 Plug 'mbbill/undotree'
 Plug 'ervandew/supertab'
 Plug 'majutsushi/tagbar'
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 
