@@ -1,7 +1,5 @@
-function! SortWords(str)
-  return join(sort(split(str)), ' ');
+function SortWords(str)
+  return join(sort(split(a:str)), ' ')
 endfunction
 
-if exists('toop#mapFunction')
-  call toop#mapFunction('SortWords', '<leader>gs')
-endif
+call toop#mapFunction('SortWords', '<leader>gs')
