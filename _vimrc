@@ -81,8 +81,8 @@ Plug 'sukima/LSLvim'
 Plug 'posva/vim-vue'
 " Plug 'sukima/asciidoc-vim'
 Plug 'sukima/vim-javascript-imports'
-Plug 'sukima/vim-ember-imports', { 'for': 'javascript' }
-Plug 'sukima/vim-emberlayout', { 'for': 'javascript' }
+Plug 'sukima/vim-ember-imports'
+" Plug 'sukima/vim-emberlayout'
 Plug 'csexton/jekyll.vim'
 Plug 'sukima/vim-docbk'
 Plug 'wavded/vim-stylus'
