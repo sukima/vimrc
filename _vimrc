@@ -964,14 +964,11 @@ call RedrawStatusLine()
 
 " Status Function: {{{2
 function! Status(winnr)
-  let stat = ''
   let active = winnr() == a:winnr
   let buffer = winbufnr(a:winnr)
   let size = winwidth(a:winnr)
-
-  let modified = getbufvar(buffer, '&modified')
-  let readonly = getbufvar(buffer, '&ro')
   let fname = bufname(buffer)
+  let stat = ''
 
   function! Color(active, num, content)
     if a:active
