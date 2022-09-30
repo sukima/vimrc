@@ -4,9 +4,11 @@
 " Convince date completion commands
 cab _fulldate strftime("%a %b %d %T %Z %Y")
 cab _date strftime("%Y-%m-%d %H:%M")
-cab sdate strftime("%m/%d/%y")
-cab ldate strftime("%B %d, %Y")
-cab fdate strftime("%m%d%Y")
+cab _isodate strftime("%Y-%m-%dT%H:%M:%S%z")
+cab _idate strftime("%Y-%m-%d")
+cab _sdate strftime("%m/%d/%y")
+cab _ldate strftime("%B %d, %Y")
+cab _fdate strftime("%m%d%Y")
 
 " Miscellaneous abbreviations not suitable for Abolish.
 ab funciton function
