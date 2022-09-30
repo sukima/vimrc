@@ -28,7 +28,7 @@ endif
 
 setlocal include=\\%(require(\\\|from\\s+\\)
 setlocal path+=app,addon
-setlocal suffixesadd=.js
+setlocal suffixesadd=.js,.ts
 
 iab <buffer> arg@ ...arguments
 iab <buffer> log@ console.log();<C-o>h
