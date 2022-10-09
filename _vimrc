@@ -97,7 +97,7 @@ Plug 'aklt/plantuml-syntax'
 
 " Linting
 if version >= 800
-  Plug 'w0rp/ale'
+  Plug 'dense-analysis/ale'
 else
   Plug 'scrooloose/syntastic'
 endif
@@ -459,9 +459,12 @@ if version >= 800
         \ 'typescript': ['tslint']
         \}
   let g:ale_open_list = 0
+  let g:ale_set_loclist = 1
+  let g:ale_set_quickfix = 0
   let g:ale_echo_msg_format = '%severity% [%linter%] %s'
   let g:ale_change_sign_column_color = 1
   let g:ale_sign_column_always = 1
+  let g:ale_virtualtext_cursor = 1
 else
   " Syntastic
   let g:syntastic_mode_map = {
