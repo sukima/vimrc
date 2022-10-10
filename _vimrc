@@ -459,12 +459,14 @@ if version >= 800
         \ 'typescript': ['tslint']
         \}
   let g:ale_open_list = 0
-  let g:ale_set_loclist = 1
+  let g:ale_set_loclist = 0
   let g:ale_set_quickfix = 0
-  let g:ale_echo_msg_format = '%severity% [%linter%] %s'
+  let g:ale_set_highlights = 0
   let g:ale_change_sign_column_color = 1
+  let g:ale_close_preview_on_insert = 1
   let g:ale_sign_column_always = 1
-  let g:ale_virtualtext_cursor = 1
+  let g:ale_virtualtext_cursor = 0 " https://github.com/dense-analysis/ale/issues/3145
+  let g:ale_echo_msg_format = '%severity% [%linter%] %s'
 else
   " Syntastic
   let g:syntastic_mode_map = {
