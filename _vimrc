@@ -131,8 +131,8 @@ set modeline
 set modelines=3
 " Save swapfile to home tmp directory.
 " You must have a `$HOME/tmp` directory for this to work.
-set directory=~/tmp,.,/tmp,c:\tmp,c:\temp
-set backupdir=~/tmp,.,/tmp,c:\tmp,c:\temp
+set directory=~/tmp//,.,/tmp,c:\tmp,c:\temp
+set backupdir=~/tmp//,.,/tmp,c:\tmp,c:\temp
 " Allow per directory config files
 " Consider set secure as well?
 set exrc
@@ -459,7 +459,7 @@ if version >= 800
         \ 'typescript': ['tslint']
         \}
   let g:ale_open_list = 0
-  let g:ale_set_loclist = 0
+  let g:ale_set_loclist = 1
   let g:ale_set_quickfix = 0
   let g:ale_set_highlights = 0
   let g:ale_change_sign_column_color = 1
