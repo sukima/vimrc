@@ -35,7 +35,7 @@ Abolish explination explanation
 Abolish concatinate{s,d,dProperties} concatenate{}
 Abolish interperator{,s} interpreter{}
 Abolish comparetor{,s} comparator{}
-Abolish compari{son,tive,tivly,bility,ble,bles} compara{}
+Abolish compara{son,tive,tivly,bility,ble,bles} compari{}
 Abolish indecator indicator
 Abolish concider{,ing,ed,ate} consider{}
 Abolish persistant{,ly} persistent{}
