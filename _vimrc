@@ -315,8 +315,13 @@ let explHideFiles='^\.,\.gz$,\.exe$,\.zip$'
 " emmet-vim {{{3
 let g:user_emmet_leader_key='<c-e>'
 let g:user_emmet_settings = {
-\  'indentation' : '  '
-\}
+      \  'indentation' : '  ',
+      \  'html': {
+      \    'default_attributes': {
+      \      'button': { 'type': 'button' }
+      \    }
+      \  }
+      \}
 
 " Rails {{{3
 " tmux buggers up vim's display avoid using it.
