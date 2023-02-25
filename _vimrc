@@ -318,7 +318,8 @@ let g:user_emmet_settings = {
       \  'indentation' : '  ',
       \  'html': {
       \    'default_attributes': {
-      \      'button': { 'type': 'button' }
+      \      'button': { 'type': 'button' },
+      \      'script': { 'type': 'module' }
       \    }
       \  }
       \}
