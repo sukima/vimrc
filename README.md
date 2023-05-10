@@ -1,8 +1,24 @@
+# Give Up GitHub
+
+This project has given up GitHub.  ([See Software Freedom Conservancy's *Give
+Up  GitHub* site for details](https://GiveUpGitHub.org).)
+
+You can now find this project at [SourceHut](https://git.sr.ht/~sukima/vimrc)
+instead.
+
+Any use of this project's code by GitHub Copilot, past or present, is done
+without our permission.  We do not consent to GitHub's use of this project's
+code in Copilot.
+
+Join us; you can [give up GitHub](https://GiveUpGitHub.org) too!
+
+![Logo of the GiveUpGitHub campaign](https://sfconservancy.org/img/GiveUpGitHub.png)
+
 # vimrc
 
 This is my personal VIM configuration repository.
 
-Copyright (C) 2011 By Devin Weaver suki (at) tritarget.org
+Copyright (C) 2011-2023 By Devin Weaver suki (at) tritarget.org
 
 ## Features
 
@@ -34,12 +50,12 @@ Tells Dotty how to symlink the following files / directories.
 
 #### vimrc / gvimrc
 
-The main .vimrc and .gvimrc. They are linked to ~/.vimrc and ~/.gvimrc (_vimrc
-and _gvimrc on windows)
+The main `.vimrc` and `.gvimrc.` They are linked to `~/.vimrc` and `~/.gvimrc`
+(`_vimrc` and `_gvimrc` on windows)
 
 #### vimfiles/
 
-All the custom config scripts. Links to ~/.vim
+All the custom config scripts. Links to `~/.vim`
 
 #### install.sh
 
