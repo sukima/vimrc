@@ -359,13 +359,15 @@ let g:SuperTabNoCompleteBefore = ['^', ',', ':', '\s']
 let g:SuperTabMappingTabLiteral = '<C-l>'
 
 " vim-markdown {{{3
+let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_fenced_languages = [
       \ 'c++=cpp',
       \ 'viml=vim',
       \ 'bash=sh',
       \ 'ini=dosini',
       \ 'js=javascript',
-      \ 'hbs=handlebars'
+      \ 'ts=typescript',
+      \ 'hbs=html.handlebars'
       \ ]
 
 " vim-session {{{3
